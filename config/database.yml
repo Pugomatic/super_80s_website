@@ -1,0 +1,26 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  host: localhost
+  schema_search_path: public
+  database: website_development
+  username: postgres
+  password: postgres
+
+test:
+  <<: *default
+  host: localhost
+  schema_search_path: public
+  database: website_test
+  username: postgres
+  password: postgres
+
+production:
+  <<: *default
+  database: website_production
+  username: rails
+  password: <%= ENV['APP_DATABASE_PASSWORD'] %>
