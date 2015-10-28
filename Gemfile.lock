@@ -63,6 +63,8 @@ GEM
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
+    capistrano-scm-gitcopy (0.0.8)
+      capistrano (~> 3.0)
     colorize (0.7.7)
     debug_inspector (0.0.2)
     erubis (2.7.0)
@@ -169,6 +171,7 @@ DEPENDENCIES
   capistrano-puma
   capistrano-rails
   capistrano-rvm
+  capistrano-scm-gitcopy
   font-awesome-sass (~> 4.4.0)
   jquery-rails
   neat

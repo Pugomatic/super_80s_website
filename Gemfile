@@ -18,7 +18,8 @@ group :development do
   gem 'capistrano-rvm',           require: false
   gem 'capistrano-rails',         require: false
   gem 'capistrano-bundler',       require: false
-  gem 'capistrano-puma', require: false
+  gem 'capistrano-puma',          require: false
+  gem 'capistrano-scm-gitcopy',   require: false
 end
 
 gem 'bourbon'
