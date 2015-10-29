@@ -15,11 +15,10 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'capistrano',               require: false
-  gem 'capistrano-rvm',           require: false
+  gem 'rvm1-capistrano3',         require: false
   gem 'capistrano-rails',         require: false
   gem 'capistrano-bundler',       require: false
   gem 'capistrano-puma',          require: false
-  gem 'capistrano-scm-gitcopy',   require: false
 end
 
 gem 'bourbon'
