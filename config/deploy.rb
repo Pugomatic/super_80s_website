@@ -9,6 +9,8 @@ set :user,            'deploy'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 
+set :linked_files,    %w(config/database.yml)
+
 set :repo_url,        'git@github.com:Pugomatic/super_80s_website.git'
 
 set :ssh_options,     { verbose: :debug }
@@ -27,7 +29,7 @@ set :puma_error_log,  "#{release_path}/log/puma.access.log"
 set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa.pub) }
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
-set :puma_init_active_record, false
+set :puma_init_active_record, true
 
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
