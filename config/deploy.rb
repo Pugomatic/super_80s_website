@@ -9,6 +9,7 @@ set :user,            'deploy'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 
+set :repo_url,        'git@github.com:Pugomatic/super_80s_website.git'
 
 set :ssh_options,     { verbose: :debug }
 set :format, :pretty
