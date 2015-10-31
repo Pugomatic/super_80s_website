@@ -14,8 +14,8 @@ set :linked_files,    %w(config/database.yml)
 set :repo_url,        'git@github.com:Pugomatic/super_80s_website.git'
 
 set :ssh_options,     { verbose: :debug }
-set :format, :pretty
-set :log_level, :debug
+set :format,          :pretty
+set :log_level,       :debug
 set :pty,             true
 set :use_sudo,        false
 set :stage,           :production
