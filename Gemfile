@@ -7,6 +7,7 @@ gem 'jquery-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pg'
 gem 'puma'
+gem 'high_voltage'
 
 group :development, :test do
   gem 'byebug'
