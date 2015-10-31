@@ -16,6 +16,7 @@ h6 {
   font-size: $base-font-size;
   line-height: $heading-line-height;
   margin: 0 0 $small-spacing;
+  color: $hot-pink;
 }
 
 p {
@@ -46,4 +47,55 @@ img,
 picture {
   margin: 0;
   max-width: 100%;
+}
+
+.neon_pink {
+  color: $base-background-color;
+  text-shadow: -1px 0 $light-hot-pink, 0 1px $light-hot-pink, 1px 0 $light-hot-pink, 0 -1px $light-hot-pink;
+}
+
+.neon_blue {
+  color: $base-background-color;
+  text-shadow: -1px 0 $electric-blue, 0 1px $electric-blue, 1px 0 $electric-blue, 0 -1px $electric-blue;
+}
+
+.neon_yellow {
+  color: $base-background-color;
+  text-shadow: -1px 0 $yellow, 0 1px $yellow, 1px 0 $yellow, 0 -1px $yellow;
+}
+
+.pink {
+  color: $light-hot-pink;
+}
+
+.blue {
+  color: $electric-blue;
+}
+
+.yellow {
+  color: #fef654;
+}
+
+.white {
+  color: #fff;
+}
+
+.big {
+  font-size: 1.2em;
+}
+
+.bigger {
+  font-size: 1.5em;
+}
+
+.small {
+  font-size: .8em;
+}
+
+.subtle {
+  color: tint($base-background-color, 30%);
+}
+
+.pixel {
+  font-family: $game-font;
 }

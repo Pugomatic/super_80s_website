@@ -8,6 +8,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pg'
 gem 'puma'
 gem 'high_voltage'
+gem 'comfortable_mexican_sofa'
+gem 'comfy_blog'
+
+gem 'will_paginate'
+gem 'slim'
 
 group :development, :test do
   gem 'byebug'

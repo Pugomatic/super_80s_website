@@ -1,5 +1,8 @@
 // Typography
-$base-font-family: $helvetica;
+$base-font-family: "Lucida Console", Monaco, monospace;
+$tech-font: 'Orbitron', san-serif;
+$game-font: 'Press Start 2P', monospace;
+
 $heading-font-family: $base-font-family;
 
 // Font Sizes
@@ -16,21 +19,26 @@ $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
 
 // Colors
-$blue: #477dca;
-$dark-gray: #333;
+$hot-pink: #FF0080;
+$light-hot-pink: lighten($hot-pink, 30%);
+$dark-gray: #ccc;
 $medium-gray: #999;
 $light-gray: #ddd;
+$electric-blue: #3ECAE8;
+$cyan: #0f9;
+$yellow: #fef654;
 
 // Font Colors
 $base-font-color: $dark-gray;
-$action-color: $blue;
+$action-color: $electric-blue;
+$highlight-color: $electric-blue;
 
 // Border
 $base-border-color: $light-gray;
 $base-border: 1px solid $base-border-color;
 
 // Background Colors
-$base-background-color: #fff;
+$base-background-color: #333;
 $secondary-background-color: tint($base-border-color, 75%);
 
 // Forms

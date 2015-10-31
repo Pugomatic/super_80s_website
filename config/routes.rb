@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
   get '/' => 'high_voltage/pages#show', id: 'index'
+  get '/press' => 'high_voltage/pages#show', id: 'press'
+  get '/press-kit' => 'high_voltage/pages#show', id: 'press'
+
+  comfy_route :blog_admin, :path => '/admin'
+  comfy_route :blog, :path => '/blog'
+
+  comfy_route :cms_admin, :path => '/admin'
+
+  # Make sure this routeset is defined last
+  comfy_route :cms, :path => '/', :sitemap => false
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

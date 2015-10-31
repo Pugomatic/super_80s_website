@@ -1,0 +1,28 @@
+#press {
+  .title {
+    margin-bottom: 10px;
+    font-family:  $game-font;
+  }
+
+  .author {
+    font-family:  $game-font;
+    font-size: .7em;
+  }
+
+  .date {
+    font-family:  $game-font;
+    font-size: .5em;
+    margin-bottom: 25px;
+  }
+
+  section {
+    @include outer-container;
+    aside {
+      @include span-columns(3);
+    }
+    article {
+      @include span-columns(9);
+      @include omega();
+    }
+  }
+}

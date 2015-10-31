@@ -1,0 +1,45 @@
+#blog {
+  section {
+    @include outer-container;
+
+    aside {
+      @include span-columns(6);
+      @include shift(3);
+      @include display(flex);
+      @include flex-direction(column);
+      @include align-items(center);
+      @include justify-content(space-between);
+      margin-top: 1em;
+      margin-bottom: .5em;
+
+      .title {
+        margin-bottom: 10px;
+        font-family:  $game-font;
+      }
+
+      .author {
+        font-family:  $game-font;
+        font-size: .7em;
+      }
+
+      .date {
+        font-family:  $game-font;
+        font-size: .5em;
+        margin-bottom: 25px;
+      }
+    }
+    article {
+      @include span-columns(6);
+      @include shift(3);
+      p {
+        -ms-text-justify: inter-word;
+        text-justify: inter-word;
+      }
+      margin-bottom: 1em;
+    }
+  }
+
+}
+
+
+
