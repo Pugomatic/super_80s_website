@@ -1,20 +1,26 @@
-/.hero
-/  .hero-inner
-/
-/    .hero-copy
-/      h2
-/        span Like&nbsp;
-/        span.neon_blue Mario & Luigi&nbsp;
-/        span hopped in a&nbsp;
-/        span.neon_pink Delorean&nbsp;
-/        span and went&nbsp;
-/        span.neon_yellow Back to the 1980s
-/
-/    br
-/
-/    a.hero-logo href=""
-/      = image_tag 'logo.png'
-/
+.hero
+  .hero-inner
+    .hero-copy
+      = button_to "mailto:beta@Super80sWorld.com?subject=Sign me up for the beta test", form: {target: '_blank'} do
+        .image-beta
+
+.content
+  .copy
+    p
+      | Travel back to the 1980s in Super80sWorld !
+    p
+      | Run, bounce and slide your way through a decade of&nbsp;
+      span.yellow big hair
+      |,&nbsp;
+      span.blue new wave
+      |,&nbsp;
+      span.pink neon&nbsp;
+      | & decadence.
+    p
+      | Battle&nbsp;
+      span.yellow your favorite characters
+      |&nbsp;from the era armed with nothing more than the "chucks" on your feet.
+
 /    //.video
 /      //.video-wrapper
 /        //iframe allowfullscreen="" frameborder="0" src="http://www.youtube.com/embed/MH6TJU0qWoY?showinfo=0&iv_load_policy=3&controls=0"

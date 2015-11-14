@@ -29,10 +29,15 @@ body {
   p, ul {
     margin-bottom: 30px;
   }
-}
 
-@media only screen and (min-width: 800px) {
-}
+  .content {
+    @include outer-container;
+    @include clearfix;
 
-@media only screen and (min-width: 1200px) {
+    .copy {
+      @include span-columns(6);
+      @include shift(3);
+    }
+  }
+
 }

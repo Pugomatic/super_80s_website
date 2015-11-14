@@ -1,0 +1,56 @@
+.image-beta, .image-stage-left, .image-stage-right, .image-appstore, .image-facebook,
+.image-twitter, .image-youtube, .image-stage-middle {
+  display: inline-block;
+  background: url('sprites.png') no-repeat;
+  overflow: hidden;
+  text-indent: -9999px;
+  text-align: left;
+}
+
+.image-beta {
+  background-position: -3px -0px;
+  width: 410px;
+  height: 32px;
+}
+
+.image-stage-left {
+  background-position: -3px -35px;
+  width: 289px;
+  height: 415px;
+}
+
+.image-stage-right {
+  background-position: -3px -453px;
+  width: 278px;
+  height: 424px;
+}
+
+.image-appstore {
+  background-position: -3px -880px;
+  width: 201px;
+  height: 70px;
+}
+
+.image-facebook {
+  background-position: -295px -35px;
+  width: 40px;
+  height: 40px;
+}
+
+.image-twitter {
+  background-position: -338px -35px;
+  width: 40px;
+  height: 40px;
+}
+
+.image-youtube {
+  background-position: -295px -78px;
+  width: 40px;
+  height: 40px;
+}
+
+.image-stage-middle {
+  background-position: -381px -35px;
+  width: 20px;
+  height: 424px;
+}
