@@ -4,4 +4,9 @@ a:hover {
 //  text-decoration: underline;
   color: $base-background-color;
   text-shadow: -1px 0 $light-hot-pink, 0 1px $light-hot-pink, 1px 0 $light-hot-pink, 0 -1px $light-hot-pink;
+
+  .image-beta {
+    border-bottom: 2px solid yellow;
+  }
 }
+

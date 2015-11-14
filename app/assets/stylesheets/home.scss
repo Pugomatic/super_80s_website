@@ -34,7 +34,7 @@ body {
     @include outer-container;
     @include clearfix;
 
-    margin-top: -100px;
+    margin-top: -120px;
 
     .copy {
       @include span-columns(6);
