@@ -19,8 +19,6 @@ body {
 
 }
 
-/* ----------- iPhone 6 ----------- */
-
 @media only screen and (max-device-width: 800px) {
   #wrapper {
     width: 100%;
@@ -34,6 +32,11 @@ body {
       background-size: 3380px 1112px;
       background-position: right, center;
     }
+  }
+
+  .beta-link {
+    width: 600px;
+    height: auto;
   }
 
   .content {
