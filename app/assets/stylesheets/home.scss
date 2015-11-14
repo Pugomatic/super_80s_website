@@ -3,19 +3,6 @@ body {
   padding: 0;
   background-color: $base-background-color;
 
-  #wrapper {
-    width:100%;
-    height:556px;
-
-    #cover {
-      width:100%;
-      height:100%;
-      @include background-image(image-url('bg.png'), image-url('city.png'), linear-gradient(#000, $base-background-color));
-      background-repeat: repeat-x, no-repeat;
-      background-position: right, center;
-    }
-  }
-
   img.centered {
     display: block;
     margin-left: auto;
@@ -30,6 +17,53 @@ body {
     margin-bottom: 30px;
   }
 
+}
+
+/* ----------- iPhone 6 ----------- */
+
+@media only screen and (max-device-width: 800px) {
+  #wrapper {
+    width: 100%;
+    height: 1112px;
+
+    #cover {
+      width: 100%;
+      height:100%;
+      @include background-image(image-url('bg.png'), image-url('city.png'), linear-gradient(#000, $base-background-color));
+      background-repeat: repeat-x, no-repeat;
+      background-size: 3380px 1112px;
+      background-position: right, center;
+    }
+  }
+
+  .content {
+    margin-top: -100px;
+
+    .copy {
+      font-family: $base-font-family;
+      font-size: 2em;
+      margin: 60px;
+    }
+  }
+
+  .logo {
+    width: 800px;
+    height: auto;
+  }
+}
+
+@media only screen and (min-device-width: 801px) {
+  #wrapper {
+    height:556px;
+
+    #cover {
+      height:100%;
+      @include background-image(image-url('bg.png'), image-url('city.png'), linear-gradient(#000, $base-background-color));
+      background-repeat: repeat-x, no-repeat;
+      background-position: right, center;
+    }
+  }
+
   .content {
     @include outer-container;
     @include clearfix;
@@ -41,5 +75,4 @@ body {
       @include shift(3);
     }
   }
-
 }
