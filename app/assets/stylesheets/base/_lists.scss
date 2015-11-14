@@ -17,6 +17,12 @@ ol {
   }
 }
 
+ul.bullet {
+  margin: 0.75em 0;
+  padding: 0 1em;
+  list-style-type: square;
+}
+
 dl {
   margin-bottom: $small-spacing;
 

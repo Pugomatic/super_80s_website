@@ -1,5 +1,4 @@
 #press
-  = image_tag 'logo.png'
   section
     aside
       h2#factsheet Factsheet
@@ -14,11 +13,11 @@
       p
         strong.subtle Release Date
         br
-        | Any day now...
+        | February 2016
       p
         strong.subtle Platforms
         br
-        a href=""  iTunes App Store
+        | iTunes App Store
         br
       p
         strong.subtle Website
@@ -28,80 +27,76 @@
         strong.subtle Regular Price
       table
         tr
-          td 1980
-          td.pink Arcadia
+          td.blue 1980-82
+          td $1.99
         tr
-          td
-          td Free
-        tr
-          td 1981
-          td.blue Neon Streets
-        tr
-          td
-          td $.99
+          td.pink 1983-86
+          td TBD
 
     article
       h2#description Description
       p
-        | If you liked the video games we grew up with and the pop culture of that decade, you'll love this game.  Set in the 1980s, each world is a different year as you run, slide, bounce and fly your way out of the 80s.
+        | If you liked the video games we grew up with and the pop culture of that decade, you'll love this game.  Battle your favorite characters from the era as you run, jump, bounce and slide your way through the 1980s.
       h2#history History
       p
-        | Super80sWorld has been in development for the past 18 months.  Several worlds have been completed:
+        | Super80sWorld has been in development for the past 18 months.  The first three worlds are being released in our initial chapter:
       ul
         li 1980 - Arcade World
-        li 1981 - Neon Streets
-        li 1982 - Underground 80s
-        li 1983 - War Games
-        li 1984 - Miami Nice
-
-      p Super80sWorld will be released a world at a time in the not to distant future.
+        li 1981 - Underground Eighties
+        li 1982 - Neon Streets
 
       h2 Features
-      ul
+      ul.bullet
         li Running
         li Jumping
+        li Sliding
+        li Falling
+        li Bouncing
+        li Riding
         li Power Ups
-        li More Running... and jumping
-        li Totally bogus graphics
-        li Copyright infringement
-        li Awesomeness
+        li 80s Graphics
+        li 80s Characters
+        li Minigames
+        li Nostalgia
+        li Trademark infringement
+        li General Awesomeness
 
       br
 
       h2#trailers Videos
       p
         strong.subtle Gameplay &nbsp;
-        a href="http://www.youtube.com/watch?v=MH6TJU0qWoY" YouTube
-        .video
-          .video-wrapper
-            iframe allowfullscreen="" frameborder="0" src="http://www.youtube.com/embed/MH6TJU0qWoY"
+        a href="https://www.youtube.com/channel/UCdiWRONc68fFoMXZJM00Zyg" YouTube
+        /.video
+        /  .video-wrapper
+        /    iframe allowfullscreen="" frameborder="0" src="http://www.youtube.com/embed/MH6TJU0qWoY"
       hr
 
       h2#images Images
-      a href="Super80sWorld/images/images.zip" /
-      | Download all screenshots &amp; photos as .zip
+
+      p Coming Soon
+      //| Download all screenshots &amp; photos as a zip file
+
       hr
 
       h2#logo Logo &amp; Icon
       .grid.images
         .width-medium-1-2
-          a href="Super80sWorld/images/icon.png"
-            img alt="logo" src="Super80sWorld/images/icon.png" /
+          = link_to '/assets/logo.png' do
+            = image_tag 'logo.png'
       hr
 
       h2#awards Awards &amp; Recognition
       ul
         li
-          | We're still waiting
-          cite Help us out!
+          cite
+            = mail_to 'press@Super80sWorld.com', "Be the first!", subject: 'Re: Awards & Recognition', target: '_blank'
       hr
       h2 Selected Articles
       ul
         li
-          | Still waiting...
-          br
           cite
-            | On you!
+            = mail_to 'press@Super80sWorld.com', "Be the first!", subject: 'Re: Articles', target: '_blank'
       hr
 
       h2#preview Request Press Copy
@@ -123,7 +118,7 @@
 
       h2#monetize Monetization Permission
       p
-        | TapTapGood allows for the contents of Super80sWorld to be published through video broadcasting services for any commercial or non-commercial purposes. Monetization of videos created containing assets from Super80sWorld is legally &amp; explicitly allowed by TapTapGood.
+        | TapTapGood allows for the contents of Super80sWorld to be published through video broadcasting services for non-commercial purposes.
       hr
 
       h2#links Additional Links
@@ -134,12 +129,12 @@
       p
         strong Boilerplate
         br
-        | Blah blah blah
+        | Tap Tapp Good is a Nevada LLC building fun and irreverent mobile games.
       p
         strong More information
         br
-        | For more information please contact us:
-        a href="mailto://Dan.Camaro@Super80sWorld.com"  here
+        | For more information please contact us&nbsp;
+        = mail_to 'info@taptapgood.com', 'here'
       hr
 
       h2#credits Super80sWorld Credits
