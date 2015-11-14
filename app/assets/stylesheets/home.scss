@@ -10,7 +10,9 @@ body {
     #cover {
       width:100%;
       height:100%;
-      @include background(image-url('bg.png'), linear-gradient(#000, $base-background-color), no-repeat center fixed);
+      @include background-image(image-url('bg.png'), image-url('city.png'), linear-gradient(#000, $base-background-color));
+      background-repeat: repeat-x, no-repeat;
+      background-position: right, center;
     }
   }
 
@@ -18,6 +20,10 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  img.top {
+    vertical-align: top;
   }
 
   p, ul {
