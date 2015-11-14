@@ -26,7 +26,7 @@ body {
 
 @media only screen and (min-width: 800px) {
   #cover {
-    @include background(image-url('city.png'), linear-gradient(#000, $base-background-color), no-repeat center fixed);
+    @include background(image-url('bg.png'), linear-gradient(#000, $base-background-color), no-repeat center fixed);
   }
 }
 
