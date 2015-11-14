@@ -1,8 +1,34 @@
 body {
   margin: 0;
+  padding: 0;
   background-color: $base-background-color;
+
+  #wrapper {
+    width:100%;
+    height:556px;
+  }
+
+  #cover {
+    width:100%;
+    height:100%;
+  }
+
+  img.centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  p, ul {
+    margin-bottom: 30px;
+  }
 }
 
-p, ul {
-  margin-bottom: 30px;
+@media only screen and (min-width: 800px) {
+  #cover {
+    @include background(image-url('city.png'), linear-gradient(#000, $base-background-color), no-repeat center fixed);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
 }
