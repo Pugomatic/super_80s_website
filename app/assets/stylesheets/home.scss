@@ -19,6 +19,22 @@ body {
 
 }
 
+.bx-wrapper .bx-viewport {
+  -moz-box-shadow: 0 0 5px $hot-pink;
+  -webkit-box-shadow: 0 0 5px $hot-pink;
+  box-shadow: 0 0 5px $hot-pink;
+  border: 5px solid $electric-blue;
+  left: -5px;
+  background: #fff;
+  /*fix other elements on the page moving (on Chrome)*/
+  -webkit-transform: translatez(0);
+  -moz-transform: translatez(0);
+  -ms-transform: translatez(0);
+  -o-transform: translatez(0);
+  transform: translatez(0);
+}
+
+
 @media only screen and (max-device-width: 800px) {
   #wrapper {
     width: 100%;

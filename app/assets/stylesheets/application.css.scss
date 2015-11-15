@@ -16,13 +16,13 @@
 @import 'bourbon';
 @import 'base/base';
 @import 'neat';
-@import 'home';
 @import 'refills/footer';
-//@import 'refills/header';
 @import 'refills/hero';
-//@import 'refills/video';
-//@import 'blog';
-@import 'press';
+@import 'jquery.bxslider';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+@import 'home';
+@import 'press';
+//@import 'blog';
 @import 'sprite';

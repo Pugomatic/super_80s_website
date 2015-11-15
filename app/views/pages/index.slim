@@ -6,6 +6,12 @@
 
 .content
   .copy
+    ul.slider
+      - Dir[Rails.root.join('app', 'assets', 'images', 'screenshots', '*.png')].each do |file_name|
+        li
+          = image_tag "screenshots/#{file_name.split('/').last}"
+
+
     p
       | Travel back to the&nbsp;
       span.big.neon_pink 1980s&nbsp;
