@@ -71,5 +71,8 @@ html
       ga('send', 'pageview');
 
       $(document).ready(function () {
-        $('.slider').bxSlider();
+        $('.slider').bxSlider({
+          "captions": true,
+          "startSlide": 0
+        });
       });
