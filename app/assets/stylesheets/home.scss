@@ -37,6 +37,18 @@ body {
   display: none;
 }
 
+.content_top {
+  @include outer-container;
+  @include clearfix;
+
+  margin-top: -150px;
+
+  .copy {
+    @include span-columns(6);
+    @include shift(3);
+  }
+}
+
 @media only screen and (max-device-width: 800px) {
   #wrapper {
     width: 100%;
@@ -58,9 +70,7 @@ body {
     height: auto;
   }
 
-  .content_top {
-    margin-top: -100px;
-
+  .content {
     .copy {
       font-family: $base-font-family;
       font-size: 2em;
@@ -93,18 +103,6 @@ body {
   .content {
     @include outer-container;
     @include clearfix;
-
-    .copy {
-      @include span-columns(6);
-      @include shift(3);
-    }
-  }
-
-  .content_top {
-    @include outer-container;
-    @include clearfix;
-
-    margin-top: -150px;
 
     .copy {
       @include span-columns(6);
