@@ -14,6 +14,9 @@ gem 'comfy_blog'
 gem 'will_paginate'
 gem 'slim'
 
+gem 'referer_tracking'
+gem 'strip_attributes'
+
 group :development, :test do
   gem 'byebug'
 end

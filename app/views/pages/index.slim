@@ -1,8 +1,21 @@
+.content_top
+  .copy style="margin-bottom: 10px"
+    - if flash.empty?
+      span.big Join our mailing list for launch updates
+    - else
+      - flash.each do |key, value|
+        .big.alert class="alert-#{key}"
+          = value
+          br
+
 .hero
   .hero-inner
     .hero-copy
-      = mail_to "beta@Super80sWorld.com", subject: "Sign me up for the beta test", body: "I would like to sign up for your beta, please let me know when it's available!", target: '_blank' do
-        = image_tag 'beta.png', class: 'beta-link'
+      .email
+        form action="/users" method="post"
+          input name="authenticity_token" value="#{form_authenticity_token}" type="hidden"
+          input id="user_email" name="user[email]" type="text" placeholder="Enter email address"
+          input name="commit" type="submit" value="Join"
 
 .content
   .copy
@@ -16,6 +29,8 @@
       li = image_tag 'screenshots/8.face_your_favorite_characters.png', title: 'Face your favorite 80s characters'
       li = image_tag 'screenshots/9.and_relive_the_joy.png', title: 'Relive the joy of the decade'
 
+.content
+  .copy
     p
       | Travel back to the&nbsp;
       span.big.neon_pink 1980s&nbsp;

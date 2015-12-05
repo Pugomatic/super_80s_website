@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151031135213) do
+ActiveRecord::Schema.define(version: 20151205190851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -178,5 +178,33 @@ ActiveRecord::Schema.define(version: 20151031135213) do
 
   add_index "comfy_cms_snippets", ["site_id", "identifier"], name: "index_comfy_cms_snippets_on_site_id_and_identifier", unique: true, using: :btree
   add_index "comfy_cms_snippets", ["site_id", "position"], name: "index_comfy_cms_snippets_on_site_id_and_position", using: :btree
+
+  create_table "referer_trackings", force: :cascade do |t|
+    t.integer  "trackable_id"
+    t.string   "trackable_type"
+    t.text     "session_referer_url"
+    t.text     "session_first_url"
+    t.text     "current_request_url"
+    t.text     "current_request_referer_url"
+    t.string   "user_agent"
+    t.string   "ip"
+    t.string   "session_id"
+    t.text     "cookies_yaml"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "cookie_referer_url"
+    t.text     "cookie_first_url"
+    t.datetime "cookie_time"
+    t.text     "infos_session"
+    t.text     "infos_request"
+    t.text     "log"
+    t.string   "status"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

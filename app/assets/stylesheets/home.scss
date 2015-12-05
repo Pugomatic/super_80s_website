@@ -16,7 +16,6 @@ body {
   p, ul {
     margin-bottom: 30px;
   }
-
 }
 
 .bx-wrapper .bx-viewport {
@@ -95,11 +94,55 @@ body {
     @include outer-container;
     @include clearfix;
 
-    margin-top: -80px;
+    .copy {
+      @include span-columns(6);
+      @include shift(3);
+    }
+  }
+
+  .content_top {
+    @include outer-container;
+    @include clearfix;
+
+    margin-top: -150px;
 
     .copy {
       @include span-columns(6);
       @include shift(3);
+    }
+  }
+}
+
+.email {
+  width: 100%;
+
+  input[type="text"] {
+    display: inline-block;
+    margin : 0 auto;
+    width: 400px;
+    height: 48px;
+    border: 1px solid $electric-blue;
+    background: black;
+    color: white;
+  }
+  input[type="submit"] {
+    margin-left: 20px;
+    height: 48px;
+  }
+}
+
+.alert-notice {
+  color: $electric-blue;
+}
+
+.alert-error {
+  color: $yellow;
+}
+
+table {
+  tr {
+    td {
+      margin: 20px;
     }
   }
 }
