@@ -16,6 +16,7 @@ body {
   p, ul {
     margin-bottom: 30px;
   }
+
 }
 
 .bx-wrapper .bx-viewport {
@@ -35,18 +36,6 @@ body {
 
 .bx-clone {
   display: none;
-}
-
-.content_top {
-  @include outer-container;
-  @include clearfix;
-
-  margin-top: -150px;
-
-  .copy {
-    @include span-columns(6);
-    @include shift(3);
-  }
 }
 
 @media only screen and (max-device-width: 800px) {
@@ -71,6 +60,8 @@ body {
   }
 
   .content {
+    margin-top: -100px;
+
     .copy {
       font-family: $base-font-family;
       font-size: 2em;
@@ -104,6 +95,8 @@ body {
     @include outer-container;
     @include clearfix;
 
+    margin-top: -80px;
+
     .copy {
       @include span-columns(6);
       @include shift(3);
@@ -113,6 +106,13 @@ body {
 
 .email {
   width: 100%;
+
+  h1, h2, h3 {
+    color: $base-background-color;
+    font-size: 1.2em;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
 
   input[type="text"] {
     display: inline-block;

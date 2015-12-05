@@ -1,21 +1,25 @@
-.content_top
-  .copy style="margin-bottom: 10px"
-    - if flash.empty?
-      span.big Join our mailing list for launch updates
-    - else
-      - flash.each do |key, value|
-        .big.alert class="alert-#{key}"
-          = value
-          br
+.remodal data-remodal-id="modal"
+  button.remodal-close data-remodal-action="close"
+  .email
+    h2 Join the beta mailing list
+    br
+    form action="/users" method="post"
+      input name="authenticity_token" value="#{form_authenticity_token}" type="hidden"
+      input id="user_email" name="user[email]" type="text" placeholder="Your email address"
+      input name="commit" type="submit" value="Join"
+
+
+
 
 .hero
   .hero-inner
     .hero-copy
-      .email
-        form action="/users" method="post"
-          input name="authenticity_token" value="#{form_authenticity_token}" type="hidden"
-          input id="user_email" name="user[email]" type="text" placeholder="Enter email address"
-          input name="commit" type="submit" value="Join"
+      - flash.each do |key, value|
+        .big.alert class="alert-#{key}"
+          = value
+          br
+      a href="#modal"
+        = image_tag 'beta.png', class: 'beta-link'
 
 .content
   .copy
@@ -29,8 +33,6 @@
       li = image_tag 'screenshots/8.face_your_favorite_characters.png', title: 'Face your favorite 80s characters'
       li = image_tag 'screenshots/9.and_relive_the_joy.png', title: 'Relive the joy of the decade'
 
-.content
-  .copy
     p
       | Travel back to the&nbsp;
       span.big.neon_pink 1980s&nbsp;
@@ -76,3 +78,7 @@
         /
         /      form method="post" action="mailto:beta@Super80sWorld.com?subject=Sign me up for the beta test" target="_blank"
         /        input type="submit" value="Signup for the Beta"
+
+  javascript:
+    $(function () {
+    });

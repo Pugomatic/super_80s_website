@@ -6,7 +6,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Most excellent!  You will hear from us soon."
       referer_tracking_after_create(@user)
     else
-      flash[:error] = "Totally bogus email address bub..."
+      flash[:error] = "Totally bogus email address, bub..."
     end
 
 

@@ -9,19 +9,18 @@
   $gradient-angle: 10deg;
   $hero-image: '';
 
-  padding-bottom: 0;
+  padding-bottom: 3em;
 
   .hero-logo img {
-    height: 100px;
-    margin-bottom: 10px;
+    height: 12em;
+    margin-bottom: 1em;
   }
 
   .hero-inner {
     @include outer-container;
     @include clearfix;
     margin: auto;
-    padding-top: 3.5em;
-    padding-bottom: 2em;
+    padding: 3.5em;
     text-align: center;
 
     .hero-copy {
@@ -59,12 +58,12 @@
 
 @media only screen and (max-device-width: 800px) {
   .hero {
-    margin-top: -200px;
+    margin-top: -360px;
   }
 }
 
 @media only screen and (min-device-width: 801px) {
   .hero {
-    margin-top: -145px;
+    margin-top: -200px;
   }
 }
