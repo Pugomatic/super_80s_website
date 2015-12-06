@@ -91,10 +91,13 @@ body {
     }
     input[type="text"] {
       font-size: 48px;
+      height: 80px;
     }
     input[type="submit"] {
-      margin-left: 20px;
-      height: 160px;
+      margin-top: 20px;
+      font-size: 48px;
+      line-height: .25em;
+      height: 80px;
     }
   }
 
