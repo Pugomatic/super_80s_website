@@ -38,6 +38,38 @@ body {
   display: none;
 }
 
+
+.email {
+  width: 100%;
+
+  h1, h2, h3 {
+    font-size: 1.5em;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    color: $electric-blue;
+  }
+
+  input[type="text"] {
+    display: inline-block;
+    margin : 0 auto;
+    width: auto;
+    height: 50px;
+    font-size: 28px;
+    border: 2px solid $electric-blue;
+    background: black;
+    color: $electric-blue;
+    font-color: $electric-blue;
+  }
+
+  input[type="submit"] {
+    margin-left: 20px;
+    height: 50px;
+    background: $electric-blue;
+    color: $base-background-color;
+  }
+}
+
+
 @media only screen and (max-device-width: 800px) {
   #wrapper {
     width: 100%;
@@ -50,6 +82,19 @@ body {
       background-repeat: repeat-x, no-repeat;
       background-size: 3380px 1112px;
       background-position: right, center;
+    }
+  }
+
+  .email {
+    h1, h2, h3 {
+      font-size: 3em;
+    }
+    input[type="text"] {
+      font-size: 48px;
+    }
+    input[type="submit"] {
+      margin-left: 20px;
+      height: 160px;
     }
   }
 
@@ -101,31 +146,6 @@ body {
       @include span-columns(6);
       @include shift(3);
     }
-  }
-}
-
-.email {
-  width: 100%;
-
-  h1, h2, h3 {
-    color: $base-background-color;
-    font-size: 1.2em;
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
-
-  input[type="text"] {
-    display: inline-block;
-    margin : 0 auto;
-    width: 400px;
-    height: 48px;
-    border: 1px solid $electric-blue;
-    background: black;
-    color: white;
-  }
-  input[type="submit"] {
-    margin-left: 20px;
-    height: 48px;
   }
 }
 

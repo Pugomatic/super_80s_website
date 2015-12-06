@@ -1,11 +1,10 @@
 .remodal data-remodal-id="modal"
-  button.remodal-close data-remodal-action="close"
   .email
-    h2 Join the beta mailing list
+    h2 Join the beta, champ!
     br
     form action="/users" method="post"
       input name="authenticity_token" value="#{form_authenticity_token}" type="hidden"
-      input id="user_email" name="user[email]" type="text" placeholder="Your email address"
+      input id="user_email" name="user[email]" type="text" placeholder="Enter email address"
       input name="commit" type="submit" value="Join"
 
 

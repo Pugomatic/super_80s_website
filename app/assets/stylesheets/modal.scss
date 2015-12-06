@@ -1,7 +1,7 @@
 //colors
 $color_charade_90_approx: rgba(43, 46, 56, 0.9);
-$color_charade_approx: #221633;
-$white: #fff;
+$color_charade_approx: #fff;
+$white: #221633;
 $color_mountain_mist_approx: #fff;
 $color_fern_approx: #3ECAE8;
 $color_de_york_approx: lighten($color_fern_approx, 30%);
@@ -248,7 +248,5 @@ $color_sunglo_approx: lighten($color_carnation_approx, 30%);
 }
 
 .remodal {
-  @include background-image(image-url('chrome.png'));
-  background-repeat: repeat-x, no-repeat;
-  background-position: right, center;
+  border: 3px solid $electric-blue;
 }
