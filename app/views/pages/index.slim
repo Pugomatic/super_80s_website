@@ -2,10 +2,10 @@
   .email
     h2 Join the beta, champ!
     br
-    form action="/users" method="post"
+    form#mailing_list_form action="/users" method="post"
       input name="authenticity_token" value="#{form_authenticity_token}" type="hidden"
-      input id="user_email" name="user[email]" type="text" placeholder="Enter email address"
-      input name="commit" type="submit" value="Join"
+      input#user_email name="user[email]" type="text" placeholder="Enter email address"
+      input#form_submit name="commit" type="submit" value="Join"
 
 
 
@@ -80,4 +80,21 @@
 
   javascript:
     $(function () {
+      $('.remodal').click(function (event) {
+        if ($('#user_email').val() == "") {
+          $('#user_email').focus();
+          event.preventDefault();
+        } else {
+          $('#mailing_list_form').submit();
+        }
+      });
+
+      $('#form_submit').click(function (event) {
+        if ($('#user_email').val() == "") {
+          $('#user_email').focus();
+          event.preventDefault();
+        } else {
+          $('#mailing_list_form').submit();
+        }
+      });
     });
