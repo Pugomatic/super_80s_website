@@ -248,5 +248,11 @@ $color_sunglo_approx: lighten($color_carnation_approx, 30%);
 }
 
 .remodal {
-  border: 3px solid $electric-blue;
+  border: 3px solid transparent;
+
+  -moz-border-image: -moz-linear-gradient(left, $electric-blue 0%, $hot-pink 100%);
+  -webkit-border-image: -webkit-linear-gradient(left, $electric-blue 0%, $hot-pink 100%);
+  border-image: linear-gradient(to right, $electric-blue 0%, $hot-pink 100%);
+
+  border-image-slice: 1;
 }

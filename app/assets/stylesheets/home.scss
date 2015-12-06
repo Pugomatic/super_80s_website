@@ -59,6 +59,15 @@ body {
     background: black;
     color: $electric-blue;
     font-color: $electric-blue;
+
+    border: 3px solid transparent;
+
+    -moz-border-image: -moz-linear-gradient(left, $hot-pink 0%, $electric-blue 100%);
+    -webkit-border-image: -webkit-linear-gradient(left, $hot-pink 0%, $electric-blue 100%);
+    border-image: linear-gradient(to right, $hot-pink 0%, $electric-blue 100%);
+
+    border-image-slice: 1;
+
   }
 
   input[type="submit"] {
@@ -66,6 +75,7 @@ body {
     height: 50px;
     background: $electric-blue;
     color: $base-background-color;
+    border: 2px solid $hot-pink;
   }
 }
 
@@ -95,7 +105,7 @@ body {
     }
     input[type="submit"] {
       margin-top: 20px;
-      font-size: 48px;
+      font-size: 42px;
       line-height: .25em;
       height: 80px;
     }
