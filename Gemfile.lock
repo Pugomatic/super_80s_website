@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/amro/gibbon.git
+  revision: e3fb32c0f86e7da8e279d31bbf233022c60b2a99
+  specs:
+    gibbon (2.2.0)
+      faraday (>= 0.9.1)
+      multi_json (>= 1.11.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -113,9 +121,6 @@ GEM
       multipart-post (>= 1.2, < 3)
     font-awesome-sass (4.4.0)
       sass (>= 3.2)
-    gibbon (2.2.0)
-      faraday (>= 0.9.1)
-      multi_json (>= 1.11.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     haml (4.0.7)
@@ -263,7 +268,7 @@ DEPENDENCIES
   comfortable_mexican_sofa
   comfy_blog
   font-awesome-sass (~> 4.4.0)
-  gibbon
+  gibbon!
   high_voltage
   jquery-rails
   neat

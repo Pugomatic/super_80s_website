@@ -7,7 +7,8 @@ class UsersController < ApplicationController
       referer_tracking_after_create(@user)
 
       begin
-        gibbon = Gibbon::API.new
+        gibbon = Gibbon::Request.new(api_key: Rails.application.secrets.mailchimp_api_key)
+        gibbon.timeout = 10
         gibbon.lists(Rails.application.secrets.mailchimp_list_id).members.create(body: {email_address: @user.email})
       rescue Gibbon::MailChimpError => mce
         logger.error "MailChimp Subscribe failed with mail chimp error: #{mce.message}"

@@ -17,7 +17,7 @@ gem 'slim'
 gem 'referer_tracking'
 gem 'strip_attributes'
 
-gem 'gibbon'
+gem 'gibbon', git: 'git://github.com/amro/gibbon.git'
 
 group :development, :test do
   gem 'byebug'
