@@ -17,6 +17,8 @@ gem 'slim'
 gem 'referer_tracking'
 gem 'strip_attributes'
 
+gem 'gibbon'
+
 group :development, :test do
   gem 'byebug'
 end
