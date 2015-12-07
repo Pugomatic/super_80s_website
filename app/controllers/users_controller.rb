@@ -9,9 +9,9 @@ class UsersController < ApplicationController
       begin
         gibbon = Gibbon::Request.new(api_key: Rails.application.secrets.mailchimp_api_key)
         gibbon.timeout = 10
-        gibbon.lists(Rails.application.secrets.mailchimp_list_id).members.create(body: {email_address: @user.email})
+        gibbon.lists(Rails.application.secrets.mailchimp_list_id).members.create(body: {email_address: @user.email, status: "subscribed"})
       rescue Gibbon::MailChimpError => mce
-        logger.error "MailChimp Subscribe failed with mail chimp error: #{mce.message}"
+        logger.error "MailChimp Subscribe failed with mail chimp error: #{mce.title} #{mce.detail} #{mce.body} #{mce.status_code}"
       rescue Exception => e
         logger.error "MailChimp Subscribe failed with other error: #{e.message}"
       end
