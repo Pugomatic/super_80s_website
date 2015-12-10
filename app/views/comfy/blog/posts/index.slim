@@ -10,7 +10,7 @@
         .author
           = post.author
         .date
-          = post.published_at.to_s(:db)
+          = post.published_at.to_s(:blog)
         .content
           = post.content.html_safe
 

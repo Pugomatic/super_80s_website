@@ -1,16 +1,18 @@
 #blog
   section
-    aside
-      h1.title = @post.title
+    article
+      h1 = @post.title
 
       .author
         = @post.author
       .date
         = @post.published_at.to_s(:blog)
-    article
+
       = @post.content.html_safe
 
+      hr
       .comments
+        h3 Comments
         - @post.comments.published.each do |comment|
           .comment
             .author= comment.author
