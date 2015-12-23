@@ -31,34 +31,27 @@ html
     = yield
 
     footer.footer role="contentinfo"
-      .footer-links
-        ul
-          li
-            h3 Press
-          li
-            = link_to 'Press Kit', '/press'
-          li
-            = mail_to 'press@Super80sWorld.com', 'Contact'
-        ul
-          li
-            h3 Follow Us
-          li
-            = link_to 'Facebook', 'https://www.facebook.com/super80sworld', target: '_blank'
-          li
-            = link_to 'Twitter', 'https://twitter.com/Super80sWorld', target: '_blank'
-          li
-            = link_to 'YouTube', 'https://www.youtube.com/channel/UCdiWRONc68fFoMXZJM00Zyg', target: '_blank'
-          li
-            = link_to 'Instagram', 'http://www.instagram.com/super80sworld', target: '_blank'
-        ul
-          li
-            h3
-              a href="/blog" Blog
-          li
-            = link_to 'All Posts', '/blog'
-          li
-            = mail_to 'blog@Super80sWorld.com', 'Contact'
-      hr
+      .social
+        .buttons
+          ul
+            li
+              = link_to "https://www.facebook.com/super80sworld", target: '_blank' do
+                = image_tag 'facebook.png'
+            li
+              = link_to "https://www.twitter.com/super80sworld", target: '_blank' do
+                = image_tag 'twitter.png'
+            li
+              = link_to "https://www.youtube.com/channel/UCdiWRONc68fFoMXZJM00Zyg/videos", target: '_blank' do
+                = image_tag 'youtube.png'
+
+        .buttons
+          ul
+            li
+              = link_to 'Blog', '/blog'
+            li
+              = link_to 'Press Kit', '/press'
+            li
+              = mail_to 'info@Super80sWorld.com', 'Contact Us'
       p &copy;
         #{Time.new.year} Tap Tap Good, LLC.  All Rights Reserved.
 
