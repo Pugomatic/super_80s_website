@@ -21,6 +21,13 @@
         color: $electric-blue;
       }
 
+      ul {
+        li {
+          list-style-type: square;
+          list-style-position: inside;
+        }
+      }
+
       .author {
         font-family:  $game-font;
         font-size: .6em;
