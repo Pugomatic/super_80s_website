@@ -21,6 +21,18 @@
         color: $electric-blue;
       }
 
+      ol {
+        li {
+          list-style-type: decimal;
+          list-style-position: inside;
+          ul {
+            li {
+              margin-left: 50px;
+            }
+          }
+        }
+      }
+
       ul {
         li {
           list-style-type: square;
@@ -28,12 +40,7 @@
         }
       }
 
-      ol {
-        li {
-          list-style-type: decimal;
-          list-style-position: inside;
-        }
-      }
+
 
       .author {
         font-family:  $game-font;
