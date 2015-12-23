@@ -28,6 +28,13 @@
         }
       }
 
+      ol {
+        li {
+          list-style-type: decimal;
+          list-style-position: inside;
+        }
+      }
+
       .author {
         font-family:  $game-font;
         font-size: .6em;
