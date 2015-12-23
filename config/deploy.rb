@@ -10,7 +10,7 @@ set :puma_threads,    [4, 16]
 set :puma_workers,    0
 set :branch,          ENV["REVISION"] || ENV["BRANCH_NAME"] || 'master'
 
-set :linked_files,    %w(config/database.yml config/secrets.yml public/system)
+set :linked_files,    %w(config/database.yml config/secrets.yml public/system public/uploads)
 
 set :repo_url,        'git@github.com:Pugomatic/super_80s_website.git'
 
