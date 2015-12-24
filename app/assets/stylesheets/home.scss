@@ -112,6 +112,12 @@ body {
     cursor: pointer;
   }
 
+  li.channel {
+    a {
+      font-size: 3em;
+    }
+  }
+
   .beta-link:hover {
     cursor: pointer;
 
