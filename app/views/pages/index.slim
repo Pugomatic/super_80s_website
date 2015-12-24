@@ -33,21 +33,22 @@
       li = image_tag 'screenshots/9.and_relive_the_joy.png', title: 'Relive the joy of the decade'
 
     p
-      | Super 80s World is the&nbsp;
+      = link_to "/#modal" do
+        span.pink Super
+        span.blue 80s
+        span.yellow World&nbsp;
+      | is the&nbsp;
       = link_to "/#modal" do
         span.yellow game of the decade
       |...&nbsp;
       = link_to "/#modal" do
         span.pink the 1980s
       |!
-    p A fast & fun platformer full of the sights and sounds of the era.
+    p A fun retro-platformer that will take you back to the era of new wave, neon and decadence.
     p
-      = link_to "/#modal" do
-        span.pink Super
-        span.blue 80s
-        span.yellow World&nbsp;
-      | is coming soon! &nbsp;
-      = link_to "Find out more!", "/#modal"
+      | Join our&nbsp;
+      = link_to "mailing list", "/#modal", class: 'yellow'
+      | &nbsp;to find out more!
 
 
     div

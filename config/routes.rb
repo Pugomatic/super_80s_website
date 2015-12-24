@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get '/' => 'high_voltage/pages#show', id: 'index'
+  get '/' => 'high_voltage/pages#show', id: 'video'
+  get '/video' => 'high_voltage/pages#show', id: 'video'
+  get '/screenshots' => 'high_voltage/pages#show', id: 'screenshots'
   get '/press' => 'high_voltage/pages#show', id: 'press'
   get '/press-kit' => 'high_voltage/pages#show', id: 'press'
   get '/admin/email' => 'admin/email#index'

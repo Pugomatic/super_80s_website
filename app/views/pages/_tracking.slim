@@ -1,0 +1,20 @@
+javascript:
+  $(function () {
+    var doIt = function(event) {
+      if ($('#user_email').val() == "") {
+        $('#user_email').focus();
+        event.preventDefault();
+      } else {
+        ga('send', 'event', 'Newsletter', 'join', 'Newsletter Clicked');
+        $('#mailing_list_form').submit();
+      }
+    };
+
+    $('.remodal').click(function (event) {
+      doIt(event);
+    });
+
+    $('#form_submit').click(function (event) {
+      doIt(event);
+    });
+  });
