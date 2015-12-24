@@ -57,16 +57,13 @@
     line-height: 1.5em;
     list-style: none;
     text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   li a {
     color: $footer-link-color;
     text-decoration: none;
-
-    &:focus,
-    &:hover {
-      color: transparentize($footer-color, 0);
-    }
   }
 
   li h3 {

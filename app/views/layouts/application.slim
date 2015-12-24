@@ -34,23 +34,23 @@ html
       .social
         .buttons
           ul
-            li
+            li.grow
               = link_to "https://www.facebook.com/super80sworld", target: '_blank' do
                 = image_tag 'facebook.png'
-            li
+            li.grow
               = link_to "https://www.twitter.com/super80sworld", target: '_blank' do
                 = image_tag 'twitter.png'
-            li
+            li.grow
               = link_to "https://www.youtube.com/channel/UCdiWRONc68fFoMXZJM00Zyg/videos", target: '_blank' do
                 = image_tag 'youtube.png'
 
         .buttons
           ul
-            li
+            li.grow
               = link_to 'Blog', '/blog'
-            li
+            li.grow
               = link_to 'Press Kit', '/press'
-            li
+            li.grow
               = mail_to 'info@Super80sWorld.com', 'Contact Us'
       p &copy;
         #{Time.new.year} Tap Tap Good, LLC.  All Rights Reserved.

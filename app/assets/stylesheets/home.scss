@@ -172,3 +172,18 @@ body {
 .alert-error {
   color: $yellow;
 }
+
+.beta-link, .channel, .grow {
+  @include transition(all 400ms ease-in-out);
+}
+
+.beta-link:hover, .channel:hover, {
+  @include transform(scale(1.25) rotate(-3deg));
+}
+
+.grow:hover {
+  a {
+    color: $base-background-color;
+  }
+  @include transform(scale(1.5));
+}
