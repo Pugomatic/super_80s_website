@@ -45,14 +45,14 @@
       .author {
         font-family:  $game-font;
         font-size: .6em;
-        color: $electric-blue;
+        color: $hot-pink;
       }
 
       .date {
         font-family:  $game-font;
         font-size: .6em;
         margin-bottom: 25px;
-        color: $electric-blue;
+        color: $hot-pink;
       }
 
       @include span-columns(8);

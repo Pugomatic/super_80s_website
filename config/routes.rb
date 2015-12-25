@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get '/' => 'high_voltage/pages#show', id: 'video'
+  get '/twitter' => 'high_voltage/pages#show', id: 'twitter'
   get '/video' => 'high_voltage/pages#show', id: 'video'
   get '/screenshots' => 'high_voltage/pages#show', id: 'screenshots'
   get '/press' => 'high_voltage/pages#show', id: 'press'
