@@ -10,6 +10,6 @@ sitemap :site do
   url press_kit_url, last_mod: Time.now, change_freq: "daily", priority: 1.0
 
   Comfy::Blog::Post.published.each do |post|
-    url "/#{post.slug}", last_mod: post.updated_at, priority: 1.0
+    url "http://www.super80sworld.com/#{post.slug}", last_mod: post.updated_at, priority: 1.0
   end
 end
