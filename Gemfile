@@ -16,6 +16,7 @@ gem 'slim'
 
 gem 'referer_tracking'
 gem 'strip_attributes'
+gem 'dynamic_sitemaps'
 
 gem 'gibbon', git: 'git://github.com/amro/gibbon.git'
 

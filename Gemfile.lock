@@ -115,6 +115,7 @@ GEM
     comfy_blog (1.12.3)
       comfortable_mexican_sofa (>= 1.12.7)
     debug_inspector (0.0.2)
+    dynamic_sitemaps (2.0.0)
     erubis (2.7.0)
     execjs (2.6.0)
     faraday (0.9.2)
@@ -267,6 +268,7 @@ DEPENDENCIES
   capistrano3-puma
   comfortable_mexican_sofa
   comfy_blog
+  dynamic_sitemaps
   font-awesome-sass (~> 4.4.0)
   gibbon!
   high_voltage

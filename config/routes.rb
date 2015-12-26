@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  get '/' => 'high_voltage/pages#show', id: 'video'
-  get '/twitter' => 'high_voltage/pages#show', id: 'twitter'
-  get '/video' => 'high_voltage/pages#show', id: 'video'
-  get '/screenshots' => 'high_voltage/pages#show', id: 'screenshots'
-  get '/press' => 'high_voltage/pages#show', id: 'press'
-  get '/press-kit' => 'high_voltage/pages#show', id: 'press'
+  get '/' => 'high_voltage/pages#show', id: 'video', as: 'root'
+  get '/twitter' => 'high_voltage/pages#show', id: 'twitter', as: 'twitter'
+  get '/video' => 'high_voltage/pages#show', id: 'video', as: 'video'
+  get '/screenshots' => 'high_voltage/pages#show', id: 'screenshots', as: 'screenshots'
+  get '/press' => 'high_voltage/pages#show', id: 'press', as: 'press'
+  get '/press-kit' => 'high_voltage/pages#show', id: 'press', as: 'press_kit'
   get '/admin/email' => 'admin/email#index'
 
   comfy_route :blog_admin, :path => '/admin'
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   comfy_route :cms_admin, :path => '/admin'
 
   # Make sure this routeset is defined last
-  comfy_route :cms, :path => '/', :sitemap => false
+  comfy_route :cms, :path => '/', sitemap: true
 
   resources :users, only: [:create]
 end
