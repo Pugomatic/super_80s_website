@@ -24,8 +24,6 @@ html
 
     title
       = yield(:title).blank? ? "Super 80s World" : yield(:title)
-    link href='https://fonts.googleapis.com/css?family=Orbitron:400,700|Press+Start+2P|Condiment' rel='stylesheet' type='text/css'
-    = stylesheet_link_tag    'application', media: 'all'
     = yield :header
     = csrf_meta_tags
   body
@@ -59,6 +57,11 @@ html
       p &copy;
         #{Time.new.year} Tap Tap Good, LLC.  All Rights Reserved.
 
+
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+    link href='https://fonts.googleapis.com/css?family=Orbitron:400,700|Press+Start+2P|Condiment' rel='stylesheet' type='text/css'
+
     /! Go to www.addthis.com/dashboard to customize your tools
     script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-567dbd140ff6a1cc" async="async"
 
@@ -78,4 +81,3 @@ html
         });
       });
 
-    = javascript_include_tag 'application'
