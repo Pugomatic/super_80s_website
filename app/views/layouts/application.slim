@@ -26,6 +26,8 @@ html
       = yield(:title).blank? ? "Super 80s World" : yield(:title)
     = yield :header
     = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: 'all'
+
   body
     #wrapper
       #cover
@@ -33,6 +35,17 @@ html
           = image_tag('logo.png', class: 'centered logo')
 
     = yield
+
+    .signup
+      .form
+        .words
+          | Sign up for updates
+        .input
+          .surround
+            form action="/users" method="post"
+              input name="authenticity_token" value="#{form_authenticity_token}" type="hidden"
+              input#user_email name="user[email]" type="text" placeholder="Enter e-mail address"
+              input#form_submit name="commit" type="submit" value="Subscribe Now"
 
     footer.footer role="contentinfo"
       .social
@@ -58,7 +71,6 @@ html
         #{Time.new.year} Tap Tap Good, LLC.  All Rights Reserved.
 
 
-    = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
     link href='https://fonts.googleapis.com/css?family=Orbitron:400,700|Press+Start+2P|Condiment' rel='stylesheet' type='text/css'
 

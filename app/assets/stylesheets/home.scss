@@ -64,12 +64,62 @@ body {
   }
 
   input[type="submit"] {
+    display: inline-block;
     margin-left: 20px;
     height: 50px;
     background: $hot-pink;;
     color: white;
     border: 2px solid white;
   }
+}
+
+.signup {
+  padding-top: 20px;
+  background: tint($base-background-color, 10%);
+
+  .form {
+    @include display(flex);
+    @include justify-content(center);
+    @include flex-wrap(wrap);
+
+    .words {
+      white-space: nowrap;
+      margin-top: 7px;
+      padding-right: 20px;
+    }
+
+    .input {
+      .surround {
+        margin-bottom: 20px;
+
+        input[type="text"] {
+          display: inline-block;
+          width: 250px;
+          margin: 0;
+          border: none;
+          height: 42px;
+          font-size: .8em;
+          padding-top: 12px;
+          padding-bottom: 12px;
+          border: 1px solid $hot-pink;
+          @include border-top-radius(0px);
+          @include border-bottom-radius(0px);
+        }
+        input[type="submit"] {
+          display: inline-block;
+          font-size: 0.8em;
+          height: 42px;
+          margin: 0;
+          border: 1px solid $hot-pink;
+          @include border-top-radius(0px);
+          @include border-bottom-radius(0px);
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+      }
+    }
+  }
+
 }
 
 
@@ -165,8 +215,8 @@ body {
     margin-top: -80px;
 
     .copy {
-      @include span-columns(6);
-      @include shift(3);
+      @include span-columns(8);
+      @include shift(2);
     }
   }
 }
@@ -183,15 +233,19 @@ body {
   @include transition(all 400ms ease-in-out);
 }
 
-.beta-link:hover, .channel:hover, {
+.beta-link:hover {
   @include transform(scale(1.25) rotate(-3deg));
+}
+
+.channel:hover {
+  @include transform(scale(1.5) rotate(-3deg));
 }
 
 .grow:hover {
   a {
     color: $base-background-color;
   }
-  @include transform(scale(1.5));
+  @include transform(scale(1.75));
 }
 
 .at4-share-title {
