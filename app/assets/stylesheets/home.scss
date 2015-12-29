@@ -52,15 +52,14 @@ body {
   input[type="text"] {
     display: inline-block;
     margin : 0 auto;
-    width: auto;
+    width: 90%;
     height: 50px;
     font-size: 28px;
-    border: 2px solid $electric-blue;
     background: black;
     color: $electric-blue;
     font-color: $electric-blue;
 
-    border: 3px solid white;
+    border: 2px solid white;
   }
 
   input[type="submit"] {
@@ -260,4 +259,26 @@ body {
 .at4-share-title {
   font-size: 14px;
   color: white;
+}
+
+input[type="submit"].yes {
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 0px;
+  border: 2px solid #ffffff;
+  @include border-top-radius(0px);
+  @include border-bottom-radius(0px);
+}
+
+input[type="reset"].no {
+  display: inline-block;
+  background: tint($base-background-color, 10%);
+  margin-top: 10px;
+  margin-left: 0px;
+  border: 2px solid #666666;
+  border-left: 0px;
+  color: #666666;
+  @include border-top-radius(0px);
+  @include border-bottom-radius(0px);
+  height: 50px;
 }

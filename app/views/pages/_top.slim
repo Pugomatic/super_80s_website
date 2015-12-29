@@ -4,9 +4,10 @@
     br
     form#mailing_list_form action="/users" method="post"
       input name="authenticity_token" value="#{form_authenticity_token}" type="hidden"
-      input#user_email name="user[email]" type="text" placeholder="Enter email address"
-      input#form_submit name="commit" type="submit" value="Subscribe Now"
-
+      input#user_email name="user[email]" type="text" placeholder="Enter e-mail address"
+      br
+      input.yes#form_submit name="commit" type="submit" value="PLAY IT FIRST!"
+      input.no name="cancel" type="reset" value="Wait it out." onclick="$('[data-remodal-id=modal]').remodal().close();"
 
 .hero
   .hero-inner
