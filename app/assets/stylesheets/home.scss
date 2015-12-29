@@ -126,36 +126,45 @@ body {
 @media only screen and (max-device-width: 800px) {
   #wrapper {
     width: 100%;
-    height: 1112px;
+    height: 556px;
 
     #cover {
       width: 100%;
       height:100%;
       @include background-image(image-url('bg.png'), image-url('city.png'), linear-gradient(#000, $base-background-color));
       background-repeat: repeat-x, no-repeat;
-      background-size: 3380px 1112px;
-      background-position: right, center;
+      background-size: 1690px 556px;
+      background-position: top, top;
     }
+  }
+
+  .signup .form .input {
+    display: none;
+  }
+
+  .signup .form {
+    padding-bottom: 20px;
   }
 
   .email {
     h1, h2, h3 {
-      font-size: 3em;
+      font-size: 1.25em;
     }
     input[type="text"] {
-      font-size: 48px;
-      height: 80px;
+      font-size: 14px;
+      height: 40px;
+      width: 250px;
     }
     input[type="submit"] {
-      margin-top: 20px;
-      font-size: 42px;
+      margin-top: 10px;
+      font-size: 14px;
       line-height: .25em;
-      height: 80px;
+      height: 40px;
     }
   }
 
   .beta-link {
-    margin-top: 20px;
+    margin-top: 150px;
     width: 600px;
     height: auto;
     @include transition(all 0.3s ease-in-out);
@@ -164,7 +173,7 @@ body {
 
   li.channel {
     a {
-      font-size: 2em;
+      font-size: 1.5em;
     }
   }
 
@@ -173,15 +182,14 @@ body {
 
     @include transform(scale(1.25));
     @include filter(grayscale(50%));
-
   }
 
   .content {
-    margin-top: -100px;
+    margin-top: -150px;
 
     .copy {
       font-family: $base-font-family;
-      font-size: 2em;
+      font-size: 1em;
       margin: 60px;
     }
   }
