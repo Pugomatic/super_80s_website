@@ -81,3 +81,16 @@
     text-align: center;
   }
 }
+
+@media only screen and (max-device-width: 800px) {
+  .social .buttons {
+      ul {
+        margin-left: 20px;
+
+        li {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}
