@@ -217,6 +217,7 @@ body {
     .copy {
       @include span-columns(8);
       @include shift(2);
+      @include omega();
     }
   }
 }
