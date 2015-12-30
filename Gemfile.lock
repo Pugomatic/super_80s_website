@@ -151,6 +151,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    meta-tags (2.1.0)
+      actionpack (>= 3.0.0)
     mime-types (2.6.2)
     mimemagic (0.3.0)
     mini_portile (0.6.2)
@@ -273,6 +275,7 @@ DEPENDENCIES
   gibbon!
   high_voltage
   jquery-rails
+  meta-tags
   neat
   pg
   puma

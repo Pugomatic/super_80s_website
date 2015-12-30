@@ -22,9 +22,12 @@ html
 
     meta name="viewport" content="width=device-width, initial-scale=1"
 
-    title
-      = yield(:title).blank? ? "Super 80s World" : yield(:title)
+    - set_meta_tags site: 'Super 80s World', title: 'The retro-game of the decade... the 1980 s!', description: "Super 80s World is the first retro-platformer set in the 1980s.  Fans of retrogaming & supporters of indie games will love the campy nostalgia of the decade.", keywords: %w[1980s game mobile indie retro retrogaming mario platformer synthwave ios android 80s nostalgia streets rage neon pixel 8bit fun development]
+
+    = display_meta_tags
+
     = yield :header
+
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all'
 
@@ -32,7 +35,7 @@ html
     #wrapper
       #cover
         = link_to '/' do
-          = image_tag('logo.png', class: 'centered logo')
+          = image_tag 'logo.png', class: 'centered logo'
 
     = yield
 
