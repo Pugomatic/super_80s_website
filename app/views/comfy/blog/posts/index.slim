@@ -15,7 +15,8 @@
         .content
           p
             = post.excerpt
-          p
-            = link_to "Read the full article", comfy_blog_post_path(@cms_site.path, @blog.path, post.slug)
+          p style="margin-left: 10px"
+            = link_to comfy_blog_post_path(@cms_site.path, @blog.path, post.slug) do
+              | &raquo; Read the full article
 
       = comfy_paginate @posts
