@@ -7,12 +7,15 @@
 
       - @posts.each do |post|
 
-        h1= link_to post.title, comfy_blog_post_path(@cms_site.path, @blog.path, post.slug)
+        h1 = link_to post.title, comfy_blog_post_path(@cms_site.path, @blog.path, post.slug)
         .author
           = post.author
         .date
           = post.published_at.to_s(:blog)
         .content
-          = post.content.html_safe
+          p
+            = post.excerpt
+          p
+            = link_to "Read the full article", comfy_blog_post_path(@cms_site.path, @blog.path, post.slug)
 
       = comfy_paginate @posts
