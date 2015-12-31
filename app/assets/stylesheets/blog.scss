@@ -19,6 +19,7 @@
         margin-bottom: 10px;
         font-family:  $game-font;
         color: $electric-blue;
+        text-align: center;
       }
 
       ol {
@@ -46,6 +47,7 @@
         font-family:  $game-font;
         font-size: .6em;
         color: $hot-pink;
+        text-align: center;
       }
 
       .date {
@@ -53,6 +55,7 @@
         font-size: .6em;
         margin-bottom: 25px;
         color: $hot-pink;
+        text-align: center;
       }
 
       @include span-columns(8);
@@ -62,6 +65,7 @@
         -ms-text-justify: inter-word;
         text-justify: inter-word;
         text-align: justify;
+
         line-height: 2em;
         font-size: .9em;
       }
