@@ -1,0 +1,18 @@
+= content_for :header do
+  = javascript_include_tag 'http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js'
+  = javascript_include_tag 'unity'
+
+p.header
+  | Super 80s World Press Demo
+
+.content
+  #unityPlayer
+    .missing
+      a href="http://unity3d.com/webplayer/" title=("Unity Web Player. Install now!")
+        img alt="Unity Web Player. Install now!" height="63" src="http://webplayer.unity3d.com/installation/getunity.png" width="193"
+    .broken
+      a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now! Restart your browser after install."
+        img alt="Unity Web Player. Install now! Restart your browser after install." height="63" src="http://webplayer.unity3d.com/installation/getunityrestart.png" width="193"
+
+br
+br
