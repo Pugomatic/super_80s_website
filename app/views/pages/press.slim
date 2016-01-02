@@ -81,6 +81,12 @@
       p
         = link_to "Download zip file", "/assets/Super80sWorldPress.zip"
 
+      p
+        ul
+          - %w(hungry-hippos miami-nice moonwalk-powerup smores-boss streets-of-rage).each do |file|
+            li style="display: inline; margin-right: 20px"
+              = link_to "/assets/#{file}.png" do
+                = image_tag "#{file}.png", size: '162x91'
       hr
 
       h2#logo Logo &amp; Icon
