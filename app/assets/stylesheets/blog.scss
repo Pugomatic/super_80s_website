@@ -62,10 +62,6 @@
       @include shift(2);
       @include omega();
       p {
-        -ms-text-justify: inter-word;
-        text-justify: inter-word;
-        text-align: justify;
-
         line-height: 2em;
         font-size: .9em;
       }
