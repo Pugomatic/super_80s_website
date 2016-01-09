@@ -84,6 +84,7 @@ body {
     .words {
       white-space: nowrap;
       margin-top: 7px;
+      margin-left: 15px;
       padding-right: 20px;
     }
 
@@ -146,6 +147,15 @@ input[type="reset"].no {
   width: 240px;
 }
 
+
+.content {
+  .copy {
+    p {
+      @include justify-content(center);
+      text-align: center;
+    }
+  }
+}
 
 @media only screen and (max-device-width: 800px) {
   input[type="submit"].yes {
@@ -228,11 +238,6 @@ input[type="reset"].no {
       font-family: $base-font-family;
       font-size: 1em;
       margin: 60px;
-      text-align: center;
-
-      p {
-        text-align: center;
-      }
     }
   }
 
@@ -268,6 +273,12 @@ input[type="reset"].no {
       @include span-columns(8);
       @include shift(2);
       @include omega();
+    }
+  }
+
+  .social {
+    .buttons {
+      margin-top: -40px;
     }
   }
 }

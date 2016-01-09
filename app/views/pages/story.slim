@@ -15,9 +15,9 @@
 
     p
       | You were the&nbsp;
-      a href="https://dancamaro.bandcamp.com" lead keytarist
+      a href="https://dancamaro.bandcamp.com" target="_blank" lead keytarist
       |&nbsp;in&nbsp;
-      a href="https://dancamaro.bandcamp.com" The Kasiotones
+      a href="https://dancamaro.bandcamp.com" target="_blank" The Kasiotones
       |, a band that once played the title track for "Bark at the Future".  Unfortunately, the Teen-Wolf-Back-to-the-Future mash-up never made it to the big screen. Now you live alone with your dog,&nbsp;
       i Spuds
       |, and dream of what might have been.
@@ -27,12 +27,15 @@
     p You had been restoring it for years.
 
     p
-      i Today you finally got it to run...
+      i Today you finally&nbsp;
+      a href="/video#view" style="font-style: italic;" got it to run...
 
-br
+    p
+      = image_tag 'delorean_start.png'
+    p And now, with the power of 200 horses under your feet and an old-school video game cartridge in hand, your journey is about to begin.
 
-.social
-  .buttons style="margin-top: 20px;"
+.social style="margin-top: 60px"
+  .buttons
     ul
       li.channel
         a.pink STORY
@@ -44,5 +47,6 @@ br
         a href="/blog" BLOG
 
 .content
-  .copy
-    = render partial: 'pages/tracking'
+  .copy style="margin-top: 30px"
+    = render partial: 'pages/bottom'
+  = render partial: 'pages/tracking'
