@@ -1,20 +1,30 @@
 #press {
+  margin-top: -140px;
   .title {
     margin-bottom: 10px;
-    font-family:  $game-font;
+    font-family: $game-font;
   }
 
   .author {
-    font-family:  $game-font;
+    font-family: $game-font;
     font-size: .7em;
   }
 
   .date {
-    font-family:  $game-font;
+    font-family: $game-font;
     font-size: .5em;
     margin-bottom: 25px;
   }
+}
 
+@media only screen and (max-device-width: 800px) {
+  #press {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+}
+
+@media only screen and (min-device-width: 801px) {
   section {
     @include outer-container;
     aside {
