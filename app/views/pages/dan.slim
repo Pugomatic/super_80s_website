@@ -1,12 +1,12 @@
 = content_for :title do
   | Dan Camaro
 
-#press
-  section
-    aside
-      = image_tag('Dan-Yearbook.png');
+#profile
+  .section
+    .aside
+      = image_tag('dan-camaro.png', style: 'margin-left: -40px', size: '310x317');
       p
-        = mail_to 'dan@super80sworld.com', ' Dan Camaro'
+        = mail_to 'dan@super80sworld.com', 'Dan Camaro'
         strong.subtle
         br
         span.small.subtle Sign: &nbsp;&nbsp;
@@ -17,31 +17,34 @@
         br
         span.small.subtle Drives: &nbsp;
         strong.small Delorean
+
+    .article
+      h2 Dan Camaro
+      p His collar is always popped.  His hair long in the back and short on top. He loves fast cars, loud guitars, big hair and leotards.
+      p
+        span.pink He loves the 80s
+        |. That was his heyday.
+      p
+        | He was the&nbsp;
+        a href="https://dancamaro.bandcamp.com/album/my-other-car-is-a-delorea" target="_blank" lead keytarist
+        |&nbsp;in a seminal band of the MTV generation.  His latest work was the title track for "Bark at the Future", a Teen-Wolf-Back-to-the-Future mash-up that never made it to the big screen.
+      p
+        | In his garage sits the last remnant of that forgotten era:
+        br
+        a href="/delorean" a 1983 Delorean DMC-12
+        |&nbsp;inherited from the movie's producer.
+      p He has been restoring it for years.
+
       p
         ul
-          li
+          li  style="display: inline"
             span.small.subtle
               a href="http://twitter.com/dan_camaro" target="_blank"  Twitter
-          li
+              |&nbsp;|
+          li  style="display: inline"
             span.small.subtle
               a href="https://facebook.com/dan.camaro" target="_blank"  Facebook
-          li
+              |&nbsp;|
+          li style="display: inline"
             span.small.subtle
-              a href="https://dancamaro.bandcamp.com" target="_blank"  Bandcamp
-          li
-            span.small.subtle
-              a href="https://soundcloud.com/dan-camaro" target="_blank"  SoundCloud
-
-    article
-      h2 Dan Camaro
-      p If the 80s was a man, it would be Dan Camaro.
-      p
-        | Formerly the lead Keytarist of The Kasiotones, he went solo in the late 1980s, releasing a&nbsp;
-        a href="https://dancamaro.bandcamp.com/releases" target="_blank" single album
-        |&nbsp;to luke-warm reviews.
-      p Dan's acclaim faded with the decade that made him what he was.  Now considered washed up by most, he vowed to make a comeback - to bring back the 80s.
-      p He had no idea what he was in for...
-      p
-        | He's about to enter&nbsp;
-        a href="/" Super 80s World
-
+              a href="https://dancamaro.bandcamp.com/album/my-other-car-is-a-delorean" target="_blank"  Bandcamp

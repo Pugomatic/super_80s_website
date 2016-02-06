@@ -1,0 +1,23 @@
+= content_for :title do
+  | Delorean DMC-12
+
+#profile
+  .section
+    = image_tag('delorean.png')
+
+.social style="margin-top: 60px"
+  .buttons
+    ul
+      li.channel
+        a.pink STORY
+      li.channel
+        a href="/video#view" VIDEO
+      li.channel
+        a href="/screenshots#view" SCREENSHOTS
+      li.channel
+        a href="/blog" BLOG
+
+.content
+  .copy style="margin-top: 30px"
+    = render partial: 'pages/bottom'
+    = render partial: 'pages/tracking'

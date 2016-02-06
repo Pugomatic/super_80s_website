@@ -9,12 +9,24 @@ Rails.application.routes.draw do
   get '/admin/email' => 'admin/email#index'
   get '/press/demo' => 'demo#index'
   get '/press/demo/unity3d' => 'demo#unity3d'
+
   get '/dan' => 'high_voltage/pages#show', id: 'dan'
   get '/dan/camaro' => 'high_voltage/pages#show', id: 'dan'
   get '/dancamaro' => 'high_voltage/pages#show', id: 'dan'
   get '/dan_camaro' => 'high_voltage/pages#show', id: 'dan'
   get '/DanCamaro' => 'high_voltage/pages#show', id: 'dan'
   get '/Dan' => 'high_voltage/pages#show', id: 'dan'
+
+  get '/debbie' => 'high_voltage/pages#show', id: 'debbie'
+  get '/debbie/whatever' => 'high_voltage/pages#show', id: 'debbie'
+  get '/debbie/what-ever' => 'high_voltage/pages#show', id: 'debbie'
+
+  get '/noid' => 'high_voltage/pages#show', id: 'noid'
+  get '/noid/wormser' => 'high_voltage/pages#show', id: 'noid'
+  get '/dr/noid/wormser' => 'high_voltage/pages#show', id: 'noid'
+
+  get '/delorean' => 'high_voltage/pages#show', id: 'delorean'
+  get '/delorean/dmc12' => 'high_voltage/pages#show', id: 'delorean'
 
   comfy_route :blog_admin, :path => '/admin'
   comfy_route :blog, :path => '/blog'
