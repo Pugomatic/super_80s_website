@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get '/' => 'high_voltage/pages#show', id: 'video', as: 'root'
   get '/twitter' => 'high_voltage/pages#show', id: 'twitter', as: 'twitter'
   get '/video' => 'high_voltage/pages#show', id: 'video', as: 'video'
+  get '/gameplay' => 'high_voltage/pages#show', id: 'gameplay', as: 'gameplay'
   get '/screenshots' => 'high_voltage/pages#show', id: 'screenshots', as: 'screenshots'
   get '/press' => 'high_voltage/pages#show', id: 'press', as: 'press'
   get '/story' => 'high_voltage/pages#show', id: 'story', as: 'story'

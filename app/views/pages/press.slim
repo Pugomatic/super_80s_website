@@ -14,15 +14,13 @@
       p
         strong.subtle Release Date
         br
-        | February 2016
+        | November 2016
       p
         strong.subtle Platforms
         br
-        | iTunes App Store
+        | iOS (Initial)
         br
-        i Windows, Mac*
-        br
-        i Android Play Store*
+        | Android & PC (Later)
         br
       p
         strong.subtle Website
@@ -72,23 +70,28 @@
       h2#trailers Videos
       p
         strong.subtle Trailer (Beta) &nbsp;
-        a href="https://www.youtube.com/watch?v=_7B7rCfFiuA" YouTube
+        a href="https://www.youtube.com/watch?v=EBrr0_0tkJY" YouTube
         .video
           .video-wrapper
-            iframe width="1280" height="720" src="https://www.youtube.com/embed/_7B7rCfFiuA?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen=""
+            iframe width="1280" height="720" src="https://www.youtube.com/embed/EBrr0_0tkJY?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen=""
       hr
 
       h2#images Images
 
       p
-        = link_to "Download zip file", "/Super80sWorldPress.zip"
-
-      p
         ul
-          - %w(hungry-hippos miami-nice moonwalk-powerup smores-boss streets-of-rage).each do |file|
-            li style="display: inline; margin-right: 20px"
-              = link_to "/assets/#{file}.png" do
-                = image_tag "#{file}.png", size: '162x91'
+          li
+            = image_tag 'screenshots/Super80sWorld-Tokens.gif'
+          li
+            = image_tag 'screenshots/Super80sWorld-Magnum.gif'
+          li
+            = image_tag 'screenshots/Super80sWorld-Subway.gif'
+          li
+            = image_tag 'screenshots/Super80sWorld-Raise-Da-Roof.gif'
+          li
+            = image_tag 'screenshots/Super80sWorld-Collectables.gif'
+          li
+            = image_tag 'screenshots/Super80sWorld-Scar-Juice.gif'
       hr
 
       h2#logo Logo &amp; Icon
