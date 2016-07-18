@@ -1,18 +1,7 @@
 
-h3 Most Recent
-= simple_format @users[0,50].map(&:email).join("\n")
+h3 Email List
 
-h3 Full List
-
-table
-  tr
-    th Email Address
-    th Referrer
-    th Date / Time
-
-  - @users.each do |user|
-    tr
-      td = user.email
-      td = user.tracking.session_referer_url
-      td = user.created_at.to_formatted_s(:long)
+- @users.each do |user|
+  = user.email
+  br
 
