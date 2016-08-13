@@ -1,7 +1,14 @@
 
 h3 Email List
 
-- @users.each do |user|
-  = user.email
-  br
+table
+  tr
+    th email
+    th date
+
+  - @users.each do |user|
+    tr
+      td = user.email
+      td = user.created_at
+
 
