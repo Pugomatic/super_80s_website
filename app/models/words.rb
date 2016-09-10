@@ -174,6 +174,10 @@ class Words
     Ultra
     Crystal
     Chrome
+    Numeric
+    Sunday
+    Sunday-Morning
+    Echoing
     Running
     Transatlantic
     Wild
@@ -214,15 +218,20 @@ class Words
     Pre-owned
     Driven
     Elastic
+    Class-of
   )
 
   NOUNS = %w(
+    Synesthesia
     Telefuture
     Bass
     High-Score
     Player-One
     Falcon
     Seagulls
+    Wealth
+    Happiness
+    Horrorshow
     Distance
     Cube
     Rainbow
@@ -243,6 +252,7 @@ class Words
     Echo
     Analysis
     Wires
+    Patch-bay
     Wire
     A-Tron
     Bomb
@@ -266,6 +276,7 @@ class Words
     Edge
     Runaway
     Propaganda
+    Mneumonic
     Energy
     Regrets
     Now
