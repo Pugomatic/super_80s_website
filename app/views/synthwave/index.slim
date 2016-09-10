@@ -19,6 +19,15 @@
     br
 
     p You love the 80s.  We love the 80s.
-    p Click below for early access to our game!
+    p Click below for more info on our game!
 
 = render partial: 'pages/top'
+
+.content
+  .copy
+    p
+      ' To find out more about my tunes, check out my
+      = link_to 'Soundcloud', 'https://soundcloud.com/dan-camaro', target: '_blank'
+      '&nbsp;and
+      = link_to 'Bandcamp', 'https://dancamaro.bandcamp.com/album/my-other-car-is-a-delorean', target: '_blank'
+      '&nbsp;pages.
