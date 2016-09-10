@@ -6,6 +6,7 @@ class Words
     Flip
     Magnum
     Eject
+    Nuke-'Em
     Ferrari
     Modern
     Tangerine
@@ -74,6 +75,7 @@ class Words
     Tracking
     Extraterrestrial
     BMX
+    Tape
     Daydream
     Endless
     My-Little
@@ -156,6 +158,7 @@ class Words
     Hi-Fidelity
     Covert
     First
+    Late-Nite
     Higher
     Mixed
     Ultra
@@ -187,6 +190,7 @@ class Words
     Orbital
     Spectral
     Cubic
+    Gleaming
     Geometric
     Plastic
     Vinyl
@@ -196,14 +200,27 @@ class Words
     Tele
     Sci-fi
     Video
+    Silver
+    Pre-owned
+    Driven
+    Elastic
   )
 
   NOUNS = %w(
     Telefuture
+    Bass
+    High-Score
+    Player-One
+    Falcon
+    Seagulls
+    Distance
+    Cube
     Rainbow
     Pleasure
+    Last-Night
     Video
     Game
+    Generator
     Tangerine
     Action
     Hotline
@@ -211,10 +228,13 @@ class Words
     Futurism
     Reverb
     Station
+    Gate
+    Echo
     Analysis
     Wires
     Wire
     A-Tron
+    Bomb
     Tronic
     Trans-Am
     Rush
@@ -409,6 +429,7 @@ class Words
     Beeper
     Body
     Walkman
+    Blast
     Disc
     Disk
     Laserdisc
@@ -519,6 +540,7 @@ class Words
     Ride
     Speed
     Neon
+    Lens
     FM
     Driver
     Blue
