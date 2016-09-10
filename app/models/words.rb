@@ -231,10 +231,19 @@ class Words
     Electronic
     Synthesizing
     Syntronic
+    Daytime
+    Kick-start
+    Triangular
+    Zebra-print
+    Bad-ass
   )
 
   NOUNS = %w(
+    Mogwai
+    Miyagi
     Analog
+    Chaperon
+    Melodrama
     Hasslehoff
     Hoff
     Digital
