@@ -131,6 +131,7 @@ class Words
     Soviet
     Punk
     New
+    Radio
     Tubular
     Arcade
     Resonant
@@ -223,6 +224,8 @@ class Words
 
   NOUNS = %w(
     Synesthesia
+    Dawn
+    Dragon
     Telefuture
     Bass
     High-Score
