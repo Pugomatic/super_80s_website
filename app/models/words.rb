@@ -241,9 +241,16 @@ class Words
     Photographic
     Online
     Sampled
+    New-Gold
+    New-Dark
+    Emotional
+    Tainted
   )
 
   NOUNS = %w(
+    Threesome
+    Age
+    Years
     Noise
     Mogwai
     Photograph
