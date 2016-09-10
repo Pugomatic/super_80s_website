@@ -1,0 +1,24 @@
+.content
+  .copy
+    h1 style="text-align: center; font-size: 2em;" Synthwave Name Generator
+
+    p style="text-align: justify;" Struggling to find the perfect name for your new Synthwave Band or Song?
+
+    p#name Here's the awesome synthwave name we've come up with
+
+    h2.neon_blue style="text-align: center; font-size: 2em;" = @name
+
+    p style="text-align: center;"
+      ' Bogus name?
+      = link_to "Try Again", '/synthwave'
+
+    .video
+      .video-wrapper
+        iframe width="1280" height="720" src="https://www.youtube.com/embed/EBrr0_0tkJY?vq=hd1080;rel=0&amp;showinfo=0" frameborder="0" allowfullscreen=""
+
+    br
+
+    p You love the 80s.  We love the 80s.
+    p Click below for early access to our game!
+
+= render partial: 'pages/top'

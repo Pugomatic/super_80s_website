@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   get '/delorean' => 'high_voltage/pages#show', id: 'delorean'
   get '/delorean/dmc12' => 'high_voltage/pages#show', id: 'delorean'
 
+  resources :synthwave, only: [:index]
+
   comfy_route :blog_admin, :path => '/admin'
   comfy_route :blog, :path => '/blog'
 
