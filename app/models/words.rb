@@ -1,9 +1,14 @@
 class Words
   ADJECTIVES = %w(
     Romantic
+    Fast-Forward
+    Rewinding
+    Flip
     Magnum
+    Eject
     Ferrari
     Modern
+    Tangerine
     Redline
     Post-Apocalyptic
     Speed
@@ -102,6 +107,7 @@ class Words
     South-Beach
     Ocean
     Love
+    Retro
     Night
     Toxic
     Monochrome
@@ -128,6 +134,7 @@ class Words
     Road
     Loud
     Tricky
+    Berserk
     Coleco
     Telemetric
     Moonlight
@@ -175,9 +182,40 @@ class Words
     She-Likes
     Aimless
     Memorex
+    Sync
+    Animated
+    Orbital
+    Spectral
+    Cubic
+    Geometric
+    Plastic
+    Vinyl
+    Lucid
+    Rainbow
+    Gated
+    Tele
+    Sci-fi
+    Video
   )
 
   NOUNS = %w(
+    Telefuture
+    Rainbow
+    Pleasure
+    Video
+    Game
+    Tangerine
+    Action
+    Hotline
+    Sync
+    Futurism
+    Reverb
+    Station
+    Analysis
+    Wires
+    Wire
+    A-Tron
+    Tronic
     Trans-Am
     Rush
     Power-Glove
@@ -189,8 +227,10 @@ class Words
     Matrix
     Saturday
     Going-Steady
+    Rewind
     Star
     Breeze
+    Soundtrack
     Edge
     Runaway
     Energy
@@ -216,6 +256,9 @@ class Words
     Phone-Booth
     Engines
     Rev
+    Side-Two
+    Side-A
+    Side-B
     Nightfall
     Planet
     Class
@@ -462,9 +505,16 @@ class Words
     Wasteland
     Satellite
     Escape
+    Technology
+    Fury
+    Move
+    Intercept
+    Drugs
     Millennium
     1999
     1988
+    80
+    Eighties
     Party
     Ride
     Speed
@@ -553,6 +603,8 @@ class Words
     '80s
     Vice
     Neon
+    On-Coke
+    On-Crack
   )
 
   def self.generate
