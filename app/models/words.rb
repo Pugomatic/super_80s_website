@@ -174,9 +174,11 @@ class Words
     She's-A
     She-Likes
     Aimless
+    Memorex
   )
 
   NOUNS = %w(
+    Power-Glove
     Chrome
     Filter-Sweep
     Streets
