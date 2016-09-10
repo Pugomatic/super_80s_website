@@ -178,6 +178,8 @@ class Words
   )
 
   NOUNS = %w(
+    Trans-Am
+    Rush
     Power-Glove
     Chrome
     Filter-Sweep
