@@ -4,8 +4,10 @@ class Words
     Fast-Forward
     Rewinding
     Flip
+    Just-Say
     Magnum
     Eject
+    Dial
     Nuke-'Em
     Ferrari
     Modern
@@ -217,6 +219,7 @@ class Words
     Cube
     Rainbow
     Pleasure
+    Theme
     Last-Night
     Video
     Game
@@ -238,6 +241,7 @@ class Words
     Tronic
     Trans-Am
     Rush
+    Coke
     Power-Glove
     Chrome
     Filter-Sweep
@@ -300,6 +304,7 @@ class Words
     Moment
     Revenge
     Girl-Talk
+    Connection
     Film
     Blaster
     Crimewave
@@ -508,6 +513,7 @@ class Words
     Burn
     Terminator
     Brat-Pack
+    Autobahn
     Bueller
     Ferris
     Steady
@@ -552,6 +558,8 @@ class Words
     Blade
     Magnum
     Morning-After
+    Zero
+    Dial
   )
 
   BEGINNINGS = %w(
