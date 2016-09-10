@@ -3,8 +3,11 @@ class Words
     Romantic
     Fast-Forward
     Rewinding
+    Crimped
+    Teased
     Flip
     Just-Say
+    Rubik's
     Magnum
     Eject
     Dial
@@ -305,6 +308,7 @@ class Words
     Revenge
     Girl-Talk
     Connection
+    Adidas
     Film
     Blaster
     Crimewave
@@ -433,6 +437,7 @@ class Words
     Empire
     Beeper
     Body
+    Transformers
     Walkman
     Blast
     Disc
@@ -580,6 +585,7 @@ class Words
     Power
     Maximum
     Max
+    Robo
     Heather's
     Crockett's
     Chucky's
