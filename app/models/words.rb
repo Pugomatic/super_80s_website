@@ -3,8 +3,11 @@ class Words
     Romantic
     Fast-Forward
     Rewinding
+    About
+    Desperately-Seeking
     Crimped
     Teased
+    Randomized
     Flip
     Just-Say
     Rubik's
@@ -26,6 +29,7 @@ class Words
     Cathode-Ray
     Plug-&-Play
     Interlaced
+    The-Breakfast
     Blade
     Satellite
     Telephonic
@@ -37,6 +41,7 @@ class Words
     Stoked
     Red
     Synthetic
+    Binary
     John-Hughes
     Infinite
     Flux
@@ -260,6 +265,7 @@ class Words
     Soundtrack
     Edge
     Runaway
+    Propaganda
     Energy
     Regrets
     Now
@@ -376,6 +382,7 @@ class Words
     ColecoVision
     Intellivision
     64
+    Digits
     Commando
     Jean-Jacket
     Breakfast
