@@ -212,6 +212,7 @@ class Words
     Lucid
     Rainbow
     Gated
+    MIDI
     Tele
     Sci-fi
     Video
@@ -220,19 +221,43 @@ class Words
     Driven
     Elastic
     Class-of
+    Major
+    Mega
+    Feigned
+    Corduroy
+    Purple
+    Sound-Of
+    Cosmic
+    Electronic
+    Synthesizing
+    Syntronic
   )
 
   NOUNS = %w(
+    Analog
+    Hasslehoff
+    Hoff
+    Digital
+    Electronics
+    Q
+    Religion
+    Rain
+    Thunder
+    Camera
+    Getaway
+    Nostalgia
     Synesthesia
     Dawn
     Dragon
     Telefuture
+    Calculus
     Bass
     High-Score
     Player-One
     Falcon
     Seagulls
     Wealth
+    Synthesis
     Happiness
     Horrorshow
     Distance
