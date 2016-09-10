@@ -236,10 +236,21 @@ class Words
     Triangular
     Zebra-print
     Bad-ass
+    Ionic
+    Vapid
+    Photographic
+    Online
+    Sampled
   )
 
   NOUNS = %w(
+    Noise
     Mogwai
+    Photograph
+    VCR
+    Darkroom
+    Modem
+    Online
     Miyagi
     Analog
     Chaperon
