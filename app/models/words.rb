@@ -245,14 +245,17 @@ class Words
     New-Dark
     Emotional
     Tainted
+    Radiated
+    Silkwood
+    Atomic
   )
 
   NOUNS = %w(
+    Radiation
     Threesome
     Age
     Years
     Noise
-    Mogwai
     Photograph
     VCR
     Darkroom
