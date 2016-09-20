@@ -12,6 +12,7 @@ class Words
     Teased
     Randomized
     Flip
+    Cool
     Just-Say
     Rubik's
     Magnum
@@ -261,6 +262,7 @@ class Words
     Threesome
     Age
     Years
+    Specs
     Noise
     Photograph
     VCR
