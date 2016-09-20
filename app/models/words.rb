@@ -1,6 +1,8 @@
 class Words
   ADJECTIVES = %w(
     Romantic
+    Saxophonic
+    Rayban
     Fast-Forward
     Infrared
     Rewinding
@@ -249,6 +251,9 @@ class Words
     Radiated
     Silkwood
     Atomic
+    The
+    Pink
+    Magenta
   )
 
   NOUNS = %w(
@@ -261,6 +266,11 @@ class Words
     VCR
     Darkroom
     Modem
+    Shades
+    Smile
+    Sex
+    Sweat
+    Tears
     Online
     Miyagi
     Analog
