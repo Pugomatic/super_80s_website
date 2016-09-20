@@ -2,6 +2,7 @@ class Words
   ADJECTIVES = %w(
     Romantic
     Fast-Forward
+    Infrared
     Rewinding
     About
     Desperately-Seeking
