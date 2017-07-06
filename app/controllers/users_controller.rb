@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
+    @user.ip_address = request.remote_ip
 
     if user_params[:email] =~ /163\.com$/
       flash[:notice] = "Nothing to see here"
