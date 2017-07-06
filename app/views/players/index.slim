@@ -1,0 +1,39 @@
+#profile
+  .section
+    h1.heady
+      | Prize & Mailing List
+
+    table.simple
+      tr.no_padding
+        td colspan="2"
+          b Name
+          input
+        td colspan="2"
+          b EMail
+          input
+        td
+          input type="checkbox"
+          ' iPhone
+          br
+          input type="checkbox"
+          ' iPad
+        td
+          input type="checkbox"
+          ' Android
+          br
+          input type="checkbox"
+          ' Other
+        td
+          = button_tag "Groovy"
+
+      tr
+        td colspan="7"
+          hr
+      tr.prize
+        td
+          = icon 'star'
+        td 7/6/17 12:30pm
+        td colspan="2" Debbie Gibson
+        td colspan="3"
+          span.blur onmousedown='return false;' onselectstart='return false;'
+            | debbie@gibsasdfasdfasdfon.com

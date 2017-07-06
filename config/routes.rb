@@ -31,6 +31,8 @@ Rails.application.routes.draw do
 
   resources :synthwave, only: [:index]
 
+  resources :players
+
   comfy_route :blog_admin, :path => '/admin'
   comfy_route :blog, :path => '/blog'
 

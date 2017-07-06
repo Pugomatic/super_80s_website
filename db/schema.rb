@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160813145725) do
+ActiveRecord::Schema.define(version: 20170706225338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -179,6 +179,18 @@ ActiveRecord::Schema.define(version: 20160813145725) do
   add_index "comfy_cms_snippets", ["site_id", "identifier"], name: "index_comfy_cms_snippets_on_site_id_and_identifier", unique: true, using: :btree
   add_index "comfy_cms_snippets", ["site_id", "position"], name: "index_comfy_cms_snippets_on_site_id_and_position", using: :btree
 
+  create_table "players", force: :cascade do |t|
+    t.datetime "prized_at"
+    t.string   "name"
+    t.string   "email",      null: false
+    t.boolean  "iphone"
+    t.boolean  "ipad"
+    t.boolean  "android"
+    t.string   "other"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "referer_trackings", force: :cascade do |t|
     t.integer  "trackable_id"
     t.string   "trackable_type"
@@ -205,6 +217,7 @@ ActiveRecord::Schema.define(version: 20160813145725) do
     t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "ip_address"
   end
 
 end
