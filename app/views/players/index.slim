@@ -4,36 +4,41 @@
       | Prize & Mailing List
 
     table.simple
-      tr.no_padding
-        td colspan="2"
-          b Name
-          input
-        td colspan="2"
-          b EMail
-          input
-        td
-          input type="checkbox"
-          ' iPhone
-          br
-          input type="checkbox"
-          ' iPad
-        td
-          input type="checkbox"
-          ' Android
-          br
-          input type="checkbox"
-          ' Other
-        td
-          = button_tag "Groovy"
+      = form_for @player do |f|
+        tr.no_padding
+          td colspan="2"
+            b Name
+            = f.text_field :name, autocomplete: 'off'
+          td colspan="2"
+            b EMail
+            = f.email_field :email, autocomplete: 'off'
+          td
+            = f.check_box :iphone
+            ' iPhone
+            br
+            = f.check_box :ipad
+            ' iPad
+          td
+            = f.check_box :android
+            ' Android
+            br
+            = f.check_box :other
+            ' Other
+          td
+            = f.submit "Enter"
 
       tr
         td colspan="7"
           hr
-      tr.prize
-        td
-          = icon 'star'
-        td 7/6/17 12:30pm
-        td colspan="2" Debbie Gibson
-        td colspan="3"
-          span.blur onmousedown='return false;' onselectstart='return false;'
-            | debbie@gibsasdfasdfasdfon.com
+
+      - @players.each do |player|
+        tr class="#{player.style}"
+          td
+            = icon player.icon
+          td
+            = player.created_at.localtime.strftime("%m/%d/%y %I:%M %p")
+          td colspan="2"
+            = player.name
+          td colspan="3"
+            span.blur onmousedown='return false;' onselectstart='return false;'
+              = player.email

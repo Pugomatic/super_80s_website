@@ -9,9 +9,15 @@ table.simple {
     }
   }
 
-  tr.prize {
+  tr.prized {
     td {
       color: $yellow;
+    }
+  }
+
+  tr.drawn {
+    td {
+      color: #666666;
     }
   }
 
@@ -30,7 +36,7 @@ table.simple {
 
 .blur {
   color: transparent;
-  text-shadow: $yellow 0px 0px 8px;
+  text-shadow: white 0px 0px 8px;
 }
 
 h1.heady {

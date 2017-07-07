@@ -181,12 +181,13 @@ ActiveRecord::Schema.define(version: 20170706225338) do
 
   create_table "players", force: :cascade do |t|
     t.datetime "prized_at"
+    t.datetime "drawn_at"
     t.string   "name"
     t.string   "email",      null: false
     t.boolean  "iphone"
     t.boolean  "ipad"
     t.boolean  "android"
-    t.string   "other"
+    t.boolean  "other"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
