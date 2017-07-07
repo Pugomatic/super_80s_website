@@ -25,6 +25,6 @@ class PlayersController < ApplicationController
   end
 
   def player_params
-    params.require(:player).permit(:name, :email, :iphone, :ipad, :android, :other)
+    params.require(:player).permit(:name, :email, :iphone, :ipad, :android, :other, :feedback)
   end
 end

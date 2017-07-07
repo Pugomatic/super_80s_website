@@ -1,17 +1,26 @@
 class Player < ActiveRecord::Base
+  belongs_to  :prize
 
   def self.award
     players = where(prized_at: nil, drawn_at: nil).to_a
-    return nil unless players.size > 0
+    prizes = Prize.where('amount > 0')
+    winner = nil
 
-    winner = rand(players.size)
-    players.each do |player|
-      player.update_attribute :drawn_at, Time.now
+    return nil unless players.size > 0 && prizes.size > 0
+
+    transaction do
+      pick = rand(players.size)
+      prize = prizes.to_a[rand(prizes.count)]
+      players.each do |player|
+        player.update_attribute :drawn_at, Time.now
+      end
+
+      players[pick].update_attributes prized_at: Time.now, prize_id: prize.id
+      prize.update_attribute :amount, prize.amount - 1
+      winner = players[pick].reload
     end
 
-    players[winner].update_attribute :prized_at, Time.now
-
-    players[winner]
+    winner
   end
 
   def style

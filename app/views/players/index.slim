@@ -6,9 +6,7 @@
 
     - if @winner
       h3.heady
-        ' The winner is...
-        = @winner.name
-        |!
+        = mail_to @winner.email, "#{@winner.name} won a #{@winner.prize.name}", subject: "You won a #{@winner.prize.name} from Super 80s World!", target: "_blank"
 
     table.simple
       = form_for @player do |f|
@@ -33,31 +31,55 @@
             ' Other
           td.bottom
             = f.submit "Enter"
+          td
+        tr.no_padding
+          td colspan="2"
+          td colspan="4" style="padding-top: 6px"
+            #no_feedback
+              = link_to '#', id: 'feedback_link' do
+                ' Feedback
+                = icon('caret-down')
+
+            #feedback style="display: none;"
+              = link_to '#', id: 'no_feedback_link' do
+                ' Feedback
+                = icon('caret-up')
+
+              = f.text_area :feedback
+          td
 
       tr.no_padding
-        td colspan="7"
+        td colspan="8"
           hr style="margin-bottom: 0px"
+
       tr style="margin-top: 0px; padding-top: 0px"
         td colspan="5"
         td colspan="2" align="right"
-          = link_to 'Pick a winner', '#', onclick: 'Winner();'
+        td
 
       - @players.each do |player|
         tr class="#{player.style}"
-          td
-            = icon player.icon
-          td
-            = player.created_at.localtime.strftime("%m/%d/%y %I:%M %p")
           td colspan="2"
-            = player.name
-          td colspan="3"
+            = icon player.icon
+            '
+            = player.prize.try(:name)
+          td colspan="2"
+            = truncate(player.name, length: 20)
+          td colspan="2"
             span.blur onmousedown='return false;' onselectstart='return false;'
-              = player.email
+              = truncate(player.email, lenght: 20)
+          td
+            = player.created_at.localtime.strftime("%-m/%-d %-I:%M%P")
 
 javascript:
-  function Winner() {
-      var pass = prompt("What is the magic word?", "");
-      if (pass == 'turbo') {
-          window.location = "/players/award";
-      }
-  }
+  $(function() {
+     $("#no_feedback_link").click(function() {
+        $("#no_feedback").show();
+        $("#feedback").hide();
+     });
+
+     $("#feedback_link").click(function () {
+        $("#no_feedback").hide();
+        $("#feedback").show();
+     });
+  });
