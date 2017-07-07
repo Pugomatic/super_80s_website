@@ -3,6 +3,13 @@
     h1.heady
       | Prize & Mailing List
 
+
+    - if @winner
+      h3.heady
+        ' The winner is...
+        = @winner.name
+        |!
+
     table.simple
       = form_for @player do |f|
         tr.no_padding
@@ -12,24 +19,28 @@
           td colspan="2"
             b EMail
             = f.email_field :email, autocomplete: 'off'
-          td
+          td.bottom
             = f.check_box :iphone
             ' iPhone
             br
             = f.check_box :ipad
             ' iPad
-          td
+          td.bottom
             = f.check_box :android
             ' Android
             br
             = f.check_box :other
             ' Other
-          td
+          td.bottom
             = f.submit "Enter"
 
-      tr
+      tr.no_padding
         td colspan="7"
-          hr
+          hr style="margin-bottom: 0px"
+      tr style="margin-top: 0px; padding-top: 0px"
+        td colspan="5"
+        td colspan="2" align="right"
+          = link_to 'Pick a winner', '#', onclick: 'Winner();'
 
       - @players.each do |player|
         tr class="#{player.style}"
@@ -42,3 +53,11 @@
           td colspan="3"
             span.blur onmousedown='return false;' onselectstart='return false;'
               = player.email
+
+javascript:
+  function Winner() {
+      var pass = prompt("What is the magic word?", "");
+      if (pass == 'turbo') {
+          window.location = "/players/award";
+      }
+  }

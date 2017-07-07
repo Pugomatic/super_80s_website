@@ -31,6 +31,10 @@ table.simple {
         margin-bottom: 0px;
       }
     }
+
+    td.bottom {
+      vertical-align: bottom;
+    }
   }
 }
 
@@ -39,9 +43,16 @@ table.simple {
   text-shadow: white 0px 0px 8px;
 }
 
-h1.heady {
+
+.heady {
   text-align: center;
   font-size: 2em;
+}
 
+h1.heady {
   color: $yellow;
+}
+
+.adjust_up {
+  margin-top: -240px;
 }

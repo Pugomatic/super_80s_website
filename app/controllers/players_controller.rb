@@ -6,6 +6,14 @@ class PlayersController < ApplicationController
     @players = Player.order(created_at: :desc)
   end
 
+  def award
+    @winner = Player.award
+
+    index
+
+    render :index
+  end
+
   def create
     Player.create!(player_params)
 

@@ -46,11 +46,10 @@ html
 
   body
     #wrapper
-      #cover
-        = link_to '/' do
-          = image_tag 'logo.png', class: 'centered logo'
+      = image_tag 'logo.png', class: 'centered logo'
 
-    = yield
+    .adjust_up
+      = yield
 
     footer.footer role="contentinfo"
       p &copy;
