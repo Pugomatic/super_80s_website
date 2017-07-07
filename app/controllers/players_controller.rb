@@ -4,6 +4,10 @@ class PlayersController < ApplicationController
   def index
     @player = Player.new
     @players = Player.order(created_at: :desc)
+
+    if Player.where(drawn_at: nil).count >= 5
+      @winner = Player.award
+    end
   end
 
   def award
