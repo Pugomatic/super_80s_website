@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  invisible_captcha only: [:create], honeypot: :subtitle
+
   def create
     @user = User.new(user_params)
     @user.ip_address = request.remote_ip

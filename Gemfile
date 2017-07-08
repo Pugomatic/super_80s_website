@@ -19,6 +19,7 @@ gem 'strip_attributes'
 gem 'dynamic_sitemaps'
 
 gem 'gibbon', git: 'git://github.com/amro/gibbon.git'
+gem 'invisible_captcha'
 
 group :development, :test do
   gem 'byebug'

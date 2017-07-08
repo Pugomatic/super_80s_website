@@ -1,6 +1,8 @@
 class PlayersController < ApplicationController
   layout 'simple'
 
+  invisible_captcha only: [:create], honeypot: :subtitle
+
   def index
     @player = Player.new
     @players = Player.order(created_at: :desc)

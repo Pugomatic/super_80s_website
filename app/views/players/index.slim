@@ -10,6 +10,7 @@
 
     table.simple
       = form_for @player do |f|
+        = f.invisible_captcha :subtitle
         tr.no_padding
           td colspan="2"
             b Name

@@ -2,8 +2,9 @@
   .email
     h2 Monthly updates and early access!
     br
-    form#mailing_list_form action="/users" method="post"
+    = form_for @user, id: 'mailing_list_form' do |f|
       input name="authenticity_token" value="#{form_authenticity_token}" type="hidden"
+      = f.invisible_captcha :subtitle
       input#user_email name="user[email]" type="text" placeholder="Enter e-mail address"
       br
       input.yes#form_submit name="commit" type="submit" value="PLAY IT FIRST"
