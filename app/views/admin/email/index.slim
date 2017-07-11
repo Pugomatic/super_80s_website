@@ -6,11 +6,13 @@ table
     th email
     th ip
     th date
+    th suspect
 
   - @users.each do |user|
     tr
       td = user.email
       td = user.ip_address
       td = user.created_at
+      td = user.is_suspect
 
 
