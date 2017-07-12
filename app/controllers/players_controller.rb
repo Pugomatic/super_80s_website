@@ -6,24 +6,22 @@ class PlayersController < ApplicationController
   def index
     @player = Player.new
     @players = Player.order(created_at: :desc)
-
-    if Player.where(drawn_at: nil).count >= 5
-      @winner = Player.award
-    end
-  end
-
-  def award
-    @winner = Player.award
-
-    index
-
-    render :index
   end
 
   def create
-    Player.create!(player_params)
+    @player = Player.new(player_params)
 
-    redirect_to players_path
+    if @player.save
+      @winner = @player.award!
+    else
+      flash.now[:error] = @player.errors.full_messages.join(', ')
+    end
+
+    @player = Player.new
+
+    @players = Player.order(created_at: :desc)
+
+    render :index
   end
 
   def player_params

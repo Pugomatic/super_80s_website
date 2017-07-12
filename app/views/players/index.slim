@@ -3,7 +3,6 @@
     h1.heady
       | Prize & Mailing List
 
-
     - if @winner
       h3.heady
         = mail_to @winner.email, "#{@winner.name} won a #{@winner.prize.name}", subject: "You won a #{@winner.prize.name} from Super 80s World!", target: "_blank"
@@ -14,7 +13,7 @@
         tr.no_padding
           td colspan="2"
             b Name
-            = f.text_field :name, autocomplete: 'off'
+            = f.text_field :name, autocomplete: 'off', required: true
           td colspan="2"
             b EMail
             = f.email_field :email, autocomplete: 'off'
@@ -49,6 +48,11 @@
               = f.text_area :feedback
           td
 
+      - if flash[:error]
+        tr.no_padding
+          td colspan="8"
+            h5 style="align: center"
+              = flash[:error]
       tr.no_padding
         td colspan="8"
           hr style="margin-bottom: 0px"
