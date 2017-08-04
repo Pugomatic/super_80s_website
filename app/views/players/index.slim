@@ -67,7 +67,7 @@
           td colspan="2"
             = icon player.icon
             '
-            = player.prize.try(:name) || "No Prize"
+            = player.prize.try(:name)
           td colspan="2"
             = truncate(player.name, length: 20)
           td colspan="2"
