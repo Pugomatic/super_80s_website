@@ -4,7 +4,7 @@ class Player < ActiveRecord::Base
   validates   :name, presence: true
   validates   :email, presence: true, uniqueness: true
 
-  ODDS = 3
+  ODDS = 5
 
   def award!
     prize = nil
@@ -28,7 +28,7 @@ class Player < ActiveRecord::Base
     if prized_at
       'prized'
     elsif drawn_at
-      'drawn'
+      ''
     end
   end
 
@@ -36,7 +36,7 @@ class Player < ActiveRecord::Base
     if prized_at
       'star'
     elsif drawn_at
-      ''
+      'ticket'
     else
       'ticket'
     end
