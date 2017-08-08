@@ -1,0 +1,270 @@
+= render partial: 'pages/top'
+
+.content
+  .copy
+    #product-component-df1417e75fa
+
+javascript:
+  /*<![CDATA[*/
+
+    (function () {
+        var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+        if (window.ShopifyBuy) {
+            if (window.ShopifyBuy.UI) {
+                ShopifyBuyInit();
+            } else {
+                loadScript();
+            }
+        } else {
+            loadScript();
+        }
+
+        function loadScript() {
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = scriptURL;
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+            script.onload = ShopifyBuyInit;
+        }
+
+        function ShopifyBuyInit() {
+            var client = ShopifyBuy.buildClient({
+                domain: 'super-80s-world.myshopify.com',
+                apiKey: 'b64af0e803523cc7fabd5d1eb2527128',
+                appId: '6',
+            });
+
+            ShopifyBuy.UI.onReady(client).then(function (ui) {
+                ui.createComponent('product', {
+                    id: [11482784213],
+                    node: document.getElementById('product-component-df1417e75fa'),
+                    moneyFormat: '%24%7B%7Bamount%7D%7D',
+                    options: {
+                        "product": {
+                            "buttonDestination": "checkout",
+                            "layout": "horizontal",
+                            "variantId": "all",
+                            "width": "100%",
+                            "contents": {
+                                "img": false,
+                                "imgWithCarousel": true,
+                                "variantTitle": false,
+                                "description": true,
+                                "buttonWithQuantity": false,
+                                "quantity": false
+                            },
+                            "text": {
+                                "button": "BUY NOW"
+                            },
+                            "styles": {
+                                "product": {
+                                    "text-align": "left",
+                                    "@media (min-width: 601px)": {
+                                        "max-width": "100%",
+                                        "margin-left": "0",
+                                        "margin-bottom": "50px"
+                                    }
+                                },
+                                "button": {
+                                    "background-color": "#b034d8",
+                                    "font-family": "Quantico, sans-serif",
+                                    ":hover": {
+                                        "background-color": "#9e2fc2"
+                                    },
+                                    ":focus": {
+                                        "background-color": "#9e2fc2"
+                                    },
+                                    "font-weight": "bold"
+                                },
+                                "variantTitle": {
+                                    "font-family": "Montserrat, sans-serif",
+                                    "font-size": "16px",
+                                    "font-weight": "bold"
+                                },
+                                "title": {
+                                    "font-family": "Quantico, sans-serif",
+                                    "font-size": "26px",
+                                    "color": "#fef654"
+                                },
+                                "description": {
+                                    "font-size": "18px",
+                                    "font-family": "Montserrat, sans-serif",
+                                    "font-weight": "bold",
+                                    "color": "#ddd",
+                                    "text-align": "justify"
+                                },
+                                "price": {
+                                    "font-family": "Montserrat, sans-serif",
+                                    "font-size": "18px",
+                                    "font-weight": "bold",
+                                    "color": "#3ECAE8"
+                                },
+                                "compareAt": {
+                                    "font-size": "15px",
+                                    "font-family": "Montserrat, sans-serif",
+                                    "font-weight": "bold"
+                                }
+                            },
+                            "googleFonts": [
+                                "Quantico",
+                                "Montserrat",
+                                "Quantico",
+                                "Montserrat",
+                                "Montserrat",
+                                "Montserrat"
+                            ]
+                        },
+                        "cart": {
+                            "contents": {
+                                "button": true
+                            },
+                            "styles": {
+                                "button": {
+                                    "background-color": "#b034d8",
+                                    "font-family": "Quantico, sans-serif",
+                                    ":hover": {
+                                        "background-color": "#9e2fc2"
+                                    },
+                                    ":focus": {
+                                        "background-color": "#9e2fc2"
+                                    },
+                                    "font-weight": "bold"
+                                },
+                                "footer": {
+                                    "background-color": "#ffffff"
+                                }
+                            },
+                            "googleFonts": [
+                                "Quantico"
+                            ]
+                        },
+                        "modalProduct": {
+                            "contents": {
+                                "img": false,
+                                "imgWithCarousel": true,
+                                "variantTitle": false,
+                                "buttonWithQuantity": true,
+                                "button": false,
+                                "quantity": false
+                            },
+                            "styles": {
+                                "product": {
+                                    "@media (min-width: 601px)": {
+                                        "max-width": "100%",
+                                        "margin-left": "0px",
+                                        "margin-bottom": "0px"
+                                    }
+                                },
+                                "button": {
+                                    "background-color": "#b034d8",
+                                    "font-family": "Quantico, sans-serif",
+                                    ":hover": {
+                                        "background-color": "#9e2fc2"
+                                    },
+                                    ":focus": {
+                                        "background-color": "#9e2fc2"
+                                    },
+                                    "font-weight": "bold"
+                                },
+                                "variantTitle": {
+                                    "font-family": "Montserrat, sans-serif",
+                                    "font-weight": "bold"
+                                },
+                                "title": {
+                                    "font-family": "Quantico, sans-serif"
+                                },
+                                "description": {
+                                    "font-family": "Montserrat, sans-serif",
+                                    "font-weight": "bold"
+                                },
+                                "price": {
+                                    "font-family": "Montserrat, sans-serif",
+                                    "font-weight": "bold"
+                                },
+                                "compareAt": {
+                                    "font-family": "Montserrat, sans-serif",
+                                    "font-weight": "bold"
+                                }
+                            },
+                            "googleFonts": [
+                                "Quantico",
+                                "Montserrat",
+                                "Quantico",
+                                "Montserrat",
+                                "Montserrat",
+                                "Montserrat"
+                            ]
+                        },
+                        "toggle": {
+                            "styles": {
+                                "toggle": {
+                                    "font-family": "Quantico, sans-serif",
+                                    "background-color": "#b034d8",
+                                    ":hover": {
+                                        "background-color": "#9e2fc2"
+                                    },
+                                    ":focus": {
+                                        "background-color": "#9e2fc2"
+                                    },
+                                    "font-weight": "bold"
+                                },
+                                "count": {
+                                    "font-size": "16px"
+                                }
+                            },
+                            "googleFonts": [
+                                "Quantico"
+                            ]
+                        },
+                        "option": {
+                            "styles": {
+                                "label": {
+                                    "font-family": "Montserrat, sans-serif",
+                                    "font-weight": "bold"
+                                },
+                                "select": {
+                                    "font-family": "Montserrat, sans-serif",
+                                    "font-weight": "bold"
+                                }
+                            },
+                            "googleFonts": [
+                                "Montserrat",
+                                "Montserrat"
+                            ]
+                        },
+                        "productSet": {
+                            "styles": {
+                                "products": {
+                                    "@media (min-width: 601px)": {
+                                        "margin-left": "-20px"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+        }
+    })();
+  /*]]>*/
+
+.social style="margin-top: 60px"
+  .buttons
+    ul
+      li.channel
+        a href="/story#view" STORY
+      li.channel
+        a href="/video#view" TRAILER
+      li.channel
+        a href="/gameplay#view" GAMEPLAY
+      li.channel
+        a href="/screenshots#view" SCREENS
+      li.channel
+        a.pink T-SHIRT
+      li.channel
+        a href="/blog" BLOG
+
+.content
+  .copy style="margin-top: 30px"
+    = render partial: 'pages/bottom'
+  = render partial: 'pages/tracking'

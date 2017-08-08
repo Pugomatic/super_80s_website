@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get '/press/demo' => 'demo#index'
   get '/press/demo/unity3d' => 'demo#unity3d'
 
+  get '/shop' => 'high_voltage/pages#show', id: 'tshirt'
+  get '/tshirt' => 'high_voltage/pages#show', id: 'tshirt'
+  get '/t-shirt' => 'high_voltage/pages#show', id: 'tshirt'
   get '/dan' => 'high_voltage/pages#show', id: 'dan'
   get '/dan/camaro' => 'high_voltage/pages#show', id: 'dan'
   get '/dancamaro' => 'high_voltage/pages#show', id: 'dan'
