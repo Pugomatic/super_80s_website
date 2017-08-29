@@ -40,6 +40,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :beta_testers, only: [:index]
+
   comfy_route :blog_admin, :path => '/admin'
   comfy_route :blog, :path => '/blog'
 
