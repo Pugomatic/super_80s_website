@@ -1,5 +1,11 @@
 class Admin::EmailController < Comfy::Admin::Cms::BaseController
   def index
-    @users = User.all
+    if params[:beta_testers]
+      @beta = false
+      @users = User.all
+    else
+      @beta = true
+      @users = BetaTester.alls
+    end
   end
 end

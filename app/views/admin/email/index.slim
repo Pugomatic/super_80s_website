@@ -2,17 +2,25 @@
 h3 Email List
 
 table
-  tr
-    th email
-    th ip
-    th date
-    th suspect
-
-  - @users.each do |user|
+  - if @beta
     tr
-      td = user.email
-      td = user.ip_address
-      td = user.created_at
-      td = user.is_suspect
-
-
+      th email
+      th ip
+      th date
+      th suspect
+    - @users.each do |user|
+      tr
+        td = user.email
+        td = user.ip_address
+        td = user.created_at
+        td = user.is_suspect
+  - else
+    tr
+      th email
+      th version
+      th date
+    - @users.each do |user|
+      tr
+        td = user.email
+        td = user.version
+        td = user.created_at
