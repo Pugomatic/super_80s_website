@@ -26,6 +26,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "highline"
   gem 'web-console', '~> 2.0'
   gem 'capistrano',               require: false
   gem 'capistrano-rvm',           require: false
