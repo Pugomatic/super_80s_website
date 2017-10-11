@@ -4,11 +4,10 @@
     br
     = form_for @user, id: 'mailing_list_form' do |f|
       input name="authenticity_token" value="#{form_authenticity_token}" type="hidden"
-      = f.invisible_captcha :subtitle
+      = f.invisible_captcha :title
       input#user_email name="user[email]" type="text" placeholder="Enter e-mail address"
       br
-      input.yes#form_submit name="commit" type="submit" value="PLAY IT FIRST"
-      input.no name="cancel" type="reset" value="Wait it out" onclick="$('[data-remodal-id=modal]').remodal().close();"
+      input.yes#form_submit name="commit" type="submit" value="READY TO PLAY"
 
 .hero
   .hero-inner

@@ -1,7 +1,7 @@
 class PlayersController < ApplicationController
   layout 'simple'
 
-  invisible_captcha only: [:create], honeypot: :subtitle
+  invisible_captcha only: [:create], honeypot: :title
 
   def index
     @player = Player.new

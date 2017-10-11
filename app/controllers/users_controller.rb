@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  invisible_captcha only: [:create], honeypot: :subtitle
+  invisible_captcha only: [:create], honeypot: :title
 
   def create
     @user = User.new(user_params)

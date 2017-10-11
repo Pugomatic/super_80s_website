@@ -80,7 +80,7 @@ html
           .surround
             = form_for @user do |f|
               input name="authenticity_token" value="#{form_authenticity_token}" type="hidden"
-              = f.invisible_captcha :subtitle
+              = f.invisible_captcha :title
               input#user_email name="user[email]" type="text" placeholder="Enter e-mail address"
               input#form_submit name="commit" type="submit" value="Subscribe Now"
 
