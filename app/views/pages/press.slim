@@ -14,7 +14,7 @@
       p
         strong.subtle Release Date
         br
-        | March 2018
+        | Fall 2018
       p
         strong.subtle Platforms
         br
@@ -38,25 +38,28 @@
     article
       h2#description Description
       p
-        | If you liked the video games we grew up with and the pop culture of that decade, you'll love this game.  Battle your favorite characters from the era as you run, jump, bounce and slide your way through the 1980s.
+        | Super 80s World is a mobile retro platformer where you collect old-school memorabilia to save the decade.
       h2#history History
       p
-        | Super80sWorld has been in development for three years.  The first five worlds are being released early next year:
-      ul
-        li 1980 - Wonder Years
-        li 1981 - Miami Nice
-        li 1982 - Arcadia
-        li 1983 - Street Beatz
-        li 1984 - Better Off Dead
+        ' Super80sWorld has been in development for three years.  In the first release,
+        i the early 80s edition
+        ' ,
+        a href="/dan" Dan Camaro
+        '  will fight his way through five worlds set in the first half of the decade.
 
       h2 Features
-      p
-        strong.subtle 40 levels of...
+      .details
+        p Super 80s World is a mobile retro platformer currently in beta for iOS with over 40 levels of:
 
-      ul.bullet
-        li Running, Jumping, Bouncing, Sliding, Flipping, Stomping
-        li Nostalgia, Neon, Mullets, Inside jokes
-        li 8-bit Graphics, Synthesizers, Power Ups, Minigames
+        ul.bullet
+          li Running, Jumping, Bouncing, Sliding, Flipping, Stomping
+          li Gliding, Climbing, Skating, Dodging, & Dive-bombing
+          li Pixel Art, Power Ups, Minigames, Easter Eggs
+          li Nostalgia, Neon, Mullets, Synthesizers & Puns
+
+        br
+
+        = render partial: 'shared/gameplay'
 
       br
 
@@ -86,29 +89,27 @@
       h2#logo Logo &amp; Icon
       .grid.images
         .width-medium-1-2
-          = link_to '/assets/logo.png' do
+          = link_to asset_path('logo.png') do
             = image_tag 'logo.png'
       hr
 
-      h2#awards Awards &amp; Recognition
+      h2 Tradeshow Appearances
+
       ul
-        li
-          cite
-            = mail_to 'press@Super80sWorld.com', "Be the first!", subject: 'Re: Awards & Recognition', target: '_blank'
-      hr
+        li Too Many Games
+        li Smithsonian Indie Arcade
+        li Magfest
+        li Baltimore Artscape
+
       h2 Selected Articles
       ul
         li
-          | &bull;&nbsp;
           a href="http://www.8-bitcentral.com/blog/2016/super80sWorld.html" target="_blank" Super 80s World puts Dan Camaro on an epic adventure into 1980's pop culture
         li
-          | &bull;&nbsp;
           a href="http://retrogamingblog.co.uk/2016/01/20/interview-michael-cowden-super-80s-world-the-indie-game/" target="_blank" Interview – Michael Cowden: "Super 80s World" the indie game
         li
-          | &bull;&nbsp;
           a href="http://www.retrogamesmaster.co.uk/michael-cowden-creator-of-super-80s-world/" target="_blank" Interview on Retro Gamesmaster
         li
-          | &bull;&nbsp;
           a href="http://www.indieretronews.com/2016/01/super-80s-world-lets-take-trip-back-to.html" target="_blank" Let's take a trip back to the 80's in this newly announced platformer!
       hr
 
@@ -156,16 +157,22 @@
         br
         | Michael Cowden, Tap Tap Good
       p
-        strong.subtle Music
-        br
-        a href="https://soundcloud.com/80s-stallone" target="_blank" 80s Stallone
-        strong.subtle ,&nbsp;
-        a href="https://soundcloud.com/dress2kill" target="_blank" Dress-2-Kill
-        strong.subtle ,&nbsp;
-        a href="https://jeffreykoepper.bandcamp.com/" target="_blank" Jeffery Koepper
-        strong.subtle ,&nbsp;
-        a href="https://https://dancamaro.bandcamp.com/album/my-other-car-is-a-delorean" target="_blank" Dan Camaro
-        strong.subtle , BeeP
+        ul
+          strong.subtle Music
+          li
+            a href="https://dancamaro.bandcamp.com/" target="_blank" Dan Camaro
+          li
+            a href="https://80sstallone.bandcamp.com/" target="_blank" 80s Stallone
+          li
+            a href="https://splicebyte.bandcamp.com/album/arcade-summer" target="_blank" Arcade Summer
+          li
+            a href="https://vincenzosalvia.bandcamp.com/" target="_blank" Vincenzo Salvia
+          li
+            a href="https://wearemagonia.bandcamp.com/" target="_blank" We Are Magonia
+          li
+            a href="https://oceanside85.bandcamp.com/" target="_blank" Oceanside '85
+            '  &
+            a href="https://ultraboss.bandcamp.com/releases" target="_blank" Ultraboss
 
       h2#contact Contact
       p

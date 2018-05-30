@@ -10,11 +10,11 @@
   .buttons
     ul
       li.channel
-        a href="/story#view" STORY
-      li.channel
-        a href="/video#view" TRAILER
+        a href="/video#view" STORY
       li.channel
         a.pink GAMEPLAY
+      li.channel
+        a href="/music#view" MUSIC
       li.channel
         a href="/screenshots#view" SCREENS
       li.channel
@@ -24,8 +24,13 @@
 
 
 .content
-  .copy
+  .better-copy
+    p Super 80s World is a mobile retro platformer currently in beta for iOS.  Here are some details about the game.
+
+    = render partial: 'shared/gameplay'
+
     br
+
     = render partial: 'pages/bottom'
 
     = render partial: 'pages/tracking'

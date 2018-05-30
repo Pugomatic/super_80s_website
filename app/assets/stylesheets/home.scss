@@ -75,7 +75,16 @@ body {
 .signup {
   padding-top: 20px;
   background: tint($base-background-color, 10%);
+  p {
+    @include display(flex);
+    @include justify-content(center);
+    @include flex-wrap(wrap);
 
+    white-space: nowrap;
+    margin-top: 7px;
+    margin-left: 15px;
+    padding-right: 20px;
+  }
   .form {
     @include display(flex);
     @include justify-content(center);
@@ -153,6 +162,12 @@ input[type="reset"].no {
     p {
       @include justify-content(center);
       text-align: center;
+    }
+  }
+  .better-copy {
+    p {
+      @include justify-content(center);
+      text-align: left;
     }
   }
 }
@@ -239,6 +254,12 @@ input[type="reset"].no {
       font-size: 1em;
       margin: 60px;
     }
+
+    .better-copy {
+      font-family: $base-font-family;
+      font-size: 1em;
+      margin: 60px;
+    }
   }
 
   .logo {
@@ -270,6 +291,12 @@ input[type="reset"].no {
     margin-top: -80px;
 
     .copy {
+      @include span-columns(8);
+      @include shift(2);
+      @include omega();
+    }
+
+    .better-copy {
       @include span-columns(8);
       @include shift(2);
       @include omega();
@@ -313,4 +340,19 @@ input[type="reset"].no {
 .at4-share-title {
   font-size: 14px;
   color: white;
+}
+
+.content {
+  .better-copy {
+    ul {
+      list-style-type: square;
+      list-style-position: inside;
+    }
+
+    h4 {
+      font-weight: bold;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+  }
 }

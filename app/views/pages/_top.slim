@@ -1,13 +1,13 @@
 .remodal data-remodal-id="modal"
   .email
-    h2 Monthly updates and early access!
+    h2 Get early access NOW!
     br
     = form_for @user, id: 'mailing_list_form' do |f|
       input name="authenticity_token" value="#{form_authenticity_token}" type="hidden"
       = f.invisible_captcha :title
       input#user_email name="user[email]" type="text" placeholder="Enter e-mail address"
       br
-      input.yes#form_submit name="commit" type="submit" value="READY TO PLAY"
+      input.yes#form_submit name="commit" type="submit" value="LET'S PLAY"
 
 .hero
   .hero-inner

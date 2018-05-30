@@ -73,16 +73,19 @@ html
     = yield
 
     .signup
+      p We want your feedback on the game!
+      p Do you own an iPhone or iPad?
+      p
+        a href="/#modal" Try the beta now!
       .form
         .words
-          a href="/#modal" Sign up for updates
         .input
           .surround
             = form_for @user do |f|
               input name="authenticity_token" value="#{form_authenticity_token}" type="hidden"
               = f.invisible_captcha :title
               input#user_email name="user[email]" type="text" placeholder="Enter e-mail address"
-              input#form_submit name="commit" type="submit" value="Subscribe Now"
+              input#form_submit name="commit" type="submit" value="Let's Play!"
 
     footer.footer role="contentinfo"
       .social
@@ -106,7 +109,7 @@ html
             li.grow
               = link_to 'Press Kit', '/press'
             li.grow
-              = mail_to 'info@Super80sWorld.com', 'Contact Us'
+              = mail_to 'info@Super80sWorld.com', 'Contact Us', target: "_blank"
       p &copy;
         #{Time.new.year} Tap Tap Good, LLC.  All Rights Reserved.
 
