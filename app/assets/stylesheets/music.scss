@@ -1,9 +1,13 @@
 #music {
-  section {
-    article {
-      ul {
-        list-style-type: square;
-        list-style-position: inside;
+  ul {
+    list-style-type: none;
+    list-style-position: inside;
+
+    li {
+      .artist {
+        color: $light-hot-pink;
+        white-space: nowrap;
+        padding-left: 40px;
       }
     }
   }
