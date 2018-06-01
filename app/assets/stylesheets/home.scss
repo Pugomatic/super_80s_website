@@ -252,13 +252,13 @@ input[type="reset"].no {
     .copy {
       font-family: $base-font-family;
       font-size: 1em;
-      margin: 60px;
+      margin: 30px;
     }
 
     .better-copy {
       font-family: $base-font-family;
       font-size: 1em;
-      margin: 60px;
+      margin: 30px;
     }
   }
 
@@ -291,14 +291,14 @@ input[type="reset"].no {
     margin-top: -80px;
 
     .copy {
-      @include span-columns(8);
-      @include shift(2);
+      @include span-columns(10);
+      @include shift(1);
       @include omega();
     }
 
     .better-copy {
-      @include span-columns(8);
-      @include shift(2);
+      @include span-columns(10);
+      @include shift(1);
       @include omega();
     }
   }

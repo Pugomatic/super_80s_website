@@ -6,6 +6,18 @@
       .video-wrapper
         iframe width="1280" height="720" src="https://www.youtube.com/embed/nOpF6si0Tzc?vq=hd1080;rel=0&amp;showinfo=0" frameborder="0" allowfullscreen=""
 
+.content style="margin-top: 30px"
+  .better-copy
+    p Super 80s World is a mobile retro platformer currently in beta for iOS.  Here are some details about the game.
+
+    = render partial: 'shared/gameplay'
+
+    br
+
+    = render partial: 'pages/bottom'
+
+    = render partial: 'pages/tracking'
+
 .social style="margin-top: 60px"
   .buttons
     ul
@@ -21,20 +33,3 @@
         a href="https://super80sworld.threadless.com/designs/super-80s-world/mens/t-shirt?color=smoke" target="_blank" T-SHIRT
       li.channel
         a href="/blog" BLOG
-
-
-.content
-  .better-copy
-    br
-    br
-    br
-    br
-    p Super 80s World is a mobile retro platformer currently in beta for iOS.  Here are some details about the game.
-
-    = render partial: 'shared/gameplay'
-
-    br
-
-    = render partial: 'pages/bottom'
-
-    = render partial: 'pages/tracking'
