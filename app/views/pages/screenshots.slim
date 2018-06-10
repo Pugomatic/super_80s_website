@@ -1,16 +1,72 @@
 = render partial: 'pages/top'
 
 .content
-  .copy style="align-center;"
-    ul
-      li = image_tag 'screenshots/boss_4.gif'
-      li = image_tag 'screenshots/backflip.gif'
-      li = image_tag 'screenshots/break-ground.gif'
-      li = image_tag 'screenshots/triple.gif'
-      li = image_tag 'screenshots/pinball.gif'
-      li = image_tag 'screenshots/etchy.gif'
-      li = image_tag 'screenshots/hippos.gif'
-      li = image_tag 'screenshots/miami.gif'
+  .gallery
+    h3 EXPLORE THE DECADE
+    .gallery-column
+      = screenshot_tag "worlds_5.png"
+      = screenshot_tag "explore_new_worlds.png"
+    .gallery-column
+      = screenshot_tag "might_as_well_jump.gif"
+      = screenshot_tag "worlds_6.png"
+  .gallery
+    h3 LEARN NEW SKILLZ
+    .gallery-column
+      = screenshot_tag "skillz_1.png"
+      = screenshot_tag "learn_new_skills_too.png"
+      = screenshot_tag "skillz_2.png"
+      = screenshot_tag "skillz_3.png"
+      = screenshot_tag "climb.png"
+    .gallery-column
+      = screenshot_tag "hippos.gif"
+      = screenshot_tag "learn_new_skillz_too_2.png"
+      = screenshot_tag "backflip.gif"
+      = screenshot_tag "triple.gif"
+  .gallery
+    h3 FIGHT POWERFUL BOSSES
+    .gallery-column
+      = screenshot_tag "boss_4.gif"
+    .gallery-column
+      = screenshot_tag "boss_2.png"
+      = screenshot_tag "chopper_boss.gif"
+
+  .gallery
+    h3 COLLECT OLD-SCHOOL MEMORABILIA
+    .gallery-column
+      = screenshot_tag "collector_2.gif"
+      = screenshot_tag "collect_horror.gif"
+    .gallery-column
+      = screenshot_tag "add_to_your_collection.png"
+      = screenshot_tag "add_to_your_collection2.png"
+      = screenshot_tag "add_to_your_collection3.png"
+
+  .gallery
+    h3 EARN COOL ACHIEVEMENTS
+    .gallery-column
+      = screenshot_tag "achieve_10.png"
+      = screenshot_tag "achieve_6.png"
+    .gallery-column
+      = screenshot_tag "achieve_13.png"
+      = screenshot_tag "achieve_5.png"
+
+  .gallery
+    h3 AND LEVEL UP
+    .gallery-column
+      = screenshot_tag "level_up.png"
+      = screenshot_tag "level_up_5.png"
+    .gallery-column
+      = screenshot_tag "level_up_7.png"
+      = screenshot_tag "level_up_9.png"
+
+  .gallery
+    h3 TO SAVE THE DECADE
+    .gallery-column
+      = screenshot_tag "save_3.png"
+    .gallery-column
+      = screenshot_tag "save_2.png"
+
+br
+br
 
 .social style="margin-top: 30px"
   .buttons

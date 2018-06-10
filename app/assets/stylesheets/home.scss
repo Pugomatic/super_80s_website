@@ -1,3 +1,6 @@
+$mobile: new-breakpoint(max-width 600px);
+$desktop: new-breakpoint(min-width 850px);
+
 body {
   margin: 0;
   padding: 0;
@@ -289,6 +292,34 @@ input[type="reset"].no {
     @include clearfix;
 
     margin-top: -80px;
+
+    .gallery {
+      @include span-columns(10);
+      @include shift(1);
+      @include omega();
+
+      h3 {
+        margin-top: 30px;
+        margin-bottom: 20px;
+        border-bottom: 2px $hot-pink dashed;
+        padding-bottom: 10px;
+      }
+
+      .gallery-column {
+        @include media($mobile) {
+          @include span-columns(10);
+        }
+        @include media($desktop) {
+          @include span-columns(5 of 10);
+        }
+
+        .screenshot {
+          background: darken($electric-blue, 55%);
+          border: 4px #190a2c solid;
+          padding: 12px 12px 2px 12px;
+        }
+      }
+    }
 
     .copy {
       @include span-columns(10);
