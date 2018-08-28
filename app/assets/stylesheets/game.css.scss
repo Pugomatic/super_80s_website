@@ -3,7 +3,8 @@
 
 body {
   background: $dark-background-color;
-  //background-image: url(game/chrome-bottom.png);
+  //background-image: url(watermark.png);
+
   //background-repeat: repeat-x;
   //background-position: 0px 69px;
 
@@ -42,6 +43,13 @@ body {
 .game {
   margin: 20px;
 
+  img.logo_topper {
+    position: absolute;
+    left: 50%;
+    margin-left: -104px;
+    margin-top: 20px;
+  }
+
   hr {
     width: 300px;
     align:center;
@@ -63,13 +71,34 @@ body {
 
     table.controls {
       width: 100%;
+      margin: 0;
+      padding: 0;
+
+      td {
+        margin: 0;
+        padding: 0;
+
+        button {
+          margin-top: 16px;
+          font-family: 'DS-Digital';
+          padding: 9px 20px;
+          color: $magenta;
+          background-color: $deep-purple;
+          border: 1px solid $magenta;
+        }
+      }
+
     }
     table.heading {
       font-family: 'DS-Digital';
       color: $chrome-top;
       text-shadow: 8px 0px 16px $magenta;
       font-size: 1.5em;
+      margin: 0;
+      padding: 0;
       td {
+        margin: 0;
+        padding: 0;
         a {
           color: $chrome-top;
         }
@@ -164,7 +193,7 @@ body {
   font-family: 'DS-Digital';
   font-size: 1em;
   font-weight: normal;
-  background: $dark-background-color;
+  background: black;
   color: $magenta;
   border: none;
   margin: 0px;
@@ -207,43 +236,6 @@ body {
 }
 
 
-
-
-@media screen and (min-width: 890px) and (max-width: 1200px)  {
-  .game {
-    table.leaderboard {
-      thead {
-        tr {
-          th {
-            font-size: 1em;
-
-          }
-          th.date_column {
-            display:none;
-            width:0;
-            height:0;
-            opacity:0;
-            visibility: collapse;
-          }
-        }
-      }
-      tbody {
-        tr {
-          td {
-            font-size: 0.9em;
-          }
-          td.date_column {
-            display:none;
-            width:0;
-            height:0;
-            opacity:0;
-            visibility: collapse;
-          }
-        }
-      }
-    }
-  }
-}
 
 
 @media screen and (min-width: 1201px) {

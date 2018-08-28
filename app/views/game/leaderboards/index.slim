@@ -7,13 +7,15 @@
       tr align="center"
         td
           a#toggle_controls href="#"
-            ' High Scores for 1980
+            | High Scores for 1980.3
+            br
             .fa.fa-caret-down
 
     table.controls style="display:none" width="100%"
       tr
         td align="center"
           select#world_controls name="world" style="width: 240px"
+            option value="ALL" Select World
             option value=("ALL") All Years
             option value=("1980")  1980 - Wonder Years
             option value=("1981")  1981 - Arcadia
@@ -23,6 +25,7 @@
       tr
         td align="center"
           select#level_controls name="level" style="width: 240px"
+            option value=("ALL") Select Level
             option value=("ALL") All Levels
             option value=("Level 1")  Level 1
             option value=("Level 2")  Level 2
@@ -37,19 +40,19 @@
       tr
         td align="center"
           select#board_controls name="board" style="width: 240px"
-            option value=("scores") Winners
+            option value=("scores") Select Metric
+            option value=("winners") Winners
             option value=("scores") High Scores
             option value=("times")  Fast Times
-            option value=("times")  Memorabilia
-            option value=("times")  Achievements
+            option value=("memo")  Memorabilia
+            option value=("achieve")  Achievements
 
       tr
         td align="center"
           button#reload Reload
+          br
+          br
 
-      tr
-        td align="center"
-          hr
 
     table.leaderboard
       thead
@@ -66,9 +69,9 @@
           tr
             td
               span.led
-                span.out 8
+                span.out 888
                 | Spacer XTC
-                span.out 8
+                span.out 888
             td
               span.led
                 span.out 88
