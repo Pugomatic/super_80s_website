@@ -49,13 +49,14 @@ html
 
   body
 
-    / #myTopnav.topnav
-    /   a.active href="#home" Profile
-    /   a href="#news" Leaderboard
-    /   a href="#contact"  Discography
-    /   a href="#about"  Achievements
-    /   a.icon href="javascript:void(0);" onclick="myFunction()"
-    /     i.fa.fa-bars
+    #myTopnav.topnav
+      a href="#profile"
+        = image_tag 'game/profile-selected.png'
+      a href="#leaderboard"
+        = image_tag 'game/leaderboard.png'
+      a href="#disco"
+        = image_tag 'game/discography.png'
+      / a href="#about"  Achievements
 
     = yield
 

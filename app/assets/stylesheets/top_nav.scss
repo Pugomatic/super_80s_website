@@ -1,8 +1,8 @@
 .topnav {
   background-color: $deep-purple;
   overflow: hidden;
-  border-bottom: 4px solid $chrome-top;
-  box-shadow: 0 0 0 4px $chrome-middle;
+  margin: 0px;
+  padding: 0px;
 }
 
 /* Style the links inside the navigation bar */
@@ -11,14 +11,19 @@
   display: block;
   color: $chrome-top;
   text-align: center;
-  padding: 14px 16px;
+  margin: 0;
+  padding: 0px 8px;
   text-decoration: none;
-  font-size: 17px;
+
+  img {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: $light-purple;
+  background-color: $dark-background-color;
   color: $deep-purple;
 }
 
@@ -26,9 +31,4 @@
 .active {
   background-color: $hot-pink;
   color: $chrome-top;
-}
-
-/* Hide the link that should open and close the topnav on small screens */
-.topnav .icon {
-  display: none;
 }

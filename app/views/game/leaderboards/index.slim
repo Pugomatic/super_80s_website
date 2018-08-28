@@ -1,28 +1,19 @@
 .game
 
-  ul.navlist
-    li Discography
-    li
-      | &bull;
-    li.active Leaderboards
-    li
-      | &bull;
-    li Achievements
-  / h1 Leaderboard
-
   table.leaderboard
     thead
       tr
-        th  Player
         th
-          select#world name="level" style="width: 150px"
+          span style="background-color: #0e0616; padding: 20px" Player
+        th
+          select#world name="level" style="width: 196px"
             option value=("1980")  Wonder Years
             option value=("1981")  Arcadia
             option value=("1982")  Miami Nice
             option value=("1983")  Street Beatz
             option value=("1984")  Evil Dread
         th
-          select#level name="level" style="width: 100px"
+          select#level name="level" style="width: 136px"
             option value=("Level 1")  Level 1
             option value=("Level 2")  Level 2
             option value=("Level 3")  Level 3
@@ -32,9 +23,10 @@
             option value=("Level 7")  Level 7
             option value=("Level 8")  Level 8
         th
-          select#board name="board" style="width: 140px"
+          select#board name="board" style="width: 180px"
             option value=("scores")  High Scores
             option value=("times")  Fast Times
+
 
     tbody
       - 10.times do
