@@ -1,5 +1,30 @@
 .game
-
   .panel
-    table
-      
+    ul.discography
+      li
+        a href="#"
+          = image_tag @memo == :vhs ? 'game/vhs-selected.png' : 'game/vhs.png', size: '72x72'
+      li
+        a href="#"
+          = image_tag @memo == :cassette ? 'game/cassette-selected.png' : 'game/cassette.png', size: '72x72'
+      li
+        a href="#"
+          = image_tag @memo == :cartridge ? 'game/cartridge-selected.png' : 'game/cartridge.png', size: '72x72'
+
+
+    ul
+      li
+        a href="#"
+          = image_tag @years.include?('1980') ? 'game/1980-selected.png' : 'game/1980.png'
+      li
+        a href="#"
+          = image_tag @years.include?('1981')? 'game/1981-selected.png' : 'game/1981.png'
+      li
+        a href="#"
+          = image_tag @years.include?('1982') ? 'game/1982-selected.png' : 'game/1982.png'
+      li
+        a href="#"
+          = image_tag @years.include?('1983') ? 'game/1983-selected.png' : 'game/1983.png'
+      li
+        a href="#"
+          = image_tag @years.include?('1984') ? 'game/1984-selected.png' : 'game/1984.png'

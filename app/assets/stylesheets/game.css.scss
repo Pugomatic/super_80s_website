@@ -69,6 +69,14 @@ body {
     //border-image: url(game/panel.png) round;
     //border-image-slice: 3%;
 
+    ul.discography {
+      margin-left: 150px;
+      li {
+        display: inline-block;
+        margin: 20px;
+      }
+    }
+
     table.controls {
       width: 100%;
       margin: 0;
