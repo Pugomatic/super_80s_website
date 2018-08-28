@@ -55,12 +55,9 @@ html
       a href="/game/leaderboards"
         = image_tag @selected == :leaderboard ? 'game/leaderboard-selected.png' : 'game/leaderboard.png', size: '64x64'
       a href="/game/discographies"
-        = image_tag @selected == :disco ? 'game/vhs-selected.png' : 'game/vhs.png', size: '64x64'
-      a href="/game/discographies"
-        = image_tag @selected == :disco2 ? 'game/cassette-selected.png' : 'game/cassette.png', size: '64x64'
-      a href="/game/discographies"
-        = image_tag @selected == :disco3 ? 'game/cartridge-selected.png' : 'game/cartridge.png', size: '64x64'
+        = image_tag @selected == :disco ? 'game/discography-selected.png' : 'game/discography.png', size: '64x64'
 
+      / a href="#about"  Achievements
 
     = yield
 
