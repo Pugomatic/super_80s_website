@@ -33,6 +33,10 @@ Rails.application.routes.draw do
   get '/delorean' => 'high_voltage/pages#show', id: 'delorean'
   get '/delorean/dmc12' => 'high_voltage/pages#show', id: 'delorean'
 
+  namespace :game do
+    resources :leaderboards
+  end
+
   resources :synthwave, only: [:index]
 
   resources :players, only: [:index, :create] do

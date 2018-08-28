@@ -1,0 +1,34 @@
+.topnav {
+  background-color: $deep-purple;
+  overflow: hidden;
+  border-bottom: 4px solid $chrome-top;
+  box-shadow: 0 0 0 4px $chrome-middle;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  color: $chrome-top;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: $light-purple;
+  color: $deep-purple;
+}
+
+/* Add an active class to highlight the current page */
+.active {
+  background-color: $hot-pink;
+  color: $chrome-top;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}

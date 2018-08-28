@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/selectmenu
 //= require jquery.bxslider.min
 //= require remodal
-//= require_tree .
+//= require home

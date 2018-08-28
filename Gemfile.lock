@@ -280,6 +280,7 @@ DEPENDENCIES
   highline
   invisible_captcha
   jquery-rails
+  jquery-ui-rails
   meta-tags
   neat
   pg
