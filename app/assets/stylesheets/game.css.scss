@@ -3,9 +3,10 @@
 
 body {
   background: $dark-background-color;
-  background-image: url(game/chrome-bottom.png);
-  background-repeat: repeat-x;
-  background-position: 0px 100px;
+  //background-image: url(game/chrome-bottom.png);
+  //background-repeat: repeat-x;
+  //background-position: 0px 69px;
+
   //background-repeat: no-repeat;
   //background-attachment: fixed;
   //background-position: center;
@@ -41,6 +42,27 @@ body {
 .game {
   margin: 20px;
 
+  .panel {
+    margin-left: 40px;
+    margin-right: 40px;
+    //border: 10px solid transparent;
+    //margin: 20px;
+    //padding: 15px;
+    //-webkit-border-image: url(game/panel.png) round; /* Safari 3.1-5 */
+    //-o-border-image: url(game/panel.png) round; /* Opera 11-12.1 */
+    //border-image: url(game/panel.png) round;
+    //border-image-slice: 3%;
+
+    h1 {
+      font-family: 'lazer84';
+      text-align: center;
+      color: $electric-blue;
+      text-shadow: 6px 3px 12px $magenta;
+      font-size: 2em;
+      margin-top: -45px;
+    }
+  }
+
   ul.navlist {
     text-align: center;
     li {
@@ -65,10 +87,13 @@ body {
 
   table.leaderboard {
     table-layout: auto;
+    //border-spacing: 2px;
+    //border-collapse: separate;
+
     thead {
       tr {
         th {
-          background-color: none;
+          background-color: transparent;
           padding: 0px 10px;
 
           text-align: center;
@@ -100,6 +125,11 @@ body {
 
           span.out {
             color: $deep-purple;
+          }
+          span.led {
+            background-color: black;
+            padding: 6px 10px;
+
           }
         }
       }
@@ -156,6 +186,147 @@ body {
 
 
 
+
+@media screen and (min-width: 890px) and (max-width: 1200px)  {
+  .game {
+    .controls {
+      display: none;
+    }
+    .no-controls {
+      display: inline-block;
+    }
+    table.leaderboard {
+      thead {
+        tr {
+          th {
+            font-size: 1em;
+
+          }
+          th.date_column {
+            display:none;
+            width:0;
+            height:0;
+            opacity:0;
+            visibility: collapse;
+          }
+        }
+      }
+      tbody {
+        tr {
+          td {
+            font-size: 0.9em;
+          }
+          td.date_column {
+            display:none;
+            width:0;
+            height:0;
+            opacity:0;
+            visibility: collapse;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (min-width: 1201px) {
+  .game {
+    .controls {
+      display: none;
+    }
+    .no-controls {
+      display: inline-block;
+    }
+    table.leaderboard {
+      thead {
+        tr {
+          th {
+            font-size: 1.2em;
+          }
+        }
+      }
+      tbody {
+        tr {
+          td {
+            font-size: 1.8em;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 889px) {
+  .game {
+    .controls {
+      display: inline-block;
+    }
+    .no-controls {
+      display: none;
+    }
+
+    table.leaderboard {
+      thead {
+        tr {
+          th {
+            font-size: 1.2em;
+          }
+          th.world_column {
+            display:none;
+            width:0;
+            height:0;
+            opacity:0;
+            visibility: collapse;
+          }
+          th.level_column {
+            display:none;
+            width:0;
+            height:0;
+            opacity:0;
+            visibility: collapse;
+          }
+          th.date_column {
+            display:none;
+            width:0;
+            height:0;
+            opacity:0;
+            visibility: collapse;
+          }
+        }
+      }
+      tbody {
+        tr {
+          td {
+            font-size: 1.2em;
+          }
+          td.world_column {
+            display:none;
+            width:0;
+            height:0;
+            opacity:0;
+            visibility: collapse;
+          }
+          td.level_column {
+            display:none;
+            width:0;
+            height:0;
+            opacity:0;
+            visibility: collapse;
+          }
+          td.date_column {
+            display:none;
+            width:0;
+            height:0;
+            opacity:0;
+            visibility: collapse;
+          }
+        }
+      }
+    }
+  }
+}
 
 
 ///* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */

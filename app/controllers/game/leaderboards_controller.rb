@@ -3,7 +3,7 @@ module Game
     layout  'game'
 
     def index
-
+      @selected = :leaderboard
     end
   end
 end

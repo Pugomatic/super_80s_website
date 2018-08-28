@@ -50,12 +50,12 @@ html
   body
 
     #myTopnav.topnav
-      a href="#profile"
-        = image_tag 'game/profile-selected.png'
-      a href="#leaderboard"
-        = image_tag 'game/leaderboard.png'
-      a href="#disco"
-        = image_tag 'game/discography.png'
+      a href="/game/profiles"
+        = image_tag @selected == :profile ?  'game/profile-selected.png' :  'game/profile.png', size: '64x64'
+      a href="/game/leaderboards"
+        = image_tag @selected == :leaderboard ? 'game/leaderboard-selected.png' : 'game/leaderboard.png', size: '64x64'
+      a href="/game/discographies"
+        = image_tag @selected == :disco ? 'game/discography-selected.png' : 'game/discography.png', size: '64x64'
       / a href="#about"  Achievements
 
     = yield
