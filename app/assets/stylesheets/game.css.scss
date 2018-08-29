@@ -117,7 +117,6 @@ body {
   }
 
   .holder {
-
     .cassette {
       text-align: center;
       display: block;
@@ -129,10 +128,8 @@ body {
       position: relative;
       margin-top: 0px;
       margin-bottom: 0px;
-      padding: 2px 0px 0px 0px;
+      padding: 0px 0px 0px 0px;
 
-      border: 3px solid $deep-purple;
-      border-bottom: none;
       height: 52px;
 
       .display_title {
@@ -155,13 +152,7 @@ body {
       min-width: 348px;
       max-width: 348px;
       position: relative;
-      margin-top: 0px;
-      margin-bottom: -4px;
-      padding: 4px 0px 0px 0px;
-
-      border: 3px solid $deep-purple;
-      border-bottom: none;
-      height: 60px;
+      height: 53px;
 
       .display_title {
         position: absolute;
@@ -185,11 +176,7 @@ body {
       position: relative;
       margin-top: 0px;
       margin-bottom: 0px;
-      padding: 3px 0px 0px 0px;
-
-      border: 3px solid $deep-purple;
-      border-bottom: none;
-      height: 60px;
+      height: 56px;
 
       .display_title {
         position: absolute;

@@ -46,19 +46,22 @@
         .cassette
           = image_tag 'game/cassette-bg.png'
           .display_title Script of the Bridge
-      .cassette style="height: 20px"
+      .cassette
+        = image_tag 'game/empty-cassette.png'
     - elsif @media == :cartridge
       - 10.times do
         .cartridge
           = image_tag 'game/cartridge-bg.png'
           .display_title Galaga
-      .cartridge style="height: 20px"
+      .cartridge
+        = image_tag 'game/empty-cartridge.png'
     - elsif @media == :vhs
       - 10.times do
         .vhs_tape
           = image_tag 'game/vhs-bg.png'
           .display_title Caddyshack
-      .vhs_tape style="height: 20px"
+      .vhs_tape
+        = image_tag 'game/empty-vhs.png'
 
 
 javascript:
