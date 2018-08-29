@@ -40,28 +40,32 @@
           br
 
 
-  .holder
-    - if @media == :cassette
-      - 10.times do
-        .cassette
-          = image_tag 'game/cassette-bg.png'
-          .display_title Script of the Bridge
-      .cassette
-        = image_tag 'game/empty-cassette.png'
-    - elsif @media == :cartridge
-      - 10.times do
-        .cartridge
-          = image_tag 'game/cartridge-bg.png'
-          .display_title Galaga
-      .cartridge
-        = image_tag 'game/empty-cartridge.png'
-    - elsif @media == :vhs
-      - 10.times do
-        .vhs_tape
-          = image_tag 'game/vhs-bg.png'
-          .display_title Caddyshack
-      .vhs_tape
-        = image_tag 'game/empty-vhs.png'
+  .centered
+    table.holder style="width: #{@media == :cassette ? '1317' : '1387'}px"
+      - if @media == :cassette
+        - 10.times do
+          tr
+            - 4.times do
+              td
+                .cassette
+                  = image_tag 'game/cassette-bg.png'
+                  .display_title Script of the Bridge
+      - elsif @media == :cartridge
+        - 10.times do
+          tr
+            - 4.times do
+              td
+                .cartridge
+                  = image_tag 'game/cartridge-bg.png'
+                  .display_title Galaga
+      - elsif @media == :vhs
+        - 10.times do
+          tr
+            - 4.times do
+              td
+                .vhs_tape
+                  = image_tag 'game/vhs-bg.png'
+                  .display_title Caddyshack
 
 
 javascript:

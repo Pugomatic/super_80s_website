@@ -1,9 +1,134 @@
 .game
   .panel
-    h1 Dan Camaro
-    .profile-image
-      br
-      ul style="padding-top: 100px"
-        li = image_tag "game/achievement_3", size: '300x35', class: "achievement_3"
-        /- 1.upto(5).each do |i|
-          /li = image_tag "game/achievement_#{i}", size: '300x35', class: "achievement_#{i}"
+    .section.group
+      .col.span_1_of_3
+        h1 DWav Stan
+        .profile-image
+        .achievements
+          br
+          h2.digital Browse my collection
+          hr
+          br
+          ul
+            li
+              a.thumb href="/game/discographies?media=cartridge"
+                = image_tag "game/cartridge.png"
+                | Video Games
+            li
+              a.thumb href="/game/discographies?media=vhs"
+                = image_tag "game/vhs.png"
+                | Movies
+            li
+              a.thumb href="/game/discographies?media=cassette" style="alignment: top;"
+                = image_tag "game/cassette.png"
+                | Music
+      .col.span_1_of_3
+        .achievements
+          h2.digital Years Saved
+          hr
+          table.leaderboard.tight
+            tbody
+              - 5.times do
+                tr
+                  td
+                    span.led
+                      span.out 88
+                      | 1980
+                      span.out 88
+                  td
+                    span.led
+                      span.out 88
+                      | SAVED
+                      span.out 88
+
+        .achievements
+          h2.digital High Scores
+          hr
+          table.leaderboard.tight
+            thead
+              tr
+                th
+                  span style="background-color: #0e0616; padding: 20px" Level
+                th
+                  span style="background-color: #0e0616; padding: 20px" Score
+
+            tbody
+              - 5.times do
+                tr
+                  td
+                    span.led
+                      span.out 8
+                      | 1980.1
+                      span.out 8
+                  td
+                    span.led
+                      span.out 88
+                      | 2190
+                      span.out 88
+
+          h2.digital Fast Times
+          hr
+          table.leaderboard.tight
+            thead
+              tr
+                th
+                  span style="background-color: #0e0616; padding: 20px" Level
+                th
+                  span style="background-color: #0e0616; padding: 20px" Time
+
+            tbody
+              - 5.times do
+                tr
+                  td
+                    span.led
+                      span.out 8
+                      | 1980.1
+                      span.out 8
+                  td
+                    span.led
+                      span.out 88
+                      | 23.98
+
+                      span.out 88
+
+          h2.digital Memorabilia Collected
+          hr
+          table.leaderboard.tight
+            thead
+              tr
+                th
+                  span style="background-color: #0e0616; padding: 20px" Year
+                th
+                  span style="background-color: #0e0616; padding: 20px" Count
+
+            tbody
+              - 5.times do
+                tr
+                  td
+                    span.led
+                      span.out 8
+                      | 1980
+                      span.out 8
+                  td
+                    span.led
+                      span.out 88
+                      | 120
+                      span.out 88
+
+      .col.span_1_of_3
+        .achievements
+          h2.digital Skillz
+          hr
+          br
+          ul
+            li.digital Running
+            li.digital Jumping
+            li.digital Fist Bumping
+            li.digital Hair Combing
+        .achievements
+          h2.digital Achievements
+          hr
+          br
+          ul
+            - 1.upto(5).each do |i|
+              li = image_tag "game/achievement_#{i}.png", size: '300x35', class: "achievement_#{i}"

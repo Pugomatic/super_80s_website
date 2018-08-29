@@ -18,6 +18,43 @@ body {
   //background-repeat: repeat-x;
 }
 
+/*  SECTIONS  */
+.section {
+  clear: both;
+  padding: 0px;
+  margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+  display: block;
+  float:left;
+  margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+/*  GRID OF THREE  */
+.span_3_of_3 { width: 100%; }
+.span_2_of_3 { width: 66.13%; }
+.span_1_of_3 { width: 32.26%; }
+
+@media only screen and (max-width: 960px) {
+  .col {  margin: 1% 0 1% 0%; }
+  .span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
+}
+
+
+
+.achievements {
+
+}
+
 .profile-image {
   text-align: center;
   display: block;
@@ -47,7 +84,6 @@ body {
 .profile-image::after {
   content: "";
   background: url(game/level_9.png);
-  opacity: 0.6;
   top: 0;
   left: 0;
   bottom: 0;
@@ -101,6 +137,17 @@ body {
 .game {
   margin: 20px;
 
+  .thumb {
+    line-height: 50px; // height taken from OPs plunker
+    font-family: 'lazer84';
+  }
+  .thumb img {
+    margin: auto;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
   img.logo_topper {
     position: absolute;
     left: 50%;
@@ -114,6 +161,15 @@ body {
     border: 1px solid #ED00D3;
     padding: 0;
     margin: 0;
+  }
+
+  table.holder {
+    margin: 0px auto;
+
+    td {
+      margin: 0;
+      padding: 0;
+    }
   }
 
   .holder {
@@ -137,7 +193,7 @@ body {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-family: BasicHandwriting;
+        font-family: 'BasicHandwriting';
         color: $dark-background-color;
         white-space:nowrap;
       }
@@ -159,7 +215,7 @@ body {
         top: 30%;
         left: 38%;
         transform: translate(-50%, -50%);
-        font-family: BasicHandwriting;
+        font-family: 'BasicHandwriting';
         color: $dark-background-color;
         white-space:nowrap;
       }
@@ -184,7 +240,7 @@ body {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-family: BasicHandwriting;
+        font-family: 'BasicHandwriting';
         color: $dark-background-color;
         white-space:nowrap;
       }
@@ -472,4 +528,45 @@ body {
       }
     }
   }
+}
+
+.game {
+  .flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .flex-grid-item {
+    height: 80px;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 33.3333%;
+    flex-basis: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .blank {
+    height: 0;
+  }
+
+  /* colors by clrs.cc*/
+  .flex-grid-item:nth-child(1)  {background-color: #001f3f; color: white;}
+  .flex-grid-item:nth-child(2)  {background-color: #0074D9; color: white;}
+  .flex-grid-item:nth-child(3)  {background-color: #7FDBFF;}
+  .flex-grid-item:nth-child(4)  {background-color: #39CCCC;}
+  .flex-grid-item:nth-child(5)  {background-color: #3D9970; color: white;}
+
+  table.leaderboard.tight {
+    max-width: 300px;
+    tbody {
+      tr {
+        td {
+          font-size: 1.2em;
+        }
+      }
+    }
+  }
+
 }
