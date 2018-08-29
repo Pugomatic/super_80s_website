@@ -1,8 +1,9 @@
 .game
   .panel
-
+    h1 Dan Camaro
     .profile-image
-      h1 Dan Camaro
-      ul
-        - 1.upto(5).each do |i|
-          li = image_tag "game/achievement_#{i}", size: '300x35', class: "achievement_#{i}"
+      br
+      ul style="padding-top: 100px"
+        li = image_tag "game/achievement_3", size: '300x35', class: "achievement_3"
+        /- 1.upto(5).each do |i|
+          /li = image_tag "game/achievement_#{i}", size: '300x35', class: "achievement_#{i}"
