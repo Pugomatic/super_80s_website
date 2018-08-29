@@ -1,0 +1,8 @@
+.game
+  .panel
+
+    .profile-image
+      h1 Dan Camaro
+      ul
+        - 1.upto(5).each do |i|
+          li = image_tag "game/achievement_#{i}", size: '300x35', class: "achievement_#{i}"
