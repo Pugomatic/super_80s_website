@@ -14,7 +14,7 @@
     table.controls style="display:none" width="100%"
       tr
         td align="center"
-          select#world_controls name="world" style="width: 240px"
+          select#world name="world" style="width: 240px"
             option value="ALL" Select World
             option value=("ALL") ------ ALL
             option value=("1980")  1980 - Wonder Years
@@ -24,7 +24,7 @@
             option value=("1984")  1984 - Evil Dread
       tr
         td align="center"
-          select#level_controls name="level" style="width: 240px"
+          select#level name="level" style="width: 240px"
             option value=("ALL") Select Level
             option value=("ALL") ------ ALL
             option value=("Level 1")  Level 1
@@ -39,7 +39,7 @@
 
       tr
         td align="center"
-          select#board_controls name="board" style="width: 240px"
+          select#board name="board" style="width: 240px"
             option value=("scores") Select Metric
             option value=("winners") Winners
             option value=("scores") High Scores
@@ -87,9 +87,6 @@ javascript:
   $("#world").selectmenu();
   $("#level").selectmenu();
   $("#board").selectmenu();
-  $("#world_controls").selectmenu();
-  $("#level_controls").selectmenu();
-  $("#board_controls").selectmenu();
 
   $(function() {
 

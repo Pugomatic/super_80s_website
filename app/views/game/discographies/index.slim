@@ -1,30 +1,79 @@
 .game
   .panel
-    ul.discography
-      li
-        a href="#"
-          = image_tag @memo == :vhs ? 'game/vhs-selected.png' : 'game/vhs.png', size: '72x72'
-      li
-        a href="#"
-          = image_tag @memo == :cassette ? 'game/cassette-selected.png' : 'game/cassette.png', size: '72x72'
-      li
-        a href="#"
-          = image_tag @memo == :cartridge ? 'game/cartridge-selected.png' : 'game/cartridge.png', size: '72x72'
+    table.heading.disco width="100%"
+      tr align="center"
+        td
+          a#toggle_controls href="#"
+            - if @media == :cassette
+              | Your Cassettes
+              br
+              | 1980
+            - elsif @media == :cartridge
+              | Your Cartridges
+            - elsif @media == :vhs
+              | Your VHS Tapes
+            br
+            .fa.fa-caret-down
+
+    table.controls style="display:none" width="100%"
+      tr
+        td align="center"
+          select#media name="world" style="width: 240px"
+            option value="vhs" Media
+            option value="vhs" VHS Tapes
+            option value="cassette" Cassette Tapes
+            option value="cartridge" Game Cartridges
+      tr
+        td align="center"
+          select#year name="world" style="width: 240px"
+            option value="ALL" Year
+            option value="ALL" All
+            option value="1980"  1980
+            option value="1981"  1981
+            option value="1982"  1982
+            option value="1983"  1983
+            option value="1984"  1984
+      tr
+        td align="center"
+          button#reload Reload
+          br
+          br
 
 
-    ul
-      li
-        a href="#"
-          = image_tag @years.include?('1980') ? 'game/1980-selected.png' : 'game/1980.png'
-      li
-        a href="#"
-          = image_tag @years.include?('1981')? 'game/1981-selected.png' : 'game/1981.png'
-      li
-        a href="#"
-          = image_tag @years.include?('1982') ? 'game/1982-selected.png' : 'game/1982.png'
-      li
-        a href="#"
-          = image_tag @years.include?('1983') ? 'game/1983-selected.png' : 'game/1983.png'
-      li
-        a href="#"
-          = image_tag @years.include?('1984') ? 'game/1984-selected.png' : 'game/1984.png'
+  .holder
+    - if @media == :cassette
+      - 10.times do
+        .cassette
+          = image_tag 'game/cassette-bg.png'
+          .display_title Script of the Bridge
+      .cassette style="height: 20px"
+    - elsif @media == :cartridge
+      - 10.times do
+        .cartridge
+          = image_tag 'game/cartridge-bg.png'
+          .display_title Galaga
+      .cartridge style="height: 20px"
+    - elsif @media == :vhs
+      - 10.times do
+        .vhs_tape
+          = image_tag 'game/vhs-bg.png'
+          .display_title Caddyshack
+      .vhs_tape style="height: 20px"
+
+
+javascript:
+    $("#media").selectmenu();
+    $("#year").selectmenu();
+
+    $(function() {
+
+        $('#toggle_controls').click(function () {
+            $('.controls').toggle();
+        });
+
+        $('#reload').click(function() {
+            $('.controls').hide();
+            window.location.href = '/game/discographies?media=' + $("#media").val() + "&year=" + $("#year").val();
+
+        });
+    });

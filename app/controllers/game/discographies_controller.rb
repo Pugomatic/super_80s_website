@@ -4,8 +4,9 @@ module Game
 
     def index
       @selected = :disco
-      @memo = :cartridge
+      @media = params[:media] ? params[:media].to_sym : :cassette
       @years = ['1980']
+
     end
   end
 end

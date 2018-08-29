@@ -58,6 +58,97 @@ body {
     margin: 0;
   }
 
+  .holder {
+
+    .cassette {
+      text-align: center;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+      min-width: 338px;
+      max-width: 338px;
+      position: relative;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      padding: 2px 0px 0px 0px;
+
+      border: 3px solid $deep-purple;
+      border-bottom: none;
+      height: 52px;
+
+      .display_title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: BasicHandwriting;
+        color: $dark-background-color;
+        white-space:nowrap;
+      }
+    }
+
+    .cartridge {
+      text-align: center;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+      min-width: 390px;
+      max-width: 390px;
+      position: relative;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      padding: 4px 0px 0px 0px;
+
+      border: 3px solid $deep-purple;
+      border-bottom: none;
+      height: 60px;
+
+      .display_title {
+        position: absolute;
+        top: 30%;
+        left: 38%;
+        transform: translate(-50%, -50%);
+        font-family: BasicHandwriting;
+        color: $dark-background-color;
+        white-space:nowrap;
+      }
+    }
+
+    .vhs_tape {
+      text-align: center;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+      min-width: 388px;
+      max-width: 388px;
+      position: relative;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      padding: 3px 0px 0px 0px;
+
+      border: 3px solid $deep-purple;
+      border-bottom: none;
+      height: 60px;
+
+      .display_title {
+        position: absolute;
+        margin-top: 4px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: BasicHandwriting;
+        color: $dark-background-color;
+        white-space:nowrap;
+      }
+    }
+
+  }
+
+
+
   .panel {
     margin-left: 40px;
     margin-right: 40px;
@@ -68,6 +159,7 @@ body {
     //-o-border-image: url(game/panel.png) round; /* Opera 11-12.1 */
     //border-image: url(game/panel.png) round;
     //border-image-slice: 3%;
+
 
     ul.discography {
       margin-left: 150px;
@@ -111,6 +203,12 @@ body {
           color: $chrome-top;
         }
       }
+    }
+
+    table.heading.disco {
+      font-family: 'lazer84';
+      color: $electric-blue;
+      text-shadow: 6px 3px 16px $magenta;
     }
 
     h1 {
