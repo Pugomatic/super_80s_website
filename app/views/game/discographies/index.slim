@@ -45,7 +45,7 @@
       - 40.times do
         - if @media == :cartridge
           - @color = %w(blue blue blue2 blue2 black black black black black purple green red cyan gold orange).sample
-          - @fonts = {'blue' => '#fff', 'dcddcb' => '#dcddcb', 'purple' => '#ff3ae4', 'green' => '#c0a614', 'red' => '#dce840', 'cyan' => '#119', 'gold' => '#051fac', 'orange' => '#ffffff', 'blue2' => '#ecf850'}
+          - @fonts = {'blue' => '#ffff00', 'dcddcb' => '#dcddcb', 'purple' => '#ff3ae4', 'green' => '#c0a614', 'red' => '#dce840', 'cyan' => '#119', 'gold' => '#051fac', 'orange' => '#ffffff', 'blue2' => '#ff8800'}
           .flex-grid-item class="#{@media}"
             = image_tag "game/#{@media}-bg-#{@color}.png"
             .display_title style="color: #{@fonts[@color]}" Script of the Bridge
