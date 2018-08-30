@@ -7,7 +7,7 @@
       tr align="center"
         td
           a#toggle_controls href="#"
-            | High Scores for 1980.3
+            | 1980.3
             br
             .fa.fa-caret-down
 
@@ -39,50 +39,44 @@
 
       tr
         td align="center"
-          select#board name="board" style="width: 240px"
-            option value=("scores") Select Metric
-            option value=("winners") Winners
-            option value=("scores") High Scores
-            option value=("times")  Fast Times
-            option value=("memo")  Memorabilia
-            option value=("achieve")  Achievements
-
-      tr
-        td align="center"
           button#reload Reload
           br
           br
 
 
-    table.leaderboard
-      thead
-        tr
-          th
-            span style="background-color: #0e0616; padding: 20px" Player
-          th
-            span style="background-color: #0e0616; padding: 20px" Score
-          th.date_column
-            span style="background-color: #0e0616; padding: 20px" Date
+    - ['Years', 'High Scores', 'Fast Times', 'Memorabilia', 'Achievements'].each do |metric|
+      .achievements
+        h1 #{metric}
 
-      tbody
-        - 10.times do
+      table.leaderboard
+        thead
           tr
-            td
-              span.led
-                span.out 88
-                | Spacer XTC
-                span.out 88
-            td
-              span.led
-                span.out 88
-                | 2190
-                span.out 88
+            th
+              span style="background-color: #0e0616; padding: 20px" Player
+            th
+              span style="background-color: #0e0616; padding: 20px" #{metric}
+            th.date_column
+              span style="background-color: #0e0616; padding: 20px" Date
 
-            td.date_column
-              span.led
-                span.out 8
-                | 8-21-18
-                span.out 8
+        tbody
+          - 10.times do
+            tr
+              td
+                span.led
+                  span.out 88
+                  | Spacer XTC
+                  span.out 88
+              td
+                span.led
+                  span.out 88
+                  | 2190
+                  span.out 88
+
+              td.date_column
+                span.led
+                  span.out 8
+                  | 8-21-18
+                  span.out 8
 javascript:
   $("#world").selectmenu();
   $("#level").selectmenu();
