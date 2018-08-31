@@ -11,10 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170829005312) do
+ActiveRecord::Schema.define(version: 20180831020701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "achievement_items", force: :cascade do |t|
+    t.integer  "achievement_id"
+    t.integer  "culture_item_id"
+    t.integer  "amount",          default: 0
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "achievement_items", ["achievement_id"], name: "i_achievement_items_a", using: :btree
+
+  create_table "achievements", force: :cascade do |t|
+    t.string   "name"
+    t.string   "sort_name"
+    t.string   "description"
+    t.integer  "image"
+    t.integer  "match_type"
+    t.integer  "match_timeframe"
+    t.integer  "matches_allowed"
+    t.string   "matching_culture_item_ids"
+    t.integer  "match_count"
+    t.string   "match_year"
+    t.integer  "match_format"
+    t.integer  "match_precedence",          default: 0
+    t.integer  "award_count",               default: 0
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
+
+  add_index "achievements", ["sort_name"], name: "i_achievements_sn", using: :btree
 
   create_table "beta_testers", force: :cascade do |t|
     t.text     "email"
@@ -188,27 +218,119 @@ ActiveRecord::Schema.define(version: 20170829005312) do
   add_index "comfy_cms_snippets", ["site_id", "identifier"], name: "index_comfy_cms_snippets_on_site_id_and_identifier", unique: true, using: :btree
   add_index "comfy_cms_snippets", ["site_id", "position"], name: "index_comfy_cms_snippets_on_site_id_and_position", using: :btree
 
-  create_table "players", force: :cascade do |t|
-    t.datetime "prized_at"
-    t.datetime "drawn_at"
+  create_table "culture_formats", force: :cascade do |t|
     t.string   "name"
-    t.string   "email",      null: false
-    t.boolean  "iphone"
-    t.boolean  "ipad"
-    t.boolean  "android"
-    t.boolean  "other"
+    t.integer  "enum_index"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "prize_id"
-    t.text     "feedback"
   end
 
-  create_table "prizes", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "amount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "culture_items", force: :cascade do |t|
+    t.integer  "culture_format_id"
+    t.integer  "world_id"
+    t.string   "title"
+    t.string   "funny_title"
+    t.string   "artist"
+    t.string   "color"
+    t.string   "director"
+    t.string   "actors"
+    t.string   "tags"
+    t.boolean  "required",          default: false
+    t.integer  "level_number"
+    t.string   "dans_commentary"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
+
+  add_index "culture_items", ["culture_format_id"], name: "i_culture_items_cf", using: :btree
+  add_index "culture_items", ["funny_title"], name: "i_culture_items_ft", using: :btree
+  add_index "culture_items", ["required"], name: "i_culture_items_r", using: :btree
+  add_index "culture_items", ["world_id"], name: "i_culture_items_w", using: :btree
+
+  create_table "levels", force: :cascade do |t|
+    t.integer  "world_id"
+    t.integer  "next_level_id"
+    t.integer  "number"
+    t.string   "name"
+    t.integer  "month"
+    t.boolean  "minigame"
+    t.boolean  "boss"
+    t.integer  "gold_cassettes",  default: 0
+    t.integer  "gold_vhs_tapes",  default: 0
+    t.integer  "gold_cartridges", default: 0
+    t.boolean  "level_up_player"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  create_table "player_achievements", force: :cascade do |t|
+    t.integer  "player_id"
+    t.integer  "achievement_id"
+    t.integer  "level_awarded_id"
+    t.boolean  "viewed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "player_achievements", ["player_id"], name: "i_player_achievements_p", using: :btree
+
+  create_table "player_items", force: :cascade do |t|
+    t.integer  "player_id"
+    t.integer  "culture_item_id"
+    t.integer  "amount",          default: 0
+    t.datetime "picked_up_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "player_items", ["player_id"], name: "i_player_items_p", using: :btree
+
+  create_table "player_levels", force: :cascade do |t|
+    t.integer  "player_id"
+    t.integer  "world_id"
+    t.integer  "level_id"
+    t.integer  "solid_gold",                default: 0
+    t.integer  "plays"
+    t.integer  "wins"
+    t.integer  "high_score"
+    t.integer  "fastest_time"
+    t.integer  "status"
+    t.integer  "max_kills"
+    t.integer  "cartridges_collected",      default: 0
+    t.integer  "vhs_tapes_collected",       default: 0
+    t.integer  "cassettes_collected",       default: 0
+    t.integer  "gold_cassettes_collected",  default: 0
+    t.integer  "gold_vhs_tapes_collected",  default: 0
+    t.integer  "gold_cartridges_collected", default: 0
+    t.datetime "fastest_time_at"
+    t.datetime "max_kills_at"
+    t.datetime "high_score_at"
+    t.datetime "started_at"
+    t.datetime "completed_at"
+    t.datetime "gold_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "player_levels", ["player_id", "level_id"], name: "i_player_levels_pl", using: :btree
+  add_index "player_levels", ["player_id", "world_id"], name: "i_player_levels_pw", using: :btree
+  add_index "player_levels", ["player_id"], name: "i_player_levels_p", using: :btree
+
+  create_table "players", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "current_level_id"
+    t.integer  "top_completed_level_id"
+    t.string   "email"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "identifier"
+    t.integer  "player_level",           default: 1
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
+  add_index "players", ["email"], name: "i_players_e", using: :btree
+  add_index "players", ["name"], name: "i_players_n", using: :btree
 
   create_table "referer_trackings", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -238,6 +360,14 @@ ActiveRecord::Schema.define(version: 20170829005312) do
     t.datetime "updated_at", null: false
     t.string   "ip_address"
     t.boolean  "is_suspect"
+  end
+
+  create_table "worlds", force: :cascade do |t|
+    t.string   "year"
+    t.string   "title"
+    t.integer  "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
