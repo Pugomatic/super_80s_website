@@ -6,12 +6,17 @@
           a#toggle_controls href="#"
             - if @media == :cassette
               | Ca s s e t te s
-              br
-              | 1980
             - elsif @media == :cartridge
               | Ca r tr i d g e s
             - elsif @media == :vhs
               | V H S &nbsp; Ta &nbsp;p e s
+
+            br
+            - if @years.size > 1
+              | 1980-84
+            - else
+              = @years.first
+
             br
             .fa.fa-caret-down
 

@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'DS-Digital';
+  src: font-url('DS-Digital.ttf.woff') format('woff'),
+  font-url('DS-Digital.ttf.svg#DS-Digital') format('svg'),
+  font-url('DS-Digital.ttf.eot'),
+  font-url('DS-Digital.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'lazer84regular';
+  src: font-url('lazer84-webfont.eot');
+  src: font-url('lazer84-webfont.eot?#iefix') format('embedded-opentype'),
+  font-url('lazer84-webfont.woff') format('woff'),
+  font-url('lazer84-webfont.svg#lazer84regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'basichandwritingmedium';
+  src: font-url('basichandwriting-webfont.eot');
+  src: font-url('basichandwriting-webfont.eot?#iefix') format('embedded-opentype'),
+  font-url('basichandwriting-webfont.woff') format('woff'),
+  font-url('basichandwriting-webfont.svg#basichandwritingmedium') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+.lazer {
+  font-family: 'lazer84regular';
+}

@@ -57,13 +57,8 @@ html
       a href="/game/discographies"
         = image_tag @selected == :disco ? 'game/discography-selected.png' : 'game/discography.png', size: '64x64'
 
-      / a href="#about"  Achievements
-
     = yield
 
-    / footer.footer role="contentinfo"
-    /   p
-    /     | &copy;
-    /     | #{Time.new.year} Tap Tap Good, LLC.  All Rights Reserved.
-
-
+    footer.game
+      - if current_player
+        = link_to "Logout #{current_player.name}", destroy_player_session_path, method: :delete

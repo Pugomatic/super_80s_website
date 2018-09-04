@@ -6,14 +6,29 @@ class CultureItem < ActiveRecord::Base
 
   has_many    :achievement_items
   has_many    :achievements, through: :achievement_items
+  has_many    :player_items
+  has_many    :players, through: :player_items
 
+  validates  :uid, presence: true, uniqueness: true
   validates  :funny_title, presence: true
   validates  :title, presence: true
   validates  :culture_format_id, presence: true
   validates  :world_id, presence: true
 
-  def self.load(type, years, limit = nil)
-    CultureItem.joins(:world, :culture_format).where('worlds.year' => years, 'culture_format' => CultureFormat.get(type)).order(funny_title: :asc)
+  def self.load(player, type, years, limit = nil)
+    player.culture_items.includes(:world, :culture_format).where('worlds.year' => years, 'culture_format' => CultureFormat.get(type)).order(funny_title: :asc)
+  end
+
+  def self.cassettes
+    where(culture_format: CultureFormat.get(:cassette))
+  end
+
+  def self.cartridges
+    where(culture_format: CultureFormat.get(:cartridge))
+  end
+
+  def self.vhs_tapes
+    where(culture_format: CultureFormat.get(:vhs))
   end
 
   def format
@@ -49,7 +64,7 @@ class CultureItem < ActiveRecord::Base
           parameters = ActionController::Parameters.new(row.to_hash)
           if %w(1980 1981 1982 1983 1984).include?(parameters[:year].to_s)
 
-            item.attributes = parameters.permit(:title, :artist, :director, :actors, :tags, :funny_title, :level_number, :dans_commentary, :color)
+            item.attributes = parameters.permit(:title, :artist, :director, :actors, :tags, :funny_title, :level_number, :dans_commentary, :color, :uid)
             item.required = !parameters[:required].blank?
             item.title.try :strip!
             item.director.try :strip!
@@ -61,6 +76,7 @@ class CultureItem < ActiveRecord::Base
             item.color.try :strip!
             item.format = formats[parameters[:format]]
             item.world = worlds[parameters[:year].to_s]
+            item.uid.try :strip!
 
             item.save || raise(item.errors.full_messages.inspect)
 

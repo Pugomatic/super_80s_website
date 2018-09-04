@@ -52,83 +52,37 @@ body {
 
 
 .achievements {
-
-}
-
-.profile-image {
-  text-align: center;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  position: relative;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  padding: 0px;
-
-  width: 300px;
-  height: 315px;
-
-  img.achievement_1 {
-    transform: rotate(5deg);
+  ul.bullet {
+    li {
+      list-style-type: square;
+      list-style-position: inside;
+    }
   }
-  img.achievement_3 {
-    transform: rotate(-5deg);
-  }
-
-  img.achievement_4 {
-    transform: rotate(5deg);
+  .achievement {
+    .details {
+      border-radius: 15px;
+      display:none;
+      background-color: $deep-purple;
+      width: 340px;
+      padding: 10px;
+      font-family: 'basichandwritingmedium';
+      font-weight: normal;
+      font-size: 0.8em;
+      margin-bottom: 40px;
+    }
   }
 }
 
-.profile-image::after {
-  content: "";
-  background: url(game/level_9.png);
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
-}
-
-@font-face {
-  font-family: 'DS-Digital';
-  src: font-url('DS-Digital.ttf.woff') format('woff'),
-  font-url('DS-Digital.ttf.svg#DS-Digital') format('svg'),
-  font-url('DS-Digital.ttf.eot'),
-  font-url('DS-Digital.eot?#iefix') format('embedded-opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'lazer84regular';
-  src: font-url('lazer84-webfont.eot');
-  src: font-url('lazer84-webfont.eot?#iefix') format('embedded-opentype'),
-  font-url('lazer84-webfont.woff') format('woff'),
-  font-url('lazer84-webfont.svg#lazer84regular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
-@font-face {
-  font-family: 'basichandwritingmedium';
-  src: font-url('basichandwriting-webfont.eot');
-  src: font-url('basichandwriting-webfont.eot?#iefix') format('embedded-opentype'),
-  font-url('basichandwriting-webfont.woff') format('woff'),
-  font-url('basichandwriting-webfont.svg#basichandwritingmedium') format('svg');
-  font-weight: normal;
-  font-style: normal;
-
-}
 .digital {
    font-family: 'DS-Digital';
 }
 
 .game {
   margin: 20px;
+
+  .user {
+    margin: 40px;
+  }
 
   .thumb {
     line-height: 50px; // height taken from OPs plunker
@@ -514,6 +468,12 @@ body {
       }
     }
   }
+}
+
+footer.game {
+  font-family: 'DS-Digital';
+  float: right;
+  margin-right: 60px;
 }
 
 .game {

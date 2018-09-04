@@ -44,6 +44,7 @@ class AddGameTables < ActiveRecord::Migration
     # add_index "culture_formats", ["enum_index"], name: "i_culture_formats_ei"
 
     create_table "culture_items", force: :cascade do |t|
+      t.string   :uid, null: false
       t.integer  :culture_format_id
       t.integer  :world_id
       t.string   :title
@@ -60,6 +61,7 @@ class AddGameTables < ActiveRecord::Migration
       t.datetime :updated_at,                       null: false
     end
 
+    add_index "culture_items", ["uid"], name: "i_culture_items_u"
     add_index "culture_items", ["culture_format_id"], name: "i_culture_items_cf"
     add_index "culture_items", ["world_id"], name: "i_culture_items_w"
     add_index "culture_items", ["funny_title"], name: "i_culture_items_ft"

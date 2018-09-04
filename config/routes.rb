@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :players, controllers: {
+      sessions: 'sessions',
+      registrations: 'registrations',
+      omniauth_callbacks: "players/omniauth_callbacks"
+  }
+
   get '/' => 'high_voltage/pages#show', id: 'video', as: 'root'
   get '/twitter' => 'high_voltage/pages#show', id: 'twitter', as: 'twitter'
   get '/video' => 'high_voltage/pages#show', id: 'video', as: 'video'
@@ -37,15 +43,11 @@ Rails.application.routes.draw do
     resources :leaderboards
     resources :discographies
     resources :profiles
+    resources :players
+    resources :sign_ins
   end
 
   resources :synthwave, only: [:index]
-
-  resources :players, only: [:index, :create] do
-    collection do
-      get :award
-    end
-  end
 
   resources :beta_testers, only: [:index]
 

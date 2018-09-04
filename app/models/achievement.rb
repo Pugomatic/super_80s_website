@@ -35,8 +35,14 @@ class Achievement < ActiveRecord::Base
 
   has_many  :achievement_items
   has_many  :culture_items, through: :achievement_items
+  has_many  :player_achievements
+  has_many  :players, through: :player_achievements
 
   validates :name, presence: true
   validates :sort_name, presence: true
   validates :description, presence: true
+
+  def self.with_items
+    where(match_type: [MULTI_ITEM_MINIMUM, MULTI_ITEM_EXACT, SINGLE_ITEM])
+  end
 end

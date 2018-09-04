@@ -1,7 +1,5 @@
 module Game
-  class DiscographiesController < ApplicationController
-    layout  'game'
-
+  class DiscographiesController < BaseController
     def index
       @selected = :disco
       @media = params[:media] ? params[:media].to_sym : :cassette
@@ -39,7 +37,7 @@ module Game
         }
       end
 
-      @items = CultureItem.load(@media, @years)
+      @items = CultureItem.load(current_player, @media, @years)
     end
   end
 end

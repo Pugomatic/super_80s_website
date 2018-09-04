@@ -15,11 +15,12 @@ gem 'will_paginate'
 gem 'slim'
 
 gem 'referer_tracking'
-gem 'strip_attributes'
 gem 'dynamic_sitemaps'
 gem 'jquery-ui-rails'
 gem 'strip_attributes'
 gem 'roo'
+gem 'devise'
+gem 'omniauth-facebook'
 
 gem 'gibbon', git: 'git://github.com/amro/gibbon.git'
 gem 'invisible_captcha'

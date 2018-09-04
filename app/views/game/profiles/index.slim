@@ -2,8 +2,9 @@
   .panel
     .section.group
       .col.span_1_of_3
-        h1 DWav Stan
+        h1 style="text-align: left" = current_player.name
         .profile-image
+          = image_tag "game/level_#{current_player.player_level}.png"
         .achievements
           br
           h2.digital Browse my collection
@@ -13,15 +14,18 @@
             li
               a.thumb href="/game/discographies?media=cartridge"
                 = image_tag "game/cartridge.png"
-                | Video Games - 32
+                ' Video Games -
+                = @counts[:cartridges]
             li
               a.thumb href="/game/discographies?media=vhs"
                 = image_tag "game/vhs.png"
-                | Movies - 102
+                ' M o v i e s -
+                = @counts[:vhs_tapes]
             li
               a.thumb href="/game/discographies?media=cassette" style="alignment: top;"
                 = image_tag "game/cassette.png"
-                | Music - 86
+                ' M u s i c -
+                = @counts[:cassettes]
       .col.span_1_of_3
         .achievements
           h2.digital Years Saved
@@ -99,15 +103,31 @@
           h2.digital Skillz
           hr
           br
-          ul
-            li.digital Running
-            li.digital Jumping
-            li.digital Fist Bumping
-            li.digital Hair Combing
+          ul.bullet
+            - current_player.abilities.each do |skill|
+              li.digital = skill
+
+          br
         .achievements
           h2.digital Achievements
           hr
           br
-          ul
-            - 1.upto(5).each do |i|
-              li = image_tag "game/achievement_#{i}.png", size: '300x35', class: "achievement_#{i}"
+          - @achievements.each do |achievement|
+            .achievement id="#{achievement.id}"
+              = link_to "javascript:;" do
+                = image_tag "game/a_#{achievement.sort_name}.png", size: '300x35', class: "achievement_1"
+              .details
+                = achievement.description
+                - if @items[achievement.id]
+                  ul.bullet
+                    - @items[achievement.id].each do |item|
+                      li = item.funny_title
+          br
+          br
+
+javascript:
+  $(function() {
+      $(".achievement a").click(function() {
+          $(this).next().toggle();
+      });
+  });

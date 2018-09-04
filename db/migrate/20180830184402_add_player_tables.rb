@@ -2,13 +2,14 @@ class AddPlayerTables < ActiveRecord::Migration
   def change
     create_table "players", force: :cascade do |t|
       t.string   :name
-      t.integer  :current_level_id
+      t.string   :email,              null: false, default: ""
       t.integer  :top_completed_level_id
       t.string   :email
       t.string   :facebook
       t.string   :twitter
       t.string   :identifier
       t.integer  :player_level,               default: 1
+      t.string   :skills
       t.datetime :created_at,                              null: false
       t.datetime :updated_at,                              null: false
     end
@@ -30,8 +31,6 @@ class AddPlayerTables < ActiveRecord::Migration
     create_table "player_items", force: :cascade do |t|
       t.integer  :player_id
       t.integer  :culture_item_id
-      t.integer  :amount,               default: 0
-      t.datetime :picked_up_at
       t.datetime :created_at
       t.datetime :updated_at
     end

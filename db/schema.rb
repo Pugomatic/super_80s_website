@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180831020701) do
+ActiveRecord::Schema.define(version: 20180903181329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -226,6 +226,7 @@ ActiveRecord::Schema.define(version: 20180831020701) do
   end
 
   create_table "culture_items", force: :cascade do |t|
+    t.string   "uid",                               null: false
     t.integer  "culture_format_id"
     t.integer  "world_id"
     t.string   "title"
@@ -245,6 +246,7 @@ ActiveRecord::Schema.define(version: 20180831020701) do
   add_index "culture_items", ["culture_format_id"], name: "i_culture_items_cf", using: :btree
   add_index "culture_items", ["funny_title"], name: "i_culture_items_ft", using: :btree
   add_index "culture_items", ["required"], name: "i_culture_items_r", using: :btree
+  add_index "culture_items", ["uid"], name: "i_culture_items_u", using: :btree
   add_index "culture_items", ["world_id"], name: "i_culture_items_w", using: :btree
 
   create_table "levels", force: :cascade do |t|
@@ -277,8 +279,6 @@ ActiveRecord::Schema.define(version: 20180831020701) do
   create_table "player_items", force: :cascade do |t|
     t.integer  "player_id"
     t.integer  "culture_item_id"
-    t.integer  "amount",          default: 0
-    t.datetime "picked_up_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -318,19 +318,36 @@ ActiveRecord::Schema.define(version: 20180831020701) do
 
   create_table "players", force: :cascade do |t|
     t.string   "name"
-    t.integer  "current_level_id"
-    t.integer  "top_completed_level_id"
     t.string   "email"
+    t.integer  "top_completed_level_id"
     t.string   "facebook"
     t.string   "twitter"
     t.string   "identifier"
     t.integer  "player_level",           default: 1
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.string   "skills"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,     null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.string   "provider"
+    t.string   "uid"
+    t.text     "image"
+    t.text     "fb_data"
+    t.string   "handle"
+    t.boolean  "pending",                default: false
   end
 
   add_index "players", ["email"], name: "i_players_e", using: :btree
+  add_index "players", ["email"], name: "index_players_on_email", unique: true, using: :btree
   add_index "players", ["name"], name: "i_players_n", using: :btree
+  add_index "players", ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true, using: :btree
 
   create_table "referer_trackings", force: :cascade do |t|
     t.integer  "trackable_id"

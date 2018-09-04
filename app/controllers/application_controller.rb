@@ -7,4 +7,12 @@ class ApplicationController < ActionController::Base
   def set_user
     @user = User.new
   end
+
+  def after_sign_in_path_for(resource_or_scope)
+    game_profiles_path
+  end
+
+  def after_sign_up_path_for(resource)
+    game_profiles_path
+  end
 end
