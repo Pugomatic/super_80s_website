@@ -42,24 +42,20 @@ class AddPlayerTables < ActiveRecord::Migration
       t.integer  :world_id
       t.integer  :level_id
       t.integer  :solid_gold, default: 0
-      t.integer  :plays
-      t.integer  :wins
-      t.integer  :high_score
-      t.integer  :fastest_time
-      t.integer  :status
-      t.integer  :max_kills
-      t.integer  :cartridges_collected, default: 0
-      t.integer  :vhs_tapes_collected, default: 0
-      t.integer  :cassettes_collected, default: 0
+      t.integer  :plays, default: 0
+      t.integer  :wins, default: 0
+      t.integer  :high_score, default: 0
+      t.integer  :fastest_time, default: 0
+      t.string   :status, default: 'locked'
+      t.integer  :max_kills, default: 0
+      t.integer  :max_cartridges_collected, default: 0
+      t.integer  :max_vhs_tapes_collected, default: 0
+      t.integer  :max_cassettes_collected, default: 0
       t.integer  :gold_cassettes_collected,  default: 0
       t.integer  :gold_vhs_tapes_collected,  default: 0
       t.integer  :gold_cartridges_collected, default: 0
-      t.datetime :fastest_time_at
-      t.datetime :max_kills_at
-      t.datetime :high_score_at
       t.datetime :started_at
       t.datetime :completed_at
-      t.datetime :gold_at
       t.datetime :created_at
       t.datetime :updated_at
     end

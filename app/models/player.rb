@@ -12,6 +12,7 @@ class Player < ActiveRecord::Base
   has_many  :culture_items, through: :player_items
   has_many  :player_achievements
   has_many  :achievements, through: :player_achievements
+  has_many  :player_levels
 
 
   def self.from_game(all_params)
@@ -35,6 +36,28 @@ class Player < ActiveRecord::Base
 
     Achievement.select(:id).where(sort_name: all_params[:achievements].split(',')).each do |a|
       a.player_achievements.create player: player
+    end
+
+    all_params[:levels].each do |number, data|
+      pl =  player.player_levels.includes(:level).find_by('levels.number' => number) || player.player_levels.build(level: Level.find_by(number: number))
+      if data[:status] == "completed"
+        pl.fastest_time = (data[:fastest_time].to_f * 1000).round
+        pl.high_score = data[:high_score]
+        pl.plays = data[:plays]
+        pl.wins = data[:wins]
+        pl.status = data[:status]
+        pl.max_kills = data[:max_kills]
+        pl.max_cassettes_collected = data[:max_cassettes_collected]
+        pl.max_vhs_tapes_collected = data[:max_vhs_tapes_collected]
+        pl.max_cartridges_collected = data[:max_cartridges_collected]
+        pl.gold_cassettes_collected = data[:gold_cassettes_collected]
+        pl.gold_vhs_tapes_collected = data[:gold_vhs_tapes_collected]
+        pl.gold_cartridges_collected = data[:gold_cartridges_collected]
+      else
+        pl.status = data[:status]
+      end
+
+      pl.save
     end
   end
 
