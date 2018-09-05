@@ -47,6 +47,7 @@ class Player < ActiveRecord::Base
         pl.wins = data[:wins]
         pl.status = data[:status]
         pl.max_kills = data[:max_kills]
+        pl.max_items_collected = data[:max_items_collected]
         pl.max_cassettes_collected = data[:max_cassettes_collected]
         pl.max_vhs_tapes_collected = data[:max_vhs_tapes_collected]
         pl.max_cartridges_collected = data[:max_cartridges_collected]

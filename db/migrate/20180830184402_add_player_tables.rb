@@ -51,9 +51,11 @@ class AddPlayerTables < ActiveRecord::Migration
       t.integer  :max_cartridges_collected, default: 0
       t.integer  :max_vhs_tapes_collected, default: 0
       t.integer  :max_cassettes_collected, default: 0
+      t.integer  :max_items_collected, default: 0
       t.integer  :gold_cassettes_collected,  default: 0
       t.integer  :gold_vhs_tapes_collected,  default: 0
       t.integer  :gold_cartridges_collected, default: 0
+      t.integer  :gold_collected, default: 0
       t.datetime :started_at
       t.datetime :completed_at
       t.datetime :created_at

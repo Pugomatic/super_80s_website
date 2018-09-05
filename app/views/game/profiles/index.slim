@@ -32,72 +32,69 @@
           hr
           table.leaderboard.tight
             tbody
-              - 5.times do
+              - @worlds.each_with_index do |status, y|
                 tr
                   td
                     span.led
                       span.out 88
-                      | 1980
+                      = "198#{y}"
                       span.out 88
                   td
                     span.led
-                      span.out 88
-                      | SAVED
-                      span.out 88
+                      span.out = '8' * (9 - status.length)
+                      = status
 
         .achievements
           h2.digital High Scores
           hr
           table.leaderboard.tight
             tbody
-              - 5.times do
+              - @high_scores.each do |score|
                 tr
                   td
                     span.led
                       span.out 8
-                      | 1980.1
+                      = "#{score.world.year}.#{score.level.month}"
                       span.out 8
                   td
                     span.led
-                      span.out 88
-                      | 2190
-                      span.out 88
+                      span.out = '8' * (9 - score.high_score.to_s.length)
+                      = score.high_score
 
           h2.digital Fast Times
           hr
           table.leaderboard.tight
             tbody
-              - 5.times do
+              - @fast_times.each do |time|
+                - display_time = sprintf("%0.3f", time.fastest_time / 1000.0)
+
                 tr
                   td
                     span.led
                       span.out 8
-                      | 1980.1
+                      = "#{time.world.year}.#{time.level.month}"
                       span.out 8
                   td
                     span.led
-                      span.out 88
-                      | 23.98
+                      span.out = '8' * (9 - display_time.length)
+                      = display_time
 
-                      span.out 88
 
           h2.digital Memorabilia Collected
           hr
           table.leaderboard.tight
             tbody
-              - 5.times do
+              - @memo.each do |memo|
                 tr
                   td
                     span.led
                       span.out 8
-                      | 1980
+                      = "#{memo.world.year}.#{memo.level.month}"
                       span.out 8
                   td
                     span.led
-                      span.out 88
-                      | 120
-                      span.out 88
-
+                      span.out = '8' * (9 - memo.max_items_collected.to_s.length)
+                      = memo.max_items_collected
       .col.span_1_of_3
         .achievements
           h2.digital Skillz
