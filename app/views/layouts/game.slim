@@ -57,6 +57,11 @@ html
       a href="/game/discographies"
         = image_tag @selected == :disco ? 'game/discography-selected.png' : 'game/discography.png', size: '64x64'
 
+    .remodal#dans_take data-remodal-id="dans_take"
+      h3.title
+      .artist
+      p.review
+
     = yield
 
     footer.game

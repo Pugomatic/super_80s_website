@@ -77,6 +77,35 @@ body {
    font-family: 'DS-Digital';
 }
 
+.remodal {
+  margin: 0px;
+  padding: 0px;
+  text-align: left;
+}
+
+#dans_take {
+  h3.title {
+    font-family: "lazer84regular";
+    background: linear-gradient(to right, $electric-blue 0%, $hot-pink 100%);
+    color: $dark-background-color;
+    padding: 10px;
+    margin: 0;
+  }
+  .artist {
+    font-family: "lazer84regular";
+    color: $hot-pink;
+    text-align: right;
+    padding: 10px;
+  }
+  .review {
+    font-family: "basichandwritingmedium";
+    color: $chrome-top;
+    padding: 10px;
+    margin-bottom: 0px;
+  }
+}
+
+
 .game {
   margin: 20px;
 

@@ -49,8 +49,9 @@
     .flex-grid
       - @items.each do |item|
         .flex-grid-item class="#{@media}"
-          = image_tag "game/#{@media}-bg-#{item.color}.png"
-          .display_title style="color: #{@fonts[item.color]}" = item.funny_title
+          a.review_reveal href="#dans_take" data-title="#{item.title}" data-artist="#{item.artist}" data-review="#{item.dans_commentary}"
+            = image_tag "game/#{@media}-bg-#{item.color}.png"
+            .display_title style="color: #{@fonts[item.color]}" = item.funny_title
 
 
 javascript:
@@ -67,5 +68,16 @@ javascript:
             $('.controls').hide();
             window.location.href = '/game/discographies?media=' + $("#media").val() + "&year=" + $("#year").val();
 
+        });
+
+        $(".review_reveal").click(function() {
+            $("#dans_take h3.title").html($(this).data('title'));
+            $("#dans_take .artist").html($(this).data('artist'));
+            if ($(this).data('review')) {
+                $("#dans_take p.review").html(
+                    "Dan's take:<br>" +
+                    $(this).data('review')
+                );
+            }
         });
     });
