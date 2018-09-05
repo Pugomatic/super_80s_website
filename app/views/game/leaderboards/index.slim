@@ -117,6 +117,38 @@
                   = "#{time.world.year}.#{time.level.month}"
                   span.out 8
 
+      br
+      .achievements
+        h1 Max Killz
+
+      table.leaderboard
+        thead
+          tr
+            th
+              span style="background-color: #0e0616; padding: 20px" Player
+            th
+              span style="background-color: #0e0616; padding: 20px" Items
+            th.date_column
+              span style="background-color: #0e0616; padding: 20px" Level
+
+        tbody
+          - @max_kills.each do |kills|
+            - handle = kills.player.email.split('@').first[0..12]
+            tr
+              td
+                span.led
+                  span.out = '8' * (12 - handle.length)
+                  = handle
+              td
+                span.led
+                  span.out = '8' * (9 - kills.max_kills.to_s.length)
+                  = kills.max_kills
+
+              td.date_column
+                span.led
+                  span.out 8
+                  = "#{kills.world.year}.#{kills.level.month}"
+                  span.out 8
 
       br
       .achievements

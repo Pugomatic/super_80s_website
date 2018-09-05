@@ -21,9 +21,10 @@ module Game
       conditions['worlds.year'] = @year unless @year == :all
       conditions['levels.month'] = @level unless @year == :all || @level == :all
 
-      @high_scores = PlayerLevel.where(conditions).high_scores.limit(20)
-      @fast_times =  PlayerLevel.where(conditions).fast_times.limit(20)
-      @memo_items =  PlayerLevel.where(conditions).max_collected.limit(20)
+      @high_scores =  PlayerLevel.where(conditions).high_scores.limit(20)
+      @fast_times  =  PlayerLevel.where(conditions).fast_times.limit(20)
+      @memo_items  =  PlayerLevel.where(conditions).max_collected.limit(20)
+      @max_kills   =  PlayerLevel.where(conditions).max_kills.limit(20)
     end
   end
 end

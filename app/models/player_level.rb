@@ -7,15 +7,23 @@ class PlayerLevel < ActiveRecord::Base
   before_save       :set_totals
 
   def self.high_scores
-    includes(:level, :world, :player).select("player_id, high_score, level_id, player_levels.world_id").where(status: 'completed').order(high_score: :desc)
+    leaderboard('high_score')
   end
 
   def self.fast_times
-    includes(:level, :world).select("player_id, fastest_time, level_id, player_levels.world_id").where(status: 'completed').order(fastest_time: :asc)
+    leaderboard('fastest_time', :asc)
   end
 
   def self.max_collected
-    includes(:level, :world).select("player_id, max_items_collected, level_id, player_levels.world_id").where(status: 'completed').order(max_items_collected: :desc)
+    leaderboard('max_items_collected')
+  end
+
+  def self.max_kills
+    leaderboard('max_kills')
+  end
+
+  def self.leaderboard(field, order = :desc)
+    includes(:level, :world, :player).select("player_id, #{field}, level_id, player_levels.world_id").where("status = ? AND #{field} > 0", 'completed').order(field => order)
   end
 
   private

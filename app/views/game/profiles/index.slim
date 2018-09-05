@@ -26,9 +26,8 @@
                 = image_tag "game/cassette.png"
                 ' M u s i c -
                 = @counts[:cassettes]
-      .col.span_1_of_3
         .achievements
-          h2.digital Years Saved
+          h2.digital Years Status
           hr
           table.leaderboard.tight
             tbody
@@ -43,7 +42,7 @@
                     span.led
                       span.out = '8' * (9 - status.length)
                       = status
-
+      .col.span_1_of_3
         .achievements
           h2.digital High Scores
           hr
@@ -79,6 +78,21 @@
                       span.out = '8' * (9 - display_time.length)
                       = display_time
 
+          h2.digital Max Kills
+          hr
+          table.leaderboard.tight
+            tbody
+              - @max_kills.each do |kills|
+                tr
+                  td
+                    span.led
+                      span.out 8
+                      = "#{kills.world.year}.#{kills.level.month}"
+                      span.out 8
+                  td
+                    span.led
+                      span.out = '8' * (9 - kills.max_kills.to_s.length)
+                      = kills.max_kills
 
           h2.digital Memorabilia Collected
           hr
