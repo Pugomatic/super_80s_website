@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def fix_lazer_font(text, limit = 20)
-    return text unless text.length < limit
+    return text unless text.empty? || text.length < limit
     dt = ""
     text.each_char do |char|
       if char == ' '
