@@ -157,7 +157,7 @@
                     ul.bullet
                       - @items[achievement.id].each do |item|
                         li
-                          a.review_reveal href="#dans_take" data-title="#{fix_lazer_font item.title}" data-artist="#{fix_lazer_font item.artist}" data-review="#{item.dans_commentary}" data-bgclass="bg-#{item.media}" = item.funny_title
+                          a.review_reveal href="#dans_take" data-title="#{item.title ? fix_lazer_font(item.title) : item.uid}" data-artist="#{fix_lazer_font item.artist}" data-review="#{item.dans_commentary}" data-bgclass="bg-#{item.media}" = item.funny_title
             br
             br
 
