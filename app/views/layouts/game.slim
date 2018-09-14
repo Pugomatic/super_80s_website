@@ -67,3 +67,19 @@ html
     footer.game
       - if current_player
         = link_to "Logout #{current_player.name}", destroy_player_session_path, method: :delete
+
+javascript:
+  $(function() {
+      $(".review_reveal").click(function () {
+          $("#dans_take h3.title").html($(this).data('title'));
+          $("#dans_take .artist").html($(this).data('artist'));
+          $("#dans_take p.review").html(
+              $(this).data('review')
+          );
+
+          $("#dans_take").removeClass("bg-cassette");
+          $("#dans_take").removeClass("bg-cassette");
+          $("#dans_take").removeClass("bg-vhs");
+          $("#dans_take").addClass($(this).data('bgclass'));
+      });
+  });

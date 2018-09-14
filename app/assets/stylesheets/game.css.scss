@@ -80,28 +80,53 @@ body {
 .remodal {
   margin: 0px;
   padding: 0px;
-  text-align: left;
+  width: 370px;
+  height: 200px;
+  background-color: black;
+  border: 3px solid #283f42;
+}
+
+#dans_take.bg-cassette {
+  background-image: image-url('game/dans_cassette.png');
+}
+
+#dans_take.bg-cartridge {
+  background-image: image-url('game/dans_cartridge.png');
+}
+
+#dans_take.bg-vhs {
+  background-image: image-url('game/dans_vhs.png');
 }
 
 #dans_take {
+  background-repeat: no-repeat;
+  background-position-y: 10px;
+  background-size: 366px 177px;
+
   h3.title {
     font-family: "lazer84regular";
-    background: linear-gradient(to right, $electric-blue 0%, $hot-pink 100%);
-    color: $dark-background-color;
-    padding: 10px;
+    //background: linear-gradient(to right, $electric-blue 0%, $hot-pink 100%);
+    //color: $dark-background-color;
+    padding: 10px 0px 0px 0px;
     margin: 0;
+    font-size: 0.9em;
+    color: $electric-blue;
   }
   .artist {
     font-family: "lazer84regular";
     color: $hot-pink;
-    text-align: right;
-    padding: 10px;
+    margin: 0;
+    padding: 0;
+    font-size: 0.8em;
   }
   .review {
     font-family: "basichandwritingmedium";
     color: $chrome-top;
     padding: 10px;
     margin-bottom: 0px;
+    vertical-align: text-bottom;
+    position: absolute;
+    bottom: 0;
   }
 }
 
@@ -184,7 +209,7 @@ body {
     .display_title {
       font-size: 0.8em;
       position: absolute;
-      top: 30%;
+      top: 20%;
       left: 38%;
       transform: translate(-50%, -50%);
       font-family: 'basichandwritingmedium';
@@ -207,7 +232,7 @@ body {
     .display_title {
       position: absolute;
       margin-top: 2px;
-      top: 50%;
+      top: 45%;
       left: 50%;
       transform: translate(-50%, -50%);
       font-family: 'basichandwritingmedium';

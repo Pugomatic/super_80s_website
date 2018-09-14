@@ -7,6 +7,21 @@ module ApplicationHelper
     @resource ||= Player.new
   end
 
+  def fix_lazer_font(text, limit = 20)
+    return text unless text.length < limit
+    dt = ""
+    text.each_char do |char|
+      if char == ' '
+        dt << " &nbsp; "
+      elsif %w(T t w W).include? char
+        dt << "#{char}"
+      else
+        dt << "#{char} "
+      end
+    end
+    dt
+  end
+
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:player]
   end

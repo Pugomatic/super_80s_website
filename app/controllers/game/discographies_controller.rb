@@ -31,7 +31,7 @@ module Game
             'blue2' => '#f1ff99',
             'purple' => '#f1ff99',
             'grey' => '#ebe3e3',
-            'black' => '#ebe3e3',
+            'black' => '#0e0616',
             'red' => '#dce840',
             'white' => '#0e0616'
         }

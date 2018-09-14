@@ -40,7 +40,6 @@
             option value="6"  Level 6
             option value="7"  Level 7
             option value="8"  Level 8
-            option value="9"  Level 9
 
       tr
         td align="center"
@@ -52,7 +51,10 @@
       br
       br
       .achievements
-        h1 High Scores
+        h1
+          ' H i g h
+          ' &nbsp;
+          ' S c o r e s
 
       table.leaderboard
         thead
@@ -62,16 +64,15 @@
             th
               span style="background-color: #0e0616; padding: 20px" Score
             th.date_column
-              span style="background-color: #0e0616; padding: 20px" Level
+              span style="background-color: #0e0616; padding: 20px" Scope
 
         tbody
           - @high_scores.each do |score|
-            - handle = score.player.email.split('@').first[0..12]
             tr
               td
                 span.led
-                  span.out = '8' * (12 - handle.length)
-                  = handle
+                  span.out = '8' * (12 - score.handle.length)
+                  = score.handle
               td
                 span.led
                   span.out = '8' * (9 - score.high_score.to_s.length)
@@ -80,12 +81,15 @@
               td.date_column
                 span.led
                   span.out 8
-                  = "#{score.world.year}.#{score.level.month}"
+                  = score.label
                   span.out 8
 
       br
       .achievements
-        h1 Fast Times
+        h1
+          | F a s t
+          ' &nbsp;
+          | T i m e s
 
       table.leaderboard
         thead
@@ -95,17 +99,16 @@
             th
               span style="background-color: #0e0616; padding: 20px" Time
             th.date_column
-              span style="background-color: #0e0616; padding: 20px" Level
+              span style="background-color: #0e0616; padding: 20px" Scope
 
         tbody
           - @fast_times.each do |time|
-            - handle = time.player.email.split('@').first[0..12]
             - display_time = sprintf("%0.3f", time.fastest_time / 1000.0)
             tr
               td
                 span.led
-                  span.out = '8' * (12 - handle.length)
-                  = handle
+                  span.out = '8' * (12 - time.handle.length)
+                  = time.handle
               td
                 span.led
                   span.out = '8' * (9 - display_time.length)
@@ -114,12 +117,15 @@
               td.date_column
                 span.led
                   span.out 8
-                  = "#{time.world.year}.#{time.level.month}"
+                  = time.label
                   span.out 8
 
       br
       .achievements
-        h1 Max Killz
+        h1
+          | M a x
+          ' &nbsp;
+          | K i l l z
 
       table.leaderboard
         thead
@@ -127,18 +133,17 @@
             th
               span style="background-color: #0e0616; padding: 20px" Player
             th
-              span style="background-color: #0e0616; padding: 20px" Items
+              span style="background-color: #0e0616; padding: 20px" Kills
             th.date_column
-              span style="background-color: #0e0616; padding: 20px" Level
+              span style="background-color: #0e0616; padding: 20px" Scope
 
         tbody
           - @max_kills.each do |kills|
-            - handle = kills.player.email.split('@').first[0..12]
             tr
               td
                 span.led
-                  span.out = '8' * (12 - handle.length)
-                  = handle
+                  span.out = '8' * (12 - kills.handle.length)
+                  = kills.handle
               td
                 span.led
                   span.out = '8' * (9 - kills.max_kills.to_s.length)
@@ -147,12 +152,12 @@
               td.date_column
                 span.led
                   span.out 8
-                  = "#{kills.world.year}.#{kills.level.month}"
+                  = kills.label
                   span.out 8
 
       br
       .achievements
-        h1 Memorabilia
+        h1 M e m o r a b i l i a
 
       table.leaderboard
         thead
@@ -162,16 +167,15 @@
             th
               span style="background-color: #0e0616; padding: 20px" Items
             th.date_column
-              span style="background-color: #0e0616; padding: 20px" Level
+              span style="background-color: #0e0616; padding: 20px" Scope
 
         tbody
           - @memo_items.each do |memo|
-            - handle = memo.player.email.split('@').first[0..12]
             tr
               td
                 span.led
-                  span.out = '8' * (12 - handle.length)
-                  = handle
+                  span.out = '8' * (12 - memo.handle.length)
+                  = memo.handle
               td
                 span.led
                   span.out = '8' * (9 - memo.max_items_collected.to_s.length)
@@ -180,8 +184,41 @@
               td.date_column
                 span.led
                   span.out 8
-                  = "#{memo.world.year}.#{memo.level.month}"
+                  = memo.label
                   span.out 8
+
+
+      br
+      .achievements
+        h1
+          | S&nbsp; p a c e
+          ' &nbsp;
+          | A c e d
+
+      table.leaderboard
+        thead
+          tr
+            th
+              span style="background-color: #0e0616; padding: 20px" Player
+            th
+              span style="background-color: #0e0616; padding: 20px" Score
+            th.date_column
+
+        tbody
+          - @space_ace.each do |score|
+            tr
+              td
+                span.led
+                  span.out = '8' * (12 - score.handle.length)
+                  = score.handle
+              td
+                span.led
+                  span.out = '8' * (9 - score.high_score.to_s.length)
+                  = score.high_score
+
+              td.date_column
+
+      br
 
 javascript:
   $("#world").selectmenu();

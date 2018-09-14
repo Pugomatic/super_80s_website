@@ -1,38 +1,34 @@
 class PlayerLevel < ActiveRecord::Base
-  belongs_to :player
-  belongs_to :world
+  include PlayerLeaderboards
+
   belongs_to :level
 
-  before_validation :set_defaults, on: :create
-  before_save       :set_totals
-
-  def self.high_scores
-    leaderboard('high_score')
+  def set(data)
+    self.fastest_time = (data[:fastest_time].to_f * 1000).round
+    self.high_score = data[:high_score]
+    self.plays = data[:plays]
+    self.wins = data[:wins]
+    self.tries = data[:tries]
+    self.status = data[:status]
+    self.max_kills = data[:max_kills]
+    self.max_items_collected = data[:max_items_collected]
+    self.max_cassettes_collected = data[:max_cassettes_collected]
+    self.max_vhs_tapes_collected = data[:max_vhs_tapes_collected]
+    self.max_cartridges_collected = data[:max_cartridges_collected]
+    self.gold_cassettes_collected = data[:gold_cassettes_collected]
+    self.gold_vhs_tapes_collected = data[:gold_vhs_tapes_collected]
+    self.gold_cartridges_collected = data[:gold_cartridges_collected]
   end
 
-  def self.fast_times
-    leaderboard('fastest_time', :asc)
+  def label
+    "#{world.year}.#{level.month}"
   end
 
-  def self.max_collected
-    leaderboard('max_items_collected')
-  end
-
-  def self.max_kills
-    leaderboard('max_kills')
+  def world
+    level.world
   end
 
   def self.leaderboard(field, order = :desc)
-    includes(:level, :world, :player).select("player_id, #{field}, level_id, player_levels.world_id").where("status = ? AND #{field} > 0", 'completed').order(field => order)
-  end
-
-  private
-
-  def set_defaults
-    self.world_id = level.world_id
-  end
-
-  def set_totals
-    self.gold_collected = gold_cartridges_collected + gold_cassettes_collected + gold_vhs_tapes_collected
+    includes(:player, level: :world).select("player_id, #{field}, level_id").where("status = ? AND #{field} > 0", 'completed').order(field => order)
   end
 end

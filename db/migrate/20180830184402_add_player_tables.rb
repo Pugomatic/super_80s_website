@@ -39,8 +39,32 @@ class AddPlayerTables < ActiveRecord::Migration
 
     create_table "player_levels", force: :cascade do |t|
       t.integer  :player_id
-      t.integer  :world_id
       t.integer  :level_id
+      t.integer  :solid_gold, default: 0
+      t.integer  :plays, default: 0
+      t.integer  :wins, default: 0
+      t.integer  :tries, default: 0
+      t.integer  :high_score, default: 0
+      t.integer  :fastest_time, default: 0
+      t.string   :status, default: 'locked'
+      t.integer  :max_kills, default: 0
+      t.integer  :max_cartridges_collected, default: 0
+      t.integer  :max_vhs_tapes_collected, default: 0
+      t.integer  :max_cassettes_collected, default: 0
+      t.integer  :max_items_collected, default: 0
+      t.integer  :gold_cassettes_collected,  default: 0
+      t.integer  :gold_vhs_tapes_collected,  default: 0
+      t.integer  :gold_cartridges_collected, default: 0
+      t.integer  :gold_collected, default: 0
+      t.datetime :started_at
+      t.datetime :completed_at
+      t.datetime :created_at
+      t.datetime :updated_at
+    end
+
+    create_table "player_worlds", force: :cascade do |t|
+      t.integer  :player_id
+      t.integer  :world_id
       t.integer  :solid_gold, default: 0
       t.integer  :plays, default: 0
       t.integer  :wins, default: 0
@@ -62,8 +86,33 @@ class AddPlayerTables < ActiveRecord::Migration
       t.datetime :updated_at
     end
 
+    create_table "player_totals", force: :cascade do |t|
+      t.integer  :player_id
+      t.integer  :solid_gold, default: 0
+      t.integer  :plays, default: 0
+      t.integer  :wins, default: 0
+      t.integer  :high_score, default: 0
+      t.integer  :fastest_time, default: 0
+      t.string   :status, default: 'completed'
+      t.integer  :max_kills, default: 0
+      t.integer  :max_cartridges_collected, default: 0
+      t.integer  :max_vhs_tapes_collected, default: 0
+      t.integer  :max_cassettes_collected, default: 0
+      t.integer  :max_items_collected, default: 0
+      t.integer  :gold_cassettes_collected,  default: 0
+      t.integer  :gold_vhs_tapes_collected,  default: 0
+      t.integer  :gold_cartridges_collected, default: 0
+      t.integer  :gold_collected, default: 0
+      t.datetime :started_at
+      t.datetime :completed_at
+      t.datetime :created_at
+      t.datetime :updated_at
+    end
+
     add_index "player_levels", ["player_id"], name: "i_player_levels_p"
     add_index "player_levels", ["player_id", "level_id"], name: "i_player_levels_pl"
-    add_index "player_levels", ["player_id", "world_id"], name: "i_player_levels_pw"
+    add_index "player_worlds", ["player_id"], name: "i_player_worlds_p"
+    add_index "player_worlds", ["player_id", "world_id"], name: "i_player_worlds_pw"
+    add_index "player_totals", ["player_id"], name: "i_player_totals_p"
   end
 end

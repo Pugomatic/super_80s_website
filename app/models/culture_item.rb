@@ -35,6 +35,10 @@ class CultureItem < ActiveRecord::Base
     culture_format
   end
 
+  def media
+    culture_format.name.underscore
+  end
+
   def format=(cf)
     self.culture_format = cf;
   end
