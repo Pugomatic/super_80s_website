@@ -47,6 +47,12 @@ end
 
 namespace :deploy do
   desc "Make sure local git is in sync with remote."
+  task :env do
+    on roles(:app) do
+      execute "env"
+    end
+  end
+
   task :check_revision do
     on roles(:app) do
       unless `git rev-parse HEAD` == `git rev-parse origin/master`
