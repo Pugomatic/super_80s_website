@@ -206,6 +206,8 @@ GEM
       rails (>= 3.1)
     puma (2.14.0)
     rack (1.6.4)
+    rack-ssl (1.4.1)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.4)
@@ -320,6 +322,7 @@ DEPENDENCIES
   omniauth-facebook
   pg
   puma
+  rack-ssl
   rails (= 4.2.4)
   referer_tracking
   roo
