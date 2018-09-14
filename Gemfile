@@ -10,6 +10,7 @@ gem 'puma'
 gem 'high_voltage'
 gem 'comfortable_mexican_sofa'
 gem 'comfy_blog'
+gem 'rack-ssl', require: 'rack/ssl'
 
 gem 'will_paginate'
 gem 'slim'
