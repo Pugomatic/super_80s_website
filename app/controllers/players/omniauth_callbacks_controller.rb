@@ -14,7 +14,7 @@ module Players
 
     def failure
       #redirect_to root_path
-      render text: env['omniauth.error'].inspect
+      render text: env['omniauth.auth'].inspect
     end
   end
 end

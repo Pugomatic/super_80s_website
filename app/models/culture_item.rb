@@ -31,6 +31,10 @@ class CultureItem < ActiveRecord::Base
     where(culture_format: CultureFormat.get(:vhs))
   end
 
+  def title
+    read_attribute(:title) || "[#{uid}]"
+  end
+
   def format
     culture_format
   end
