@@ -14,7 +14,7 @@ module Players
 
     def failure
       #redirect_to root_path
-      render :text => params.inspect
+      render :text => session.inspect
     end
   end
 end

@@ -27,10 +27,7 @@ Rails.application.routes.draw do
   get '/dan_camaro' => 'high_voltage/pages#show', id: 'dan'
   get '/DanCamaro' => 'high_voltage/pages#show', id: 'dan'
   get '/Dan' => 'high_voltage/pages#show', id: 'dan'
-
-  get '/debbie' => 'high_voltage/pages#show', id: 'debbie'
-  get '/debbie/whatever' => 'high_voltage/pages#show', id: 'debbie'
-  get '/debbie/what-ever' => 'high_voltage/pages#show', id: 'debbie'
+  get '/privacy' => 'high_voltage/pages#show', id: 'privacy'
 
   get '/noid' => 'high_voltage/pages#show', id: 'noid'
   get '/noid/wormser' => 'high_voltage/pages#show', id: 'noid'
