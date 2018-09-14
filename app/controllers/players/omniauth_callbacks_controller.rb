@@ -13,7 +13,8 @@ module Players
     end
 
     def failure
-      redirect_to root_path
+      #redirect_to root_path
+      render :text => params.inspect
     end
   end
 end
