@@ -103,6 +103,7 @@ class Player < ActiveRecord::Base
 
     player = find_by(uid: auth.uid, email: auth.info.email) || new
     player.attributes = {uid: auth.uid, email: auth.info.email, provider: auth.provider, password: Devise.friendly_token[0,20], name: auth.info.name, image: player.image ? player.image : auth.info.image, pending: false}
+    raise player.attributes.inspect
     player.save!
     player
   end
