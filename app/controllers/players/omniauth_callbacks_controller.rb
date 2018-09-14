@@ -13,8 +13,8 @@ module Players
     end
 
     def failure
-      #redirect_to root_path
-      render text: env['omniauth.auth'].inspect
+      flash[:error] = "There was a problem authenticating"
+      redirect_to root_path
     end
   end
 end
