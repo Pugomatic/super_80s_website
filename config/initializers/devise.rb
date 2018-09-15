@@ -267,4 +267,6 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   #
   config.omniauth :facebook, "615815418773991", ENV['FB_SECRET'], callback_url: "https://super80sworld.com/players/auth/facebook/callback"
+
+  config.secret_key = ENV['SECRET_KEY_BASE']
 end
