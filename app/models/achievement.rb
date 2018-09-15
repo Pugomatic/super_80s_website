@@ -1,4 +1,4 @@
-class Achievement < ActiveRecord::Base
+class Achievement < ApplicationRecord
   LEVEL = 1
   YEAR = 2
   GAME = 3

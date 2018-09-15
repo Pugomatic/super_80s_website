@@ -1,4 +1,4 @@
-class CultureItem < ActiveRecord::Base
+class CultureItem < ApplicationRecord
   strip_attributes
 
   belongs_to  :culture_format

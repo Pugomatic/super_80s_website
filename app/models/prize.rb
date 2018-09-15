@@ -1,2 +1,2 @@
-class Prize < ActiveRecord::Base
+class Prize < ApplicationRecord
 end

@@ -1,4 +1,4 @@
-class PlayerWorld < ActiveRecord::Base
+class PlayerWorld < ApplicationRecord
   include PlayerLeaderboards
 
   belongs_to :world

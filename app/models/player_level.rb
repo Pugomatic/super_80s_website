@@ -1,4 +1,4 @@
-class PlayerLevel < ActiveRecord::Base
+class PlayerLevel < ApplicationRecord
   include PlayerLeaderboards
 
   belongs_to :level

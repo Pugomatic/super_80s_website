@@ -1,4 +1,4 @@
-class CultureFormat < ActiveRecord::Base
+class CultureFormat < ApplicationRecord
   has_many  :culture_items
 
   validates :name, presence: true

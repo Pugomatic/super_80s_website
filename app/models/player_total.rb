@@ -1,4 +1,4 @@
-class PlayerTotal < ActiveRecord::Base
+class PlayerTotal < ApplicationRecord
   include PlayerLeaderboards
 
   def label
