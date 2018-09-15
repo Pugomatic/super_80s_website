@@ -8,6 +8,13 @@ namespace :data do
     CultureItem.import(f)
   end
 
+  desc 'Update data from the Excel file'
+  task update: :environment do
+    f = Struct.new(:original_filename, :path).new('data.xlsx', Rails.root.join('db', 'data.xlsx'))
+
+    CultureItem.update!(f)
+  end
+
   desc 'Show stats'
   task stats: :environment do
     CultureItem.stats

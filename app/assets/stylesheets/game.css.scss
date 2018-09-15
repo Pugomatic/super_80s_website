@@ -52,6 +52,10 @@ body {
 
 
 .achievements {
+  h1 {
+    white-space: nowrap;
+  }
+
   ul.bullet {
     li {
       list-style-type: square;

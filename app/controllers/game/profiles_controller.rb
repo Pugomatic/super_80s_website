@@ -28,10 +28,10 @@ module Game
         @items[a.id] = CultureItem.select('player_items.player_id', 'id', 'funny_title').includes(:player_items).where('player_items.player_id' => current_player.id, 'id' => a.achievement_items.map(&:culture_item_id))
       end
 
-      @high_scores = current_player.player_levels.high_scores
-      @fast_times = current_player.player_levels.fast_times
-      @memo = current_player.player_levels.max_collected
-      @max_kills = current_player.player_levels.max_kills
+      @high_scores = current_player.player_levels.high_scores.limit(5)
+      @fast_times = current_player.player_levels.fast_times.limit(5)
+      @memo = current_player.player_levels.max_collected.limit(5)
+      @max_kills = current_player.player_levels.max_kills.limit(5)
     end
   end
 end

@@ -47,17 +47,56 @@ class CultureItem < ActiveRecord::Base
     self.culture_format = cf;
   end
 
-  def self.import(file)
+  def self.formats
     formats = {}
-    worlds = {}
-
     %w(VHS Cassette Cartridge).each do |format|
       formats[format] = CultureFormat.find_by(name: format)
     end
+    formats
+  end
+
+  def self.worlds
+    worlds = {}
     %w(1980 1981 1982 1983 1984).each do |year|
       worlds[year] = World.find_by(year: year)
     end
+    worlds
+  end
 
+  def self.years
+    worlds.keys
+  end
+
+  def self.update!(file)
+    spreadsheet = open_spreadsheet(file)
+    header = spreadsheet.row(1)
+    (2..spreadsheet.last_row).each do |i|
+      row = Hash[[header, spreadsheet.row(i)].transpose]
+      item = find_by(uid: row["uid"]) || new
+      if row['good']
+        parameters = ActionController::Parameters.new(row.to_hash)
+        if years.include?(parameters[:year].to_s)
+          item.attributes = parameters.permit(:title, :artist, :director, :actors, :tags, :funny_title, :level_number, :dans_commentary, :color, :uid)
+          item.required = !parameters[:required].blank?
+          item.title.try :strip!
+          item.director.try :strip!
+          item.actors.try :strip!
+          item.artist.try :strip!
+          item.funny_title.try :strip!
+          item.tags.try :strip!
+          item.dans_commentary.try :strip!
+          item.color.try :strip!
+          item.format = formats[parameters[:format]]
+          item.world = worlds[parameters[:year].to_s]
+          item.uid.try :strip!
+
+          item.save || raise(item.errors.full_messages.inspect)
+        end
+      end
+    end
+  end
+
+  def self.import(file)
     transaction do
       CultureItem.destroy_all
       AchievementItem.destroy_all
@@ -70,7 +109,7 @@ class CultureItem < ActiveRecord::Base
         item = new #find_by(id: row["id"]) || new
         if row['good']
           parameters = ActionController::Parameters.new(row.to_hash)
-          if %w(1980 1981 1982 1983 1984).include?(parameters[:year].to_s)
+          if years.include?(parameters[:year].to_s)
 
             item.attributes = parameters.permit(:title, :artist, :director, :actors, :tags, :funny_title, :level_number, :dans_commentary, :color, :uid)
             item.required = !parameters[:required].blank?

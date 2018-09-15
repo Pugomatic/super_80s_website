@@ -6,7 +6,9 @@
         td
           a#toggle_controls href="#"
             - if @year == :all
-              | Leaderboards 1980 - 84
+              | Leaderboards
+              br
+              | 1980 - 84
             - elsif @level == :all
               ' Leaderboards -
               = @year
@@ -51,7 +53,7 @@
       br
       br
       .achievements
-        h1
+        h1 style="white-space: nowrap"
           ' H i g h
           ' &nbsp;
           ' S c o r e s
