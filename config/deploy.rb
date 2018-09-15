@@ -46,13 +46,23 @@ namespace :puma do
 end
 
 namespace :deploy do
-  desc "Make sure local git is in sync with remote."
+  desc "upgrade rails."
+  task :upgrade_rails do
+    on roles(:app) do
+      execute "rvm use ruby-2.2.2 --default"
+      execute "bundle update"
+      execute "rails app:update"
+    end
+  end
+  
+  desc "Show env vars."
   task :env do
     on roles(:app) do
       execute "env"
     end
   end
 
+  desc "Make sure local git is in sync with remote."
   task :check_revision do
     on roles(:app) do
       unless `git rev-parse HEAD` == `git rev-parse origin/master`

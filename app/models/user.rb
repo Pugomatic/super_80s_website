@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_referer_tracking
+  #has_referer_tracking
   strip_attributes
 
   default_scope -> { order('created_at desc') }

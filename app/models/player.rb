@@ -5,7 +5,7 @@ class Player < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          omniauth_providers: [:facebook]
 
-  belongs_to :top_completed_level, class_name: Level
+  belongs_to :top_completed_level, class_name: 'Level'
 
   has_many  :player_items
   has_many  :culture_items, through: :player_items
