@@ -1,4 +1,4 @@
-class RemoveCms < ActiveRecord::Migration
+class RemoveCms < ActiveRecord::Migration[5.2]
   def change
     rename_table :comfy_cms_blocks, :comfy_cms_fragments
     rename_column :comfy_cms_fragments, :blockable_id, :record_id
