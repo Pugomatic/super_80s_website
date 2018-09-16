@@ -1,17 +1,17 @@
 = content_for :title do
-  = @post.title
+  = @cms_post.title
 
 #blog
   section
     article
-      h1 = @post.title
+      h1 = @cms_post.title
 
       .author
-        = @post.author
+        = @cms_post.author
       .date
-        = @post.published_at.to_s(:blog)
+        = @cms_post.published_at.to_formatted_s(:short)
 
-      = @post.content.html_safe
+      = @cms_post.content_cache.html_safe
 
       hr
       .comments

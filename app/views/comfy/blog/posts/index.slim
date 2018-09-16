@@ -7,16 +7,17 @@
 
       - @blog_posts.each do |post|
 
-        h1 = link_to post.title, comfy_blog_post_path(@cms_site.path, @blog.path, post.slug)
+        h1
+          = link_to post.title, comfy_blog_post_path(@cms_site.path, post.year, post.month, post.slug)
         .author
           = post.author
         .date
-          = post.published_at.to_s(:blog)
+          = post.published_at.to_s(:db)
         .content
           p
             = post.excerpt
           p style="margin-left: 10px"
-            = link_to comfy_blog_post_path(@cms_site.path, @blog.path, post.slug) do
+            = link_to comfy_blog_post_path(@cms_site.path, post.year, post.month, post.slug)
               | &raquo; Read the full article
 
       = comfy_paginate @blog_posts
