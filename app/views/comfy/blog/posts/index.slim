@@ -5,7 +5,7 @@
   section
     article
 
-      - @posts.each do |post|
+      - @blog_posts.each do |post|
 
         h1 = link_to post.title, comfy_blog_post_path(@cms_site.path, @blog.path, post.slug)
         .author
@@ -19,4 +19,4 @@
             = link_to comfy_blog_post_path(@cms_site.path, @blog.path, post.slug) do
               | &raquo; Read the full article
 
-      = comfy_paginate @posts
+      = comfy_paginate @blog_posts
