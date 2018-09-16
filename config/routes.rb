@@ -48,13 +48,9 @@ Rails.application.routes.draw do
 
   resources :beta_testers, only: [:index]
 
+  comfy_route :cms_admin, :path => '/admin'
   comfy_route :blog_admin, :path => '/admin'
   comfy_route :blog, :path => '/blog'
-
-  comfy_route :cms_admin, :path => '/admin'
-
-  # Make sure this routeset is defined last
-  comfy_route :cms, :path => '/', sitemap: true
 
   resources :users, only: [:create]
 end
