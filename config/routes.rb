@@ -44,6 +44,7 @@ Rails.application.routes.draw do
     resources :profiles
     resources :players
     resources :sign_ins
+    resources :data
   end
 
   resources :synthwave, only: [:index]

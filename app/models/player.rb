@@ -15,14 +15,13 @@ class Player < ApplicationRecord
   has_many  :player_worlds
   has_one   :player_total
 
+  attr_accessor :world_statuses, :total
 
   def self.from_game(all_params)
     fb_data = JSON.parse(all_params[:fb_data])
-    world_statuses = {}
-    World.pluck(:id).each {|id| world_statuses[id] = 'destroyed' }
-
-
     player = find_by(email: fb_data['email'], uid: fb_data['id']) || new(pending: true)
+    player.world_statuses = {}
+    World.pluck(:id).each {|id| player.world_statuses[id] = 'destroyed' }
 
     transaction do
       player.pending = false if player.persisted?
@@ -36,57 +35,10 @@ class Player < ApplicationRecord
       player.skills = all_params[:abilities].select {|k,v| v == "1"}.keys.join(",")
       player.save(validate: false)
 
-      CultureItem.select(:id).where(uid: all_params[:collected_items].split(',')).each do |item|
-        item.player_items.create player: player
-      end
-
-      Achievement.select(:id).where(sort_name: all_params[:achievements].split(',')).each do |a|
-        a.player_achievements.create player: player
-      end
-
-      if player.player_worlds
-        player.player_worlds.destroy_all
-      end
-
-      if player.player_total
-        player.player_total.destroy
-      end
-
-      world_statuses.keys.each do |wid|
-        player.player_worlds.create(world_id: wid)
-      end
-      total = player.create_player_total
-
-      all_params[:levels].each do |number, data|
-        pl =  player.player_levels.includes(:level).find_by('levels.number' => number) || player.player_levels.build(level: Level.find_by(number: number))
-        if data[:status] == "completed"
-          pl.set(data)
-
-          world = player.player_worlds.find_by(world_id: pl.level.world_id)
-
-
-          world.add!(pl)
-          if %w(current destroyed).include? world_statuses[pl.level.world_id]
-            if (pl.level.month == 8)
-              world_statuses[pl.level.world_id] = 'finished'
-            else
-              world_statuses[pl.level.world_id] = 'current'
-            end
-          end
-          total.add!(pl)
-        else
-          pl.status = data[:status]
-        end
-
-        pl.save
-      end
+      player.update_data! all_params
     end
 
-    world_statuses.each do |wid, status|
-      rescued = player.achievements.find_by(name: "rescued_#{World.find(wid).year}")
-
-      player.player_worlds.find_by(world_id: wid).update_attribute(:status, rescued ? "rescued" : status)
-    end
+    player.set_world_statuses!
   end
 
   def self.new_with_session(params, session)
@@ -107,7 +59,90 @@ class Player < ApplicationRecord
     player
   end
 
+  def update_from_game!(all_params)
+    @world_statuses = {}
+    World.pluck(:id).each {|id| @world_statuses[id] = 'destroyed' }
+
+    transaction do
+      self.player_level = all_params[:player_level]
+      self.top_completed_level = Level.find_by(number: all_params[:top_completed_level_number])
+      self.skills = all_params[:abilities].select {|k,v| v == "1"}.keys.join(",")
+      save(validate: false)
+
+      update_data!(all_params)
+    end
+
+    set_world_statuses!
+  end
+
   def abilities
     skills.blank? ? [] : skills.split(",")
+  end
+
+  def update_data!(all_params)
+    set_culture_items!(all_params[:collected_items]) unless all_params[:collected_items].blank?
+    set_achievements!(all_params[:achievements]) unless all_params[:achievements].blank?
+
+    if player_worlds
+      player_worlds.destroy_all
+    end
+
+    if player_total
+      player_total.destroy
+    end
+
+    world_statuses.keys.each do |wid|
+      player_worlds.create(world_id: wid)
+    end
+    @total = create_player_total
+
+    calculate_world_statuses! all_params[:levels]
+  end
+
+  def set_world_statuses!
+    world_statuses.each do |wid, status|
+      rescued = achievements.find_by(name: "rescued_#{World.find(wid).year}")
+
+      player_worlds.find_by(world_id: wid).update_attribute(:status, rescued ? "rescued" : status)
+    end
+  end
+
+  private
+
+  def calculate_world_statuses!(level_data)
+    level_data.each do |number, data|
+      pl =  player_levels.includes(:level).find_by('levels.number' => number) || player_levels.build(level: Level.find_by(number: number))
+      if data[:status] == "completed"
+        pl.set(data)
+
+        world = player_worlds.find_by(world_id: pl.level.world_id)
+
+        world.add!(pl)
+        if %w(current destroyed).include? world_statuses[pl.level.world_id]
+          if (pl.level.month == 8)
+            world_statuses[pl.level.world_id] = 'finished'
+          else
+            world_statuses[pl.level.world_id] = 'current'
+          end
+        end
+        total.add!(pl)
+      else
+        pl.status = data[:status]
+      end
+
+      pl.save
+    end
+  end
+
+  def set_achievements!(data)
+    Achievement.select(:id).where(sort_name: data.split(',')).each do |a|
+      a.player_achievements.create player: self
+    end
+  end
+
+  def set_culture_items!(collected_items)
+    CultureItem.select(:id).where(uid: collected_items.split(',')).each do |item|
+      item.player_items.create player: self
+    end
   end
 end
