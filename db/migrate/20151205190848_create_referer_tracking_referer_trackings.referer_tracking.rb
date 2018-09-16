@@ -1,5 +1,5 @@
 # This migration comes from referer_tracking (originally 20120119124101)
-class CreateRefererTrackingRefererTrackings < ActiveRecord::Migration
+class CreateRefererTrackingRefererTrackings < ActiveRecord::Migration[4.2]
   def change
     create_table :referer_trackings do |t|
       t.integer :trackable_id

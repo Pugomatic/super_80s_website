@@ -1,4 +1,4 @@
-class AddPlayerTables < ActiveRecord::Migration
+class AddPlayerTables < ActiveRecord::Migration[4.2]
   def change
     create_table "players", force: :cascade do |t|
       t.string   :name

@@ -78,17 +78,17 @@ class CultureItem < ApplicationRecord
         if years.include?(parameters[:year].to_s)
           item.attributes = parameters.permit(:title, :artist, :director, :actors, :tags, :funny_title, :level_number, :dans_commentary, :color, :uid)
           item.required = !parameters[:required].blank?
-          item.title.try :strip!
-          item.director.try :strip!
-          item.actors.try :strip!
-          item.artist.try :strip!
-          item.funny_title.try :strip!
-          item.tags.try :strip!
-          item.dans_commentary.try :strip!
-          item.color.try :strip!
+          item.title = item.title&.strip
+          item.director = item.director&.strip
+          item.actors = item.actors&.strip
+          item.artist = item.artist&.strip
+          item.funny_title = item.funny_title&.strip
+          item.tags = item.tags&.strip
+          item.dans_commentary = item.dans_commentary&.strip
+          item.color = item.color&.strip
           item.format = formats[parameters[:format]]
           item.world = worlds[parameters[:year].to_s]
-          item.uid.try :strip!
+          item.uid = item.uid&.strip
 
           item.save || raise(item.errors.full_messages.inspect)
         end
@@ -113,17 +113,17 @@ class CultureItem < ApplicationRecord
 
             item.attributes = parameters.permit(:title, :artist, :director, :actors, :tags, :funny_title, :level_number, :dans_commentary, :color, :uid)
             item.required = !parameters[:required].blank?
-            item.title.try :strip!
-            item.director.try :strip!
-            item.actors.try :strip!
-            item.artist.try :strip!
-            item.funny_title.try :strip!
-            item.tags.try :strip!
-            item.dans_commentary.try :strip!
-            item.color.try :strip!
+            item.title = item.title&.strip
+            item.director = item.director&.strip
+            item.actors = item.actors&.strip
+            item.artist = item.artist&.strip
+            item.funny_title = item.funny_title&.strip
+            item.tags = item.tags&.strip
+            item.dans_commentary = item.dans_commentary&.strip
+            item.color = item.color&.strip
             item.format = formats[parameters[:format]]
             item.world = worlds[parameters[:year].to_s]
-            item.uid.try :strip!
+            item.uid = item.uid&.strip
 
             item.save || raise(item.errors.full_messages.inspect)
 

@@ -1,5 +1,5 @@
 # This migration comes from referer_tracking (originally 20131124175848)
-class CookieRefTracking < ActiveRecord::Migration
+class CookieRefTracking < ActiveRecord::Migration[4.2]
   def up
     add_column :referer_trackings, :cookie_referer_url, :text
     add_column :referer_trackings, :cookie_first_url, :text

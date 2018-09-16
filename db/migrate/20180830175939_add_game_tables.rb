@@ -1,4 +1,4 @@
-class AddGameTables < ActiveRecord::Migration
+class AddGameTables < ActiveRecord::Migration[4.2]
   def change
     drop_table :players
     drop_table :prizes

@@ -1,5 +1,5 @@
 # This migration comes from referer_tracking (originally 20140525105549)
-class InfosHash < ActiveRecord::Migration
+class InfosHash < ActiveRecord::Migration[4.2]
   def up
     add_column :referer_trackings, :infos_session, :text
     add_column :referer_trackings, :infos_request, :text

@@ -1,4 +1,4 @@
-class LoadWorldsAndLevels < ActiveRecord::Migration
+class LoadWorldsAndLevels < ActiveRecord::Migration[4.2]
   def change
     # CultureFormat.create! name: 'Other', enum_index: 0
     # CultureFormat.create! name: 'VHS', enum_index: 1
