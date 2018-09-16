@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  comfy_route :blog_admin, path: "/admin"
+  comfy_route :blog, path: "/blog"
   devise_for :players, controllers: {
       sessions: 'sessions',
       registrations: 'registrations',
@@ -48,9 +50,7 @@ Rails.application.routes.draw do
 
   resources :beta_testers, only: [:index]
 
-  comfy_route :cms_admin, :path => '/admin'
-  comfy_route :blog_admin, :path => '/admin'
-  comfy_route :blog, :path => '/blog'
+  comfy_route :cms_admin, path: '/admin'
 
   resources :users, only: [:create]
 end
