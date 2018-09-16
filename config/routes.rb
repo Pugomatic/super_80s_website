@@ -53,4 +53,29 @@ Rails.application.routes.draw do
   comfy_route :cms_admin, path: '/admin'
 
   resources :users, only: [:create]
+
+  get '/blog/synthwave-questionnaire---part-1',
+      to: redirect('/blog/2017/10/synthwave-questionnaire---part-1')
+  get '/blog/synthwave-questionnaire---part-2',
+      to: redirect('/blog/2017/10/synthwave-questionnaire---part-2')
+  get '/blog/synthwave-questionnaire---part-3',
+      to: redirect('/blog/2017/10/synthwave-questionnaire---part-3')
+  get '/blog/collaborate-with-others-on-your-video-game',
+      to: redirect('/blog/2015/12/collaborate-with-others-on-your-video-game')
+  get '/blog/finish-your-game-with-this-one-simple-lesson',
+      to: redirect('/blog/2018/6/finish-your-game-with-this-one-simple-lesson')
+  get '/blog/super-80s-world-halloween-trailer',
+      to: redirect('/blog/2017/10/super-80s-world-halloween-trailer')
+  get '/blog/super-80s-world-at-the-smithsonian-arcade',
+      to: redirect('/blog/2017/8/super-80s-world-at-the-smithsonian-arcade')
+  get '/blog/development-log-entry-1-early-gameplay-feedback',
+      to: redirect('/blog/2016/3/development-log-entry-1-early-gameplay-feedback')
+  get '/blog/dont-hate-the-hater-learn-about-your-game',
+      to: redirect('/blog/2016/1/dont-hate-the-hater-learn-about-your-game')
+  get '/blog/use-pickfu-to-a-b-testing-your-game-ideas',
+      to: redirect('/blog/2016/1/use-pickfu-to-a-b-testing-your-game-ideas')
+  get '/blog/make-your-own-retro-vgs',
+      to: redirect('/blog/2015/12/make-your-own-retro-vgs')
+  get '/blog/talk-to-your-local-sba',
+      to: redirect('/blog/2015/12/talk-to-your-local-sba')
 end
