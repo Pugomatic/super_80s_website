@@ -5,7 +5,7 @@ class Player < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          omniauth_providers: [:facebook]
 
-  belongs_to :top_completed_level, class_name: 'Level', dependent: :destroy
+  belongs_to :top_completed_level, class_name: 'Level'
 
   has_many  :player_items, dependent: :destroy
   has_many  :culture_items, through: :player_items
@@ -119,7 +119,7 @@ class Player < ApplicationRecord
       if data[:status] == "completed"
         pl.set(data)
 
-        world = player_worlds.find_by(world_id: pl.level.world_id)
+        world = player_worlds.find_by(world_id: pl.level.world_id) rescue raise(pl.inspect)
 
         world.add!(pl)
         if %w(current destroyed).include? world_statuses[pl.level.world_id]

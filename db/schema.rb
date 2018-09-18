@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_16_193156) do
+ActiveRecord::Schema.define(version: 2018_09_18_184858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -288,6 +288,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_193156) do
     t.boolean "viewed"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["player_id", "achievement_id"], name: "i_player_achievements_upa", unique: true
     t.index ["player_id"], name: "i_player_achievements_p"
   end
 
@@ -296,6 +297,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_193156) do
     t.integer "culture_item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["player_id", "culture_item_id"], name: "i_player_items_upi", unique: true
     t.index ["player_id"], name: "i_player_items_p"
   end
 
@@ -323,6 +325,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_193156) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["player_id", "level_id"], name: "i_player_levels_pl"
+    t.index ["player_id", "level_id"], name: "i_player_levels_upl", unique: true
     t.index ["player_id"], name: "i_player_levels_p"
   end
 
@@ -348,6 +351,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_193156) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["player_id"], name: "i_player_totals_p"
+    t.index ["player_id"], name: "i_player_totals_up", unique: true
   end
 
   create_table "player_worlds", id: :serial, force: :cascade do |t|
@@ -373,6 +377,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_193156) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["player_id", "world_id"], name: "i_player_worlds_pw"
+    t.index ["player_id", "world_id"], name: "i_player_worlds_upw", unique: true
     t.index ["player_id"], name: "i_player_worlds_p"
   end
 
