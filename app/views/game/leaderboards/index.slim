@@ -50,177 +50,181 @@
           br
 
 
-      br
-      br
+    - unless @high_scores.empty?
       .achievements
+        br
+        br
         h1 style="white-space: nowrap"
           ' H i g h
           ' &nbsp;
           ' S c o r e s
 
-      table.leaderboard
-        thead
-          tr
-            th
-              span style="background-color: #0e0616; padding: 20px" Player
-            th
-              span style="background-color: #0e0616; padding: 20px" Score
-            th.date_column
-              span style="background-color: #0e0616; padding: 20px" Scope
-
-        tbody
-          - @high_scores.each do |score|
+        table.leaderboard
+          thead
             tr
-              td
-                span.led
-                  span.out = '8' * (12 - score.handle.length)
-                  = score.handle
-              td
-                span.led
-                  span.out = '8' * (9 - score.high_score.to_s.length)
-                  = score.high_score
+              th
+                span style="background-color: #0e0616; padding: 20px" Player
+              th
+                span style="background-color: #0e0616; padding: 20px" Score
+              th.date_column
+                span style="background-color: #0e0616; padding: 20px" Scope
 
-              td.date_column
-                span.led
-                  span.out 8
-                  = score.label
-                  span.out 8
+          tbody
+            - @high_scores.each do |score|
+              tr
+                td
+                  span.led
+                    span.out = '8' * (12 - score.handle.length)
+                    = score.handle
+                td
+                  span.led
+                    span.out = '8' * (9 - score.high_score.to_s.length)
+                    = score.high_score
 
-      br
-      .achievements
-        h1
-          | F a s t
-          ' &nbsp;
-          | T i m e s
+                td.date_column
+                  span.led
+                    span.out 8
+                    = score.label
+                    span.out 8
 
-      table.leaderboard
-        thead
-          tr
-            th
-              span style="background-color: #0e0616; padding: 20px" Player
-            th
-              span style="background-color: #0e0616; padding: 20px" Time
-            th.date_column
-              span style="background-color: #0e0616; padding: 20px" Scope
+        br
+      - unless @fast_times.empty?
+        .achievements
+          h1
+            | F a s t
+            ' &nbsp;
+            | T i m e s
 
-        tbody
-          - @fast_times.each do |time|
-            - display_time = sprintf("%0.3f", time.fastest_time / 1000.0)
+        table.leaderboard
+          thead
             tr
-              td
-                span.led
-                  span.out = '8' * (12 - time.handle.length)
-                  = time.handle
-              td
-                span.led
-                  span.out = '8' * (9 - display_time.length)
-                  = display_time
+              th
+                span style="background-color: #0e0616; padding: 20px" Player
+              th
+                span style="background-color: #0e0616; padding: 20px" Time
+              th.date_column
+                span style="background-color: #0e0616; padding: 20px" Scope
 
-              td.date_column
-                span.led
-                  span.out 8
-                  = time.label
-                  span.out 8
+          tbody
+            - @fast_times.each do |time|
+              - display_time = sprintf("%0.3f", time.fastest_time / 1000.0)
+              tr
+                td
+                  span.led
+                    span.out = '8' * (12 - time.handle.length)
+                    = time.handle
+                td
+                  span.led
+                    span.out = '8' * (9 - display_time.length)
+                    = display_time
 
-      br
-      .achievements
-        h1
-          | M a x
-          ' &nbsp;
-          | K i l l z
+                td.date_column
+                  span.led
+                    span.out 8
+                    = time.label
+                    span.out 8
 
-      table.leaderboard
-        thead
-          tr
-            th
-              span style="background-color: #0e0616; padding: 20px" Player
-            th
-              span style="background-color: #0e0616; padding: 20px" Kills
-            th.date_column
-              span style="background-color: #0e0616; padding: 20px" Scope
+        br
+      - unless @max_kills.empty?
+        .achievements
+          h1
+            | M a x
+            ' &nbsp;
+            | K i l l z
 
-        tbody
-          - @max_kills.each do |kills|
+        table.leaderboard
+          thead
             tr
-              td
-                span.led
-                  span.out = '8' * (12 - kills.handle.length)
-                  = kills.handle
-              td
-                span.led
-                  span.out = '8' * (9 - kills.max_kills.to_s.length)
-                  = kills.max_kills
+              th
+                span style="background-color: #0e0616; padding: 20px" Player
+              th
+                span style="background-color: #0e0616; padding: 20px" Kills
+              th.date_column
+                span style="background-color: #0e0616; padding: 20px" Scope
 
-              td.date_column
-                span.led
-                  span.out 8
-                  = kills.label
-                  span.out 8
+          tbody
+            - @max_kills.each do |kills|
+              tr
+                td
+                  span.led
+                    span.out = '8' * (12 - kills.handle.length)
+                    = kills.handle
+                td
+                  span.led
+                    span.out = '8' * (9 - kills.max_kills.to_s.length)
+                    = kills.max_kills
 
-      br
-      .achievements
-        h1 M e m o r a b i l i a
+                td.date_column
+                  span.led
+                    span.out 8
+                    = kills.label
+                    span.out 8
 
-      table.leaderboard
-        thead
-          tr
-            th
-              span style="background-color: #0e0616; padding: 20px" Player
-            th
-              span style="background-color: #0e0616; padding: 20px" Items
-            th.date_column
-              span style="background-color: #0e0616; padding: 20px" Scope
+        br
+      - unless @memo_items.empty?
+        .achievements
+          h1 M e m o r a b i l i a
 
-        tbody
-          - @memo_items.each do |memo|
+        table.leaderboard
+          thead
             tr
-              td
-                span.led
-                  span.out = '8' * (12 - memo.handle.length)
-                  = memo.handle
-              td
-                span.led
-                  span.out = '8' * (9 - memo.max_items_collected.to_s.length)
-                  = memo.max_items_collected
+              th
+                span style="background-color: #0e0616; padding: 20px" Player
+              th
+                span style="background-color: #0e0616; padding: 20px" Items
+              th.date_column
+                span style="background-color: #0e0616; padding: 20px" Scope
 
-              td.date_column
-                span.led
-                  span.out 8
-                  = memo.label
-                  span.out 8
+          tbody
+            - @memo_items.each do |memo|
+              tr
+                td
+                  span.led
+                    span.out = '8' * (12 - memo.handle.length)
+                    = memo.handle
+                td
+                  span.led
+                    span.out = '8' * (9 - memo.max_items_collected.to_s.length)
+                    = memo.max_items_collected
 
+                td.date_column
+                  span.led
+                    span.out 8
+                    = memo.label
+                    span.out 8
 
-      br
-      .achievements
-        h1
-          | S&nbsp; p a c e
-          ' &nbsp;
-          | A c e d
+        br
+      - unless @space_ace.empty?
+        .achievements
+          h1
+            | S&nbsp; p a c e
+            ' &nbsp;
+            | A c e d
 
-      table.leaderboard
-        thead
-          tr
-            th
-              span style="background-color: #0e0616; padding: 20px" Player
-            th
-              span style="background-color: #0e0616; padding: 20px" Score
-            th.date_column
-
-        tbody
-          - @space_ace.each do |score|
+        table.leaderboard
+          thead
             tr
-              td
-                span.led
-                  span.out = '8' * (12 - score.handle.length)
-                  = score.handle
-              td
-                span.led
-                  span.out = '8' * (9 - score.high_score.to_s.length)
-                  = score.high_score
+              th
+                span style="background-color: #0e0616; padding: 20px" Player
+              th
+                span style="background-color: #0e0616; padding: 20px" Score
+              th.date_column
 
-              td.date_column
+          tbody
+            - @space_ace.each do |score|
+              tr
+                td
+                  span.led
+                    span.out = '8' * (12 - score.handle.length)
+                    = score.handle
+                td
+                  span.led
+                    span.out = '8' * (9 - score.high_score.to_s.length)
+                    = score.high_score
 
-      br
+                td.date_column
+
+        br
 
 javascript:
   $("#world").selectmenu();

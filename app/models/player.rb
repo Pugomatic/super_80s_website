@@ -5,17 +5,20 @@ class Player < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          omniauth_providers: [:facebook]
 
-  belongs_to :top_completed_level, class_name: 'Level'
+  belongs_to :top_completed_level, class_name: 'Level', dependent: :destroy
 
-  has_many  :player_items
+  has_many  :player_items, dependent: :destroy
   has_many  :culture_items, through: :player_items
-  has_many  :player_achievements
+  has_many  :player_achievements, dependent: :destroy
   has_many  :achievements, through: :player_achievements
-  has_many  :player_levels
-  has_many  :player_worlds
-  has_one   :player_total
+  has_many  :player_levels, dependent: :destroy
+  has_many  :player_worlds, dependent: :destroy
+  has_one   :player_total, dependent: :destroy
 
-  attr_accessor :world_statuses, :total
+  attr_accessor :world_statuses
+
+  after_create  :create_player_totals
+
 
   def self.from_game(all_params)
     fb_data = JSON.parse(all_params[:fb_data])
@@ -87,21 +90,16 @@ class Player < ApplicationRecord
       player_worlds.destroy_all
     end
 
-    if player_total
-      player_total.destroy
-    end
-
     world_statuses.keys.each do |wid|
       player_worlds.create(world_id: wid)
     end
-    @total = create_player_total
 
     calculate_world_statuses! all_params[:levels]
   end
 
   def set_world_statuses!
     world_statuses.each do |wid, status|
-      rescued = achievements.find_by(name: "rescued_#{World.find(wid).year}")
+      rescued = achievements.find_by(sort_name: "rescued_#{World.find(wid).year}")
 
       player_worlds.find_by(world_id: wid).update_attribute(:status, rescued ? "rescued" : status)
     end
@@ -109,7 +107,13 @@ class Player < ApplicationRecord
 
   private
 
+  def create_player_totals
+    create_player_total
+  end
+
   def calculate_world_statuses!(level_data)
+    player_total.clear!
+
     level_data.each do |number, data|
       pl =  player_levels.includes(:level).find_by('levels.number' => number) || player_levels.build(level: Level.find_by(number: number))
       if data[:status] == "completed"
@@ -125,7 +129,7 @@ class Player < ApplicationRecord
             world_statuses[pl.level.world_id] = 'current'
           end
         end
-        total.add!(pl)
+        player_total.add!(pl)
       else
         pl.status = data[:status]
       end

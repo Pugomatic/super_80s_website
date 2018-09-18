@@ -27,7 +27,7 @@
                 ' M u s i c -
                 = @counts[:cassettes]
 
-        - if current_player.top_completed_level
+        - if @current_level
           .achievements
             h2.digital Current Status
             hr
@@ -35,13 +35,31 @@
               tbody
                 tr
                   td
+                    span.out 8
+                    | WORLD
+                    span.out 8
+                  td
+                    span.out = '8' * ( (9 - @current_level.world.name.length) / 2 )
+                    = @current_level.world.name
+                    span.out = '8' * ( (9 - @current_level.world.name.length) / 2 )
+                tr
+                  td
+                    span.out 8
+                    | YEAR
                     span.out 88
+                  td
+                    span.out 88
+                    = @current_level.world.year
+                    span.out 88
+                tr
+                  td
+                    span.out 8
                     | LEVEL
                     span.out 8
                   td
-                    span.out 88
-                    = current_player.top_completed_level.next_level.label
-                    span.out 88
+                    span.out 888
+                    = @current_level.month
+                    span.out 888
 
         - unless @worlds.empty?
           .achievements
@@ -58,7 +76,7 @@
                         span.out 88
                     td
                       span.led
-                        span.out = '8' * (9 - world.status.length)
+                        span.out = world.status == 'FINISHED' ? '88' : '8' * (9 - world.status.length)
                         = world.status
       .col.span_1_of_3
         .achievements
