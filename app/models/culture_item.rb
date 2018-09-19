@@ -92,11 +92,9 @@ class CultureItem < ApplicationRecord
 
           item.save || raise(item.errors.full_messages.inspect)
 
-          %w(achievement_1 achievement_2 achievement_3 achievement_4).each do |a|
-            unless parameters[a].blank?
-              if achievement = Achievement.find_by(name: parameters[a])
-                AchievementItem.create! achievement: achievement, culture_item_id: item.id
-              end
+          unless parameters['achievement_5'].blank?
+            if achievement = Achievement.find_by(name: parameters['achievement_5'])
+              AchievementItem.create! achievement: achievement, culture_item_id: item.id
             end
           end
         end
@@ -155,7 +153,7 @@ class CultureItem < ApplicationRecord
               level.save!
             end
 
-            %w(achievement_1 achievement_2 achievement_3 achievement_4).each do |a|
+            %w(achievement_1 achievement_2 achievement_3 achievement_4 achievement_5).each do |a|
               unless parameters[a].blank?
                 if achievement = Achievement.find_by(name: parameters[a])
                   AchievementItem.create! achievement: achievement, culture_item_id: item.id
