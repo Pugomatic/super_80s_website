@@ -13,7 +13,7 @@ module Game
       @worlds = current_player.player_worlds.includes(:world).sort_by(&:year)
 
       @achievements.with_items.each do |a|
-        @items[a.id] = CultureItem.select('player_items.player_id', 'id', 'funny_title').includes(:player_items).where('player_items.player_id' => current_player.id, 'id' => a.achievement_items.map(&:culture_item_id))
+        @items[a.id] = CultureItem.select('player_items.player_id', 'id', 'funny_title').includes(:player_items, :culture_format).where('player_items.player_id' => current_player.id, 'id' => a.achievement_items.map(&:culture_item_id))
       end
 
       @high_scores = current_player.player_levels.high_scores.limit(5)

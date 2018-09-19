@@ -29,6 +29,7 @@ gem 'invisible_captcha'
 
 group :development, :test do
   gem 'byebug'
+  gem 'bullet'
 end
 
 group :development do

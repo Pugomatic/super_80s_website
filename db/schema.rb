@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_19_005903) do
+ActiveRecord::Schema.define(version: 2018_09_19_185133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2018_09_19_005903) do
     t.integer "award_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["match_type"], name: "index_achievements_on_match_type"
     t.index ["sort_name"], name: "i_achievements_sn"
   end
 
@@ -260,6 +261,7 @@ ActiveRecord::Schema.define(version: 2018_09_19_005903) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["culture_format_id"], name: "i_culture_items_cf"
+    t.index ["culture_format_id"], name: "index_culture_items_on_culture_format_id"
     t.index ["funny_title"], name: "i_culture_items_ft"
     t.index ["required"], name: "i_culture_items_r"
     t.index ["uid"], name: "i_culture_items_u"
@@ -450,6 +452,7 @@ ActiveRecord::Schema.define(version: 2018_09_19_005903) do
     t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["year"], name: "index_worlds_on_year"
   end
 
 end

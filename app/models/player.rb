@@ -21,6 +21,7 @@ class Player < ApplicationRecord
 
 
   def self.from_game(all_params)
+    raise "No fbdata" unless all_params[:fb_data]
     fb_data = JSON.parse(all_params[:fb_data])
     player = find_by(email: fb_data['email'], uid: fb_data['id']) || new(pending: true)
     player.world_statuses = {}
