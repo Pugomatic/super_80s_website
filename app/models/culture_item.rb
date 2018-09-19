@@ -91,6 +91,14 @@ class CultureItem < ApplicationRecord
           item.uid = item.uid&.strip
 
           item.save || raise(item.errors.full_messages.inspect)
+
+          %w(achievement_1 achievement_2 achievement_3 achievement_4).each do |a|
+            unless parameters[a].blank?
+              if achievement = Achievement.find_by(name: parameters[a])
+                AchievementItem.create! achievement: achievement, culture_item_id: item.id
+              end
+            end
+          end
         end
       end
     end
