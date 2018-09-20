@@ -5,6 +5,8 @@ module Game
     def index
       @selected = :leaderboard
 
+      @top_level_board = Player.top_level_board
+
       if params[:year].blank? || params[:year] == "ALL"
         @year = :all
       else

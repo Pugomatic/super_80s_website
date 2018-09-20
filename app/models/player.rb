@@ -17,8 +17,12 @@ class Player < ApplicationRecord
 
   attr_accessor :world_statuses
 
+  before_create :set_handle
   after_create  :create_player_totals
 
+  def self.top_level_board
+    Player.includes(top_completed_level: :player_levels).where('players.id = player_levels.player_id AND player_levels.level_id = players.top_completed_level_id').order('levels.number DESC, player_levels.created_at ASC')
+  end
 
   def self.from_game(all_params)
     raise "No fbdata" unless all_params[:fb_data]
@@ -107,6 +111,10 @@ class Player < ApplicationRecord
   end
 
   private
+
+  def set_handle
+    self.handle = email.split('@').first[0, 10]
+  end
 
   def create_player_totals
     create_player_total

@@ -92,8 +92,8 @@ class CultureItem < ApplicationRecord
 
           item.save || raise(item.errors.full_messages.inspect)
 
-          unless parameters['achievement_5'].blank?
-            if achievement = Achievement.find_by(name: parameters['achievement_5'])
+          unless parameters['achievement_6'].blank?
+            if achievement = Achievement.find_by(name: parameters['achievement_6'])
               AchievementItem.create! achievement: achievement, culture_item_id: item.id
             end
           end

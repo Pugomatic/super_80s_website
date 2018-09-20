@@ -50,6 +50,43 @@
           br
 
 
+    - unless @top_level_board.empty?
+      .achievements
+        br
+        br
+        h1 style="white-space: nowrap"
+          ' T o p
+          ' &nbsp;
+          ' L e v e l s
+
+        table.leaderboard
+          thead
+            tr
+              th
+                span style="background-color: #0e0616; padding: 20px" Player
+              th
+                span style="background-color: #0e0616; padding: 20px" Level
+              th.date_column
+                span style="background-color: #0e0616; padding: 20px" Date
+
+          tbody
+            - @top_level_board.each do |player|
+              tr
+                td
+                  span.led
+                    span.out = '8' * (12 - player.handle.length)
+                    = player.handle
+                td
+                  span.led
+                    span.out = '8' * (9 - player.top_completed_level.label.length)
+                    = player.top_completed_level.label
+
+                td.date_column
+                  span.led
+                    = player.top_completed_level.player_levels.find_by(player_id: player.id, level_id: player.top_completed_level_id).created_at.to_s(:leaderboard)
+
+        br
+
     - unless @high_scores.empty?
       .achievements
         br
