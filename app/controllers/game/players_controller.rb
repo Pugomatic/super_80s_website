@@ -4,7 +4,16 @@ module Game
 
     def create
       if params[:game_api_key] == ENV['GAME_API_KEY']
-        Player.from_game(params)
+
+        if params[:fb_data]
+          Player.from_game(params)
+        elsif player = Player.find_by(email: params[:email], uid: params[:uid])
+          player.update_from_game! params
+        else
+          head :not_found
+          return
+        end
+
         head :ok
       else
         head :not_implemented
