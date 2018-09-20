@@ -7,7 +7,6 @@ module Game
         Player.from_game(params)
         head :ok
       else
-        Rails.logger.warn "#{params[:game_api_key]} != #{ENV['GAME_API_KEY']}"
         head :not_implemented
       end
     end

@@ -2,6 +2,7 @@ class PlayerLevel < ApplicationRecord
   include PlayerLeaderboards
 
   belongs_to :level
+  belongs_to :player
 
   def set(data)
     self.fastest_time = (data[:fastest_time].to_f * 1000).round
