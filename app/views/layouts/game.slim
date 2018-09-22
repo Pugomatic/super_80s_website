@@ -72,6 +72,8 @@ html
     footer.game
       - if current_player
         = link_to "Logout #{current_player.name}", destroy_player_session_path, method: :delete
+      - else
+        = link_to "Sign in with Facebook", player_facebook_omniauth_authorize_path
 
 javascript:
   $(function() {
