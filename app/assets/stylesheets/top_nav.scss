@@ -21,6 +21,16 @@
     margin: 0;
     padding: 0;
   }
+
+  div  {
+    font-family: 'DS-Digital';
+    margin-top: -15px;
+    color: $magenta;
+  }
+
+  .selected {
+    color: lighten($magenta, 33%);
+  }
 }
 
 /* Change the color of links on hover */

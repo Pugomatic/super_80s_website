@@ -59,6 +59,7 @@ javascript:
     $("#year").selectmenu();
 
     $(function() {
+        var path = "#{@disco_path}";
 
         $('#toggle_controls').click(function () {
             $('.controls').toggle();
@@ -66,7 +67,6 @@ javascript:
 
         $('#reload').click(function() {
             $('.controls').hide();
-            window.location.href = '/game/discographies?media=' + $("#media").val() + "&year=" + $("#year").val();
-
+            window.location.href = path + "?media=" + $("#media").val() + "&year=" + $("#year").val();
         });
     });

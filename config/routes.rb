@@ -40,8 +40,9 @@ Rails.application.routes.draw do
 
   namespace :game do
     resources :leaderboards
-    resources :discographies
-    resources :profiles
+    resources :profiles do
+      resources :discographies
+    end
     resources :players
     resources :sign_ins
     resources :data

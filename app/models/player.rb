@@ -20,8 +20,16 @@ class Player < ApplicationRecord
   before_create :set_handle
   after_create  :create_player_totals
 
+  def self.public
+    where(public: true)
+  end
+
+  def self.get(id_or_handle)
+    find_by(id: id_or_handle) || find_by(handle: id_or_handle) || raise("Player not found")
+  end
+
   def self.top_level_board
-    Player.includes(top_completed_level: :player_levels).where('players.id = player_levels.player_id AND player_levels.level_id = players.top_completed_level_id').order('levels.number DESC, player_levels.created_at ASC')
+    Player.includes(top_completed_level: :player_levels).where('players.id = player_levels.player_id AND player_levels.level_id = players.top_completed_level_id AND players.leader = ?', true).order('levels.number DESC, player_levels.created_at ASC')
   end
 
   def self.from_game(all_params)

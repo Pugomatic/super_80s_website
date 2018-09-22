@@ -2,7 +2,7 @@ class PlayerTotal < ApplicationRecord
   include PlayerLeaderboards
 
   def self.leaderboard(field, order = :desc)
-    includes(:player).select("player_id, #{field}").where("status = ? AND #{field} > 0", 'completed').order(field => order)
+    includes(:player).select("player_id, #{field}, players.leader").where("status = ? AND #{field} > 0", 'completed').where('players.leader' => true).order(field => order)
   end
 
   def label

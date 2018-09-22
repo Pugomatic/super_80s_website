@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_19_185133) do
+ActiveRecord::Schema.define(version: 2018_09_22_170935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -410,6 +410,9 @@ ActiveRecord::Schema.define(version: 2018_09_19_185133) do
     t.text "fb_data"
     t.string "handle"
     t.boolean "pending", default: false
+    t.boolean "internal", default: false
+    t.boolean "public", default: false
+    t.boolean "leader", default: true
     t.index ["email"], name: "i_players_e"
     t.index ["email"], name: "index_players_on_email", unique: true
     t.index ["name"], name: "i_players_n"

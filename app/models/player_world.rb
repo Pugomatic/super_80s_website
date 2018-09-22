@@ -12,6 +12,6 @@ class PlayerWorld < ApplicationRecord
   end
 
   def self.leaderboard(field, order = :desc)
-    includes(:player, :world).select("player_id, #{field}, world_id").where("#{field} > 0").where(status: %w(rescued finished)).order(field => order)
+    includes(:player, :world).select("player_id, #{field}, world_id, players.leader").where("#{field} > 0").where(status: %w(rescued finished)).where('players.leader' => true).order(field => order)
   end
 end

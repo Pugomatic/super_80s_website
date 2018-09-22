@@ -1,6 +1,8 @@
 module Game
-  class LeaderboardsController < ApplicationController
+  class LeaderboardsController < BaseController
     layout  'game'
+
+    before_action   :set_paths
 
     def index
       @selected = :leaderboard

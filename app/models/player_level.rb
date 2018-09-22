@@ -30,6 +30,6 @@ class PlayerLevel < ApplicationRecord
   end
 
   def self.leaderboard(field, order = :desc)
-    includes(:player, level: :world).select("player_id, #{field}, level_id").where("status = ? AND #{field} > 0", 'completed').order(field => order)
+    includes(:player, level: :world).select("player_id, #{field}, level_id, players.leader").where("status = ? AND #{field} > 0", 'completed').where('players.leader' => true).order(field => order)
   end
 end
