@@ -15,7 +15,7 @@
           tr
             td
               = link_to game_profile_path(player) do
-                = image_tag(player.image)
+                = image_tag(player.image, size: '64x64')
             td nowrap=""
               span.out = '8' * (12 - player.handle.length)
               = link_to player.handle, game_profile_path(player)
