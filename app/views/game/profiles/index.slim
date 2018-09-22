@@ -6,10 +6,10 @@
         tr
           th
           th
-          th Score
-          th Items
-          th Time
-          th Progress
+          th.date_column Score
+          th.date_column Items
+          th.date_column Time
+          th.date_column Progress
       tbody
         - @players.each do |player|
           tr
@@ -19,13 +19,13 @@
             td nowrap=""
               span.out = '8' * (12 - player.handle.length)
               = link_to player.handle, game_profile_path(player)
-            td
+            td.date_column
               span.out = '8' * (7 - player.player_total.high_score.to_s.length)
               = player.player_total.high_score
-            td
+            td.date_column
               span.out = '8' * (5 - player.player_items.count.to_s.length)
               = player.player_items.count
-            td
+            td.date_column
               - display_time = sprintf("%0.3f", player.player_total.fastest_time / 1000.0)
               span.out = '8' * (9 - display_time.length)
               = display_time
