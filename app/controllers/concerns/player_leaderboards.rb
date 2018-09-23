@@ -23,6 +23,14 @@ module PlayerLeaderboards
     def max_kills
       leaderboard('max_kills')
     end
+
+    def most_played
+      leaderboard('plays')
+    end
+
+    def hardest
+      leaderboard('tries')
+    end
   end
 
   def handle

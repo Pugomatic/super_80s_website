@@ -6,8 +6,20 @@
         .profile-image
           = image_tag "game/level_#{@player.player_level}.png"
           .right style="float: right; margin: 20px 120px 0px 10px"
+            - if current_player == @player
+              = link_to edit_game_profile_path(@player) do
+                .digital
+                  .fa.fa-pencil
+                  | &nbsp; &nbsp;
+                  = @player.handle
+            -else
+              .digital
+                = @player.handle
             = link_to game_profiles_path do
-              .digital << List Players
+              .digital
+                .fa.fa-th-list
+                | &nbsp; &nbsp;
+                | List Players
         .achievements style="clear: both;"
           br
           h2.digital #{@player_name}'s collection
@@ -70,7 +82,7 @@
             hr
             table.leaderboard.tight
               tbody
-                - @worlds.each do |world|
+                - @worlds.reject {|world| world.status == 'destroyed' }.each do |world|
                   tr
                     td
                       span.led
@@ -151,6 +163,41 @@
                       span.led
                         span.out = '8' * (9 - memo.max_items_collected.to_s.length)
                         = memo.max_items_collected
+
+          - unless @hardest.empty?
+            h2.digital Hardest Levels
+            hr
+            table.leaderboard.tight
+              tbody
+                - @hardest.each do |memo|
+                  tr
+                    td
+                      span.led
+                        span.out 8
+                        = memo.label
+                        span.out 8
+                    td
+                      span.led
+                        span.out = '8' * (9 - memo.tries.to_s.length)
+                        = memo.tries
+
+          - unless @most_played.empty?
+            h2.digital Most Played
+            hr
+            table.leaderboard.tight
+              tbody
+                - @most_played.each do |memo|
+                  tr
+                    td
+                      span.led
+                        span.out 8
+                        = memo.label
+                        span.out 8
+                    td
+                      span.led
+                        span.out = '8' * (9 - memo.plays.to_s.length)
+                        = memo.plays
+
       .col.span_1_of_3
         - unless @player.abilities.empty?
           .achievements
