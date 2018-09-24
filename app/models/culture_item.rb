@@ -16,7 +16,7 @@ class CultureItem < ApplicationRecord
   validates  :world_id, presence: true
 
   def self.load(player, type, years, limit = nil)
-    player.culture_items.includes(:world, :culture_format).where('worlds.year' => years, 'culture_format' => CultureFormat.get(type)).order(funny_title: :asc)
+    player.player_items.includes(culture_item: [:world, :culture_format]).where('worlds.year' => years, 'culture_items.culture_format' => CultureFormat.get(type)).order("culture_items.funny_title asc")
   end
 
   def self.cassettes

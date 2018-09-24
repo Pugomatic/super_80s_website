@@ -49,7 +49,7 @@
     .flex-grid
       - @items.each do |item|
         .flex-grid-item class="#{@media}"
-          a.review_reveal href="#dans_take" data-title="#{item.title ? fix_lazer_font(item.title) : item.uid}" data-artist="#{fix_lazer_font(item.artist || "")}" data-review="#{item.dans_commentary}" data-bgclass="bg-#{@media}"
+          a.review_reveal href="#dans_take" data-star="#{item.favorite}" data-id="#{item.id}" data-title="#{item.title ? fix_lazer_font(item.title) : item.uid}" data-artist="#{fix_lazer_font(item.artist || "")}" data-review="#{item.dans_commentary}" data-bgclass="bg-#{@media}"
             = image_tag "game/#{@media}-bg-#{item.color}.png"
             .display_title style="color: #{@fonts[item.color]}" = item.funny_title
 

@@ -64,6 +64,9 @@ html
 
     .remodal#dans_take data-remodal-id="dans_take"
       h3.title
+      .star data-id=""
+        a.toggle_favorite href="javascript:;"
+          #the_star.fa.fa-star-o
       .artist
       p.review
 
@@ -77,7 +80,12 @@ html
 
 javascript:
   $(function() {
+      $.ajaxSetup({
+          headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}
+      });
+
       $(".review_reveal").click(function () {
+          $("#dans_take .star").data('id', $(this).data('id'));
           $("#dans_take h3.title").html($(this).data('title'));
           $("#dans_take .artist").html($(this).data('artist'));
           $("#dans_take p.review").html(
@@ -88,5 +96,33 @@ javascript:
           $("#dans_take").removeClass("bg-cassette");
           $("#dans_take").removeClass("bg-vhs");
           $("#dans_take").addClass($(this).data('bgclass'));
+
+          if ($(this).data('star') == true) {
+              $("#the_star").removeClass('fa-star-o');
+              $("#the_star").addClass('fa-star');
+          } else {
+              $("#the_star").removeClass('fa-star');
+              $("#the_star").addClass('fa-star-o');
+          }
+      });
+
+      $(".star a").click(function() {
+          var url = "/game/favorites/" + $(this).parent().data('id');
+          var fave = false;
+
+          if ($("#the_star").hasClass('fa-star-o')) {
+              $("#the_star").removeClass('fa-star-o');
+              $("#the_star").addClass('fa-star');
+              fave = true;
+          } else {
+              $("#the_star").removeClass('fa-star');
+              $("#the_star").addClass('fa-star-o');
+          }
+
+          $.ajax({
+              method: 'PUT',
+              url: url,
+              data: {fave: fave}
+          });
       });
   });

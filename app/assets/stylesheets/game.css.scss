@@ -81,6 +81,10 @@ body {
    font-family: 'DS-Digital';
 }
 
+.handwritten {
+  font-family: 'basichandwritingmedium';
+}
+
 .remodal {
   margin: 0px;
   padding: 0px;
@@ -115,6 +119,12 @@ body {
     margin: 0;
     font-size: 0.9em;
     color: $electric-blue;
+  }
+  .star {
+    display: inline-block;
+    float: left;
+    margin-left: 20px;
+    color: $yellow;
   }
   .artist {
     font-family: "lazer84regular";
@@ -387,6 +397,24 @@ body {
             padding: 6px 10px;
 
           }
+        }
+      }
+
+      tr.me {
+        td {
+          color: $magenta;
+        }
+        td a {
+          color: $magenta;
+        }
+      }
+
+      tr.internal {
+        td {
+          color: $chrome-middle
+        }
+        td a {
+          color: $chrome-middle
         }
       }
     }

@@ -1,0 +1,20 @@
+.game
+  .panel
+    .section.group
+      .col.span_1_of_3
+        h1.digital Edit Player
+
+        = form_for current_player, url: game_profile_path(current_player.id) do |player|
+          = player.label :name, "Name"
+          = player.text_field :name
+
+          = player.label :handle, "Handle"
+          = player.text_field :handle, maxlength: 12
+
+          = player.label :tagline, "Tag line"
+          = player.text_area :tagline
+
+          = player.submit
+
+      .col.span_1_of_3
+      .col.span_1_of_3

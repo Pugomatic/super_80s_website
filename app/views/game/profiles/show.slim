@@ -2,25 +2,27 @@
   .panel
     .section.group
       .col.span_1_of_3
-        / h1 style="text-align: left" = @player.handle
+        h1 style="text-align: left; margin-bottom: 0px; padding-bottom: 0px"
+          - if current_player == @player
+            = link_to edit_game_profile_path(@player) do
+              = @player.name
+              | &nbsp;
+              .fa.fa-pencil
+          - else
+            = @player.name
+        h3.digital.blue style="margin-left: 26px"
+          = @player.handle
+          | &nbsp; * &nbsp;
+          = link_to "List Players", game_profiles_path
+        h3.handwritten style="font-size: .8em; margin-left: 26px"
+          - if @player.tagline
+            = @player.tagline
+
         .profile-image
           = image_tag "game/level_#{@player.player_level}.png"
-          .right style="float: right; margin: 20px 120px 0px 10px"
-            - if current_player == @player
-              = link_to edit_game_profile_path(@player) do
-                .digital
-                  .fa.fa-pencil
-                  | &nbsp; &nbsp;
-                  = @player.handle
-            -else
-              .digital
-                = @player.handle
-            = link_to game_profiles_path do
-              .digital
-                .fa.fa-th-list
-                | &nbsp; &nbsp;
-                | List Players
-        .achievements style="clear: both;"
+
+
+        .achievements
           br
           h2.digital #{@player_name}'s collection
           hr
@@ -42,6 +44,16 @@
                 ' M u s i c -
                 = @counts[:cassettes]
 
+
+        .achievements
+          h2.digital My Favorites
+          hr
+          ul.bullet
+            - @favorites.each do |fave|
+              li.digital
+                a.review_reveal href="#dans_take" data-star="#{fave.favorite}" data-id="#{fave.id}" data-title="#{fave.title ? fix_lazer_font(fave.title) : fave.uid}" data-artist="#{fix_lazer_font fave.artist}" data-review="#{fave.dans_commentary}" data-bgclass="bg-#{fave.media}" = fave.funny_title
+
+      .col.span_1_of_3
         - if @current_level
           .achievements
             h2.digital Current Status
@@ -54,9 +66,9 @@
                     | WORLD
                     span.out 8
                   td
-                    span.out = '8' * ( (9 - @current_level.world.name.length) / 2 )
+                    span.out = '8' * ((9 - @current_level.world.name.length) / 2)
                     = @current_level.world.name
-                    span.out = '8' * ( (9 - @current_level.world.name.length) / 2 )
+                    span.out = '8' * ((9 - @current_level.world.name.length) / 2)
                 tr
                   td
                     span.out 8
@@ -82,7 +94,7 @@
             hr
             table.leaderboard.tight
               tbody
-                - @worlds.reject {|world| world.status == 'destroyed' }.each do |world|
+                - @worlds.reject {|world| world.status == 'destroyed'}.each do |world|
                   tr
                     td
                       span.led
@@ -93,7 +105,6 @@
                       span.led
                         span.out = world.status == 'FINISHED' ? '88' : '8' * (9 - world.status.length)
                         = world.status
-      .col.span_1_of_3
         .achievements
           - unless @high_scores.empty?
             h2.digital High Scores
@@ -218,7 +229,7 @@
                     ul.bullet
                       - @items[achievement.id].each do |item|
                         li
-                          a.review_reveal href="#dans_take" data-title="#{item.title ? fix_lazer_font(item.title) : item.uid}" data-artist="#{fix_lazer_font item.artist}" data-review="#{item.dans_commentary}" data-bgclass="bg-#{item.media}" = item.funny_title
+                          a.review_reveal href="#dans_take" data-star="#{item.favorite}" data-id="#{item.id}" data-title="#{item.title ? fix_lazer_font(item.title) : item.uid}" data-artist="#{fix_lazer_font item.artist}" data-review="#{item.dans_commentary}" data-bgclass="bg-#{item.media}" = item.funny_title
             br
             br
 

@@ -5,7 +5,7 @@ module Game
 
     def index
       @selected = :profile
-      @players = Player.public
+      @players = Player.public(current_player)
     end
 
     def edit
@@ -13,7 +13,9 @@ module Game
     end
 
     def update
+      current_player.update_attributes(player_params)
 
+      redirect_to game_profile_path(current_player)
     end
 
     def show
@@ -24,6 +26,7 @@ module Game
       @counts[:cartridges] = @player.culture_items.cartridges.count
       @counts[:vhs_tapes] = @player.culture_items.vhs_tapes.count
 
+      @favorites = @player.favorites
       @items = {}
 
       @worlds = @player.player_worlds.includes(:world).sort_by(&:year).reject {|world| world.status == "DESTROYED"}
@@ -39,6 +42,12 @@ module Game
       @most_played = @player.player_levels.most_played.limit(3)
       @hardest = @player.player_levels.hardest.limit(3)
       @current_level = @player.top_completed_level&.next_level
+    end
+
+    private
+
+    def player_params
+      params.require(:player).permit(:name, :handle, :tagline)
     end
   end
 end

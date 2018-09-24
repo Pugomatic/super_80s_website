@@ -20,8 +20,8 @@ class Player < ApplicationRecord
   before_create :set_handle
   after_create  :create_player_totals
 
-  def self.public
-    where(public: true)
+  def self.public(current)
+    where('public = ? OR id = ?', true, current.id)
   end
 
   def self.get(id_or_handle)
@@ -75,6 +75,10 @@ class Player < ApplicationRecord
     player
   end
 
+  def favorites
+    player_items.includes(:culture_item).where(favorite: true)
+  end
+
   def update_from_game!(all_params)
     @world_statuses = {}
     World.pluck(:id).each {|id| @world_statuses[id] = 'destroyed' }
@@ -118,10 +122,20 @@ class Player < ApplicationRecord
     end
   end
 
+  def display_class(current)
+    if internal
+      "internal"
+    elsif current == self
+      "me"
+    else
+      ""
+    end
+  end
+
   private
 
   def set_handle
-    self.handle = email.split('@').first[0, 10]
+    self.handle = email.split('@').first[0, 12]
   end
 
   def create_player_totals

@@ -55,9 +55,7 @@
         br
         br
         h1 style="white-space: nowrap"
-          ' T o p
-          ' &nbsp;
-          ' L e v e l s
+          ' L e a d e r b o a r d
 
         table.leaderboard
           thead
@@ -65,24 +63,36 @@
               th
                 span style="background-color: #0e0616; padding: 20px" Player
               th
-                span style="background-color: #0e0616; padding: 20px" Level
+                span style="background-color: #0e0616; padding: 20px" Progress
               th.date_column
-                span style="background-color: #0e0616; padding: 20px" Date
+                span style="background-color: #0e0616; padding: 20px" Score
+              th.date_column
+                span style="background-color: #0e0616; padding: 20px" Items
+              th.date_column
+                span style="background-color: #0e0616; padding: 20px" Time
 
           tbody
             - @top_level_board.each do |player|
-              tr
+              - display_time = sprintf("%0.3f", player.player_total.fastest_time / 1000.0)
+              tr class=(player.display_class(current_player))
                 td
                   span.led
-                    = pad_with_8s(player.handle)
+                    = pad_with_8s player.handle
                 td
                   span.led
-                    = pad_with_8s(player.top_completed_level.label, 9)
+                    = pad_with_8s player.top_completed_level.label, 7
 
                 td.date_column
                   span.led
-                    = player.top_completed_level.player_levels.find_by(player_id: player.id, level_id: player.top_completed_level_id).created_at.to_s(:leaderboard)
+                    = pad_with_8s player.player_total.high_score, 6
 
+                td.date_column
+                  span.led
+                    = pad_with_8s player.player_items.count, 4
+
+                td.date_column
+                  span.led
+                    = pad_with_8s display_time, 9
         br
 
     - unless @high_scores.empty?
@@ -106,7 +116,7 @@
 
           tbody
             - @high_scores.each do |score|
-              tr
+              tr class=(score.player.display_class(current_player))
                 td
                   span.led
                     = pad_with_8s(score.handle)
@@ -141,7 +151,7 @@
           tbody
             - @fast_times.each do |time|
               - display_time = sprintf("%0.3f", time.fastest_time / 1000.0)
-              tr
+              tr class=(time.player.display_class(current_player))
                 td
                   span.led
                     = pad_with_8s(time.handle)
@@ -175,7 +185,7 @@
 
           tbody
             - @max_kills.each do |kills|
-              tr
+              tr class=(kills.player.display_class(current_player))
                 td
                   span.led
                     = pad_with_8s(kills.handle)
@@ -206,7 +216,7 @@
 
           tbody
             - @memo_items.each do |memo|
-              tr
+              tr class=(memo.player.display_class(current_player))
                 td
                   span.led
                     = pad_with_8s(memo.handle)
@@ -239,7 +249,7 @@
 
           tbody
             - @space_ace.each do |score|
-              tr
+              tr class=(score.player.display_class(current_player))
                 td
                   span.led
                     = pad_with_8s(score.handle)

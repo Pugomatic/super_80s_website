@@ -44,6 +44,7 @@ Rails.application.routes.draw do
       resources :discographies
     end
     resources :players
+    resources :favorites
     resources :sign_ins
     resources :data
   end

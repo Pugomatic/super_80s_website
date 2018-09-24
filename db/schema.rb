@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_22_170935) do
+ActiveRecord::Schema.define(version: 2018_09_24_165732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -300,6 +300,7 @@ ActiveRecord::Schema.define(version: 2018_09_22_170935) do
     t.integer "culture_item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean "favorite"
     t.index ["player_id", "culture_item_id"], name: "i_player_items_upi", unique: true
     t.index ["player_id"], name: "i_player_items_p"
   end
@@ -413,6 +414,7 @@ ActiveRecord::Schema.define(version: 2018_09_22_170935) do
     t.boolean "internal", default: false
     t.boolean "public", default: false
     t.boolean "leader", default: true
+    t.string "tagline"
     t.index ["email"], name: "i_players_e"
     t.index ["email"], name: "index_players_on_email", unique: true
     t.index ["name"], name: "i_players_n"
