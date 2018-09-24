@@ -34,7 +34,7 @@ module PlayerLeaderboards
   end
 
   def handle
-    player.email.split('@').first[0..12]
+    player.handle
   end
 
   def add!(leaderboard)

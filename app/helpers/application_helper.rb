@@ -9,7 +9,7 @@ module ApplicationHelper
     begin
       if val.blank?
         sanitize("<span class='out'>#{'8' * length}</span>", tags: %w(span))
-      elsif val.length > length
+      elsif val.length >= length
         truncate(val, length)
       else
         sanitize("<span class='out'>#{'8' * (length - val.length)}</span>#{val}", tags: %w(span))
