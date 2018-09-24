@@ -4,7 +4,13 @@ module ApplicationHelper
   end
 
   def pad_with_8s(val, length = 12)
-    sanitize("<span class='out'>#{'8' * ((length - val.length) || 0)}</span>#{val}", tags: %w(span))
+    if val.blank?
+      sanitize("<span class='out'>#{'8' * length}</span>", tags: %w(span))
+    elsif val.length > length
+      truncate(val, length)
+    else
+      sanitize("<span class='out'>#{'8' * (length - val.length)}</span>#{val}", tags: %w(span))
+    end
   end
 
   def resource
