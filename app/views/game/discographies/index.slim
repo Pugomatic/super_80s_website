@@ -1,29 +1,32 @@
 .game
-  .panel
+  .panel.centered
     h1
       = @player.handle
       | 's
       br
       | Collection
 
-  table.leaderboard.tight
-    tr
-      td.digital
-        = link_to "#{@disco_path}?media=vhs" do
-          = image_tag "game/vhs.png"
-          br
-          | Movies
-      td.digital
-        = link_to "#{@disco_path}?media=cassette" do
-          = image_tag "game/cassette.png"
-          br
-          | Music
-      td.digital
-        = link_to "#{@disco_path}?media=cartridge" do
-          = image_tag "game/cartridge.png"
-          br
-          | Games
-
+    table.leaderboard
+      tr
+        td.digital
+          = link_to "#{@disco_path}?media=vhs" do
+            = image_tag "game/vhs.png"
+            br
+            span style="font-size: 0.75em" Movies
+        td.digital
+          = link_to "#{@disco_path}?media=cassette" do
+            = image_tag "game/cassette.png"
+            br
+            span style="font-size: 0.75em" Music
+        td.digital
+          = link_to "#{@disco_path}?media=cartridge" do
+            = image_tag "game/cartridge.png"
+            br
+            span style="font-size: 0.75em" Games
+      tr
+        td colspan="3"
+          hr style="width: 100%"
+    br
   .centered
     .flex-grid
       - @items.each do |item|

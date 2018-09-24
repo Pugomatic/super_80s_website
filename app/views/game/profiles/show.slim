@@ -43,14 +43,14 @@
                 ' M u s i c -
                 = @counts[:cassettes]
 
-
-        .achievements
-          h2.digital My Favorites
-          hr
-          ul.bullet
-            - @favorites.each do |fave|
-              li.digital
-                a.review_reveal href="#dans_take" data-star="#{fave.favorite}" data-id="#{fave.id}" data-title="#{fave.title ? fix_lazer_font(fave.title) : fave.uid}" data-year="#{fave.year}" data-artist="#{fix_lazer_font fave.artist}" data-review="#{fave.dans_commentary}" data-bgclass="bg-#{fave.media}" = fave.funny_title
+        - unless @fast_times.empty?
+          .achievements
+            h2.digital My Favorites
+            hr
+            ul.bullet
+              - @favorites.each do |fave|
+                li.digital
+                  a.review_reveal href="#dans_take" data-star="#{fave.favorite}" data-id="#{fave.id}" data-title="#{fave.title ? fix_lazer_font(fave.title) : fave.uid}" data-year="#{fave.year}" data-artist="#{fix_lazer_font fave.artist}" data-review="#{fave.dans_commentary}" data-bgclass="bg-#{fave.media}" = fave.funny_title
 
       .col.span_1_of_3
         - if @current_level

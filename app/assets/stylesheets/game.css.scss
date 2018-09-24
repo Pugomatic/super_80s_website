@@ -132,8 +132,9 @@ body {
   .star {
     display: inline-block;
     float: left;
-    margin-left: 20px;
+    margin-left: 12px;
     margin-top: -20px;
+    height: 40px;
     color: $yellow;
   }
   .artist {
@@ -142,6 +143,7 @@ body {
     margin: 0;
     padding: 0;
     font-size: 0.8em;
+    height: 30px;
   }
   .year {
     color: $chrome-middle;
