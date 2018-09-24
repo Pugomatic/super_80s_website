@@ -23,6 +23,11 @@ class CultureItem < ApplicationRecord
     where(culture_format: CultureFormat.get(:cassette))
   end
 
+  # this is on the player item
+  def favorite
+    false
+  end
+
   def self.cartridges
     where(culture_format: CultureFormat.get(:cartridge))
   end
