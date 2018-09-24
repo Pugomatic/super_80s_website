@@ -4,6 +4,8 @@ module ApplicationHelper
   end
 
   def pad_with_8s(val, length = 12)
+    val = val.to_s
+
     if val.blank?
       sanitize("<span class='out'>#{'8' * length}</span>", tags: %w(span))
     elsif val.length > length

@@ -109,7 +109,7 @@
                         span.out 8
                     td
                       span.led
-                        = pad_with_8s(score.high_score.to_s, 9)
+                        = pad_with_8s(score.high_score, 9)
 
           - unless @fast_times.empty?
             h2.digital Fast Times
@@ -142,7 +142,7 @@
                         span.out 8
                     td
                       span.led
-                        = pad_with_8s(kills.max_kills.to_s, 9)
+                        = pad_with_8s(kills.max_kills, 9)
 
           - unless @memo.empty?
             h2.digital Memorabilia Collected
@@ -158,7 +158,7 @@
                         span.out 8
                     td
                       span.led
-                        = pad_with_8s(memo.max_items_collected.to_s, 9)
+                        = pad_with_8s(memo.max_items_collected, 9)
 
           - unless @hardest.empty?
             h2.digital Hardest Levels
@@ -174,7 +174,7 @@
                         span.out 8
                     td
                       span.led
-                        = pad_with_8s(memo.tries.to_s, 9)
+                        = pad_with_8s(memo.tries, 9)
 
           - unless @most_played.empty?
             h2.digital Most Played
@@ -190,7 +190,7 @@
                         span.out 8
                     td
                       span.led
-                        = pad_with_8s(memo.plays.to_s, 9)
+                        = pad_with_8s(memo.plays, 9)
 
       .col.span_1_of_3
         - unless @player.abilities.empty?
