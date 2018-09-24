@@ -3,6 +3,10 @@ module ApplicationHelper
     :player
   end
 
+  def pad_with_8s(val, length = 12)
+    sanitize("<span class='out'>#{'8' * ((length - val.length) || 0)}</span>#{val}", tags: %w(span))
+  end
+
   def resource
     @resource ||= Player.new
   end

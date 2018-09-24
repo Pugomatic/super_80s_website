@@ -74,12 +74,10 @@
               tr
                 td
                   span.led
-                    span.out = '8' * (12 - player.handle.length)
-                    = player.handle
+                    = pad_with_8s(player.handle)
                 td
                   span.led
-                    span.out = '8' * (9 - player.top_completed_level.label.length)
-                    = player.top_completed_level.label
+                    = pad_with_8s(player.top_completed_level.label, 9)
 
                 td.date_column
                   span.led
@@ -111,12 +109,10 @@
               tr
                 td
                   span.led
-                    span.out = '8' * (12 - score.handle.length)
-                    = score.handle
+                    = pad_with_8s(score.handle)
                 td
                   span.led
-                    span.out = '8' * (9 - score.high_score.to_s.length)
-                    = score.high_score
+                    = pad_with_8s(score.high_score.to_s, 9)
 
                 td.date_column
                   span.led
@@ -148,12 +144,10 @@
               tr
                 td
                   span.led
-                    span.out = '8' * (12 - time.handle.length)
-                    = time.handle
+                    = pad_with_8s(time.handle)
                 td
                   span.led
-                    span.out = '8' * (9 - display_time.length)
-                    = display_time
+                    = pad_with_8s(display_time, 9)
 
                 td.date_column
                   span.led
@@ -184,12 +178,10 @@
               tr
                 td
                   span.led
-                    span.out = '8' * (12 - kills.handle.length)
-                    = kills.handle
+                    = pad_with_8s(kills.handle)
                 td
                   span.led
-                    span.out = '8' * (9 - kills.max_kills.to_s.length)
-                    = kills.max_kills
+                    = pad_with_8s(kills.max_kills.to_s, 9)
 
                 td.date_column
                   span.led
@@ -217,12 +209,10 @@
               tr
                 td
                   span.led
-                    span.out = '8' * (12 - memo.handle.length)
-                    = memo.handle
+                    = pad_with_8s(memo.handle)
                 td
                   span.led
-                    span.out = '8' * (9 - memo.max_items_collected.to_s.length)
-                    = memo.max_items_collected
+                    = pad_with_8s(memo.max_items_collected.to_s, 9)
 
                 td.date_column
                   span.led
@@ -252,12 +242,10 @@
               tr
                 td
                   span.led
-                    span.out = '8' * (12 - score.handle.length)
-                    = score.handle
+                    = pad_with_8s(score.handle)
                 td
                   span.led
-                    span.out = '8' * (9 - score.high_score.to_s.length)
-                    = score.high_score
+                    = pad_with_8s(score.high_score.to_s, 9)
 
                 td.date_column
 
