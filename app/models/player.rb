@@ -21,7 +21,7 @@ class Player < ApplicationRecord
   after_create  :create_player_totals
 
   def self.public(current)
-    where('public = ? OR id = ?', true, current.id)
+    where('public = ? OR id = ?', true, current&.id)
   end
 
   def self.get(id_or_handle)
