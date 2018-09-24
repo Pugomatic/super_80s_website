@@ -1,72 +1,33 @@
 .game
   .panel
-    table.heading.disco width="100%"
-      tr align="center"
-        td
-          a#toggle_controls href="#"
-            - if @media == :cassette
-              | Ca s s e t te s
-            - elsif @media == :cartridge
-              | Ca r tr i d g e s
-            - elsif @media == :vhs
-              | V H S &nbsp; Ta &nbsp;p e s
+    h1
+      = @player.handle
+      | 's
+      br
+      | Collection
 
-            br
-            - if @years.size > 1
-              | 1980-84
-            - else
-              = @years.first
-
-            br
-            .fa.fa-caret-down
-
-    table.controls style="display:none" width="100%"
-      tr
-        td align="center"
-          select#media name="world" style="width: 240px"
-            option value="vhs" Media
-            option value="vhs" VHS Tapes
-            option value="cassette" Cassette Tapes
-            option value="cartridge" Game Cartridges
-      tr
-        td align="center"
-          select#year name="world" style="width: 240px"
-            option value="ALL" Year
-            option value="ALL" All
-            option value="1980"  1980
-            option value="1981"  1981
-            option value="1982"  1982
-            option value="1983"  1983
-            option value="1984"  1984
-      tr
-        td align="center"
-          button#reload Reload
+  table.leaderboard.tight
+    tr
+      td.digital
+        = link_to "#{@disco_path}?media=vhs" do
+          = image_tag "game/vhs.png"
           br
+          | Movies
+      td.digital
+        = link_to "#{@disco_path}?media=cassette" do
+          = image_tag "game/cassette.png"
           br
-
+          | Music
+      td.digital
+        = link_to "#{@disco_path}?media=cartridge" do
+          = image_tag "game/cartridge.png"
+          br
+          | Games
 
   .centered
     .flex-grid
       - @items.each do |item|
         .flex-grid-item class="#{@media}"
-          a.review_reveal href="#dans_take" data-star="#{item.favorite}" data-id="#{item.id}" data-title="#{item.title ? fix_lazer_font(item.title) : item.uid}" data-artist="#{fix_lazer_font(item.artist || "")}" data-review="#{item.dans_commentary}" data-bgclass="bg-#{@media}"
+          a.review_reveal href="#dans_take" data-star="#{item.favorite}" data-id="#{item.id}" data-title="#{item.title ? fix_lazer_font(item.title) : item.uid}" data-year="#{item.year}" data-artist="#{fix_lazer_font(item.artist || "")}" data-review="#{item.dans_commentary}" data-bgclass="bg-#{@media}"
             = image_tag "game/#{@media}-bg-#{item.color}.png"
             .display_title style="color: #{@fonts[item.color]}" = item.funny_title
-
-
-javascript:
-    $("#media").selectmenu();
-    $("#year").selectmenu();
-
-    $(function() {
-        var path = "#{@disco_path}";
-
-        $('#toggle_controls').click(function () {
-            $('.controls').toggle();
-        });
-
-        $('#reload').click(function() {
-            $('.controls').hide();
-            window.location.href = path + "?media=" + $("#media").val() + "&year=" + $("#year").val();
-        });
-    });

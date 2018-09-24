@@ -78,7 +78,15 @@ body {
 }
 
 .digital {
-   font-family: 'DS-Digital';
+  font-family: 'DS-Digital';
+  span.out {
+    color: $deep-purple;
+  }
+  span.led {
+    background-color: black;
+    padding: 6px 10px;
+
+  }
 }
 
 .handwritten {
@@ -109,7 +117,8 @@ body {
 #dans_take {
   background-repeat: no-repeat;
   background-position-y: 10px;
-  background-size: 366px 177px;
+  background-size: 366px 200px;
+  height: 300px;
 
   h3.title {
     font-family: "lazer84regular";
@@ -124,6 +133,7 @@ body {
     display: inline-block;
     float: left;
     margin-left: 20px;
+    margin-top: -20px;
     color: $yellow;
   }
   .artist {
@@ -133,14 +143,20 @@ body {
     padding: 0;
     font-size: 0.8em;
   }
+  .year {
+    color: $chrome-middle;
+  }
   .review {
-    color: $electric-blue;
+    color: black;
     font-size: 0.9em;
     padding: 10px;
     margin-bottom: 0px;
+    margin-top: 40px;
     vertical-align: text-bottom;
     position: absolute;
     bottom: 0;
+    width: 100%;
+    background-color: $electric-blue;
   }
 }
 

@@ -15,6 +15,8 @@ class CultureItem < ApplicationRecord
   validates  :culture_format_id, presence: true
   validates  :world_id, presence: true
 
+  delegate   :year, to: :world
+
   def self.load(player, type, years, limit = nil)
     player.player_items.includes(culture_item: [:world, :culture_format]).where('worlds.year' => years, 'culture_items.culture_format' => CultureFormat.get(type)).order("culture_items.funny_title asc")
   end
@@ -25,7 +27,7 @@ class CultureItem < ApplicationRecord
 
   # this is on the player item
   def favorite
-    false
+    raise "FIX ME"
   end
 
   def self.cartridges

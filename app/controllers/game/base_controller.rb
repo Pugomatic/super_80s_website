@@ -13,8 +13,8 @@ module Game
           @player_name = Player.get(session[:player_id]).handle
         end
 
-        @profile_path = game_profile_path(@player || session[:player_id] || current_player)
-        @disco_path = game_profile_discographies_path(@player || session[:player_id] || current_player)
+        @profile_path = game_profile_path(current_player)
+        @disco_path = game_profile_discographies_path(@player || current_player)
 
       else
         @profile_path = game_profiles_path
@@ -29,8 +29,6 @@ module Game
       if ! @player.public? && current_player != @player
         head :unauthorized
         return false
-      else
-        session[:player_id] = @player.id
       end
 
       true

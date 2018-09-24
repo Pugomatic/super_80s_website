@@ -12,4 +12,5 @@ class PlayerItem < ApplicationRecord
   delegate  :uid, to: :culture_item
   delegate  :color, to: :culture_item
   delegate  :media, to: :culture_item
+  delegate  :year, to: :culture_item
 end

@@ -4,7 +4,7 @@ module Game
     before_action   :set_paths
 
     def index
-      @selected = :profile
+      @selected = :list
       @players = Player.public(current_player)
     end
 
@@ -32,7 +32,7 @@ module Game
       @worlds = @player.player_worlds.includes(:world).sort_by(&:year).reject {|world| world.status == "DESTROYED"}
 
       @achievements.with_items.each do |a|
-        @items[a.id] = CultureItem.select('player_items.player_id', 'id', 'funny_title').includes(:player_items, :culture_format).where('player_items.player_id' => @player.id, 'id' => a.achievement_items.map(&:culture_item_id))
+        @items[a.id] = PlayerItem.includes(culture_item: [:culture_format]).select('player_id', 'culture_item_id', 'culture_items.funny_title').where('player_items.player_id' => @player.id, 'culture_items.id' => a.achievement_items.map(&:culture_item_id))
       end
 
       @high_scores = @player.player_levels.high_scores.limit(3)

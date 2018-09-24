@@ -50,14 +50,18 @@ html
   body
 
     #myTopnav.topnav
-      = link_to @profile_path do
-        = image_tag @selected == :profile ?  'game/profile-selected.png' :  'game/profile.png', size: '64x64'
-        .div class=('selected' if @selected == :profile) = @player_name
+      - if current_player
+        = link_to @profile_path do
+          = image_tag @selected == :profile ?  'game/profile-selected.png' :  'game/profile.png', size: '64x64'
+          .div class=('selected' if @selected == :profile) = current_player.name
+      = link_to '/game/profiles' do
+        = image_tag @selected == :list ? 'game/list-selected.png' : 'game/list.png', size: '64x64'
+        .div class=('selected' if @selected == :list) Players
       a href="/game/leaderboards"
         = image_tag @selected == :leaderboard ? 'game/leaderboard-selected.png' : 'game/leaderboard.png', size: '64x64'
         .div class=('selected' if @selected == :leaderboard) Leaderboard
-      - if @disco_path
-        = link_to @disco_path do
+      - if current_player
+        = link_to game_profile_discographies_path(current_player) do
           = image_tag @selected == :disco ? 'game/discography-selected.png' : 'game/discography.png', size: '64x64'
           .div class=('selected' if @selected == :disco) Discography
 
@@ -68,6 +72,7 @@ html
         a.toggle_favorite href="javascript:;"
           #the_star.fa.fa-star-o
       .artist
+      .year.digital 1980
       p.review
 
     = yield
@@ -91,6 +96,7 @@ javascript:
           $("#dans_take p.review").html(
               $(this).data('review')
           );
+          $("#dans_take .year").html($(this).data('year'));
 
           $("#dans_take").removeClass("bg-cassette");
           $("#dans_take").removeClass("bg-cassette");
