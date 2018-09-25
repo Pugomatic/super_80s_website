@@ -71,8 +71,9 @@ html
     .remodal#dans_take data-remodal-id="dans_take"
       h3.title
       .star data-id=""
-        a.toggle_favorite href="javascript:;"
-          #the_star.fa.fa-star-o
+        - if @player == current_player
+          a.toggle_favorite href="javascript:;"
+            #the_star.fa.fa-star-o
       .artist
       .year.digital 1980
       p.review

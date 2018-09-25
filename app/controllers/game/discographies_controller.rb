@@ -14,13 +14,14 @@ module Game
 
       if @media == :cartridge
         @fonts = {
+            'favorite' => '#fa57e1',
             'blue' => '#ffff00',
             'dcddcb' => '#dcddcb',
             'purple' => '#ff3ae4',
             'green' => '#c0a614',
             'red' => '#dce840',
             'cyan' => '#119',
-            'gold' => '#051fac',
+            'gold' => '#D4AF37',
             'orange' => '#ffffff',
             'blue2' => '#ff8800',
             'grey' => '#fff'
@@ -29,6 +30,7 @@ module Game
         @fonts = {
             nil => '#0e0616',
             '' => '#0e0616',
+            'favorite' => '#fa57e1',
             'gold' => '#0e0616',
             'blue' => '#ebe3e3',
             'blue2' => '#f1ff99',
