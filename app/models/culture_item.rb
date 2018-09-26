@@ -73,7 +73,7 @@ class CultureItem < ApplicationRecord
   def self.years
     worlds.keys
   end
-
+  
   def self.update!(file)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
