@@ -55,7 +55,7 @@ html
       - if current_player
         = link_to @profile_path do
           = image_tag @selected == :profile ?  'game/profile-selected.png' :  'game/profile.png', size: '64x64'
-          .div class=('selected' if @selected == :profile) = current_player.name
+          .div class=('selected' if @selected == :profile) = current_player.handle
       = link_to '/game/profiles' do
         = image_tag @selected == :list ? 'game/list-selected.png' : 'game/list.png', size: '64x64'
         .div class=('selected' if @selected == :list) Players
