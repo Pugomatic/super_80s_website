@@ -29,7 +29,7 @@ class Player < ApplicationRecord
   end
 
   def self.top_level_board
-    Player.includes(top_completed_level: :player_levels).where('players.id = player_levels.player_id AND player_levels.level_id = players.top_completed_level_id AND players.leader = ?', true).order('levels.number DESC, player_levels.created_at ASC')
+    Player.includes(top_completed_level: :player_levels).where('players.id = player_levels.player_id AND player_levels.level_id = players.top_completed_level_id AND players.leader = ?', true).order('levels.number DESC, player_levels.high_score DESC')
   end
 
   def self.from_game(all_params)
