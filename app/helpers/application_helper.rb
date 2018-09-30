@@ -5,17 +5,17 @@ module ApplicationHelper
 
   def value_for(obj, metric)
     case metric
-    when :score
+    when 'score'
       obj.high_score
-    when :time
+    when 'time'
       obj.fastest_time
-    when :kills
+    when 'kills'
       obj.max_kills
-    when :memo
+    when 'memo'
       obj.max_items_collected
-    when :tries
+    when 'tries'
       obj.tries
-    when :plays
+    when 'plays'
       obj.plays
     else
       ''
