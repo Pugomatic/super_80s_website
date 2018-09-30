@@ -3,6 +3,25 @@ module ApplicationHelper
     :player
   end
 
+  def value_for(obj, metric)
+    case metric
+    when :score
+      obj.high_score
+    when :time
+      obj.fastest_time
+    when :kills
+      obj.max_kills
+    when :memo
+      obj.max_items_collected
+    when :tries
+      obj.tries
+    when :plays
+      obj.plays
+    else
+      ''
+    end
+  end
+
   def pad_with_8s(val, length = 12)
     val = val.to_s
 

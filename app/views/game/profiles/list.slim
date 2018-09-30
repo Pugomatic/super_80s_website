@@ -1,0 +1,34 @@
+.game
+  .panel
+    .achievements
+
+      br
+      h1 style="white-space: nowrap"
+        = @player.handle
+      h1 style="white-space: nowrap"
+        ' H i g h
+        ' &nbsp;
+        ' S c o r e s
+
+      table.leaderboard
+        thead
+          tr
+            th
+              span style="background-color: #0e0616; padding: 20px" Level
+            th
+              span style="background-color: #0e0616; padding: 20px"
+                = @metric
+
+        tbody
+          - @list.each do |score|
+            - value = value_for(score, @metric)
+            tr
+              td.date_column
+                span.led
+                  span.out 8
+                  = score.label
+                  span.out 8
+              td
+                span.led
+                  = pad_with_8s(value, 9)
+
