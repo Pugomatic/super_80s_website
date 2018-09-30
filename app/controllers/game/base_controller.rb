@@ -10,11 +10,11 @@ module Game
         if player.respond_to?(:handle)
           @player_name = player.handle
         else
-          @player_name = Player.get(session[:player_id]).handle
+          @player_name = Player.get(session[:player_id])&.handle
         end
 
-        @profile_path = game_profile_path(current_player)
-        @disco_path = game_profile_discographies_path(@player || current_player)
+        @profile_path = current_player && game_profile_path(current_player)
+        @disco_path = (@player || current_player) && game_profile_discographies_path(@player || current_player)
 
       else
         @profile_path = game_profiles_path

@@ -25,7 +25,7 @@ class Player < ApplicationRecord
   end
 
   def self.get(id_or_handle)
-    find_by(id: id_or_handle) || find_by(handle: id_or_handle) || raise("Player not found")
+    find_by(id: id_or_handle) || find_by(handle: id_or_handle) || nil
   end
 
   def self.top_level_board

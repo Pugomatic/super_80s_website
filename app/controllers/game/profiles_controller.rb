@@ -25,17 +25,17 @@ module Game
       if params[:stat]
         @metric = params[:stat]
         case params[:stat]
-        when :score
+        when 'score'
           @list = @player.player_levels.high_scores
-        when :time
+        when 'time'
           @list = @player.player_levels.fast_times
-        when :kills
+        when 'kills'
           @list = @player.player_levels.max_kills
-        when :memo
+        when 'memo'
           @list = @player.player_levels.max_collected
-        when :tries
+        when 'tries'
           @list = @player.player_levels.hardest
-        when :plays
+        when 'plays'
           @list = @player.player_levels.most_played
         else
           @metric = ''
