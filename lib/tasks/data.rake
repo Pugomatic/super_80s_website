@@ -19,4 +19,23 @@ namespace :data do
   task stats: :environment do
     CultureItem.stats
   end
+
+  desc 'Give full collection to last player'
+  task give_last_player_all: :environment do
+    player = Player.last
+
+    CultureItem.all.each do |item|
+      unless player.player_items.culture_item_id == item.id
+        player.player_items << PlayerItem.new(culture_item: item)
+      end
+    end
+
+    Achievement.all.each do |a|
+      unless player.player_achievements.achievement_id == a.id
+        player.player_achievements << PlayerAchievement.new(achievement: a)
+      end
+    end
+
+    player.save!
+  end
 end

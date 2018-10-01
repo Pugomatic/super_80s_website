@@ -53,10 +53,18 @@
                   a.review_reveal href="#dans_take" data-star="#{fave.favorite}" data-id="#{fave.id}" data-title="#{fave.title ? fix_lazer_font(fave.title) : fave.uid}" data-year="#{fave.year}" data-artist="#{fix_lazer_font fave.artist}" data-review="#{fave.dans_commentary}" data-bgclass="bg-#{fave.media}" = fave.funny_title
 
       .col.span_1_of_3
-        - if @current_level
-          .achievements
-            h2.digital Current Status
-            hr
+        .achievements
+          h2.digital Current Status
+          hr
+
+          - if @player.top_completed_level&.number == 41
+            table.leaderboard.tight
+              tr
+                td
+                  span.out 8888
+                  | FINISHED THE GAME
+                  span.out 8888
+          - elsif @current_level
             table.leaderboard.tight
               tbody
                 tr
