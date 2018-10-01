@@ -26,16 +26,14 @@ namespace :data do
 
     CultureItem.all.each do |item|
       unless player.player_items.culture_item_id == item.id
-        player.player_items << PlayerItem.new(culture_item: item)
+        PlayerItem.create(culture_item_id: item.id, player_id: player.id)
       end
     end
 
     Achievement.all.each do |a|
       unless player.player_achievements.achievement_id == a.id
-        player.player_achievements << PlayerAchievement.new(achievement: a)
+        PlayerAchievement.create(achievement_id: a.id, player_id: player.id)
       end
     end
-
-    player.save!
   end
 end
