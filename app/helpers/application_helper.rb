@@ -23,9 +23,9 @@ module ApplicationHelper
   end
 
   def pad_with_8s(val, length = 12)
-    val = val.to_s
-
     begin
+      val = val.to_s
+
       if val.blank?
         sanitize("<span class='out'>#{'8' * length}</span>", tags: %w(span))
       elsif val.length >= length
@@ -34,7 +34,7 @@ module ApplicationHelper
         sanitize("<span class='out'>#{'8' * (length - val.length)}</span>#{val}", tags: %w(span))
       end
     rescue
-      raise val.inspect
+      ""
     end
   end
 
