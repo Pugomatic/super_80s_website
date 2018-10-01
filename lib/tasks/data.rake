@@ -25,13 +25,13 @@ namespace :data do
     player = Player.last
 
     CultureItem.all.each do |item|
-      unless player.player_items.culture_item_id == item.id
+      unless player.player_items.find_by(culture_item_id: item.id)
         PlayerItem.create(culture_item_id: item.id, player_id: player.id)
       end
     end
 
     Achievement.all.each do |a|
-      unless player.player_achievements.achievement_id == a.id
+      unless player.player_achievements.find_by(achievement_id: a.id)
         PlayerAchievement.create(achievement_id: a.id, player_id: player.id)
       end
     end
