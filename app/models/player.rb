@@ -35,7 +35,10 @@ class Player < ApplicationRecord
   def self.from_game(all_params)
     raise "No fbdata" unless all_params[:fb_data]
     fb_data = JSON.parse(all_params[:fb_data])
-    player = find_by(email: fb_data['email'], uid: fb_data['id']) || new(pending: true)
+
+    fakemail = "auto#{Time.now.to_i}@noemail.com"
+
+    player = find_by(uid: fb_data['id']) || new(pending: true)
     player.world_statuses = {}
     World.pluck(:id).each {|id| player.world_statuses[id] = 'destroyed' }
 
@@ -46,6 +49,7 @@ class Player < ApplicationRecord
       player.uid = fb_data['id'] if player.uid.blank?
       player.name = fb_data['name'] if player.name.blank?
       player.email = fb_data['email'] if player.email.blank?
+      player.email = fakemail if player.email.blank? && fb_data['email'].blank?
       player.fb_data = fb_data if player.fb_data.blank?
       player.image = fb_data['picture'] && fb_data['picture']['data'] && fb_data['picture']['data']['url'] if player.image.blank?
       player.skills = all_params[:abilities].select {|k,v| v == "1"}.keys.join(",")
