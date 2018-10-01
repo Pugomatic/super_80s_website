@@ -31,7 +31,7 @@ module Game
           @list = @player.player_levels.fast_times
         when 'kills'
           @list = @player.player_levels.max_kills
-        when 'memo'
+        when 'items'
           @list = @player.player_levels.max_collected
         when 'tries'
           @list = @player.player_levels.hardest

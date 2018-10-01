@@ -13,6 +13,8 @@
       table.leaderboard
         thead
           tr
+            th.date_column
+              span style="background-color: #0e0616; padding: 20px" World
             th
               span style="background-color: #0e0616; padding: 20px" Level
             th
@@ -23,6 +25,10 @@
           - @list.each do |score|
             - value = value_for(score, @metric)
             tr
+              td.date_column
+                span.out = '8' * ((9 - score.world.name.length) / 2)
+                = score.world.name
+                span.out = '8' * ((9 - score.world.name.length) / 2)
               td
                 span.led
                   span.out 8

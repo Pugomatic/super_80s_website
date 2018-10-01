@@ -11,7 +11,7 @@ module ApplicationHelper
       obj.fastest_time
     when 'kills'
       obj.max_kills
-    when 'memo'
+    when 'items'
       obj.max_items_collected
     when 'tries'
       obj.tries
