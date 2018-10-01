@@ -69,7 +69,7 @@ class Player < ApplicationRecord
     player = find_by(provider: auth.provider, uid: auth.uid)
     return player if player
 
-    fakemail = "auto#{Time.now}@noemail.com"
+    fakemail = "auto#{Time.now.to_i}@noemail.com"
 
     player = find_by(uid: auth.uid, email: auth.info.email || fakemail) || new
     player.attributes = {uid: auth.uid, email: auth.info.email || fakemail, provider: auth.provider, password: Devise.friendly_token[0,20], name: auth.info.name, image: player.image ? player.image : auth.info.image, pending: false}
