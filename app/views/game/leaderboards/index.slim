@@ -80,22 +80,26 @@
             tr
               th
                 span style="background-color: #0e0616; padding: 20px" Player
+              th.date_column
+                span style="background-color: #0e0616; padding: 20px" World
               th
-                span style="background-color: #0e0616; padding: 20px" Progress
+                span style="background-color: #0e0616; padding: 20px" Level
               th.date_column
                 span style="background-color: #0e0616; padding: 20px" Score
-              th.date_column
-                span style="background-color: #0e0616; padding: 20px" Items
-              th.date_column
-                span style="background-color: #0e0616; padding: 20px" Time
 
           tbody
             - @top_level_board.each do |player|
+              - world = player.&top_completed_level&.world&.name
               - display_time = sprintf("%0.3f", player.player_total.fastest_time / 1000.0)
               tr class=(player.display_class(current_player))
                 td
                   span.led
                     = pad_with_8s player.handle
+                td.date_column
+                  - if world
+                    span.out = '8' * ((9 - world.length) / 2)
+                    = world
+                    span.out = '8' * ((9 - world.length) / 2)
                 td
                   span.led
                     = pad_with_8s player.top_completed_level.label, 7
@@ -104,19 +108,12 @@
                   span.led
                     = pad_with_8s player.player_total.high_score, 6
 
-                td.date_column
-                  span.led
-                    = pad_with_8s player.player_items.count, 5
-
-                td.date_column
-                  span.led
-                    = pad_with_8s display_time, 9
         br
 
     - if @beta_comp
       .achievements
 
-        p The player who makes it farthest, with the highest score, will win one of the following:
+        p The player who makes it farthest in the game, with the highest score, will win one of the following:
 
         h4 Retro King Mini (Ultimate)
         = image_tag 'retro_mini.png'
@@ -132,6 +129,10 @@
           = link_to 'register now', player_facebook_omniauth_authorize_path
           '
           ' to enter the competition.
+
+        br
+
+        .digital style="font-size: .7em; color: #666;" NO PURCHASE NECESSARY TO ENTER.VOID WHERE PROHIBITED OR RESTRICTED BY LAW. OPEN TO LEGAL RESIDENTS OF THE FIFTY UNITED STATES AND THE DISTRICT OF COLUMBIA WHO ARE 13 YEARS OF AGE OR OLDER.
 
     - unless @high_scores.empty?
       .achievements
