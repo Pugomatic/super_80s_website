@@ -10,7 +10,10 @@
           .achievements
             h1
               = image_tag 'logo.png', class: 'centered logo'
-              = fix_lazer_font("Beta Competition").html_safe
+              span
+                = fix_lazer_font("Beta")
+              span
+                = fix_lazer_font("Competition")
             br
             h4 About the game
 
@@ -21,7 +24,7 @@
 
             h4 Gameplay
             = image_tag 'screenshots/backflip.gif'
-            div Run, jump, slide, backflip and bounce
+            div Run, jump, slide, flip & bounce
             = image_tag 'screenshots/collect_horror.gif'
             div Collect '80s memorabilia
             = image_tag 'screenshots/boss_4.gif'
