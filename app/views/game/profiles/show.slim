@@ -57,7 +57,14 @@
           h2.digital Current Status
           hr
 
-          - if @player.top_completed_level&.number == 41
+          - if @player.top_completed_level.nil?
+            table.leaderboard.tight
+              tr
+                td
+                  span.out 88888
+                  | WAITING TO PLAY
+                  span.out 88888
+          - elsif @player.top_completed_level&.number == 41
             table.leaderboard.tight
               tr
                 td
