@@ -78,6 +78,15 @@ html
       .year.digital 1980
       p.review
 
+
+    .game
+      .panel
+        .achievements
+          - flash.each do |key, value|
+            .big.alert class="alert-#{key}"
+              = value
+              br
+
     = yield
 
     footer.game
