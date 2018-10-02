@@ -4,8 +4,11 @@
     .achievements
       h1
         = fix_lazer_font("Beta Competition").html_safe
+      br
 
-      - unless current_player
+      - if current_player
+        = render partial: 'game/leaderboards/leaderboard_full'
+      - else
         h4 Register now to win
         p
           ' Login with your Facebook account to
@@ -15,48 +18,8 @@
 
         p Here's a sample of the leaderboard for the game:
 
+        = render partial: 'game/leaderboards/leaderboard_tight'
 
-      table.leaderboard
-        thead
-          tr
-            th
-              span style="background-color: #0e0616; padding: 20px" Player
-            th.date_column
-              span style="background-color: #0e0616; padding: 20px" World
-            th
-              span style="background-color: #0e0616; padding: 20px" Year
-            th
-              span style="background-color: #0e0616; padding: 20px" Level
-            th.date_column
-              span style="background-color: #0e0616; padding: 20px" Score
-
-        tbody
-          - @top_level_board.each do |player|
-            - world = player&.top_completed_level&.world&.name
-            - display_time = sprintf("%0.3f", player.player_total.fastest_time / 1000.0)
-            tr class=(player.display_class(current_player))
-              td
-                span.led
-                  = pad_with_8s player.handle
-              td.date_column
-                - if world
-                  span.out = '8' * ((9 - world.length) / 2)
-                  = world
-                  span.out = '8' * ((9 - world.length) / 2)
-              td
-                span.led
-                  = pad_with_8s player.top_completed_level.year, 6
-              td
-                span.led
-                  = pad_with_8s player.top_completed_level.month, 4
-
-              td.date_column
-                span.led
-                  = pad_with_8s player.player_total.high_score, 6
-
-      br
-
-      - unless current_player
         p The player who makes it farthest in the game, with the highest score, will win one of the following:
 
         h4 Retro King Mini (Ultimate)
