@@ -4,7 +4,10 @@ class Level < ApplicationRecord
 
   has_many   :player_levels
 
+  delegate   :year, to: :world
+
+
   def label
-    "#{world.year}.#{month}"
+    "#{year}.#{month}"
   end
 end

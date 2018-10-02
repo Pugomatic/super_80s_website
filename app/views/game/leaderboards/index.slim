@@ -83,6 +83,8 @@
               th.date_column
                 span style="background-color: #0e0616; padding: 20px" World
               th
+                span style="background-color: #0e0616; padding: 20px" Year
+              th
                 span style="background-color: #0e0616; padding: 20px" Level
               th.date_column
                 span style="background-color: #0e0616; padding: 20px" Score
@@ -102,7 +104,10 @@
                     span.out = '8' * ((9 - world.length) / 2)
                 td
                   span.led
-                    = pad_with_8s player.top_completed_level.label, 7
+                    = pad_with_8s player.top_completed_level.year, 6
+                td
+                  span.led
+                    = pad_with_8s player.top_completed_level.month, 4
 
                 td.date_column
                   span.led
