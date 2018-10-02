@@ -1,42 +1,38 @@
 .game
   .panel
-    = image_tag 'logo.png', class: 'centered logo'
-    .achievements
-      h1
-        = fix_lazer_font("Beta Competition").html_safe
-      br
-
-      - if current_player
+    - if current_player
+      .achievements
+        h4 Sample Leaderboard
         = render partial: 'game/leaderboards/leaderboard_full'
-      - else
-        h4 Register now to win
-        p
-          ' Login with your Facebook account to
-          = link_to 'register for the competition', player_facebook_omniauth_authorize_path
-          | .
-        p When the competition begins, you will be sent a link to download the app.
-
-        p Here's a sample of the leaderboard for the game:
-
-        = render partial: 'game/leaderboards/leaderboard_tight'
-
-        p The player who makes it farthest in the game, with the highest score, will win one of the following:
-
-        h4 Retro King Mini (Ultimate)
-        = image_tag 'retro_mini.png'
-        p Play over 15,000 retro games on this plug-and-play console
-
-        h4 iPad Mini 4
-        = image_tag 'ipad.png'
-        p 128GB WiFi Space Gray iPad Mini (4th Generation)
-
-        h4 Register now to win
-        p
-          ' So,
-          = link_to 'register now', player_facebook_omniauth_authorize_path
-          '
-          ' to enter the competition.
-
-        br
-
-        .digital style="font-size: .7em; color: #666;" NO PURCHASE NECESSARY TO ENTER.VOID WHERE PROHIBITED OR RESTRICTED BY LAW. OPEN TO LEGAL RESIDENTS OF THE FIFTY UNITED STATES AND THE DISTRICT OF COLUMBIA WHO ARE 13 YEARS OF AGE OR OLDER.
+    - else
+      .section.group
+        .col.span_1_of_3
+          .achievements
+            h1
+              = image_tag 'logo.png', class: 'centered logo'
+              = fix_lazer_font("Beta Competition").html_safe
+            br
+            h4 Sample Leaderboard
+            = render partial: 'game/leaderboards/leaderboard_tight'
+        .col.span_1_of_3
+          h4 Register now to win
+          p
+            ' Login with your Facebook account to
+            = link_to 'register for the competition', player_facebook_omniauth_authorize_path
+            | .
+          p When the competition begins, you will be sent a link to download the app.
+          p The player who makes it farthest in the game, with the highest score, will win one of the following:
+          h4 Retro King Mini (Ultimate)
+          = image_tag 'retro_mini.png'
+          p Play over 15,000 retro games on this plug-and-play console
+          h4 iPad Mini 4
+          = image_tag 'ipad.png'
+          p 128GB WiFi Space Gray iPad Mini (4th Generation)
+          h4 Register now to win
+          p
+            ' So,
+            = link_to 'register now', player_facebook_omniauth_authorize_path
+            '
+            ' to enter the competition.
+          br
+          .digital style="font-size: .7em; color: #666;" NO PURCHASE NECESSARY TO ENTER.VOID WHERE PROHIBITED OR RESTRICTED BY LAW. OPEN TO LEGAL RESIDENTS OF THE FIFTY UNITED STATES AND THE DISTRICT OF COLUMBIA WHO ARE 13 YEARS OF AGE OR OLDER.
