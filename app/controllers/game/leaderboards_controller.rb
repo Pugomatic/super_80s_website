@@ -5,7 +5,6 @@ module Game
     before_action   :set_paths
 
     def index
-      @beta_comp = params[:start] == 'beta_competition'
       @selected = :leaderboard
 
       @top_level_board = Player.top_level_board
