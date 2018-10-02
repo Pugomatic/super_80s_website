@@ -12,8 +12,21 @@
               = image_tag 'logo.png', class: 'centered logo'
               = fix_lazer_font("Beta Competition").html_safe
             br
-            h4 Sample Leaderboard
-            = render partial: 'game/leaderboards/leaderboard_tight'
+            h4 About the game
+
+            p Super 80s World is a retro platformer where you collect old-school memorabilia to save the decade.
+
+            h4 Platform
+            p Currently in beta for iOS.
+
+            h4 Gameplay
+            = image_tag 'screenshots/backflip.gif'
+            div Run jump slide backflip and bounce
+            = image_tag 'screenshots/boss_4.gif'
+            div Fight powerful bosses
+            = image_tag 'screenshots/triple.gif'
+            div Divebomb your enemies
+
         .col.span_1_of_3
           h4 Register now to win
           p
