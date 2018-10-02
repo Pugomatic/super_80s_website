@@ -59,7 +59,7 @@ html
       = link_to '/game/profiles' do
         = image_tag @selected == :list ? 'game/list-selected.png' : 'game/list.png', size: '64x64'
         .div class=('selected' if @selected == :list) Players
-      a href="/game/leaderboards"
+      a href="/game/beta_competition"
         = image_tag @selected == :leaderboard ? 'game/leaderboard-selected.png' : 'game/leaderboard.png', size: '64x64'
         .div class=('selected' if @selected == :leaderboard) Leaderboard
       - if current_player

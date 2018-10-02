@@ -35,8 +35,9 @@ Rails.application.routes.draw do
   get '/noid/wormser' => 'high_voltage/pages#show', id: 'noid'
   get '/dr/noid/wormser' => 'high_voltage/pages#show', id: 'noid'
 
+  get '/game/beta_competition' => 'game/beta_competition#index'
+
   namespace :game do
-    resource :beta_competition
     resources :leaderboards
     resources :profiles do
       resources :discographies
