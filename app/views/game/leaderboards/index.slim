@@ -89,7 +89,7 @@
 
           tbody
             - @top_level_board.each do |player|
-              - world = player.&top_completed_level&.world&.name
+              - world = player&.top_completed_level&.world&.name
               - display_time = sprintf("%0.3f", player.player_total.fastest_time / 1000.0)
               tr class=(player.display_class(current_player))
                 td
