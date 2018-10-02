@@ -1,61 +1,79 @@
 .game
 
   .panel
-    table.heading width="100%"
-      tr align="center"
-        td
-          a#toggle_controls href="#"
-            - if @year == :all
-              | Leaderboards
+    - unless @beta_comp
+      table.heading width="100%"
+        tr align="center"
+          td
+            a#toggle_controls href="#"
+              - if @year == :all
+                | Leaderboards
+                br
+                | 1980 - 84
+              - elsif @level == :all
+                ' Leaderboards -
+                = @year
+              - else
+                ' Leaderboards -
+                = "#{@year}.#{@level}"
               br
-              | 1980 - 84
-            - elsif @level == :all
-              ' Leaderboards -
-              = @year
-            - else
-              ' Leaderboards -
-              = "#{@year}.#{@level}"
+              .fa.fa-caret-down
+
+      table.controls style="display:none" width="100%"
+        tr
+          td align="center"
+            select#world name="world" style="width: 240px"
+              option value="ALL" Select World
+              option value=("ALL") ------ ALL
+              option value=("1980")  1980 - Wonder Years
+              option value=("1981")  1981 - Arcadia
+              option value=("1982")  1982 - Miami Nice
+              option value=("1983")  1983 - Street Beatz
+              option value=("1984")  1984 - Evil Dread
+        tr
+          td align="center"
+            select#level name="level" style="width: 240px"
+              option value=("ALL") Select Level
+              option value=("ALL") ------ ALL
+              option value="1"  Level 1
+              option value="2"  Level 2
+              option value="3"  Level 3
+              option value="4"  Level 4
+              option value="5"  Level 5
+              option value="6"  Level 6
+              option value="7"  Level 7
+              option value="8"  Level 8
+
+        tr
+          td align="center"
+            button#reload Reload
             br
-            .fa.fa-caret-down
+            br
 
-    table.controls style="display:none" width="100%"
-      tr
-        td align="center"
-          select#world name="world" style="width: 240px"
-            option value="ALL" Select World
-            option value=("ALL") ------ ALL
-            option value=("1980")  1980 - Wonder Years
-            option value=("1981")  1981 - Arcadia
-            option value=("1982")  1982 - Miami Nice
-            option value=("1983")  1983 - Street Beatz
-            option value=("1984")  1984 - Evil Dread
-      tr
-        td align="center"
-          select#level name="level" style="width: 240px"
-            option value=("ALL") Select Level
-            option value=("ALL") ------ ALL
-            option value="1"  Level 1
-            option value="2"  Level 2
-            option value="3"  Level 3
-            option value="4"  Level 4
-            option value="5"  Level 5
-            option value="6"  Level 6
-            option value="7"  Level 7
-            option value="8"  Level 8
 
-      tr
-        td align="center"
-          button#reload Reload
-          br
-          br
+    - if @beta_comp
+      = image_tag 'logo.png', class: 'centered logo'
+      .achievements
+        h1
+          = fix_lazer_font("Beta Competition").html_safe
 
+        h4 Register now to win
+
+        p
+          ' Login with your Facebook account to
+          = link_to 'register for the competition', player_facebook_omniauth_authorize_path
+          | .
+        p When the competition begins, you will be sent a link to download the app.
+
+        p Here's a sample of the leaderboard for the game:
 
     - unless @top_level_board.empty?
       .achievements
-        br
-        br
-        h1 style="white-space: nowrap"
-          ' L e a d e r b o a r d
+        - unless @beta_comp
+          br
+          br
+          h1 style="white-space: nowrap"
+            ' L e a d e r b o a r d
 
         table.leaderboard
           thead
@@ -94,6 +112,26 @@
                   span.led
                     = pad_with_8s display_time, 9
         br
+
+    - if @beta_comp
+      .achievements
+
+        p The player who makes it farthest, with the highest score, will win one of the following:
+
+        h4 Retro King Mini (Ultimate)
+        = image_tag 'retro_mini.png'
+        p Play over 15,000 retro games on this plug-and-play console
+
+        h4 iPad Mini 4
+        = image_tag 'ipad.png'
+        p 128GB WiFi Space Gray iPad Mini (4th Generation)
+
+        h4 Register now to win
+        p
+          ' So,
+          = link_to 'register now', player_facebook_omniauth_authorize_path
+          '
+          ' to enter the competition.
 
     - unless @high_scores.empty?
       .achievements
