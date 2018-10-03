@@ -6,13 +6,13 @@
 
         = form_for current_player, url: game_profile_path(current_player.id) do |player|
           = player.label :name, "Name"
-          = player.text_field :name
+          = player.text_field :name, required: true
 
           = player.label :email, "Email"
-          = player.text_field :email
+          = player.text_field :email, required: true
 
           = player.label :handle, "Handle"
-          = player.text_field :handle, maxlength: 12
+          = player.text_field :handle, maxlength: 12, required: true
 
           = player.label :tagline, "Tag line"
           = player.text_area :tagline
