@@ -28,6 +28,35 @@ class Player < ApplicationRecord
     find_by(id: id_or_handle) || find_by(handle: id_or_handle) || nil
   end
 
+  def player_level_display
+    "level #{player_level || 0} #{player_level_display_name ? "(#{player_level_display_name})" : ''}"
+  end
+
+  def player_level_display_name
+    case player_level
+    when 1
+      'The New Kid'
+    when 2
+      'Tragically Unhip'
+    when 3
+      'The Follower'
+    when 4
+      'The Trendsetter'
+    when 5
+      'Members Only'
+    when 6
+      'The New Style'
+    when 7
+      'The Style Counselor'
+    when 8
+      'Top Dog'
+    when 9
+      'Neon Jesus'
+    else
+      nil
+    end
+  end
+
   def self.top_level_board
     Player.includes(top_completed_level: :player_levels).where('players.id = player_levels.player_id AND player_levels.level_id = players.top_completed_level_id AND players.leader = ?', true).order('levels.number DESC, player_levels.high_score DESC')
   end
