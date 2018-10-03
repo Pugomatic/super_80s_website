@@ -1,8 +1,9 @@
-title
-  - if content_for?(:title)
-    = yield :title
-  - else
-    | Super 80s World
+- meta_title = content_for?(:title) ? yield(:title) : 'Super 80s World'
+- meta_description = content_for?(:meta_description) ? yield(:meta_description) : 'Super 80s World is a mobile retro platformer where you collect old-school memorabilia to save the decade.'
+- meta_video = content_for?(:meta_video) ? yield(:meta_video) : nil
+- meta_image = content_for?(:meta_image) ? yield(:meta_image) : nil
+
+title = meta_title
 link href="/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57"
 link href="/apple-touch-icon-60x60.png" rel="apple-touch-icon" sizes="60x60"
 link href="/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72"
@@ -20,20 +21,24 @@ link href="/manifest.json" rel="manifest"
 link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon"
 meta content="#da532c" name="msapplication-TileColor"
 meta content="/mstile-144x144.png" name="msapplication-TileImage"
-meta content="#ffffff" name="theme-color"
+meta content="#331244" name="theme-color"
 
-meta property="fb:app_id" content="1923744721184754"
-meta property="og:url" content="http://Super80sWorld.com"
+meta property="fb:app_id" content="615815418773991"
+meta name="viewport" content="width=device-width, initial-scale=1"
+meta property="og:url" content="#{request.url}"
 meta property="og:type" content="website"
 meta property="og:site_name" content="Super 80s World"
-meta property="og:title" content="#{content_for?(:title) ? yield(:title) : 'Super 80s World'}"
-meta property="og:video" content="https://www.youtube.com/watch?v=EBrr0_0tkJY&rel=0&amp;showinfo=0"
-meta property="og:video:width" content="1280"
-meta property="og:video:height" content="720"
-meta property="og:description" content="Super 80s World is a retro-platformer set in the the 1980s.  A fun and faced paced game where you collect memorabilia to save the decade.  Revisit the 80s in all it's nostalgia and neon glory."
+meta property="og:title" content="#{meta_title}"
+- if meta_video
+  meta property="og:video" content="#{meta_video}"
+  meta property="og:video:width" content="1280"
+  meta property="og:video:height" content="720"
+- elsif meta_image
+  meta property="og:image" content="#{meta_image}"
 
-meta name="viewport" content="width=device-width, initial-scale=1"
+meta property="og:description" content="#{meta_description}"
 
-- set_meta_tags site: 'Super 80s World', title: 'The retro-game of the decade... the 1980 s!', description: 'Super 80s World is the first retro-platformer set in the 1980s.  Fans of retrogaming & supporters of indie games will love the campy nostalgia of the decade.', keywords: %w[1980s game mobile indie retro retrogaming mario platformer synthwave ios android 80s nostalgia streets rage neon pixel 8bit fun development]
+
+- set_meta_tags site: 'Super 80s World', title: meta_title, description: meta_description, keywords: %w[1980s game mobile indie retro retrogaming mario platformer synthwave ios 80s nostalgia streets rage neon pixel 8bit fun]
 
 = display_meta_tags
