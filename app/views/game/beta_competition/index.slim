@@ -2,7 +2,7 @@
   .panel
     - if current_player
       .achievements
-        h4 = fix_lazer_font "Leaderboard"
+        h1 = fix_lazer_font "Leaderboard"
         = render partial: 'game/leaderboards/leaderboard_full'
     - else
       .section.group
