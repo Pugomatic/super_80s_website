@@ -1,42 +1,8 @@
 doctype html
 html
   head
-    link href="/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57"
-    link href="/apple-touch-icon-60x60.png" rel="apple-touch-icon" sizes="60x60"
-    link href="/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72"
-    link href="/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76"
-    link href="/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114"
-    link href="/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120"
-    link href="/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144"
-    link href="/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152"
-    link href="/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180"
-    link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"
-    link href="/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png"
-    link href="/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png"
-    link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"
-    link href="/manifest.json" rel="manifest"
-    link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon"
-    meta content="#da532c" name="msapplication-TileColor"
-    meta content="/mstile-144x144.png" name="msapplication-TileImage"
-    meta content="#ffffff" name="theme-color"
-
-    meta property="fb:app_id" content="1923744721184754"
-    meta property="og:url" content="http://Super80sWorld.com"
-    meta property="og:type" content="website"
-    meta property="og:site_name" content="Super 80s World"
-    meta property="og:title" content="Super 80s World... the game of the decade"
-    meta property="og:video" content="https://www.youtube.com/embed/PzwRmQ_47_U?rel=0&amp;showinfo=0"
-    meta property="og:video:width" content="1280"
-    meta property="og:video:height" content="720"
-    meta property="og:image" content="http://Super80sWorld.com/super80sfb.jpg"
-    meta property="og:image:width" content="940"
-    meta property="og:image:height" content="630"
-    meta property="og:description" content="Super 80s World is a retro-platformer set in the the 1980s.  A fun and faced paced game where you race the clock to escape the decade.  Revisit the 80s in all their nostalgic neon glory."
-
-    meta name="viewport" content="width=device-width, initial-scale=1"
-
-    - set_meta_tags site: 'Super 80s World', title: 'The retro-game of the decade... the 1980 s!', description: 'Super 80s World is the first retro-platformer set in the 1980s.  Fans of retrogaming & supporters of indie games will love the campy nostalgia of the decade.', keywords: %w[1980s game mobile indie retro retrogaming mario platformer synthwave ios android 80s nostalgia streets rage neon pixel 8bit fun development]
-
+    = render partial: 'layouts/meta'
+    
     = display_meta_tags
 
     = yield :header
