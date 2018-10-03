@@ -5,11 +5,10 @@ module Game
 
     def index
       @selected = :list
-      @players = Player.public(current_player)
+      @players = Player.all
     end
 
     def edit
-
     end
 
     def update
