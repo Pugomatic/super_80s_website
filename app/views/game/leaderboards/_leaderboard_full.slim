@@ -18,8 +18,8 @@ table.leaderboard
       - display_time = sprintf("%0.3f", player.player_total.fastest_time / 1000.0)
       tr class=(player.display_class(current_player))
         td
-          span.led
-            = pad_with_8s player.handle
+          span.out = '8' * (12 - player.handle.length)
+          = link_to player.handle, game_profile_path(player)
         td.date_column
           - if world
             span.out = '8' * ((9 - world.length) / 2)
