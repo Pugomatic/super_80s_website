@@ -69,7 +69,7 @@ module Game
     private
 
     def player_params
-      params.require(:player).permit(:name, :handle, :tagline)
+      params.require(:player).permit(:name, :handle, :tagline, :email)
     end
   end
 end
