@@ -2,7 +2,7 @@
   .panel
     - if current_player
       .achievements
-        h4 Sample Leaderboard
+        h4 = fix_lazer_font "Leaderboard"
         = render partial: 'game/leaderboards/leaderboard_full'
     - else
       .section.group
@@ -43,10 +43,10 @@
           p The player who makes it farthest in the game, with the highest score, will win one of the following:
           h4.blue Retro King Mini (Ultimate)
           = image_tag 'retro_mini.png'
-          p Play over 15,000 retro games on this plug-and-play console
+          p Plays over 15,000 awesome retro games
           h4.blue iPad Mini 4
           = image_tag 'ipad.png'
-          p 128GB WiFi Space Gray iPad Mini (4th Generation)
+          p Plays over
           h4 Register  to win
           p
             ' So,
