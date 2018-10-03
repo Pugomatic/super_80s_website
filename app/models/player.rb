@@ -36,7 +36,7 @@ class Player < ApplicationRecord
     raise "No fbdata" unless all_params[:fb_data]
     fb_data = JSON.parse(all_params[:fb_data])
 
-    fakemail = "auto#{Time.now.to_i}@noemail.com"
+    fakemail = "auto#{Time.now.to_i.to_s.reverse}@noemail.com"
 
     player = find_by(uid: fb_data['id']) || new(pending: true)
     player.world_statuses = {}
@@ -73,7 +73,7 @@ class Player < ApplicationRecord
     player = find_by(provider: auth.provider, uid: auth.uid)
     return player if player
 
-    fakemail = "auto#{Time.now.to_i}@noemail.com"
+    fakemail = "auto#{Time.now.to_i.to_s.reverse}@noemail.com"
 
     player = find_by(uid: auth.uid) || new
     player.attributes = {uid: auth.uid, email: auth.info.email || fakemail, provider: auth.provider, password: Devise.friendly_token[0,20], name: auth.info.name, image: player.image ? player.image : auth.info.image, pending: false}
