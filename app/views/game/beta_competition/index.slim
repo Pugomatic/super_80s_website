@@ -1,5 +1,5 @@
 .game
-  .panel
+  .panel style="margin-left: 10px; margin-right: 0px"
     - if current_player
       .achievements
         h1 = fix_lazer_font "Leaderboard"
@@ -41,6 +41,8 @@
             | .
           p When the competition begins, you will be sent a link to download the app.
           p The player who makes it farthest in the game, with the highest score, will win one of the following:
+          h4 Prizes you can win
+
           h4.blue Retro King Mini (Ultimate)
           = image_tag 'retro_mini.png'
           p Plays over 15,000 awesome retro games
