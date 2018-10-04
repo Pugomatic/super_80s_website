@@ -1,0 +1,62 @@
+= render partial: 'pages/top'
+
+.content
+  .better-copy
+    h4 Frequently Asked Questions
+    ul
+      li
+        a href="#facebook" How do I setup my Super 80s World profile?
+      li
+        a href="#facebook" How do I connect my game to the leaderboard?
+      li
+        a href="#disco" How do I see everything I've collected?
+
+    h4#facebook Connecting the game to Super80sWorld.com
+
+    p In order to get your own Super 80s World profile, tracking your progress and collection from the game, you'll need to login to the app using Facebook.
+
+    = image_tag("faq_fb_2.png")
+    = image_tag("faq_fb_1.png")
+    = image_tag("faq_fb_3.png")
+
+    p Once you're connected, the game will sync with Super80sWorld.com every time you come back to the main menu.
+
+    p To see your data, just login to Super80sWorld.com with the same Facebook account you used in the game.
+
+    h4#disco How do I see my full collection?
+
+    p Your full collection is available from the settings menu.
+
+    = image_tag("faq_fb_2.png")
+    = image_tag("faq_disco_1.png")
+    br
+    br
+    p Or from the inventory page.
+    = image_tag("faq_disco_3.png")
+    = image_tag("faq_disco_2.png")
+    br
+    br
+    p Either way you end up here.
+    = image_tag("faq_disco_4.png")
+
+    br
+    br
+    = render partial: 'pages/bottom'
+
+    = render partial: 'pages/tracking'
+
+.social style="margin-top: 60px"
+  .buttons
+    ul
+      li.channel
+        a href="/video#view" STORY
+      li.channel
+        a href="/gameplay#view" GAMEPLAY
+      li.channel
+        a href="/music#view" MUSIC
+      li.channel
+        a href="/screenshots#view" SCREENS
+      li.channel
+        a href="https://super80sworld.threadless.com/designs/super-80s-world/mens/t-shirt?color=smoke" target="_blank" T-SHIRT
+      li.channel
+        a href="/blog" BLOG
