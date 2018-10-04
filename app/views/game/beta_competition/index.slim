@@ -10,7 +10,7 @@
       input.yes#form_submit name="commit" type="submit" value="LET'S PLAY"
 
 .game
-  .panel style="margin-left: 10px; margin-right: 0px"
+  .panel style="margin-left: 10px; margin-right: 0px; margin-top: 40px"
     - if current_player
       .achievements
         h1 = fix_lazer_font "Leaderboard"
@@ -19,10 +19,14 @@
       .section.group
         .col.span_2_of_3
           .achievements
-            h1
+            h1 style="max-width: 600px; max-height: auto;"
               = image_tag 'logo.png', class: 'centered logo'
               = fix_lazer_font("Beta Contest").html_safe
             br
+
+            p
+              a href="/game/beta_competition#modal"
+                = image_tag 'early-access.png', class: 'beta-link', style: 'max-width: 300px; max-height: auto;'
             h4 About the game
 
             p style="max-width: 600px !important; height: auto !important;" Super 80s World is a retro platformer where you collect old-school memorabilia to save the decade.
