@@ -1,3 +1,14 @@
+.remodal data-remodal-id="modal"
+  .email
+    h2 Get early access NOW!
+    br
+    = form_for @user, id: 'mailing_list_form' do |f|
+      input name="authenticity_token" value="#{form_authenticity_token}" type="hidden"
+      = f.invisible_captcha :title
+      input#user_email name="user[email]" type="text" placeholder="Enter e-mail address"
+      br
+      input.yes#form_submit name="commit" type="submit" value="LET'S PLAY"
+
 .game
   .panel style="margin-left: 10px; margin-right: 0px"
     - if current_player
@@ -55,5 +66,9 @@
             = link_to 'register now', player_facebook_omniauth_authorize_path
             '
             ' to enter the competition.
+
+          p
+            ' If you don't have Facebook and still want to play the game.
+            a href="/game/beta_competition/#modal" Click here
           br
           .digital style="font-size: .7em; color: #666;" NO PURCHASE NECESSARY TO ENTER.VOID WHERE PROHIBITED OR RESTRICTED BY LAW. OPEN TO LEGAL RESIDENTS OF THE FIFTY UNITED STATES AND THE DISTRICT OF COLUMBIA WHO ARE 13 YEARS OF AGE OR OLDER.
