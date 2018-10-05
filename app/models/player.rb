@@ -18,6 +18,7 @@ class Player < ApplicationRecord
   attr_accessor :world_statuses
 
   before_create :set_handle
+  before_save   :remove_bad_language
   after_create  :create_player_totals
 
   def self.public(current)
@@ -168,6 +169,24 @@ class Player < ApplicationRecord
   end
 
   private
+
+  def remove_bad_language
+    hate_filter = LanguageFilter::Filter.new matchlist: :hate, replacement: :garbled
+    profanity_filter = LanguageFilter::Filter.new matchlist: :profanity, replacement: :garbled
+    sex_filter = LanguageFilter::Filter.new matchlist: :sex, replacement: :garbled
+
+    self.name = hate_filter.sanitize(name)
+    self.handle = hate_filter.sanitize(handle)
+    self.tagline = hate_filter.sanitize(tagline)
+
+    self.name = profanity_filter.sanitize(name)
+    self.handle = profanity_filter.sanitize(handle)
+    self.tagline = profanity_filter.sanitize(tagline)
+
+    self.name = sex_filter.sanitize(name)
+    self.handle = sex_filter.sanitize(handle)
+    self.tagline = sex_filter.sanitize(tagline)
+  end
 
   def set_handle
     self.handle = email.split('@').first[0, 12]

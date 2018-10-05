@@ -12,6 +12,7 @@ gem 'high_voltage'
 gem 'comfortable_mexican_sofa', '~> 2.0'
 gem 'comfy_blog', '~> 2.0'
 gem 'rack-ssl', require: 'rack/ssl'
+gem 'language_filter'
 
 gem 'will_paginate'
 gem 'slim'
