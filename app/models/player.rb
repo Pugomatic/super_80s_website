@@ -174,6 +174,7 @@ class Player < ApplicationRecord
     hate_filter = LanguageFilter::Filter.new matchlist: :hate, replacement: :garbled
     profanity_filter = LanguageFilter::Filter.new matchlist: :profanity, replacement: :garbled
     sex_filter = LanguageFilter::Filter.new matchlist: :sex, replacement: :garbled
+    draven_filter = LanguageFilter::Filter.new matchlist: ['cum\w*'], replacement: :garbled
 
     self.name = hate_filter.sanitize(name)
     self.handle = hate_filter.sanitize(handle)
@@ -186,6 +187,10 @@ class Player < ApplicationRecord
     self.name = sex_filter.sanitize(name)
     self.handle = sex_filter.sanitize(handle)
     self.tagline = sex_filter.sanitize(tagline)
+
+    self.name = draven_filter.sanitize(name)
+    self.handle = draven_filter.sanitize(handle)
+    self.tagline = draven_filter.sanitize(tagline)
   end
 
   def set_handle
