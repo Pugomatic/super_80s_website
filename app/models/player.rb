@@ -171,10 +171,10 @@ class Player < ApplicationRecord
   private
 
   def remove_bad_language
-    hate_filter = LanguageFilter::Filter.new matchlist: :hate, replacement: :garbled
-    profanity_filter = LanguageFilter::Filter.new matchlist: :profanity, replacement: :garbled
-    sex_filter = LanguageFilter::Filter.new matchlist: :sex, replacement: :garbled
-    draven_filter = LanguageFilter::Filter.new matchlist: ['cum\w*'], replacement: :garbled
+    hate_filter = LanguageFilter::Filter.new matchlist: :hate
+    profanity_filter = LanguageFilter::Filter.new matchlist: :profanity
+    sex_filter = LanguageFilter::Filter.new matchlist: :sex
+    draven_filter = LanguageFilter::Filter.new matchlist: ['cum\w*']
 
     self.name = hate_filter.sanitize(name)
     self.handle = hate_filter.sanitize(handle)
