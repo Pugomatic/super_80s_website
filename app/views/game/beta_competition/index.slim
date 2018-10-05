@@ -27,6 +27,7 @@
             p
               a href="/game/beta_competition#modal"
                 = image_tag 'early-access.png', class: 'beta-link', style: 'max-width: 300px; max-height: auto;'
+            p style="max-width: 600px !important; height: auto !important;"  Sign up for the competition and we'll send you a link to download the game shortly.
             h4 About the game
 
             p style="max-width: 600px !important; height: auto !important;" Super 80s World is a retro platformer where you collect old-school memorabilia to save the decade.
@@ -55,13 +56,14 @@
             = link_to 'register for the competition', player_facebook_omniauth_authorize_path
             | .
           p When the competition begins, you will be sent a link to download the app.
-          p The player who makes it farthest in the game, with the highest score, will win one of the following:
+          p The player who makes it farthest in the game, with the highest score, will win the following:
           h4 The grand prize
 
           = image_tag 'retro_mini.png'
-          h4.blue Retro King Mini (Mega)
+          b.blue Retro King Mini (Mega)
           p Plays over 10,000 awesome retro games.  Complete with two wireless SNES controllers.
-          h4 Register to win
+          h4
+            = link_to 'Register to win', player_facebook_omniauth_authorize_path, class: 'pink'
           p
             ' So,
             = link_to 'register now', player_facebook_omniauth_authorize_path
