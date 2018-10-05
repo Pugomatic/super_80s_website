@@ -8,6 +8,8 @@ module Game
       @selected = :leaderboard
 
       @top_level_board = Player.top_level_board
+
+      @dont_show_nav = true unless current_player
     end
   end
 end

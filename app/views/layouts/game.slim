@@ -14,7 +14,7 @@ html
   body
     = render partial: 'layouts/fb_js'
 
-    - if !current_player && request.path != '/game/beta_competition'
+    - unless @dont_show_nav
       #myTopnav.topnav
         - if current_player
           = link_to @profile_path do
