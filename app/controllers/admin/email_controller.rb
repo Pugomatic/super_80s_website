@@ -6,7 +6,7 @@ class Admin::EmailController < Comfy::Admin::Cms::BaseController
     else
       @beta = false
       @players = Player.all.order(created_at: :desc)
-      @users = User.all.order(created_at: :desc).reject {|u| @players.map(&:email).include?(u.email) }
+      @users = User.all.order(created_at: :desc).reject {|u| @players.map(&:email).map(&:downcase).include?(u.email.downcase) }
     end
   end
 end
