@@ -1,6 +1,14 @@
 
 h3 Email List
 
+b
+  = @players.count
+  ' Players
+
+b
+  = @users.count
+  ' Non-Players
+
 table
   - unless @beta
     tr
