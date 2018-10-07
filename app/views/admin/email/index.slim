@@ -5,15 +5,21 @@ table
   - unless @beta
     tr
       th email
-      th ip
+      th name
+      th handle
       th date
-      th suspect
+    - @players.each do |user|
+      tr
+        td = user.email
+        td = user.name
+        td = user.handle
+        td = user.created_at.to_formatted_s(:date)
     - @users.each do |user|
       tr
         td = user.email
-        td = user.ip_address
-        td = user.created_at
-        td = user.is_suspect
+        td
+        td
+        td = user.created_at.to_formatted_s(:date)
   - else
     tr
       th email
