@@ -23,7 +23,9 @@ table
       th date
     - @players.each do |user|
       tr
-        td = user.email
+        td
+          b
+            = user.email
         td = user.name
         td = user.handle
         td = user.created_at.to_formatted_s(:date)
