@@ -11,7 +11,7 @@ class PlayerLevel < ApplicationRecord
     self.wins = data[:wins]
     self.tries = data[:tries]
     self.status = data[:status]
-    self.max_kills = data[:max_kills]prof
+    self.max_kills = data[:max_kills]
     self.max_items_collected = data[:max_items_collected]
     self.max_cassettes_collected = data[:max_cassettes_collected]
     self.max_vhs_tapes_collected = data[:max_vhs_tapes_collected]
