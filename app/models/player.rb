@@ -18,6 +18,7 @@ class Player < ApplicationRecord
   attr_accessor :world_statuses
 
   before_create :set_handle
+  before_create :set_top_level
   before_save   :remove_bad_language
   after_create  :create_player_totals
 
@@ -199,6 +200,13 @@ class Player < ApplicationRecord
 
   def set_handle
     self.handle = email.split('@').first[0, 12]
+  end
+
+  def set_top_level
+    self.top_completed_level = World.find_by(year: '1980').levels.find_by(month: 1)
+    if player_levels.empty?
+      player_levels << PlayerLevel.new(level: top_completed_level)
+    end
   end
 
   def create_player_totals
