@@ -22,10 +22,10 @@ class Player < ApplicationRecord
   after_create  :create_player_totals
 
   def self.public(current = 'non_user')
-    if current == 'non_user'
-      where('public = ?', true)
+    if current.is_a?(Player)
+      where('public = ? OR id = ?', true, current.id)
     else
-      where('public = ? OR id = ?', true, current&.id)
+      where('public = ?', true)
     end
   end
 
