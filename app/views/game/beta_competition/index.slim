@@ -14,8 +14,9 @@
     - if current_player || params[:leader]
       .achievements
         h1 = fix_lazer_font "Leaderboard"
-        h4 style="text-align:center"
-          = link_to "Play the game", '/game/beta_competition'
+        - unless current_player
+          h4 style="text-align:center"
+            = link_to "Play the game", '/game/beta_competition'
         = render partial: 'game/leaderboards/leaderboard_full'
     - else
       .section.group
