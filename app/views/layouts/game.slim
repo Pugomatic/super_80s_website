@@ -14,18 +14,19 @@ html
   body
     = render partial: 'layouts/fb_js'
 
-    #myTopnav.topnav
-      - if current_player
-        = link_to @profile_path do
-          = image_tag @selected == :profile ?  'game/profile-selected.png' :  'game/profile.png', size: '64x64'
-          .div class=('selected' if @selected == :profile) = current_player.handle
-      a href="/game/beta_competition"
-        = image_tag @selected == :leaderboard ? 'game/leaderboard-selected.png' : 'game/leaderboard.png', size: '64x64'
-        .div class=('selected' if @selected == :leaderboard) Leaderboard
-      - if current_player
-        = link_to game_profile_discographies_path(current_player) do
-          = image_tag @selected == :disco ? 'game/discography-selected.png' : 'game/discography.png', size: '64x64'
-          .div class=('selected' if @selected == :disco) Discography
+    - unless @dont_show_nav
+      #myTopnav.topnav
+        - if current_player
+          = link_to @profile_path do
+            = image_tag @selected == :profile ?  'game/profile-selected.png' :  'game/profile.png', size: '64x64'
+            .div class=('selected' if @selected == :profile) = current_player.handle
+        a href="/game/beta_competition?leader=true"
+          = image_tag @selected == :leaderboard ? 'game/leaderboard-selected.png' : 'game/leaderboard.png', size: '64x64'
+          .div class=('selected' if @selected == :leaderboard) Leaderboard
+        - if current_player
+          = link_to game_profile_discographies_path(current_player) do
+            = image_tag @selected == :disco ? 'game/discography-selected.png' : 'game/discography.png', size: '64x64'
+            .div class=('selected' if @selected == :disco) Discography
 
 
     .remodal#dans_take data-remodal-id="dans_take"
