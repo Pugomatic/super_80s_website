@@ -21,8 +21,12 @@ class Player < ApplicationRecord
   before_save   :remove_bad_language
   after_create  :create_player_totals
 
-  def self.public(current)
-    where('public = ? OR id = ?', true, current&.id)
+  def self.public(current = 'non_user')
+    if current == 'non_user'
+      where('public = ?', true)
+    else
+      where('public = ? OR id = ?', true, current&.id)
+    end
   end
 
   def self.get(id_or_handle)

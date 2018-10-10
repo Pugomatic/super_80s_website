@@ -5,7 +5,7 @@ module Game
 
     def index
       @selected = :list
-      @players = Player.all
+      @players = Player.public(current_player || 'non_user')
     end
 
     def edit
