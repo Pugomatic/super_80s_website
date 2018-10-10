@@ -10,7 +10,7 @@
           - if current_player == @player
             = link_to edit_game_profile_path(@player) do
               = @player.name
-              ' &nbsp; 
+              ' &nbsp;
               .fa.fa-pencil
           - else
             = @player.name
@@ -61,7 +61,7 @@
           h2.digital Current Status
           hr
 
-          - if @player.top_completed_level.nil?
+          - if @player.top_completed_level.nil? || @player.top_completed_level&.number == 1
             table.leaderboard.tight
               tr
                 td
