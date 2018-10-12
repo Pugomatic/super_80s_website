@@ -13,6 +13,8 @@
   .panel style="margin-left: 10px; margin-right: 0px; margin-top: 40px"
     - if current_player || params[:leader]
       .achievements
+        h1 style="max-width: 600px; max-height: auto;"
+          = image_tag 'logo.png', class: 'centered logo'
         h1 = fix_lazer_font "Leaderboard"
         - unless current_player
           h4 style="text-align:center"
