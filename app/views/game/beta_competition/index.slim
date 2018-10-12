@@ -18,8 +18,10 @@
           h4 style="text-align:center"
             = link_to "Play the game", '/game/beta_competition'
 
-          p style="text-align:center"  Super 80s World is the game of the decade.  A competition is underway to see how far you can get into the '80s. Top prize is a Retro King Mini!
-          
+          p style="text-align:center"  Super 80s World is the game of the decade.
+          p style="text-align:center"  A competition is underway to see how far you can get into the '80s.
+          p style="text-align:center"  The top prize is a Retro King Mini!
+
         = render partial: 'game/leaderboards/leaderboard_full'
     - else
       .section.group
@@ -36,14 +38,10 @@
             p style="max-width: 600px !important; height: auto !important;"  Sign up for the competition and we'll send you a link to download the game shortly.
 
             p
-              ' Check out the
-              a href="/game/beta_competition?leader=true" leaderboard
-
-            br
-
-            p
               ' To update your profile you can
               = link_to 'sign in here', player_facebook_omniauth_authorize_path
+              ' and check out the
+              a href="/game/beta_competition?leader=true" leaderboard
 
 
             h4 About the game
