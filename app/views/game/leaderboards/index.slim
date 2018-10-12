@@ -1,6 +1,11 @@
-- @share_title = "#{@top_level_board.first.handle} is winning Super 80s World!"
-- @share_image = asset_url("game/level_#{@top_level_board.first.player_level}.png")
-- @share_description = "#{@top_level_board.first.handle} is leading the pack in the Super 80s World competition for a totally awesome retrogaming console!"
+- if @top_level_board.empty?
+  - @share_title = "Super 80s World Leaderboard"
+  - @share_image = asset_url("game/level_9.png")
+  - @share_description = "Check out the top players leaderboard on Super 80s World!"
+- else
+  - @share_title = "#{@top_level_board.first.handle} is winning Super 80s World!"
+  - @share_image = asset_url("game/level_#{@top_level_board.first.player_level}.png")
+  - @share_description = "#{@top_level_board.first.handle} is leading the pack in the Super 80s World competition for a totally awesome retrogaming console!"
 
 javascript:
     var addthis_share = {
@@ -34,10 +39,17 @@ javascript:
         h4 style="text-align:center"
           = link_to "Play the game", '/game/beta_competition'
 
-        p style="text-align:center"
-          | A competition is underway to see how far you can make it into the '80s.
-          br
-          ' The top prize is a
+        p style="text-align:center; max-width: 500px; margin-left: auto; margin-right: auto"
+          | A competition is underway to see how far you can make it into the '80s
+          ' . The prize is a
           = link_to 'Retro King Mini', '/game/beta_competition'
 
       = render partial: 'game/leaderboards/leaderboard_full'
+
+    div style="max-width: 920px; margin-left: auto; margin-right: auto; margin-top: 30px; color: #98a6bc"
+      p
+        ' In order to enter you must
+        = link_to 'login with your Facebook account', player_facebook_omniauth_authorize_path
+        '.  That will allow you to connect your data to the leaderboard and your profile on the website.  The competition runs through midnight October 31st.  The leaderboard will be frozen at that point so the winner can be announced.  For more details
+        = link_to 'please visit our FAQ', '/faq'
+        |.

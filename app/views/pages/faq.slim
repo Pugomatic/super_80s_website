@@ -5,13 +5,58 @@
     h4 Frequently Asked Questions
     ul
       li
+        a href="#reqs" What are the system requirements Super 80s World?
+      li
+        a href="#download" How do I download the game?
+      li
+        a href="#play" How do I play the game?
+      li
+        a href="#menu" How do I navigate the main menu?
+      li
+        a href="#story" Is there a way to replay the intro scene?
+      li
         a href="#facebook" How do I setup my Super 80s World profile?
       li
         a href="#facebook" How do I connect my game to the leaderboard?
       li
+        a href="#sync" How often does the app sync with the leaderboard / website?
+      li
         a href="#disco" How do I see everything I've collected?
+      li
+        a href="#no_facebook" I don’t have a Facebook account can I still participate?
 
-    h4#facebook Connecting the game to Super80sWorld.com
+
+    h4#reqs What are the system requirements Super 80s World?
+    p Super 80s World is only available for iOS (iPhone and iPad) right now. The minimum iOS version is 8.0.  The game should run reasonably well on an iPhone 6 or second generation iPad Mini.
+    p Other platforms (Android & Nintendo Switch) are planned for future releases.
+
+    h4#download How do I download the game?
+    p
+
+    h4#play How do I play the game?
+    p From the main menu, press the play button.  The first level is a tutorial.
+
+    = image_tag("faq_play.png")
+
+    p The game starts off pretty simple.  As you progress you will learn more skills.
+
+    = image_tag("faq_skillz.png")
+
+    h4#menu How do I navigate the main menu?
+
+    p Most of the main menu is interactive
+
+    = image_tag("faq_menu_1.png")
+
+    p And the more options screen
+    = image_tag("faq_menu_2.png")
+
+    h4#story Is there a way to replay the opening scene?
+    p
+      ' Sure, you can
+      = link_to 'check it out here', '/video#view'
+
+    h4#facebook Connecting the game to Super80sWorld.com (leaderboard)
 
     p In order to get your own Super 80s World profile, tracking your progress and collection from the game, you'll need to login to the app using Facebook.
 
@@ -22,6 +67,10 @@
     p Once you're connected, the game will sync with Super80sWorld.com every time you come back to the main menu.
 
     p To see your data, just login to Super80sWorld.com with the same Facebook account you used in the game.
+
+    h4#sync How often does the app sync with the leaderboard / website?
+    p Every time you visit load the main menu.
+    p To force an update, simply restart the game.
 
     h4#disco How do I see my full collection?
 
@@ -41,6 +90,18 @@
 
     br
     br
+
+    h4#no_facebook I don’t have a Facebook account can I still participate?
+    p Yes, but you won't be eligible to win the prize since we won't be able to sync your progress.
+
+    p
+      ' For information on downloading the game
+      a href="#download" click here
+      |.
+
+    br
+    br
+
     = render partial: 'pages/bottom'
 
     = render partial: 'pages/tracking'
