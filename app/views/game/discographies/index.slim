@@ -1,5 +1,17 @@
-= content_for :title, "#{@player.handle}'s Full Discography"
-= content_for :meta_description, "The full collection of cassettes, vhs tapes and video game cartridges collected by #{@player.handle} in Super 80s World."
+- @share_title = "#{@player.handle}'s Full Discography"
+- @share_image = asset_path("game/level_#{@player.player_level}.png")
+- @share_description = "The full collection of cassettes, vhs tapes and video game cartridges collected by #{@player.handle} in Super 80s World."
+
+javascript:
+    var addthis_share = {
+        title: #{@share_title},
+        description: #{@share_description},
+        media: #{@share_image}
+    };
+
+= content_for :title, @share_title
+= content_for :meta_image, @share_image
+= content_for :meta_description, @share_description
 
 .game
   .panel.centered

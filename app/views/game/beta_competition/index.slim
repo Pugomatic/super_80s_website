@@ -1,3 +1,23 @@
+- if params[:leader]
+  - @share_title = "Top Player Leaderboard"
+  - @share_image = asset_path("game/level_#{@top_level_board.player_level}.png")
+  - @share_description = "#{@top_level_board.first.handle} is leading the pack in the Super 80s World competition for a totally awesome retrogaming console!"
+- else
+  - @share_title = "Play to win a retrogaming console on Super 80s World"
+  - @share_image = asset_path('retro_mini')
+  - @share_description = "#{@top_level_board.count} players are competing in the game of the decade, Super80sWorld.  Click here to participate!"
+
+javascript:
+    var addthis_share = {
+        title: #{@share_title},
+        description: #{@share_description},
+        media: #{@share_image}
+    };
+
+= content_for :title, @share_title
+= content_for :meta_image, @share_image
+= content_for :meta_description, @share_description
+
 .remodal data-remodal-id="modal"
   .email
     h2 Get early access NOW!
