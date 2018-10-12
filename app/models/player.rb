@@ -59,7 +59,7 @@ class Player < ApplicationRecord
     when 9
       'Neon Jesus'
     else
-      nil
+      'Player'
     end
   end
 

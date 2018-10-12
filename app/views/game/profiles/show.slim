@@ -1,6 +1,17 @@
-= content_for :title, "#{@player.handle} on Super 80s World"
-= content_for :meta_image, asset_path("game/level_#{@player.player_level}.png")
-= content_for :meta_description, "Super 80s World player profile for #{@player.handle}, a #{@player.player_level_display} player in the game of the decade."
+- @share_title = "#{@player.handle} is #{@player.player_level_display_name} on Super 80s World"
+- @share_image = asset_path("game/level_#{@player.player_level}.png")
+- @share_description = "Super 80s World player profile for #{@player.handle}, a level #{@player.player_level} player in the game of the decade."
+
+javascript:
+  var addthis_share = {
+      title: #{@share_title},
+      description: #{@share_description},
+      media: #{@share_image}
+  };
+
+= content_for :title, @share_title
+= content_for :meta_image, @share_image
+= content_for :meta_description, @share_description
 
 .game
   .panel
