@@ -1,4 +1,4 @@
-- @share_title = "Top Player Leaderboard for Super 80s World"
+- @share_title = "#{top_level_board.first.handle} is on top of the Super 80s World Leaderboard"
 - @share_image = asset_path("game/level_#{@top_level_board.first.player_level}.png")
 - @share_description = "#{@top_level_board.first.handle} is leading the pack in the Super 80s World competition for a totally awesome retrogaming console!"
 
@@ -34,10 +34,10 @@ javascript:
         h4 style="text-align:center"
           = link_to "Play the game", '/game/beta_competition'
 
-        p style="text-align:center"  A competition is underway to see how far you can make it into the '80s.
         p style="text-align:center"
+          | A competition is underway to see how far you can make it into the '80s.
+          br
           ' The top prize is a
           = link_to 'Retro King Mini', '/game/beta_competition'
-          | !
 
       = render partial: 'game/leaderboards/leaderboard_full'
