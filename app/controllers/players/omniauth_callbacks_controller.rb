@@ -6,7 +6,7 @@ module Players
       if @player.persisted?
         sign_in @player, event: :authentication
 
-        flash[:notice] = "Congratulations!  You will be notified when the competition begins."
+        flash[:notice] = "Congratulations!  If you don't receive a download link shortly, please email beta@super80sworld.com"
         redirect_to game_profile_path @player
       else
         session["devise.facebook_data"] = request.env["omniauth.auth"]
