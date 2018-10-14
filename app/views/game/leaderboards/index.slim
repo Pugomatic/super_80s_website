@@ -35,7 +35,12 @@ javascript:
       h1 style="max-width: auto; max-height: auto;"
         = image_tag 'logo.png', class: 'centered logo'
       h1 = fix_lazer_font "Leaderboard"
-      - unless current_player
+      - if current_player
+        p style="text-align:center; margin-left: auto; margin-right: auto"
+          | Have questions?
+          br
+          = link_to 'Check out the FAQ', '/game/beta_competition'
+      - else
         h4 style="text-align:center"
           = link_to "Play the game", '/game/beta_competition'
 
