@@ -7,7 +7,7 @@ table
     th min
     th max
     th players
-  - PlayerLevel.select("level_id, MIN(tries) as min_tries, MAX(tries) as max_tries, AVG(tries) as avg_tries, COUNT(tries) as player_count").where('player_id != 8 AND player_id != 71').group(:level_id).to_a.sort_by(&:avg_tries).reverse.each do |pl|
+  - PlayerLevel.select("level_id, MIN(tries) as min_tries, MAX(tries) as max_tries, AVG(tries) as avg_tries, COUNT(tries) as player_count").where('player_id != 8 AND player_id != 71').where(status: 'complete').group(:level_id).to_a.sort_by(&:avg_tries).reverse.each do |pl|
     tr
       td
         = pl.level.label
