@@ -1,3 +1,26 @@
+h3 Hardest Levels
+
+table
+  tr
+    th level
+    th min
+    th avg
+    th max
+    th players
+
+  - PlayerLevel.select("level_id, MIN(tries) as min_tries, MAX(tries) as max_tries, AVG(tries) as avg_tries, COUNT(tries) as player_count").group(:level_id).where('count_tries > 1').to_a.sort_by(&:avg_tries).reverse.reject {|pl| pl.player_count <= 1}.each do |pl|
+    tr
+      td
+        = pl.level.label
+      td
+        = pl.min_tries
+      td
+        = pl.avg_tries
+      td
+        = pl.max_tries
+      td
+        = pl.player_count
+
 
 h3 Email List
 
