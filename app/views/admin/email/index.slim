@@ -23,17 +23,20 @@ table
       td
         = pl.level.number
 
+h3 Basic Stats
 
 table
-  th level
-  th players
-  th plays
-  th tries
+  tr
+    th level
+    th players
+    th plays
+    th tries
   - Level.all.order(:number).each do |level|
-    td = level.label
-    td = level.player_levels.count
-    td = level.player_levels.sum(:plays)
-    td = level.player_levels.sum(:tries)
+    tr
+      td = level.label
+      td = level.player_levels.count
+      td = level.player_levels.sum(:plays)
+      td = level.player_levels.sum(:tries)
 
 
 h3 Email List
