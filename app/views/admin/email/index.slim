@@ -7,9 +7,8 @@ table
     th min
     th max
     th players
-    th replays
     th number
-  - PlayerLevel.select("level_id, MIN(tries) as min_tries, MAX(tries) as max_tries, AVG(tries) as avg_tries, COUNT(tries) as player_count").where('player_id != 8 AND player_id != 71').where(status: 'completed').group(:level_id).to_a.sort_by(&:avg_tries).reverse.each do |pl|
+  - PlayerLevel.select("level_id, MIN(tries) as min_tries, MAX(tries) as max_tries, AVG(tries) as avg_tries, COUNT(tries) as player_count").where('player_id != 8 AND player_id != 71').where(status: 'completed').group(:level_id).to_a.sort_by(&:level_id).reverse.each do |pl|
     tr
       td
         = pl.level.label
@@ -22,9 +21,19 @@ table
       td
         = pl.player_count
       td
-        = pl.plays || 0 - pl.tries || 0
-      td
         = pl.level.number
+
+
+table
+  th level
+  th players
+  th plays
+  th tries
+  - Level.all.order(:number).each do |level|
+    td = level.label
+    td = level.player_levels.count
+    td = level.player_levels.sum(:plays)
+    td = level.player_levels.sum(:tries)
 
 
 h3 Email List
