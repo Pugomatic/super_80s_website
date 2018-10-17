@@ -22,7 +22,7 @@ table
       td
         = pl.player_count
       td
-        = pl.plays - pl.tries
+        = pl.plays || 0 - pl.tries || 0
       td
         = pl.level.number
 
