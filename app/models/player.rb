@@ -100,6 +100,8 @@ class Player < ApplicationRecord
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
         user.email = data["email"] if user.email.blank?
+      elsif session["devise.twitter_data"]
+
       end
     end
   end
@@ -112,6 +114,11 @@ class Player < ApplicationRecord
 
     player = find_by(uid: auth.uid) || new
     player.attributes = {uid: auth.uid, email: auth.info.email || fakemail, provider: auth.provider, password: Devise.friendly_token[0,20], name: auth.info.name, image: player.image ? player.image : auth.info.image, pending: false}
+    if auth.provider == "twitter"
+      player.handle = auth.info.nickname[0, 12]
+      player.email = auth.info.email ? auth.info.email : "#{auth.info.nickname}@twitter.com"
+    end
+
     player.save!
     player
   end
@@ -199,7 +206,9 @@ class Player < ApplicationRecord
   end
 
   def set_handle
-    self.handle = email.split('@').first[0, 12]
+    if provider != 'twitter'
+      self.handle = email.split('@').first[0, 12]
+    end
   end
 
   def set_top_level

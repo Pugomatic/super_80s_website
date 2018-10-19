@@ -24,6 +24,8 @@ gem 'strip_attributes'
 gem 'roo'
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
 
 gem 'gibbon', git: 'git://github.com/amro/gibbon.git'
 gem 'invisible_captcha'

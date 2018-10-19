@@ -18,8 +18,6 @@ Rails.application.routes.draw do
   get '/story' => 'high_voltage/pages#show', id: 'story', as: 'story'
   get '/press-kit' => 'high_voltage/pages#show', id: 'press', as: 'press_kit'
   get '/admin/email' => 'admin/email#index'
-  get '/press/demo' => 'demo#index'
-  get '/press/demo/unity3d' => 'demo#unity3d'
 
   get '/shop' => 'high_voltage/pages#show', id: 'tshirt'
   get '/tshirt' => 'high_voltage/pages#show', id: 'tshirt'
@@ -38,6 +36,12 @@ Rails.application.routes.draw do
 
   get '/game/beta_competition' => 'game/beta_competition#index'
   get '/game/leaderboard' => 'game/leaderboards#index'
+
+  devise_scope :player do
+    get '/players/auth/twitter/callback' => 'players/omniauth_callbacks#twitter'
+    get '/players/auth/google_oauth2/callback' => 'players/omniauth_callbacks#google_oauth2'
+  end
+
 
   namespace :game do
     resources :leaderboards

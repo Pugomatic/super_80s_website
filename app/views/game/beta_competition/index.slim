@@ -40,10 +40,12 @@ javascript:
           p style="max-width: 600px !important; height: auto !important;"  Sign up for the competition and we'll send you a link to download the game shortly.
 
           p
-            ' To update your profile you can
-            = link_to 'sign in here', player_facebook_omniauth_authorize_path
+            ' To update your profile you can sign in with your
             br
-            ' and check out the
+            = render partial: 'game/beta_competition/login'
+            ' account and
+            br
+            ' check out the
             a href="/game/leaderboard" leaderboard
             | .
 
@@ -71,9 +73,9 @@ javascript:
       .col.span_1_of_3
         h4 Register to win
         p
-          ' Login with your Facebook account to
-          = link_to 'register for the competition', player_facebook_omniauth_authorize_path
-          | .
+          ' Login with your
+          = render partial: 'game/beta_competition/login'
+          ' account to register for the competition.
         p When the competition begins, you will be sent a link to download the app.
         p The player who makes it farthest in the game, with the highest score, will win the following:
         h4 The grand prize
@@ -82,12 +84,10 @@ javascript:
         br
         b.blue Retro King Mini (Mega)
         p Plays over 10,000 awesome retro games.  Complete with two wireless SNES controllers.
-        h4
-          = link_to 'Register to win', player_facebook_omniauth_authorize_path, class: 'pink'
+        h4 Register to win
         p
-          ' So,
-          = link_to 'register now', player_facebook_omniauth_authorize_path
-          '
+          ' So, register now with
+          = render partial: 'game/beta_competition/login'
           ' to enter the competition.
 
         p
