@@ -74,7 +74,7 @@ class Player < ApplicationRecord
 
     fakemail = "auto#{Time.now.to_i.to_s.reverse}@noemail.com"
 
-    player = find_by(uid: player_data['uid'] || fb_data['id']) || new(pending: true)
+    player = find_by(uid: player_data['uid'] || fb_data['id']) || new(pending: true, provider: player_data['type'])
     player.world_statuses = {}
     World.pluck(:id).each {|id| player.world_statuses[id] = 'destroyed' }
 
