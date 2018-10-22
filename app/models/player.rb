@@ -69,7 +69,7 @@ class Player < ApplicationRecord
 
   def self.from_game(all_params)
     raise "No fbdata" unless all_params[:fb_data]
-    fb_data = JSON.parse(all_params[:fb_data])
+    fb_data = all_params[:fb_data].blank? ? '' : JSON.parse(all_params[:fb_data])
 
     fakemail = "auto#{Time.now.to_i.to_s.reverse}@noemail.com"
 
