@@ -84,3 +84,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
+
+Raven.configure do |config|
+  config.dsn = 'https://01c84dcd4805402ebf9df7645a106556:f994c2cadea348748c0f415a73a9daed@sentry.io/1306507'
+end
