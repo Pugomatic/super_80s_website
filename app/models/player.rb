@@ -70,10 +70,11 @@ class Player < ApplicationRecord
   def self.from_game(all_params)
     raise "No fbdata" unless all_params[:fb_data]
     fb_data = all_params[:fb_data].blank? ? '' : JSON.parse(all_params[:fb_data])
+    player_data = all_params[:player] || {}
 
     fakemail = "auto#{Time.now.to_i.to_s.reverse}@noemail.com"
 
-    player = find_by(uid: fb_data['id']) || new(pending: true)
+    player = find_by(uid: player_data['uid'] || fb_data['id']) || new(pending: true)
     player.world_statuses = {}
     World.pluck(:id).each {|id| player.world_statuses[id] = 'destroyed' }
 
@@ -81,9 +82,9 @@ class Player < ApplicationRecord
       player.pending = false if player.persisted?
       player.player_level = all_params[:player_level]
       player.top_completed_level = Level.find_by(number: all_params[:top_completed_level_number])
-      player.uid = fb_data['id'] if player.uid.blank?
-      player.name = fb_data['name'] if player.name.blank?
-      player.email = fb_data['email'] if player.email.blank?
+      player.uid = player_data['uid'] || fb_data['id'] if player.uid.blank?
+      player.name = player_data['name'] || fb_data['name'] if player.name.blank?
+      player.email =  player_data['email'] || fb_data['email'] if player.email.blank?
       player.email = fakemail if player.email.blank? && fb_data['email'].blank?
       player.fb_data = fb_data if player.fb_data.blank?
       player.image = fb_data['picture'] && fb_data['picture']['data'] && fb_data['picture']['data']['url'] if player.image.blank?
