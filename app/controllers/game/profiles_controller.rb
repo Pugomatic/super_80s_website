@@ -1,6 +1,7 @@
 module Game
   class ProfilesController < BaseController
     before_action   :set_player, only: [:show]
+    before_action   :ensure_player, only: [:edit, :update]
     before_action   :set_paths
 
     def index
@@ -67,6 +68,10 @@ module Game
     end
 
     private
+
+    def ensure_player
+      @player == current_player
+    end
 
     def player_params
       params.require(:player).permit(:name, :handle, :tagline, :email)

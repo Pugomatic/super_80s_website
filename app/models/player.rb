@@ -157,7 +157,7 @@ class Player < ApplicationRecord
     end
 
     world_statuses.keys.each do |wid|
-      player_worlds.create(world_id: wid)
+      player_worlds.create(world_id: wid) unless player_worlds.exists?(world_id: wid)
     end
 
     calculate_world_statuses! all_params[:levels]
@@ -258,7 +258,7 @@ class Player < ApplicationRecord
 
   def set_culture_items!(collected_items)
     CultureItem.select(:id).where(uid: collected_items.split(',')).each do |item|
-      item.player_items.create player: self
+      item.player_items.create(player: self) unless item.player_items.exists?(player: self)
     end
   end
 end
