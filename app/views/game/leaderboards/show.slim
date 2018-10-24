@@ -34,7 +34,8 @@ javascript:
     .achievements
       h1 style="max-width: auto; max-height: auto;"
         = image_tag 'logo.png', class: 'centered logo'
-      h1 = fix_lazer_font(@leaderboard.name)
+      h1
+        = fix_lazer_font(@leaderboard.name)
 
       p style="text-align:center; max-width: 500px; margin-left: auto; margin-right: auto"
         = render partial: "game/leaderboards/#{@dir}/details"
