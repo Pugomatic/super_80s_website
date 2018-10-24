@@ -4,6 +4,11 @@ module Game
 
     before_action   :set_paths
 
+    def show
+      @selected = :leaderboard
+      @leaderboard = Leaderboard.find_by(label: params[:id])
+    end
+
     def index
       @selected = :leaderboard
       @top_level_board = Player.top_level_board.to_a

@@ -1,0 +1,88 @@
+- if @top_level_board.empty?
+  - @share_title = "Super 80s World Leaderboard"
+  - @share_image = asset_url("game/level_9.png")
+  - @share_description = "Check out the top players leaderboard on Super 80s World!"
+- else
+  - @share_title = "#{@top_level_board.first.handle} is winning Super 80s World!"
+  - @share_image = asset_url("game/level_#{@top_level_board.first.player_level}.png")
+  - @share_description = "#{@top_level_board.first.handle} is leading the pack in the Super 80s World competition for a totally awesome retrogaming console!"
+
+javascript:
+    var addthis_share = {
+        title: #{@share_title},
+        description: #{@share_description},
+        media: #{@share_image}
+    };
+
+= content_for :title, @share_title
+= content_for :meta_image, @share_image
+= content_for :meta_description, @share_description
+
+.remodal data-remodal-id="modal"
+  .email
+    h2 Get early access NOW!
+    br
+    = form_for @user, id: 'mailing_list_form' do |f|
+      input name="authenticity_token" value="#{form_authenticity_token}" type="hidden"
+      = f.invisible_captcha :title
+      input#user_email name="user[email]" type="text" placeholder="Enter e-mail address"
+      br
+      input.yes#form_submit name="commit" type="submit" value="LET'S PLAY"
+
+.game
+  .panel style="margin-left: 10px; margin-right: 0px; margin-top: 40px"
+    .achievements
+      h1 style="max-width: auto; max-height: auto;"
+        = image_tag 'logo.png', class: 'centered logo'
+      h1 = fix_lazer_font "Leaderboard"
+      - if current_player
+        p style="text-align:center; margin-left: auto; margin-right: auto"
+          | Have questions?
+          br
+          = link_to 'Check out the FAQ', '/faq'
+      - else
+        h4 style="text-align:center"
+          = link_to "Play the game", '/game/beta_competition'
+
+        p style="text-align:center; max-width: 500px; margin-left: auto; margin-right: auto"
+          | A competition is underway to see how far you can make it into the '80s
+          ' . The prize is a
+          = link_to 'Retro King Mini', '/game/beta_competition'
+
+      table.leaderboard
+        thead
+          tr
+            th
+              span style="background-color: #0e0616; padding: 20px" Player
+            th.date_column
+              span style="background-color: #0e0616; padding: 20px" World
+            th
+              span style="background-color: #0e0616; padding: 20px" Year
+            th
+              span style="background-color: #0e0616; padding: 20px" Level
+            th.date_column
+              span style="background-color: #0e0616; padding: 20px" Score
+
+        tbody
+          - @leaderboard.leaders.each do |player|
+            - world = player&.top_completed_level&.world&.name
+            - display_time = sprintf("%0.3f", player.player_total.fastest_time / 1000.0)
+            tr class=(player.display_class(current_player))
+              td
+                span.out = '8' * (12 - player.handle.length)
+                = link_to player.handle, game_profile_path(player)
+              td.date_column
+                - if world
+                  span.out = '8' * ((9 - world.length) / 2)
+                  = world
+                  span.out = '8' * ((9 - world.length) / 2)
+              td
+                span.led
+                  = pad_with_8s player.top_completed_level.year, 6
+              td
+                span.led
+                  = pad_with_8s player.top_completed_level.month, 4
+
+              td.date_column
+                span.led
+                  = pad_with_8s player.player_total.high_score, 6
