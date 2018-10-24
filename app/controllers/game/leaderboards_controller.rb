@@ -7,6 +7,10 @@ module Game
     def show
       @selected = :leaderboard
       @leaderboard = Leaderboard.find_by(label: params[:id])
+      @dir = 'default'
+      if @leaderboard.label == 'first_beta'
+        @dir = 'first_beta'
+      end
     end
 
     def index
