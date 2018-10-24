@@ -1,11 +1,11 @@
-- if @top_level_board.empty?
+- if @leaderboard.leaders.empty?
   - @share_title = "Super 80s World Leaderboard"
   - @share_image = asset_url("game/level_9.png")
   - @share_description = "Check out the top players leaderboard on Super 80s World!"
 - else
-  - @share_title = "#{@top_level_board.first.handle} is winning Super 80s World!"
-  - @share_image = asset_url("game/level_#{@top_level_board.first.player_level}.png")
-  - @share_description = "#{@top_level_board.first.handle} is leading the pack in the Super 80s World competition for a totally awesome retrogaming console!"
+  - @share_title = "#{@leaderboard.leaders.first.handle} is winning Super 80s World!"
+  - @share_image = asset_url("game/level_#{@leaderboard.leaders.first.player_level}.png")
+  - @share_description = "#{@leaderboard.leaders.first.handle} is leading the pack in the Super 80s World competition for a totally awesome retrogaming console!"
 
 javascript:
     var addthis_share = {
