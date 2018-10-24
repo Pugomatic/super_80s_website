@@ -1,0 +1,21 @@
+- world = entry&.top_completed_level&.world&.name
+- display_time = sprintf("%0.3f", entry.player_total.fastest_time / 1000.0)
+tr class=(entry.display_class(current_player))
+  td
+    span.out = '8' * (12 - entry.handle.length)
+    = link_to entry.handle, game_profile_path(entry)
+  td.date_column
+    - if world
+      span.out = '8' * ((9 - world.length) / 2)
+      = world
+      span.out = '8' * ((9 - world.length) / 2)
+  td
+    span.led
+      = pad_with_8s entry.top_completed_level.year, 6
+  td
+    span.led
+      = pad_with_8s entry.top_completed_level.month, 4
+
+  td.date_column
+    span.led
+      = pad_with_8s entry.player_total.high_score, 6
