@@ -17,4 +17,4 @@ tr class=(entry.player.display_class(current_player))
 
   td.date_column
     span.led
-      = pad_with_8s entry.metric, 6
+      = pad_with_8s entry.metric.to_s, 6
