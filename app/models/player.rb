@@ -98,9 +98,6 @@ class Player < ApplicationRecord
     end
 
     player.set_world_statuses!
-    player.leaderboards.where(locked: false).each do |leaderboard|
-      leaderboard.update_entry!(self)
-    end
   end
 
   def self.new_with_session(params, session)
@@ -145,6 +142,10 @@ class Player < ApplicationRecord
       save(validate: false)
 
       update_data!(all_params)
+    end
+
+    leaderboards.where(locked: false).each do |leaderboard|
+      leaderboard.update_entry!(self)
     end
 
     set_world_statuses!
