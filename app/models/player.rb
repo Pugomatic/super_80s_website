@@ -13,6 +13,9 @@ class Player < ApplicationRecord
   has_many  :achievements, through: :player_achievements
   has_many  :player_levels, dependent: :destroy
   has_many  :player_worlds, dependent: :destroy
+  has_many  :leaderboard_players
+  has_many  :leaderboards, through: :leaderboard_players
+
   has_one   :player_total, dependent: :destroy
 
   attr_accessor :world_statuses
@@ -95,6 +98,9 @@ class Player < ApplicationRecord
     end
 
     player.set_world_statuses!
+    player.leaderboards.where(locked: false).each do |leaderboard|
+      leaderboard.update_entry!(self)
+    end
   end
 
   def self.new_with_session(params, session)
