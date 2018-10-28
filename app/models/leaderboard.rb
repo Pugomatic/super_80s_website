@@ -12,7 +12,7 @@ class Leaderboard < ApplicationRecord
   end
 
   def entries
-    leaderboard_entries.includes(joiners).where(leader: true).order(self.class.sanitize_sql_for_order(sorting))
+    leaderboard_entries.includes(joiners).where('players.leader = ?', true).order(self.class.sanitize_sql_for_order(sorting))
   end
 
   def update_entries!
