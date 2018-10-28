@@ -13,6 +13,10 @@ module Game
       end
     end
 
+    def freeze
+
+    end
+
     def index
       @selected = :leaderboard
       @top_level_board = Player.top_level_board.to_a

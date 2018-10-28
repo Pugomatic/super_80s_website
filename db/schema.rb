@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_24_165732) do
+ActiveRecord::Schema.define(version: 2018_10_28_193905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -268,6 +268,40 @@ ActiveRecord::Schema.define(version: 2018_09_24_165732) do
     t.index ["world_id"], name: "i_culture_items_w"
   end
 
+  create_table "leaderboard_entries", force: :cascade do |t|
+    t.bigint "leaderboard_id"
+    t.bigint "player_id"
+    t.bigint "level_id"
+    t.integer "value"
+    t.index ["leaderboard_id"], name: "index_leaderboard_entries_on_leaderboard_id"
+    t.index ["level_id"], name: "index_leaderboard_entries_on_level_id"
+    t.index ["player_id"], name: "index_leaderboard_entries_on_player_id"
+  end
+
+  create_table "leaderboard_players", force: :cascade do |t|
+    t.bigint "leaderboard_id"
+    t.bigint "player_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["leaderboard_id"], name: "index_leaderboard_players_on_leaderboard_id"
+    t.index ["player_id"], name: "index_leaderboard_players_on_player_id"
+  end
+
+  create_table "leaderboards", force: :cascade do |t|
+    t.string "name"
+    t.string "stat"
+    t.string "label"
+    t.string "format"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "joiner_tables", default: "players"
+    t.string "sorting", default: "value DESC"
+    t.string "timeframe", default: "game"
+    t.string "metric", default: "high_score"
+    t.boolean "locked", default: false
+    t.datetime "ending_at"
+  end
+
   create_table "levels", id: :serial, force: :cascade do |t|
     t.integer "world_id"
     t.integer "next_level_id"
@@ -460,4 +494,9 @@ ActiveRecord::Schema.define(version: 2018_09_24_165732) do
     t.index ["year"], name: "index_worlds_on_year"
   end
 
+  add_foreign_key "leaderboard_entries", "leaderboards"
+  add_foreign_key "leaderboard_entries", "levels"
+  add_foreign_key "leaderboard_entries", "players"
+  add_foreign_key "leaderboard_players", "leaderboards"
+  add_foreign_key "leaderboard_players", "players"
 end
