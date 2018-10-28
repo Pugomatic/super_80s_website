@@ -6,11 +6,11 @@ class Leaderboard < ApplicationRecord
   attr_accessor :leaders
 
   def joiners
-    joiner_tables.split(',').map {|m| sanitize(m) }
+    joiner_tables.split(',').map {|m| sanitize_sql_for_conditions(m) }
   end
 
   def entries
-    leaderboard_entries.includes(joiners).order(sanitize(sorting))
+    leaderboard_entries.includes(joiners).order(sanitize_sql_for_order(sorting))
   end
 
   def update_entries!

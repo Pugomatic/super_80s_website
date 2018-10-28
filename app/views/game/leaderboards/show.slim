@@ -1,11 +1,11 @@
-- if @leaderboard.leaders.empty?
+- if @leaderboard.entries.empty?
   - @share_title = "Super 80s World Leaderboard"
   - @share_image = asset_url("game/level_9.png")
   - @share_description = "Check out the top players leaderboard on Super 80s World!"
 - else
-  - @share_title = "#{@leaderboard.leaders.first.handle} is winning Super 80s World!"
-  - @share_image = asset_url("game/level_#{@leaderboard.leaders.first.player_level}.png")
-  - @share_description = "#{@leaderboard.leaders.first.handle} is leading the pack in the Super 80s World competition for a totally awesome retrogaming console!"
+  - @share_title = "#{@leaderboard.entries.first.player.handle} is winning Super 80s World!"
+  - @share_image = asset_url("game/level_#{@leaderboard.entries.first.player.player_level}.png")
+  - @share_description = "#{@leaderboard.entries.first.player.handle} is leading the pack in the Super 80s World competition for a totally awesome retrogaming console!"
 
 javascript:
     var addthis_share = {
@@ -44,5 +44,5 @@ javascript:
         thead
           = render partial: "game/leaderboards/#{@dir}/header"
         tbody
-          - @leaderboard.leaders.each do |entry|
+          - @leaderboard.entries.each do |entry|
             = render partial: "game/leaderboards/#{@dir}/row", locals: {entry: entry}
