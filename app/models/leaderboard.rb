@@ -6,7 +6,9 @@ class Leaderboard < ApplicationRecord
   attr_accessor :leaders
 
   def joiners
-    self.class.sanitize_sql joiner_tables
+    joiner_tables.split.map do |tbl|
+      self.class.sanitize_sql(tbl)
+    end
   end
 
   def entries
