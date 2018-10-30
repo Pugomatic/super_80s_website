@@ -13,7 +13,7 @@ class Player < ApplicationRecord
   has_many  :achievements, through: :player_achievements
   has_many  :player_levels, dependent: :destroy
   has_many  :player_worlds, dependent: :destroy
-  has_many  :leaderboard_players
+  has_many  :leaderboard_players, dependent: :destroy
   has_many  :leaderboards, through: :leaderboard_players
 
   has_one   :player_total, dependent: :destroy
