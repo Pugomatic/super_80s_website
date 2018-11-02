@@ -35,7 +35,8 @@ Rails.application.routes.draw do
   get '/dr/noid/wormser' => 'high_voltage/pages#show', id: 'noid'
 
   get '/game/beta_competition' => 'game/beta_competition#index'
-  get '/game/leaderboard' => 'game/leaderboards#show', id: 'first_beta'
+#  get '/game/leaderboard' => 'game/leaderboards#show', id: 'first_beta'
+  get '/game/leaderboard' => 'game/beta_competition#index'
   get '/game/leaderboards' => 'game/beta_competition#index'
 
   devise_scope :player do
