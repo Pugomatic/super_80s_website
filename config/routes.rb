@@ -36,7 +36,7 @@ Rails.application.routes.draw do
 
   get '/game/beta_competition' => 'game/beta_competition#index'
   get '/game/leaderboard' => 'game/leaderboards#show', id: 'first_beta'
-  get '/game/leaderboards' => 'game/leaderboards#show', id: 'first_beta'
+  get '/game/leaderboards' => 'game/beta_competition#index'
 
   devise_scope :player do
     get '/players/auth/twitter/callback' => 'players/omniauth_callbacks#twitter'
