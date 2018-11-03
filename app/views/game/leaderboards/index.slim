@@ -59,7 +59,8 @@ javascript:
                 td.date_column
                   = pad_with_8s l.entries&.first&.player&.handle, 12
                 td
-                  = l.ending_at.to_formatted_s(:date)
+                  - if l.ending_at
+                    = l.ending_at.to_formatted_s(:date)
       - else
         h4 style="text-align:center"
           = link_to "Play the game", '/game/beta_competition'
