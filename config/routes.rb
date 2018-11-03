@@ -36,8 +36,6 @@ Rails.application.routes.draw do
 
   get '/game/beta_competition' => 'game/beta_competition#index'
 #  get '/game/leaderboard' => 'game/leaderboards#show', id: 'first_beta'
-  get '/game/leaderboard' => 'game/beta_competition#index'
-  get '/game/leaderboards' => 'game/beta_competition#index'
 
   devise_scope :player do
     get '/players/auth/twitter/callback' => 'players/omniauth_callbacks#twitter'
@@ -46,7 +44,11 @@ Rails.application.routes.draw do
 
 
   namespace :game do
-    resources :leaderboards
+    resources :leaderboards do
+      member do
+        get 'join'
+      end
+    end
     resources :profiles do
       resources :discographies
     end

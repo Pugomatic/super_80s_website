@@ -8,18 +8,26 @@ module Game
       @selected = :leaderboard
       @leaderboard = Leaderboard.find_by(label: params[:id])
       @dir = 'default'
-      if @leaderboard.label == 'first_beta'
-        @dir = 'first_beta'
+      if @leaderboard.label =~ /beta$/
+        @dir = @leaderboard.label
       end
     end
 
-    def freeze
+    def join
+      @selected = :leaderboard
 
+      lb = Leaderboard.find(params[:id])
+
+      LeaderboardEntry.create(leaderboard: lb, player: current_player)
+      current_player.reset!
+      flash[:notice] = "You have been entered into the tournament"
+      redirect_to game_leaderboard_path(lb.label)
     end
 
     def index
       @selected = :leaderboard
-      @top_level_board = Player.top_level_board.to_a
+      @leaderboards = Leaderboard.all.order(created_at: :desc)
+      # @top_level_board = Player.top_level_board.to_a
 
       # if params[:year].blank? || params[:year] == "ALL"
       #   @year = :all

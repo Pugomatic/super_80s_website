@@ -1,11 +1,6 @@
-- if @top_level_board.empty?
-  - @share_title = "Super 80s World Leaderboard"
-  - @share_image = asset_url("game/level_9.png")
-  - @share_description = "Check out the top players leaderboard on Super 80s World!"
-- else
-  - @share_title = "#{@top_level_board.first.handle} is winning Super 80s World!"
-  - @share_image = asset_url("game/level_#{@top_level_board.first.player_level}.png")
-  - @share_description = "#{@top_level_board.first.handle} is leading the pack in the Super 80s World competition for a totally awesome retrogaming console!"
+- @share_title = "Super 80s World Leaderboard"
+- @share_image = asset_url("game/level_9.png")
+- @share_description = "Check out the top players leaderboard on Super 80s World!"
 
 javascript:
     var addthis_share = {
@@ -34,27 +29,54 @@ javascript:
     .achievements
       h1 style="max-width: auto; max-height: auto;"
         = image_tag 'logo.png', class: 'centered logo'
-      h1 = fix_lazer_font "Leaderboard"
+      h1 = fix_lazer_font "Leaderboards"
       - if current_player
         p style="text-align:center; margin-left: auto; margin-right: auto"
           | Have questions?
           br
           = link_to 'Check out the FAQ', '/faq'
+
+        table.leaderboard
+          thead
+            tr
+              th
+                span style="background-color: #0e0616; padding: 20px" Tournament
+              th.date_column
+                span style="background-color: #0e0616; padding: 20px" Players
+              th.date_column
+                span style="background-color: #0e0616; padding: 20px" Leader
+              th
+                span style="background-color: #0e0616; padding: 20px" Ending
+
+          tbody
+            - @leaderboards.each do |l|
+              tr
+                td
+                  span.out = '8' * (27 - l.name.length)
+                  = link_to l.name, "/game/leaderboards/#{l.label}"
+                td.date_column
+                  = pad_with_8s l.leaderboard_entries.count, 6
+                td.date_column
+                  = pad_with_8s l.entries&.first&.player&.handle, 12
+                td
+                  = l.ending_at.to_formatted_s(:date)
       - else
         h4 style="text-align:center"
           = link_to "Play the game", '/game/beta_competition'
+          = link_to "WIN BIG!", '/game/beta_competition'
 
         p style="text-align:center; max-width: 500px; margin-left: auto; margin-right: auto"
           | Another competition will begin shortly underway to see how far you can make it into the '80s
           ' . The prize is a
           = link_to 'Retro King Mini', '/game/beta_competition'
 
-      = render partial: 'game/leaderboards/leaderboard_full'
 
     div style="max-width: 920px; margin-left: auto; margin-right: auto; margin-top: 30px; color: #98a6bc"
-      p
-        ' In order to enter you must
-        = link_to 'login with your Facebook account', player_facebook_omniauth_authorize_path
-        '.  That will allow you to connect your data to the leaderboard and your profile on the website.  The competition runs through midnight October 31st.  The leaderboard will be frozen at that point so the winner can be announced.  For more details
-        = link_to 'please visit our FAQ', '/faq'
-        |.
+      - unless current_player
+        p
+          ' In order to participate you must login with your
+          = render partial: 'game/beta_competition/login'
+          ' account.
+          '.  This will allow you to connect your data to the leaderboard and your website profile. For more details please
+          = link_to 'visit our FAQ', '/faq'
+          |.
