@@ -5,6 +5,20 @@ class Leaderboard < ApplicationRecord
 
   attr_accessor :leaders
 
+  def status
+    if locked?
+      "done"
+    elsif closed?
+      "closed"
+    else
+      "open"
+    end
+  end
+
+  def open?
+    !closed?
+  end
+
   def joiners
     joiner_tables.split.map do |tbl|
       self.class.sanitize_sql(tbl)

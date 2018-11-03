@@ -429,6 +429,15 @@ body {
         }
       }
 
+      tr.done {
+        td {
+          color: $chrome-middle
+        }
+        td a {
+          color: $chrome-middle
+        }
+      }
+
       tr.internal {
         td {
           color: $chrome-middle

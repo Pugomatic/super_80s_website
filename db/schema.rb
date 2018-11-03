@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_03_193158) do
+ActiveRecord::Schema.define(version: 2018_11_03_211512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -300,6 +300,7 @@ ActiveRecord::Schema.define(version: 2018_11_03_193158) do
     t.string "metric", default: "high_score"
     t.boolean "locked", default: false
     t.datetime "ending_at"
+    t.boolean "closed", default: false
   end
 
   create_table "levels", id: :serial, force: :cascade do |t|
