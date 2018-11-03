@@ -67,6 +67,15 @@ class Player < ApplicationRecord
     end
   end
 
+  def reset!
+    transaction do
+      player_items.destroy_all
+      player_levels.destroy_all
+      player_achievements.destroy_all
+      player_worlds.destroy_all
+    end
+  end
+
   def self.top_level_board
     Player.includes(top_completed_level: :player_levels, player_total: {}).where('players.id = player_levels.player_id AND player_levels.level_id = players.top_completed_level_id AND players.leader = ?', true).order('levels.number DESC, player_totals.high_score DESC')
   end
@@ -105,8 +114,7 @@ class Player < ApplicationRecord
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
         user.email = data["email"] if user.email.blank?
-      elsif session["devise.twitter_data"]
-
+      # elsif session["devise.twitter_data"]
       end
     end
   end
