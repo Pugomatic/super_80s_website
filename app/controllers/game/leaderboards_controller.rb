@@ -18,6 +18,7 @@ module Game
 
       lb = Leaderboard.find(params[:id])
 
+      LeaderboardPlayer.create(leaderboard: lb, player: current_player)
       LeaderboardEntry.create(leaderboard: lb, player: current_player)
       current_player.reset!
       flash[:notice] = "You have been entered into the tournament"
