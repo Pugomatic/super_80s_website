@@ -16,7 +16,7 @@ class Leaderboard < ApplicationRecord
   end
 
   def open?
-    !closed?
+    !closed? && !locked?
   end
 
   def joiners
