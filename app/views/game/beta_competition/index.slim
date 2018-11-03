@@ -31,68 +31,62 @@ javascript:
         .achievements
           h1 style="max-width: 600px; max-height: auto;"
             = image_tag 'logo.png', class: 'centered logo'
-            = fix_lazer_font("Beta Contest").html_safe
+            = fix_lazer_font("Beta Tournament").html_safe
+            br
+            = fix_lazer_font("Part Deux").html_safe
           br
 
           p
             a href="/game/beta_competition#modal"
               = image_tag 'early-access.png', class: 'beta-link', style: 'max-width: 300px; max-height: auto;'
-          p style="max-width: 600px !important; height: auto !important;"  Sign up for the competition and we'll send you a link to download the game shortly.
-
-          p
-            ' To update your profile you can sign in with your
-            br
+          p style="max-width: 600px !important; height: auto !important;"  Our first beta competition was a success!  We discovered just how hard the game was and improved it.   Now is your chance to play a much easier version of the game... for the same prize!
+          h4 Register to win
+          p style="max-width: 600px !important; height: auto !important;"
+            ' You can register now by signing in with your social media account:
             = render partial: 'game/beta_competition/login'
-            ' account and
-            br
-            ' check out the
-            a href="/game/leaderboard" leaderboard
             | .
+          p style="max-width: 600px !important; height: auto !important;" When the competition begins, you will be sent a link to download the app.
+          p style="max-width: 600px !important; height: auto !important;" The player who makes it farthest in the game, with the highest score, will win the following:
+          h4 The grand prize
 
-          h4 About the game
-
-          p style="max-width: 600px !important; height: auto !important;" Super 80s World is a retro platformer where you collect old-school memorabilia to save the decade.
-
-          h4 Platform
-          p Currently in beta for iOS (iPhone & iPad)
-
-          h4 Gameplay
-          = image_tag 'screenshots/backflip.gif', class: 'limit'
-          div Run, jump, slide, flip & bounce
-          = image_tag 'screenshots/triple.gif', class: 'limit'
-          div Divebomb your enemies
-          = image_tag 'screenshots/boss_4.gif', class: 'limit'
-          div Fight powerful bosses
-          = image_tag 'screenshots/collect_horror.gif', class: 'limit'
-          div Collect '80s memorabilia
-          = image_tag 'screenshots/neon_jesus.jpg', class: 'limit'
-          div Save the decade...
+          = image_tag 'retro_mini.png'
           br
+          b.blue Retro King Mini (Mega)
+          p style="max-width: 600px !important; height: auto !important;" Plays over 10,000 awesome retro games.  Complete with two wireless SNES controllers.
+          h4 Register to win
+          p style="max-width: 600px !important; height: auto !important;"
+            ' So, register now by signing in with your
+            = render partial: 'game/beta_competition/login'
+            ' account.
 
-
+          p style="max-width: 600px !important; height: auto !important;"
+            ' If you don't have a social media account and still want to play the game:
+            a href="/game/beta_competition/#modal" click here
+            | .
       .col.span_1_of_3
-        h4 Register to win
-        p
-          ' Login with your
-          = render partial: 'game/beta_competition/login'
-          ' account to register for the competition.
-        p When the competition begins, you will be sent a link to download the app.
-        p The player who makes it farthest in the game, with the highest score, will win the following:
-        h4 The grand prize
+        h4 About the game
 
-        = image_tag 'retro_mini.png'
+        p Super 80s World is a retro platformer style game where you collect old-school memorabilia to save the decade.
+
+        h4 Platform
+        p Currently in beta for iOS (iPhone & iPad)
+
+        h4 Gameplay
+        = image_tag 'screenshots/backflip.gif', class: 'limit'
+        div Run, jump, slide, flip & bounce
+        = image_tag 'screenshots/triple.gif', class: 'limit'
+        div Divebomb your enemies
+        = image_tag 'screenshots/boss_4.gif', class: 'limit'
+        div Fight powerful bosses
+        = image_tag 'screenshots/collect_horror.gif', class: 'limit'
+        div Collect '80s memorabilia
+        = image_tag 'screenshots/neon_jesus.jpg', class: 'limit'
+        div Save the decade...
         br
-        b.blue Retro King Mini (Mega)
-        p Plays over 10,000 awesome retro games.  Complete with two wireless SNES controllers.
-        h4 Register to win
-        p
-          ' So, register now with
-          = render partial: 'game/beta_competition/login'
-          ' to enter the competition.
 
-        p
-          ' If you don't have Facebook and still want to play the game:
-          a href="/game/beta_competition/#modal" click here
+
+    .section.group
+      .col.span_3_of_3
         br
         .digital style="font-size: .7em; color: #666;" NO PURCHASE NECESSARY TO ENTER. VOID WHERE PROHIBITED OR RESTRICTED BY LAW. OPEN TO LEGAL RESIDENTS OF THE FIFTY UNITED STATES AND THE DISTRICT OF COLUMBIA WHO ARE 13 YEARS OF AGE OR OLDER.
         br
