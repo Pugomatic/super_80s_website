@@ -8,6 +8,8 @@ tr class=(entry.player.display_class(current_player))
       span.out = '8' * ((9 - world.length) / 2)
       = world
       span.out = '8' * ((9 - world.length) / 2)
+    - else
+      span.out = '8' * 9
   td
     span.led
       = pad_with_8s entry.level&.year, 6
