@@ -46,7 +46,7 @@ javascript:
               th.date_column
                 span style="background-color: #0e0616; padding: 20px" Players
               th.date_column
-                span style="background-color: #0e0616; padding: 20px" Leader
+                span style="background-color: #0e0616; padding: 20px" Winning
               th
                 span style="background-color: #0e0616; padding: 20px" Ending
 
@@ -66,7 +66,7 @@ javascript:
                   - if l.ending_at
                     = l.ending_at.to_formatted_s(:date)
                   - else
-                    span.out = '8' * 8
+                    span.out = '8' * 7
       - else
         h4 style="text-align:center"
           = link_to "Play the game", '/game/beta_competition'
