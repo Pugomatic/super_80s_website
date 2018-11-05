@@ -86,6 +86,9 @@ javascript:
                   span.out 8888
                   | FINISHED THE GAME
                   span.out 8888
+              tr
+                td
+                  = pad_with_8s player.player_total.high_score, 7
           - elsif @current_level
             table.leaderboard.tight
               tbody
@@ -116,7 +119,13 @@ javascript:
                     span.out 888
                     = @current_level.month
                     span.out 888
-
+                tr
+                  td
+                    span.out 8
+                    | SCORE
+                    span.out 8
+                  td
+                    pad_with_8s player.player_total.high_score, 7
         - unless @worlds.empty?
           .achievements
             h2.digital Decade Progress
