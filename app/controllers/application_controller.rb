@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_up_path_for(resource)
-    game_profiles_path
+    game_leaderboards_controller
   end
 
   private
