@@ -121,15 +121,16 @@ javascript:
                     span.out 888
                     = @current_level.month
                     span.out 888
-                tr
-                  td
-                    span.out 8
-                    | SCORE
-                    span.out 8
-                  td
-                    span.out = '8' * ((9 - @player.player_total.high_score) / 2)
-                    = @player.player_total.high_score
-                    span.out = '8' * ((9 - @player.player_total.high_score) / 2)
+                - if @player.player_total.high_score
+                  tr
+                    td
+                      span.out 8
+                      | SCORE
+                      span.out 8
+                    td
+                      span.out = '8' * ((9 - @player.player_total.high_score) / 2)
+                      = @player.player_total.high_score
+                      span.out = '8' * ((9 - @player.player_total.high_score) / 2)
         - unless @worlds.empty?
           .achievements
             h2.digital Decade Progress
