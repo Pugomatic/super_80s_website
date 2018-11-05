@@ -128,9 +128,9 @@ javascript:
                       | SCORE
                       span.out 8
                     td
-                      span.out = '8' * ((9 - @player.player_total.high_score) / 2)
+                      span.out = '8' * ((9 - @player.player_total.high_score.to_s.size) / 2)
                       = @player.player_total.high_score
-                      span.out = '8' * ((9 - @player.player_total.high_score) / 2)
+                      span.out = '8' * ((9 - @player.player_total.high_score.to_s.size) / 2)
         - unless @worlds.empty?
           .achievements
             h2.digital Decade Progress
