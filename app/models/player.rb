@@ -32,8 +32,8 @@ class Player < ApplicationRecord
       player_achievements.destroy_all
       player_levels.destroy_all
       player_worlds.destroy_all
-      player_total.destroy_all
-      update_attribute :top_completed_level, nil
+      player_total.clear!
+      update_attribute :top_completed_level_id, nil
     end
   end
 
