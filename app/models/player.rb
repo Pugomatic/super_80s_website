@@ -26,6 +26,17 @@ class Player < ApplicationRecord
   before_save   :remove_bad_language
   after_create  :create_player_totals
 
+  def reset!
+    self.class.transaction do
+      player_items.destroy_all
+      player_achievements.destroy_all
+      player_levels.destroy_all
+      player_worlds.destroy_all
+      player_total.destroy_all
+      update_attribute :top_completed_level, nil
+    end
+  end
+
   def self.public(current = 'non_user')
     if current.is_a?(Player)
       where('public = ? OR id = ?', true, current.id)
