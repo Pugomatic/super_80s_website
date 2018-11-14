@@ -75,7 +75,7 @@ class Player < ApplicationRecord
       player_levels.destroy_all
       player_worlds.destroy_all
       player_total.clear!
-      update_attributes top_completed_level_id: nil, skills: ''
+      update_attributes top_completed_level_id: nil, skills: '', player_level: 1
     end
   end
 
