@@ -13,7 +13,6 @@ javascript:
 = content_for :meta_image, @share_image
 = content_for :meta_description, @share_description
 = content_for :header do
-  /! Facebook Pixel Code
   javascript:
     !function (f, b, e, v, n, t, s) {
         if (f.fbq) return;
@@ -41,6 +40,12 @@ javascript:
     style = "display:none"
     src = "https://www.facebook.com/tr?id=295673351051327&ev=PageView&noscript=1"
 
+
+= content_for :header do
+  javascript:
+      var now=Date.now();var i=new Image();i.src="https://alb.reddit.com/snoo.gif?q=CAAHAAABAAoACQAAAAAC5HzQAA==&s=rPPuW2iCqRUDaskjZzbXNczDnJa0-2i_T5kjbG7_EKA=&ts="+now;
+  noscript
+    img height="1" width="1" style="display:none" src="https://alb.reddit.com/snoo.gif?q=CAAHAAABAAoACQAAAAAC5HzQAA==&s=rPPuW2iCqRUDaskjZzbXNczDnJa0-2i_T5kjbG7_EKA="
 
 .remodal data-remodal-id="modal"
   .email
