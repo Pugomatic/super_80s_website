@@ -14,19 +14,24 @@ module Game
     end
 
     def join
-      @selected = :leaderboard
+      if current_player
 
-      lb = Leaderboard.find(params[:id])
+        @selected = :leaderboard
 
-      if lb.open?
-        LeaderboardPlayer.create(leaderboard: lb, player: current_player)
-        LeaderboardEntry.create(leaderboard: lb, player: current_player)
-        current_player.reset!
-        flash[:notice] = "You have been entered into the tournament"
-        redirect_to game_leaderboard_path(lb.label)
+        lb = Leaderboard.find(params[:id])
+
+        if lb.open?
+          LeaderboardPlayer.create(leaderboard: lb, player: current_player)
+          LeaderboardEntry.create(leaderboard: lb, player: current_player)
+          current_player.reset!
+          flash[:notice] = "You have been entered into the tournament"
+          redirect_to game_leaderboard_path(lb.label)
+        else
+          flash[:notice] = "You cannot join the tournament at this time"
+          redirect_to game_leaderboard_path(lb.label)
+        end
       else
-        flash[:notice] = "You cannot join the tournament at this time"
-        redirect_to game_leaderboard_path(lb.label)
+        redirect_to '/game/beta_competition'
       end
     end
 
