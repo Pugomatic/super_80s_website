@@ -21,9 +21,7 @@ module Game
         lb = Leaderboard.find(params[:id])
 
         if lb.open?
-          LeaderboardPlayer.create(leaderboard: lb, player: current_player)
-          LeaderboardEntry.create(leaderboard: lb, player: current_player)
-          current_player.reset!
+          lb.join!(current_player)
           flash[:notice] = "You have been entered into the tournament"
           redirect_to game_leaderboard_path(lb.label)
         else

@@ -15,6 +15,16 @@ class Leaderboard < ApplicationRecord
     end
   end
 
+  def join!(player)
+    if open?
+      transaction do
+        LeaderboardPlayer.create(leaderboard: self, player: player)
+        LeaderboardEntry.create(leaderboard: self, player: player)
+        player.reset!
+      end
+    end
+  end
+
   def open?
     !closed? && !locked?
   end
