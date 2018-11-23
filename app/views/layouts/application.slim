@@ -7,6 +7,16 @@ html
 
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all'
+    script async="" src="https://www.googletagmanager.com/gtag/js?id=AW-933896982"
+
+    javascript:
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'AW-933896982');
 
   body
     = render partial: 'layouts/fb_js'
