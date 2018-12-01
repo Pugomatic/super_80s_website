@@ -36,7 +36,7 @@ class Leaderboard < ApplicationRecord
   end
 
   def entries
-    leaderboard_entries.includes(joiners).where('players.leader = ? AND level_id IS NOT NULL', true).order(self.class.sanitize_sql_for_order(sorting)) + leaderboard_entries.includes(joiners).where('players.leader = ? AND level_id IS NULL', true)
+    leaderboard_entries.includes(joiners).where('players.leader = ? AND level_id IS NOT NULL', true).order(self.class.sanitize_sql_for_order(sorting)).to_a + leaderboard_entries.includes(joiners).where('players.leader = ? AND level_id IS NULL', true).to_a
   end
 
   def update_entries!
