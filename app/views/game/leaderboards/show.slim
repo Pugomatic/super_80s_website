@@ -44,7 +44,7 @@ javascript:
         thead
           = render partial: "game/leaderboards/#{@dir}/header"
         tbody
-          - @leaderboard.entries.detect {|e| e.level_id == nil }.each do |entry|
+          - @leaderboard.entries.select {|e| e.level_id == nil }.each do |entry|
             = render partial: "game/leaderboards/#{@dir}/row", locals: {entry: entry}
           - @leaderboard.entries.reject {|e| e.level_id == nil }.each do |entry|
             = render partial: "game/leaderboards/#{@dir}/row", locals: {entry: entry}
