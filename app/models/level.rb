@@ -10,4 +10,12 @@ class Level < ApplicationRecord
   def label
     "#{year}.#{month}"
   end
+
+  def minigame?
+    level_type == 2
+  end
+
+  def boss?
+    level_type == 1
+  end
 end
