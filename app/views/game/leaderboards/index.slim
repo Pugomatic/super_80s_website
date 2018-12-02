@@ -61,7 +61,7 @@ javascript:
                 td.date_column
                   = pad_with_8s l.leaderboard_entries.count, 6
                 td.date_column
-                  = pad_with_8s l.entries.select {|e| e.level_id == nil }.first&.player&.handle, 12
+                  = pad_with_8s l.entries.reject {|e| e.level_id == nil }.first&.player&.handle, 12
                 td
                   - if l.ending_at
                     = l.ending_at.to_formatted_s(:date)
