@@ -6,7 +6,6 @@ class Level < ApplicationRecord
 
   delegate   :year, to: :world
 
-
   def label
     "#{year}.#{month}"
   end

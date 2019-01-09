@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_13_203942) do
+ActiveRecord::Schema.define(version: 2019_01_09_154755) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -317,6 +317,7 @@ ActiveRecord::Schema.define(version: 2018_11_13_203942) do
     t.boolean "level_up_player"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "level_type", default: 0
   end
 
   create_table "player_achievements", id: :serial, force: :cascade do |t|
@@ -363,6 +364,7 @@ ActiveRecord::Schema.define(version: 2018_11_13_203942) do
     t.datetime "completed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer "gold_finishes", default: 0
     t.index ["player_id", "level_id"], name: "i_player_levels_pl"
     t.index ["player_id", "level_id"], name: "i_player_levels_upl", unique: true
     t.index ["player_id"], name: "i_player_levels_p"
