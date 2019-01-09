@@ -48,7 +48,11 @@ class Leaderboard < ApplicationRecord
 
   def leader
     if direct
-      live_entries.limit(1).first&.player&.handle
+      if live_entries.is_a?(Array)
+        live_entries.first&.player&.handle
+      else
+        live_entries.limit(1).first&.player&.handle
+      end
     else
       entries.reject {|e| e.level_id == nil }.first&.player&.handle
     end
