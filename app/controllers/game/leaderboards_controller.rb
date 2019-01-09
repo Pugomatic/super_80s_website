@@ -10,6 +10,8 @@ module Game
       @dir = 'default'
       if @leaderboard.label =~ /beta$/
         @dir = @leaderboard.label
+      else
+        @dir = @leaderboard.metric
       end
     end
 

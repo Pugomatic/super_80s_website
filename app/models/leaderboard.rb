@@ -5,6 +5,54 @@ class Leaderboard < ApplicationRecord
 
   attr_accessor :leaders
 
+  def name_length
+    name.length > 27 ? 27 : name.length
+  end
+
+  def empty?
+    if direct
+      true
+    else
+      entries.count == 0
+    end
+  end
+
+  def live_entries
+    raise "DON'T HACK ME" unless %w(high_score).include?(metric)
+
+    if level_id
+      PlayerLevel.where(level_id: level_id).order("#{metric} DESC")
+    elsif world_id
+      PlayerLevel.joins(level: {}).where('levels.world_id = ?', world_id).order("#{metric} DESC")
+    else
+      []
+    end
+  end
+
+  def leader_level
+    if direct
+      live_entries.limit(1).first&.player_level
+    else
+      entries.first.player.player_level
+    end
+  end
+
+  def leader
+    if direct
+      live_entries.limit(1).first&.player&.handle
+    else
+      entries.reject {|e| e.level_id == nil }.first&.player&.handle
+    end
+  end
+
+  def player_count
+    if direct
+      live_entries.count
+    else
+      leaderboard_entries.count
+    end
+  end
+
   def status
     if locked?
       "done"

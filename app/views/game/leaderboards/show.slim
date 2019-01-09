@@ -1,11 +1,11 @@
-- if @leaderboard.entries.empty?
+- if @leaderboard.empty?
   - @share_title = "Super 80s World Leaderboard"
   - @share_image = asset_url("game/level_9.png")
   - @share_description = "Check out the top players leaderboard on Super 80s World!"
 - else
-  - @share_title = "#{@leaderboard.entries.first.player.handle} is winning Super 80s World!"
-  - @share_image = asset_url("game/level_#{@leaderboard.entries.first.player.player_level}.png")
-  - @share_description = "#{@leaderboard.entries.first.player.handle} is leading the pack in the Super 80s World competition for a totally awesome retrogaming console!"
+  - @share_title = "#{@leaderboard.leader} is winning Super 80s World!"
+  - @share_image = asset_url("game/level_#{@leaderboard.leader_level}.png")
+  - @share_description = "#{@leaderboard.leader} is leading the pack in the Super 80s World competition for a totally awesome retrogaming console!"
 
 javascript:
     var addthis_share = {
@@ -35,7 +35,7 @@ javascript:
       h1 style="max-width: auto; max-height: auto;"
         = image_tag 'logo.png', class: 'centered logo'
       h1
-        = fix_lazer_font(@leaderboard.name)
+        = fix_lazer_font(@leaderboard.name).html_safe
 
       p style="text-align:center; max-width: 500px; margin-left: auto; margin-right: auto"
         = render partial: "game/leaderboards/#{@dir}/details"
@@ -44,7 +44,11 @@ javascript:
         thead
           = render partial: "game/leaderboards/#{@dir}/header"
         tbody
-          - @leaderboard.entries.reject {|e| e.level_id == nil }.each do |entry|
-            = render partial: "game/leaderboards/#{@dir}/row", locals: {entry: entry}
-          - @leaderboard.entries.select {|e| e.level_id == nil }.each do |entry|
-            = render partial: "game/leaderboards/#{@dir}/row", locals: {entry: entry}
+          - if @leaderboard.direct
+            - @leaderboard.live_entries.each do |entry|
+              = render partial: "game/leaderboards/#{@dir}/row", locals: {entry: entry}
+          - else
+            - @leaderboard.entries.reject {|e| e.level_id == nil }.each do |entry|
+              = render partial: "game/leaderboards/#{@dir}/row", locals: {entry: entry}
+            - @leaderboard.entries.select {|e| e.level_id == nil }.each do |entry|
+              = render partial: "game/leaderboards/#{@dir}/row", locals: {entry: entry}

@@ -40,7 +40,7 @@ javascript:
           thead
             tr
               th
-                span style="background-color: #0e0616; padding: 20px" Tournament
+                span style="background-color: #0e0616; padding: 20px" Leaderboard
               th.date_column
                 span style="background-color: #0e0616; padding: 20px" Status
               th.date_column
@@ -54,14 +54,14 @@ javascript:
             - @leaderboards.each do |l|
               tr class="#{l.status}"
                 td
-                  span.out = '8' * (27 - l.name.length)
+                  span.out = '8' * (27 - l.name_length)
                   = link_to l.name, "/game/leaderboards/#{l.label}"
                 td.date_column
                   = pad_with_8s l.status, 6
                 td.date_column
-                  = pad_with_8s l.leaderboard_entries.count, 6
+                  = pad_with_8s l.player_count, 6
                 td.date_column
-                  = pad_with_8s l.entries.reject {|e| e.level_id == nil }.first&.player&.handle, 12
+                  = pad_with_8s l.leader, 12
                 td
                   - if l.ending_at
                     = l.ending_at.to_formatted_s(:date)
