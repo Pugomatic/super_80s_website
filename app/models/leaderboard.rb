@@ -5,8 +5,8 @@ class Leaderboard < ApplicationRecord
 
   attr_accessor :leaders
 
-  def world?
-    level_id.nil? && world_id
+  def summed_up?
+    stat == 'game_score' || level_id.nil? && world_id
   end
 
   def name_length
@@ -22,8 +22,6 @@ class Leaderboard < ApplicationRecord
   end
 
   def live_entries
-    raise "DON'T HACK ME" unless %w(high_score).include?(metric)
-
     case metric
     when 'high_score'
       if level_id
@@ -31,7 +29,7 @@ class Leaderboard < ApplicationRecord
       elsif world_id
         PlayerLevel.joins(:level, :player).where('levels.world_id = ?', world_id).group('players.handle').order('sum_high_score desc').sum(:high_score).map {|k, v| {player: k, score: v}}
       else
-        []
+        PlayerLevel.joins(:level, :player).group('players.handle').order('sum_high_score desc').sum(:high_score).map {|k, v| {player: k, score: v}}
       end
     else
       []
@@ -40,7 +38,7 @@ class Leaderboard < ApplicationRecord
 
   def leader_level
     if direct
-      if world?
+      if summed_up?
         "5"
       else
         live_entries.limit(1).first&.player_level
@@ -52,8 +50,8 @@ class Leaderboard < ApplicationRecord
 
   def leader
     if direct
-      if world?
-        live_entries.first[:player]
+      if summed_up?
+        live_entries.first && live_entries.first[:player]
       else
         live_entries.limit(1).first&.player&.handle
       end
