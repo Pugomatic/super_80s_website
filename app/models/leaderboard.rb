@@ -20,10 +20,15 @@ class Leaderboard < ApplicationRecord
   def live_entries
     raise "DON'T HACK ME" unless %w(high_score).include?(metric)
 
-    if level_id
-      PlayerLevel.where(level_id: level_id).order("#{metric} DESC")
-    elsif world_id
-      PlayerLevel.joins(level: {}).where('levels.world_id = ?', world_id).order("#{metric} DESC")
+    case metric
+    when 'high_score'
+      if level_id
+        PlayerLevel.where(level_id: level_id).order("#{metric} DESC")
+      elsif world_id
+        []
+      else
+        []
+      end
     else
       []
     end
