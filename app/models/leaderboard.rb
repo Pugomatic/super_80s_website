@@ -15,7 +15,7 @@ class Leaderboard < ApplicationRecord
 
   def empty?
     if direct
-      true
+      player_count
     else
       entries.count == 0
     end
@@ -40,7 +40,11 @@ class Leaderboard < ApplicationRecord
 
   def leader_level
     if direct
-      live_entries.limit(1).first&.player_level
+      if world?
+        "5"
+      else
+        live_entries.limit(1).first&.player_level
+      end
     else
       entries.first.player.player_level
     end
@@ -48,8 +52,8 @@ class Leaderboard < ApplicationRecord
 
   def leader
     if direct
-      if live_entries.is_a?(Array)
-        live_entries.first&.player&.handle
+      if world?
+        live_entries.first[:player]
       else
         live_entries.limit(1).first&.player&.handle
       end
