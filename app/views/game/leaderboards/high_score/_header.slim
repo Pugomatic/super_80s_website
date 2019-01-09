@@ -1,12 +1,15 @@
 tr
   th
     span style="background-color: #0e0616; padding: 20px" Player
-  th.date_column
-    span style="background-color: #0e0616; padding: 20px" World
-  th
-    span style="background-color: #0e0616; padding: 20px" Year
-  th
-    span style="background-color: #0e0616; padding: 20px" Level
-  th.date_column
-    span style="background-color: #0e0616; padding: 20px" Score
-
+  - if @leaderboard.world?
+    th
+      span style="background-color: #0e0616; padding: 20px" Score
+  - else
+    th.date_column
+      span style="background-color: #0e0616; padding: 20px" World
+    th
+      span style="background-color: #0e0616; padding: 20px" Year
+    th
+      span style="background-color: #0e0616; padding: 20px" Level
+    th.date_column
+      span style="background-color: #0e0616; padding: 20px" Score

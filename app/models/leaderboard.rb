@@ -5,6 +5,10 @@ class Leaderboard < ApplicationRecord
 
   attr_accessor :leaders
 
+  def world?
+    level_id.nil? && world_id
+  end
+
   def name_length
     name.length > 27 ? 27 : name.length
   end
@@ -25,7 +29,7 @@ class Leaderboard < ApplicationRecord
       if level_id
         PlayerLevel.where(level_id: level_id).order("#{metric} DESC")
       elsif world_id
-        []
+        PlayerLevel.joins(:level, :player).where('levels.world_id = ?', world_id).group('players.handle').order('sum_high_score desc').sum(:high_score).map {|k, v| {player: k, score: v}}
       else
         []
       end

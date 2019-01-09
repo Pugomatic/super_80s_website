@@ -1,5 +1,14 @@
-- world = entry&.level&.world&.name
-- if entry.player.handle
+- if @leaderboard.world?
+  - world = nil
+  tr
+    td
+      span.out = '8' * (12 - entry[:player].length)
+      = entry[:player]
+    td
+      span.led
+        = pad_with_8s entry[:score].to_s, 6
+- elsif entry.player.handle
+  - world = entry&.level&.world&.name
   tr class=(entry.player.display_class(current_player))
     td
       span.out = '8' * (12 - entry.player.handle.length)
