@@ -1,4 +1,7 @@
 class Leaderboard < ApplicationRecord
+  belongs_to  :level
+  belongs_to  :world
+
   has_many  :leaderboard_players
   has_many  :players, through: :leaderboard_players
   has_many  :leaderboard_entries
