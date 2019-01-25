@@ -26,8 +26,8 @@ class Leaderboard < ApplicationRecord
 
   def display_time
     if level_id
-      "#{world.year}.#{level.month}"
-    elsif world_id
+      "#{level.world.year}.#{level.month}"
+    elsif world
       world.year
     else
       nil
