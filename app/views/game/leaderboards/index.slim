@@ -42,13 +42,13 @@ javascript:
               th
                 span style="background-color: #0e0616; padding: 20px" Leaderboard
               th.date_column
-                span style="background-color: #0e0616; padding: 20px" Status
+                span style="background-color: #0e0616; padding: 20px" Stat
               th.date_column
                 span style="background-color: #0e0616; padding: 20px" Players
-              th.date_column
-                span style="background-color: #0e0616; padding: 20px" Winning
               th
-                span style="background-color: #0e0616; padding: 20px" Ending
+                span style="background-color: #0e0616; padding: 20px" Winning
+              th.date_column
+                span style="background-color: #0e0616; padding: 20px" Time
 
           tbody
             - @leaderboards.each do |l|
@@ -57,14 +57,16 @@ javascript:
                   span.out = '8' * (27 - l.name_length)
                   = link_to l.name, "/game/leaderboards/#{l.label}"
                 td.date_column
-                  = pad_with_8s l.status, 6
+                  = pad_with_8s l.display_stat, 6
                 td.date_column
                   = pad_with_8s l.player_count, 6
-                td.date_column
-                  = pad_with_8s l.leader, 12
                 td
+                  = pad_with_8s l.leader, 12
+                td.date_column
                   - if l.ending_at
                     = l.ending_at.to_formatted_s(:date)
+                  - elsif l.display_time
+                    = pad_with_8s l.display_time, 7
                   - else
                     span.out = '8' * 7
       - else

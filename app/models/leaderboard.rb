@@ -21,6 +21,16 @@ class Leaderboard < ApplicationRecord
     end
   end
 
+  def display_time
+    if level_id
+      "#{world.year}.#{level.month}"
+    elsif world_id
+      world.year
+    else
+      nil
+    end
+  end
+
   def live_entries
     case metric
     when 'high_score'
@@ -66,6 +76,10 @@ class Leaderboard < ApplicationRecord
     else
       leaderboard_entries.count
     end
+  end
+
+  def stat
+    "SCORE"
   end
 
   def status
