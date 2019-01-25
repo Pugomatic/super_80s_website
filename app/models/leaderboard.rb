@@ -60,7 +60,7 @@ class Leaderboard < ApplicationRecord
 
   def leader
     if direct
-      if summed_up?
+      if summed_up? || live_entries.is_a?(Array)
         live_entries.first && live_entries.first[:player]
       else
         live_entries.limit(1).first&.player&.handle
