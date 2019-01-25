@@ -78,7 +78,7 @@ class Leaderboard < ApplicationRecord
     end
   end
 
-  def stat
+  def display_stat
     "SCORE"
   end
 
