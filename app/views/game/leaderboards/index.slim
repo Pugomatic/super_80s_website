@@ -54,7 +54,6 @@ javascript:
             - @leaderboards.each do |l|
               tr class="#{l.status}"
                 td
-                  span.out = '8' * (27 - l.name_length)
                   = link_to l.name, "/game/leaderboards/#{l.label}"
                 td.date_column
                   = pad_with_8s l.display_stat, 6
