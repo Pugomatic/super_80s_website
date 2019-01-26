@@ -51,7 +51,7 @@ class Leaderboard < ApplicationRecord
 
   def leader_level
     if direct
-      if summed_up?
+      if summed_up? || live_entries.is_a?(Array)
         "5"
       else
         live_entries.limit(1).first&.player_level

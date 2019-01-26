@@ -1,4 +1,4 @@
-- if @leaderboard.summed_up?
+- if @leaderboard.summed_up? || entry.is_a?(Hash)
   - if entry[:player]
     - world = nil
     tr
