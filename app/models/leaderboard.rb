@@ -34,7 +34,9 @@ class Leaderboard < ApplicationRecord
     end
   end
 
-  def live_entries
+  def live_entries(options = {sort: 'score'})
+    options[:sort] = 'score' unless %w(score time).include? options[:sort]
+
     case metric
     when 'high_score'
       if level_id
@@ -42,7 +44,17 @@ class Leaderboard < ApplicationRecord
       elsif world_id
         PlayerLevel.joins(:level, :player).where('levels.world_id = ?', world_id).group('players.handle').order('sum_high_score desc').sum(:high_score).map {|k, v| {player: k, score: v}}
       else
-        PlayerLevel.joins(:level, :player).group('players.handle').order('sum_high_score desc').sum(:high_score).map {|k, v| {player: k, score: v}}
+        top = Level.order(number: :desc).first.id.to_s
+        list = PlayerLevel.joins(:level, :player).where('fastest_time > 0 AND high_score > 0 AND players.handle IS NOT NULL').group('playa').pluck('SUM("player_levels"."high_score") as sum_high_score, SUM("player_levels"."fastest_time"), CONCAT(players.handle, \'*#@)\', players.top_completed_level_id) as playa').map do |a|
+          playa, top_id = a[2].split("*#@)")
+          {player: playa, score: a[0], time: top == top_id ? a[1] / 1000.0 : nil }
+        end
+
+        if options[:sort] == 'time'
+          list.sort {|a, b| a[:time] && b[:time] ? a[:time] <=> b[:time] : a[:time] ? -1 : 1 }
+        else
+          list.sort {|a, b| a[:score] <=> b[:score] }.reverse
+        end
       end
     else
       []
