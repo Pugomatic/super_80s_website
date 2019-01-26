@@ -9,23 +9,13 @@
         span.led
           = pad_with_8s entry[:score].to_s, 6
 - elsif entry.player.handle
-  - world = entry&.level&.world&.name
   tr class=(entry.player.display_class(current_player))
     td
       span.out = '8' * (12 - entry.player.handle.length)
       = link_to entry.player.handle, game_profile_path(entry.player_id)
     td.date_column
-      - if world
-        span.out = '8' * ((9 - world.length) / 2)
-        = world
-        span.out = '8' * ((9 - world.length) / 2)
-    td
-      span.led
-        = pad_with_8s entry.level.year, 6
-    td
-      span.led
-        = pad_with_8s entry.level.month, 4
-
-    td.date_column
       span.led
         = pad_with_8s entry.high_score.to_s, 6
+    td.date_column
+      span.led
+        = pad_with_8s entry.fastest_time.to_s, 6
