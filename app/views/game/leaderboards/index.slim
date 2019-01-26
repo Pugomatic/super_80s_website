@@ -36,11 +36,38 @@ javascript:
           br
           = link_to 'Check out the FAQ', '/faq'
 
-        - @leaderboards.each do |group, leaderboards|
-          h1
-            = fix_lazer_font("#{group.capitalize} Boards").html_safe
 
-          - if group != 'custom' || true
+        - %w(overall world boss minigame).each do |label|
+          h1
+            = fix_lazer_font("#{label} Boards").html_safe
+
+          - @leaderboards[label].each do |leaderboards|
+            table.leaderboard
+              thead
+                tr
+                  th
+                    span style="background-color: #0e0616; padding: 20px" Leaderboard
+                  th.date_column
+                    span style="background-color: #0e0616; padding: 20px" Players
+                  th
+                    span style="background-color: #0e0616; padding: 20px" Winning
+
+              tbody
+                - leaderboards.each do |l|
+                  tr class="#{l.status}"
+                    td
+                      = link_to l.short_name, "/game/leaderboards/#{l.label}"
+                    td.date_column
+                      = pad_with_8s l.player_count, 6
+                    td
+                      = pad_with_8s l.leader, 12
+
+
+        - %w(level custom).each do |label|
+          h1
+            = fix_lazer_font("#{label} Boards").html_safe
+
+          - @leaderboards[label].each do |leaderboards|
             table.leaderboard
               thead
                 tr
@@ -54,7 +81,6 @@ javascript:
                     span style="background-color: #0e0616; padding: 20px" Winning
                   th.date_column
                     span style="background-color: #0e0616; padding: 20px" Time
-
               tbody
                 - leaderboards.each do |l|
                   tr class="#{l.status}"
