@@ -29,45 +29,50 @@ javascript:
     .achievements
       h1 style="max-width: auto; max-height: auto;"
         = image_tag 'logo.png', class: 'centered logo'
-      h1 = fix_lazer_font "Leaderboards"
+      //h1 = fix_lazer_font "Leaderboards"
       - if current_player
         p style="text-align:center; margin-left: auto; margin-right: auto"
           | Have questions?
           br
           = link_to 'Check out the FAQ', '/faq'
 
-        table.leaderboard
-          thead
-            tr
-              th
-                span style="background-color: #0e0616; padding: 20px" Leaderboard
-              th.date_column
-                span style="background-color: #0e0616; padding: 20px" Stat
-              th.date_column
-                span style="background-color: #0e0616; padding: 20px" Players
-              th
-                span style="background-color: #0e0616; padding: 20px" Winning
-              th.date_column
-                span style="background-color: #0e0616; padding: 20px" Time
+        - @leaderboards.each do |group, leaderboards|
+          h1
+            = fix_lazer_font("#{group.capitalize} Boards").html_safe
 
-          tbody
-            - @leaderboards.each do |l|
-              tr class="#{l.status}"
-                td
-                  = link_to l.name, "/game/leaderboards/#{l.label}"
-                td.date_column
-                  = pad_with_8s l.display_stat, 6
-                td.date_column
-                  = pad_with_8s l.player_count, 6
-                td
-                  = pad_with_8s l.leader, 12
-                td.date_column
-                  - if l.ending_at
-                    = l.ending_at.to_formatted_s(:date)
-                  - elsif l.display_time
-                    = pad_with_8s l.display_time, 7
-                  - else
-                    span.out = '8' * 7
+          - if group != 'custom' || true
+            table.leaderboard
+              thead
+                tr
+                  th
+                    span style="background-color: #0e0616; padding: 20px" Leaderboard
+                  th.date_column
+                    span style="background-color: #0e0616; padding: 20px" Stat
+                  th.date_column
+                    span style="background-color: #0e0616; padding: 20px" Players
+                  th
+                    span style="background-color: #0e0616; padding: 20px" Winning
+                  th.date_column
+                    span style="background-color: #0e0616; padding: 20px" Time
+
+              tbody
+                - leaderboards.each do |l|
+                  tr class="#{l.status}"
+                    td
+                      = link_to l.short_name, "/game/leaderboards/#{l.label}"
+                    td.date_column
+                      = pad_with_8s l.display_stat, 6
+                    td.date_column
+                      = pad_with_8s l.player_count, 6
+                    td
+                      = pad_with_8s l.leader, 12
+                    td.date_column
+                      - if l.ending_at
+                        = l.ending_at.to_formatted_s(:date)
+                      - elsif l.display_time
+                        = pad_with_8s l.display_time, 7
+                      - else
+                        span.out = '8' * 7
       - else
         h4 style="text-align:center"
           = link_to "Play the game", '/game/beta_competition'

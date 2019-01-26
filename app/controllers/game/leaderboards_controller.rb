@@ -38,27 +38,7 @@ module Game
     def index
       @selected = :leaderboard
 
-      @leaderboards = {
-          overall: [],
-          minigame: [],
-          world: [],
-          level: [],
-          custom: []
-      }
-
-      Leaderboard.all.order(created_at: :desc) do |l|
-        if l.direct
-          if l.minigame
-          case l.timeframe
-          when 'game'
-          when 'world'
-          when 'level'
-          when 'minigame'
-          end
-        else
-          @leaderboards[:custom] << l
-        end
-      end
+      @leaderboards = Leaderboard.all.order(position: :asc).group_by(&:kind)
 
       # @top_level_board = Player.top_level_board.to_a
 
