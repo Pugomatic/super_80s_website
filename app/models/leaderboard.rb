@@ -68,6 +68,8 @@ class Leaderboard < ApplicationRecord
       else
         live_entries.limit(1).first&.player&.handle
       end
+    elsif entries.blank?
+      ""
     else
       entries.reject {|e| e.level_id == nil }.first&.player&.handle
     end
@@ -116,6 +118,8 @@ class Leaderboard < ApplicationRecord
   end
 
   def entries
+    return [] if leaderboard_entries.count == 0
+
     leaderboard_entries.includes(joiners).where('players.leader = ?', true).order(self.class.sanitize_sql_for_order(sorting))
   end
 
