@@ -35,7 +35,7 @@ class Leaderboard < ApplicationRecord
   end
 
   def live_entries(options = {sort: 'score'})
-    options[:sort] = 'score' unless %w(score time).include? options[:sort]
+    raise options.inspect
 
     case metric
     when 'high_score'
@@ -53,7 +53,6 @@ class Leaderboard < ApplicationRecord
           end
         end
 
-        raise PlayerLevel.joins(:player).where(level_id: level_id).where('high_score > 0').order(ordering).to_sql
         return PlayerLevel.joins(:player).where(level_id: level_id).where('high_score > 0').order(ordering).map do |r|
           {player: r.player.handle, id: r.player.id, score: r.high_score, time: r.fastest_time.nil? ? 0.0 : r.fastest_time / 1000.0 }
         end
