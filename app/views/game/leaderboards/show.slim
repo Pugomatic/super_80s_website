@@ -45,6 +45,7 @@ javascript:
           = render partial: "game/leaderboards/#{@dir}/header"
         tbody
           - if @leaderboard.direct
+            - raise params[:sort].inspect
             - @leaderboard.live_entries(sort: params[:sort]).each do |entry|
               = render partial: "game/leaderboards/#{@dir}/row", locals: {entry: entry}
           - else
