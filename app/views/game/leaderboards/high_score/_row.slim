@@ -9,9 +9,9 @@
     td
       span.led
         - if entry[:time] == nil || entry[:time].to_f == 0
-          = pad_with_8s "", 9
+          = pad_with_8s "", 8
         - else
-          = pad_with_8s sprintf("%#g", entry[:time].to_f), 10
+          = pad_with_8s sprintf("%.02f", entry[:time].to_f), 9
 
 - elsif entry.player.handle
   tr class=(entry.player.display_class(current_player))
