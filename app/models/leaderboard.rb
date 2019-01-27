@@ -35,38 +35,36 @@ class Leaderboard < ApplicationRecord
   end
 
   def live_entries(options = {sort: 'score'})
-    raise options.inspect
+    top = ""
+    list = []
 
-    case metric
-    when 'high_score'
-      top = ""
-      list = []
+    if level_id
+      ordering = "high_score DESC"
 
-      if level_id
-        ordering = "high_score DESC"
-
-        if options[:sort] == 'time'
-          if level.minigame?
-            ordering = "fastest_time DESC"
-          else
-            ordering = "fastest_time ASC"
-          end
+      if options[:sort] == 'time'
+        if level.minigame?
+          ordering = "fastest_time DESC"
+        else
+          ordering = "fastest_time ASC"
         end
-
-        return PlayerLevel.joins(:player).where(level_id: level_id).where('high_score > 0').order(ordering).map do |r|
-          {player: r.player.handle, id: r.player.id, score: r.high_score, time: r.fastest_time.nil? ? 0.0 : r.fastest_time / 1000.0 }
-        end
-      elsif world_id
-        top = Level.where(world_id: world_id).order(number: :desc).first.id.to_s
-        list = PlayerLevel.joins(:level, :player).where('levels.world_id = ?', world_id).where('fastest_time > 0 AND high_score > 0 AND players.handle IS NOT NULL').group('playa').pluck('SUM("player_levels"."high_score") as sum_high_score, SUM("player_levels"."fastest_time"), CONCAT(players.handle, \'*#@)\', players.top_completed_level_id) as playa')
-      else
-        top = Level.order(number: :desc).first.id.to_s
-        list = PlayerLevel.joins(:level, :player).where('fastest_time > 0 AND high_score > 0 AND players.handle IS NOT NULL').group('playa').pluck('SUM("player_levels"."high_score") as sum_high_score, SUM("player_levels"."fastest_time"), CONCAT(players.handle, \'*#@)\', players.id, \'*#@)\', players.top_completed_level_id) as playa')
       end
 
+      list = PlayerLevel.joins(:player).where(level_id: level_id).where('high_score > 0').order(ordering).map do |r|
+        {player: r.player.handle, player_id: r.player.id, player_level: r.player.player_level, score: r.high_score, time: r.fastest_time.nil? ? 0.0 : r.fastest_time / 1000.0 }
+      end
+
+    elsif world_id
+      top = Level.where(world_id: world_id).order(number: :desc).first.id.to_s
+      list = PlayerLevel.joins(:level, :player).where('levels.world_id = ?', world_id).where('fastest_time > 0 AND high_score > 0 AND players.handle IS NOT NULL').group('playa').pluck('SUM("player_levels"."high_score") as sum_high_score, SUM("player_levels"."fastest_time"), CONCAT(players.handle, \'*#@)\', players.top_completed_level_id) as playa')
+    else
+      top = Level.order(number: :desc).first.id.to_s
+      list = PlayerLevel.joins(:level, :player).where('fastest_time > 0 AND high_score > 0 AND players.handle IS NOT NULL').group('playa').pluck('SUM("player_levels"."high_score") as sum_high_score, SUM("player_levels"."fastest_time"), CONCAT(players.handle, \'*#@)\', players.id, \'*#@)\', players.player_level, \'*#@)\', players.top_completed_level_id) as playa')
+    end
+
+    unless level_id
       list.map! do |a|
-        playa, player_id, top_id = a[2].split("*#@)")
-        {player: playa, id: player_id, score: a[0], time: top == top_id ? a[1] / 1000.0 : nil }
+        playa, player_id, player_level, top_id = a[2].split("*#@)")
+        {player: playa, player_id: player_id, player_level: player_level, score: a[0], time: top == top_id ? a[1] / 1000.0 : nil }
       end
 
       if options[:sort] == 'time'
@@ -74,18 +72,20 @@ class Leaderboard < ApplicationRecord
       else
         list.sort {|a, b| a[:score] <=> b[:score] }.reverse
       end
-    else
-      []
     end
+
+    if options[:sort] == 'time'
+      update_attributes player_count: list.count, top_time_name: list.first[:player], top_time: list.first[:score], top_time_level: list.first[:player_level]
+    else
+      update_attributes player_count: list.count, top_score_name: list.first[:player], top_score: list.first[:score], top_score_level: list.first[:player_level]
+    end
+
+    list
   end
 
   def leader_level
     if direct
-      if summed_up? || live_entries.is_a?(Array)
-        "5"
-      else
-        live_entries.limit(1).first&.player_level
-      end
+      top_score_level
     else
       entries.first.player.player_level
     end
@@ -93,11 +93,7 @@ class Leaderboard < ApplicationRecord
 
   def leader
     if direct
-      if summed_up? || live_entries.is_a?(Array)
-        live_entries.first && live_entries.first[:player]
-      else
-        live_entries.limit(1).first&.player&.handle
-      end
+      top_score_name
     elsif entries.blank?
       ""
     else
@@ -107,7 +103,7 @@ class Leaderboard < ApplicationRecord
 
   def player_count
     if direct
-      live_entries.count
+      player_count
     else
       leaderboard_entries.count
     end
