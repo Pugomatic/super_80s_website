@@ -45,7 +45,7 @@ class Leaderboard < ApplicationRecord
       if level_id
         ordering = "high_score DESC"
 
-        if option[:sort] == 'time'
+        if options[:sort] == 'time'
           if level.minigame?
             ordering = "fastest_time DESC"
           else
@@ -53,7 +53,7 @@ class Leaderboard < ApplicationRecord
           end
         end
 
-        return PlayerLevel.joins(:player).where(level_id: level_id).order(ordering).map do |r|
+        return PlayerLevel.joins(:player).where(level_id: level_id).where('high_score > 0').order(ordering).map do |r|
           {player: r.player.handle, id: r.player.id, score: r.high_score, time: r.fastest_time.nil? ? 0.0 : r.fastest_time / 1000.0 }
         end
       elsif world_id
