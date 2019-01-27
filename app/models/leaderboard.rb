@@ -103,7 +103,7 @@ class Leaderboard < ApplicationRecord
 
   def player_count
     if direct
-      player_count
+      read_attribute(:player_count)
     else
       leaderboard_entries.count
     end

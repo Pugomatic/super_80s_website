@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_26_002235) do
+ActiveRecord::Schema.define(version: 2019_01_27_205932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -307,6 +307,13 @@ ActiveRecord::Schema.define(version: 2019_01_26_002235) do
     t.string "short_name"
     t.string "kind"
     t.integer "position", default: 100
+    t.integer "player_count"
+    t.string "top_score_name"
+    t.integer "top_score"
+    t.string "top_time_name"
+    t.integer "top_time"
+    t.integer "top_score_level"
+    t.integer "top_time_level"
   end
 
   create_table "levels", id: :serial, force: :cascade do |t|
