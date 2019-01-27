@@ -41,6 +41,9 @@ class Leaderboard < ApplicationRecord
     when 'high_score'
       return  PlayerLevel.where(level_id: level_id).order("#{metric} DESC") if level_id
 
+      top = ""
+      list = []
+
       if world_id
         top = Level.where(world_id: world_id).order(number: :desc).first.id.to_s
         list = PlayerLevel.joins(:level, :player).where('levels.world_id = ?', world_id).where('fastest_time > 0 AND high_score > 0 AND players.handle IS NOT NULL').group('playa').pluck('SUM("player_levels"."high_score") as sum_high_score, SUM("player_levels"."fastest_time"), CONCAT(players.handle, \'*#@)\', players.top_completed_level_id) as playa')
@@ -51,7 +54,7 @@ class Leaderboard < ApplicationRecord
 
       list.map! do |a|
         playa, top_id = a[2].split("*#@)")
-        {player: playa, score: a[0], time: top <= top_id ? a[1] / 1000.0 : nil }
+        {player: playa, score: a[0], time: top == top_id ? a[1] / 1000.0 : nil }
       end
 
       if options[:sort] == 'time'
