@@ -43,20 +43,20 @@ class Leaderboard < ApplicationRecord
       list = []
 
       if level_id
-        return PlayerLevel.where(level_id: level_id).order("#{metric} DESC").map do |r|
-          {player: r.player.handle, score: r.high_score, time: r.fastest_time.nil? ? 0.0 : r.fastest_time / 1000.0 }
+        return PlayerLevel.joins(:player).where(level_id: level_id).order("#{metric} DESC").map do |r|
+          {player: r.player.handle, id: r.player.id score: r.high_score, time: r.fastest_time.nil? ? 0.0 : r.fastest_time / 1000.0 }
         end
       elsif world_id
         top = Level.where(world_id: world_id).order(number: :desc).first.id.to_s
         list = PlayerLevel.joins(:level, :player).where('levels.world_id = ?', world_id).where('fastest_time > 0 AND high_score > 0 AND players.handle IS NOT NULL').group('playa').pluck('SUM("player_levels"."high_score") as sum_high_score, SUM("player_levels"."fastest_time"), CONCAT(players.handle, \'*#@)\', players.top_completed_level_id) as playa')
       else
         top = Level.order(number: :desc).first.id.to_s
-        list = PlayerLevel.joins(:level, :player).where('fastest_time > 0 AND high_score > 0 AND players.handle IS NOT NULL').group('playa').pluck('SUM("player_levels"."high_score") as sum_high_score, SUM("player_levels"."fastest_time"), CONCAT(players.handle, \'*#@)\', players.top_completed_level_id) as playa')
+        list = PlayerLevel.joins(:level, :player).where('fastest_time > 0 AND high_score > 0 AND players.handle IS NOT NULL').group('playa').pluck('SUM("player_levels"."high_score") as sum_high_score, SUM("player_levels"."fastest_time"), CONCAT(players.handle, \'*#@)\', players.id, \'*#@)\', players.top_completed_level_id) as playa')
       end
 
       list.map! do |a|
-        playa, top_id = a[2].split("*#@)")
-        {player: playa, score: a[0], time: top == top_id ? a[1] / 1000.0 : nil }
+        playa, player_id, top_id = a[2].split("*#@)")
+        {player: playa, id: player_id, score: a[0], time: top == top_id ? a[1] / 1000.0 : nil }
       end
 
       if options[:sort] == 'time'
