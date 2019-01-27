@@ -58,7 +58,7 @@ class Leaderboard < ApplicationRecord
       end
 
       if options[:sort] == 'time'
-        list.sort {|a, b| a[:time] && b[:time] ? a[:time] <=> b[:time] : a[:time] ? -1 : 1 }
+        list.reject {|i| i[:time] == nil }.sort {|a, b| a[:time] <=> b[:time] }
       else
         list.sort {|a, b| a[:score] <=> b[:score] }.reverse
       end

@@ -1,6 +1,5 @@
 - if @leaderboard.summed_up? || entry.is_a?(Hash)
   - if entry[:player]
-    - world = nil
     tr
       td
         span.out = '8' * (12 - entry[:player].length)
@@ -10,7 +9,7 @@
           = pad_with_8s entry[:score].to_s, 6
       td
         span.led
-          = pad_with_8s entry[:time].to_s, 6
+          = entry[:time]
 
 - elsif entry.player.handle
   tr class=(entry.player.display_class(current_player))
