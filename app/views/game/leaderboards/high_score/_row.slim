@@ -10,7 +10,7 @@
           = pad_with_8s entry[:score].to_s, 6
       td
         span.led
-          = pad_with_8s sprintf("%#g", entry[:time].to_f), 9
+          = pad_with_8s entry[:time].to_f == 0 ? "N/A" : sprintf("%#g", entry[:time].to_f), 10
 
 - elsif entry.player.handle
   tr class=(entry.player.display_class(current_player))
