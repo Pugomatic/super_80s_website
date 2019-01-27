@@ -44,7 +44,7 @@ class Leaderboard < ApplicationRecord
 
       if level_id
         return PlayerLevel.joins(:player).where(level_id: level_id).order("#{metric} DESC").map do |r|
-          {player: r.player.handle, id: r.player.id score: r.high_score, time: r.fastest_time.nil? ? 0.0 : r.fastest_time / 1000.0 }
+          {player: r.player.handle, id: r.player.id, score: r.high_score, time: r.fastest_time.nil? ? 0.0 : r.fastest_time / 1000.0 }
         end
       elsif world_id
         top = Level.where(world_id: world_id).order(number: :desc).first.id.to_s
