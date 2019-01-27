@@ -74,10 +74,12 @@ class Leaderboard < ApplicationRecord
       end
     end
 
-    if options[:sort] == 'time'
-      update_attributes player_count: list.count, top_time_name: list.first[:player], top_time: list.first[:score], top_time_level: list.first[:player_level]
-    else
-      update_attributes player_count: list.count, top_score_name: list.first[:player], top_score: list.first[:score], top_score_level: list.first[:player_level]
+    unless list.empty?
+      if options[:sort] == 'time'
+        update_attributes player_count: list.count, top_time_name: list.first[:player], top_time: list.first[:score], top_time_level: list.first[:player_level]
+      else
+        update_attributes player_count: list.count, top_score_name: list.first[:player], top_score: list.first[:score], top_score_level: list.first[:player_level]
+      end
     end
 
     list
