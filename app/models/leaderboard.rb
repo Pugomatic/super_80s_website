@@ -38,6 +38,8 @@ class Leaderboard < ApplicationRecord
     top = 0
     list = []
 
+    plucky = 'SUM("player_levels"."high_score") as sum_high_score, SUM("player_levels"."fastest_time"), CONCAT(players.handle, \'*#@)\', players.id, \'*#@)\', players.player_level, \'*#@)\', players.top_completed_level_id) as playa'
+
     if level_id
       ordering = "high_score DESC, fastest_time ASC"
 
@@ -55,16 +57,17 @@ class Leaderboard < ApplicationRecord
 
     elsif world_id
       top = Level.where(world_id: world_id).order(number: :desc).first.number
-      list = PlayerLevel.joins(:level, :player).where('levels.world_id = ?', world_id).where('fastest_time > 0 AND high_score > 0 AND players.handle IS NOT NULL').group('playa').pluck('SUM("player_levels"."high_score") as sum_high_score, SUM("player_levels"."fastest_time"), CONCAT(players.handle, \'*#@)\', players.top_completed_level_id) as playa')
+      list = PlayerLevel.joins(:level, :player).where('levels.world_id = ?', world_id).where('fastest_time > 0 AND high_score > 0 AND players.handle IS NOT NULL').group('playa').pluck(plucky)
     else
       top = Level.order(number: :desc).first.number
-      list = PlayerLevel.joins(:level, :player).where('fastest_time > 0 AND high_score > 0 AND players.handle IS NOT NULL').group('playa').pluck('SUM("player_levels"."high_score") as sum_high_score, SUM("player_levels"."fastest_time"), CONCAT(players.handle, \'*#@)\', players.id, \'*#@)\', players.player_level, \'*#@)\', players.top_completed_level_id) as playa')
+      list = PlayerLevel.joins(:level, :player).where('fastest_time > 0 AND high_score > 0 AND players.handle IS NOT NULL').group('playa').pluck(plucky)
     end
 
     if timeframe == 'world' || timeframe == 'game'
       list.map! do |a|
         playa, player_id, player_level, player_top = a[2].split("*#@)")
         player_top = player_top.nil? ? 0 : Level.find(player_top).number
+        puts player_top
         {player: playa, player_id: player_id, player_level: player_level, score: a[0], time: player_top >= top ? a[1] / 1000.0 : nil }
       end
 
