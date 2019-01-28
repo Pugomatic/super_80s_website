@@ -49,18 +49,27 @@ javascript:
                 span style="background-color: #0e0616; padding: 20px" Players
               th
                 span style="background-color: #0e0616; padding: 20px" Winning
+              th.date_column
+                span style="background-color: #0e0616; padding: 20px"
           tbody
             - @leaderboards[label].each do |leaderboards|
               - Array.wrap(leaderboards).each do |l|
                 tr class="#{l.status}"
                   td
-                    = link_to l.short_name, "/game/leaderboards/#{l.label}"
+                    = link_to "#{l.short_name} High Score", "/game/leaderboards/#{l.label}?stat=score"
                   td.date_column
                     = pad_with_8s l.player_count, 6
                   td
-                    = pad_with_8s l.leader, 13
-
-
+                    = pad_with_8s l.top_score_name, 13
+                tr class="#{l.status}"
+                  td
+                    = link_to "#{l.short_name} Best Time", "/game/leaderboards/#{l.label}?stat=time"
+                  td.date_column
+                    = pad_with_8s l.player_count, 6
+                  td
+                    = pad_with_8s l.top_time_name, 13
+                  td.date_column
+                    = pad_with_8s sprintf('%.02f', l.top_time), 6
       h1
         = fix_lazer_font("Level Boards").html_safe
 
