@@ -70,8 +70,6 @@ javascript:
             th
               span style="background-color: #0e0616; padding: 20px" Leaderboard
             th.date_column
-              span style="background-color: #0e0616; padding: 20px" Stat
-            th.date_column
               span style="background-color: #0e0616; padding: 20px" Players
             th
               span style="background-color: #0e0616; padding: 20px" Winning
@@ -81,8 +79,6 @@ javascript:
               tr class="#{l.status}"
                 td
                   = link_to l.short_name, "/game/leaderboards/#{l.label}"
-                td.date_column
-                  = pad_with_8s l.display_stat, 6
                 td.date_column
                   = pad_with_8s l.player_count, 6
                 td
