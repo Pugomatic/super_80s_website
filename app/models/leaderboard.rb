@@ -67,7 +67,6 @@ class Leaderboard < ApplicationRecord
       list.map! do |a|
         playa, player_id, player_level, player_top = a[2].split("*#@)")
         player_top = player_top.nil? ? 0 : Level.find(player_top).number
-        puts player_top
         {player: playa, player_id: player_id, player_level: player_level, score: a[0], time: player_top >= top ? a[1] / 1000.0 : nil }
       end
 
