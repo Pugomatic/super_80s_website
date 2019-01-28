@@ -54,14 +54,14 @@ javascript:
               - Array.wrap(leaderboards).each do |l|
                 tr class="#{l.status}"
                   td
-                    = link_to "#{l.short_name} High Score", "/game/leaderboards/#{l.label}?stat=score"
+                    = link_to "#{l.short_name} High Score", "/game/leaderboards/#{l.label}?sort=score"
                   td.date_column
                     = pad_with_8s l.player_count, 6
                   td
                     = pad_with_8s l.top_score_name, 13
                 tr class="#{l.status}"
                   td
-                    = link_to "#{l.short_name} Best Time", "/game/leaderboards/#{l.label}?stat=time"
+                    = link_to "#{l.short_name} Best Time", "/game/leaderboards/#{l.label}?sort=time"
                   td.date_column
                     = pad_with_8s l.player_count, 6
                   td

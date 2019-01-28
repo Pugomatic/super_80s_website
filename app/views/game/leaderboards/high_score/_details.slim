@@ -1,11 +1,11 @@
-- if params[:stat] == 'time'
+- if params[:sort] == 'time'
   = link_to 'Top Scores', '?sort=score'
 - else
   span.pink TOP SCORE
 '
 ' &bull;
 '
-- if params[:stat] == 'time'
+- if params[:sort] == 'time'
   span.pink BEST TIMES
 - else
   = link_to 'Best Times', '?sort=time'
