@@ -42,7 +42,7 @@ class Leaderboard < ApplicationRecord
       ordering = "high_score DESC"
 
       if options[:sort] == 'time'
-        if level.minigame?
+        if timeframe == 'minigame'
           ordering = "fastest_time DESC"
         else
           ordering = "fastest_time ASC"
