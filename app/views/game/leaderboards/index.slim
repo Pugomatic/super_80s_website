@@ -69,7 +69,7 @@ javascript:
                   td
                     = pad_with_8s l.top_time_name, 13
                   td.date_column
-                    = pad_with_8s sprintf('%.02f', l.top_time), 6
+                    = pad_with_8s l.top_time ? sprintf('%.02f', l.top_time) : '', 6
       h1
         = fix_lazer_font("Level Boards").html_safe
 
