@@ -39,13 +39,13 @@ class Leaderboard < ApplicationRecord
     list = []
 
     if level_id
-      ordering = "high_score DESC"
+      ordering = "high_score DESC, fastest_time ASC"
 
       if options[:sort] == 'time'
         if timeframe == 'minigame'
-          ordering = "fastest_time DESC"
+          ordering = "fastest_time DESC, high_score DESC"
         else
-          ordering = "fastest_time ASC"
+          ordering = "fastest_time ASC, high_score DESC"
         end
       end
 
@@ -61,23 +61,25 @@ class Leaderboard < ApplicationRecord
       list = PlayerLevel.joins(:level, :player).where('fastest_time > 0 AND high_score > 0 AND players.handle IS NOT NULL').group('playa').pluck('SUM("player_levels"."high_score") as sum_high_score, SUM("player_levels"."fastest_time"), CONCAT(players.handle, \'*#@)\', players.id, \'*#@)\', players.player_level, \'*#@)\', players.top_completed_level_id) as playa')
     end
 
-    unless level_id
+    if timeframe == 'world' || timeframe == 'game'
       list.map! do |a|
         playa, player_id, player_level, top_id = a[2].split("*#@)")
         {player: playa, player_id: player_id, player_level: player_level, score: a[0], time: top == top_id ? a[1] / 1000.0 : nil }
       end
 
       if options[:sort] == 'time'
-        list.reject {|i| i[:time] == nil }.sort {|a, b| a[:time] <=> b[:time] }
+        list = list.reject {|i| i[:time] == nil }.sort {|a, b| a[:time] <=> b[:time] }
       else
-        list.sort {|a, b| a[:score] <=> b[:score] }.reverse
+        list = list.sort {|a, b| a[:score] <=> b[:score] }.reverse
       end
     end
 
     unless list.empty?
       if options[:sort] == 'time'
-        update_attributes player_count: list.count, top_time_name: list.first[:player], top_time: list.first[:score], top_time_level: list.first[:player_level]
-      else
+        if list.first[:player] != top_time_name
+          update_attributes player_count: list.count, top_time_name: list.first[:player], top_time: list.first[:score], top_time_level: list.first[:player_level]
+        end
+      elsif list.first[:player] != top_score_name
         update_attributes player_count: list.count, top_score_name: list.first[:player], top_score: list.first[:score], top_score_level: list.first[:player_level]
       end
     end
