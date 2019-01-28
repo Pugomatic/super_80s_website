@@ -49,8 +49,6 @@ javascript:
                 span style="background-color: #0e0616; padding: 20px" Players
               th
                 span style="background-color: #0e0616; padding: 20px" Winning
-              th.date_column
-                span style="background-color: #0e0616; padding: 20px"
           tbody
             - @leaderboards[label].each do |leaderboards|
               - Array.wrap(leaderboards).each do |l|
@@ -68,8 +66,6 @@ javascript:
                     = pad_with_8s l.player_count, 6
                   td
                     = pad_with_8s l.top_time_name, 13
-                  td.date_column
-                    = pad_with_8s l.top_time ? sprintf('%.02f', l.top_time) : '', 6
       h1
         = fix_lazer_font("Level Boards").html_safe
 
