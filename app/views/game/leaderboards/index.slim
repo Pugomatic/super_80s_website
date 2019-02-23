@@ -35,6 +35,41 @@ javascript:
         br
         = link_to 'Check out the FAQ', '/faq'
 
+      h1
+        = fix_lazer_font("Custom Boards").html_safe
+
+      table.leaderboard
+        thead
+          tr
+            th
+              span style="background-color: #0e0616; padding: 20px" Leaderboard
+            th.date_column
+              span style="background-color: #0e0616; padding: 20px" Stat
+            th.date_column
+              span style="background-color: #0e0616; padding: 20px" Players
+            th
+              span style="background-color: #0e0616; padding: 20px" Winning
+            th.date_column
+              span style="background-color: #0e0616; padding: 20px" Ending
+        tbody
+          - @leaderboards['custom'].each do |leaderboards|
+            - Array.wrap(leaderboards).each do |l|
+              tr class="#{l.status}"
+                td
+                  = link_to l.short_name, "/game/leaderboards/#{l.label}"
+                td.date_column
+                  = pad_with_8s l.display_stat, 6
+                td.date_column
+                  = pad_with_8s l.player_count, 6
+                td
+                  = pad_with_8s l.leader, 12
+                td.date_column
+                  - if l.ending_at
+                    = l.ending_at.to_formatted_s(:date)
+                  - elsif l.display_time
+                    = pad_with_8s l.display_time, 7
+                  - else
+                    span.out = '8' * 7
 
       - %w(overall world boss minigame).each do |label|
         h1
@@ -88,42 +123,6 @@ javascript:
                   = pad_with_8s l.player_count, 6
                 td
                   = pad_with_8s l.leader, 12
-
-      h1
-        = fix_lazer_font("Custom Boards").html_safe
-
-      table.leaderboard
-        thead
-          tr
-            th
-              span style="background-color: #0e0616; padding: 20px" Leaderboard
-            th.date_column
-              span style="background-color: #0e0616; padding: 20px" Stat
-            th.date_column
-              span style="background-color: #0e0616; padding: 20px" Players
-            th
-              span style="background-color: #0e0616; padding: 20px" Winning
-            th.date_column
-              span style="background-color: #0e0616; padding: 20px" Ending
-        tbody
-          - @leaderboards['custom'].each do |leaderboards|
-            - Array.wrap(leaderboards).each do |l|
-              tr class="#{l.status}"
-                td
-                  = link_to l.short_name, "/game/leaderboards/#{l.label}"
-                td.date_column
-                  = pad_with_8s l.display_stat, 6
-                td.date_column
-                  = pad_with_8s l.player_count, 6
-                td
-                  = pad_with_8s l.leader, 12
-                td.date_column
-                  - if l.ending_at
-                    = l.ending_at.to_formatted_s(:date)
-                  - elsif l.display_time
-                    = pad_with_8s l.display_time, 7
-                  - else
-                    span.out = '8' * 7
 
     div style="max-width: 920px; margin-left: auto; margin-right: auto; margin-top: 30px; color: #98a6bc"
       - unless current_player
