@@ -297,6 +297,7 @@ input[type="reset"].no {
       @include span-columns(10);
       @include shift(1);
       @include omega();
+      margin-bottom: 20px;
 
       h3 {
         margin-top: 30px;

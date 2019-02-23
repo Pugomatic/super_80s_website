@@ -74,14 +74,19 @@ javascript:
             = fix_lazer_font("Part II").html_safe
           br
 
-          p style="max-width: 600px !important; height: auto !important;"  Our first beta competition was a success!  We discovered just how hard the game was and improved it.   Now is your chance to play a much easier version of the game... for the same prize!
+          p style="max-width: 600px !important; height: auto !important;"  We think we're ready to launch.
+          p
+            | And now is your time to PLAY FOR FREE!
+            br
+            | Even better... PLAY TO WIN!
           = render partial: 'game/beta_competition/register', locals: {welcome: true}
-          p style="max-width: 600px !important; height: auto !important;" The competition runs from 12/1 - 12/9 (midnight EST).
+          p style="max-width: 600px !important; height: auto !important;" The competition runs from 3/8 - 3/11 (midnight EST).
           p style="max-width: 600px !important; height: auto !important;" The player who makes it the farthest with the highest score wins the following:
           = image_tag 'retro_mini.png'
           br
-          b.blue RETRO KING MINI
-          p style="max-width: 600px !important; height: auto !important;" Plays over 10,000 awesome retro games.
+          b.blue NINTENDO SWITCH
+          br
+          br
           = render partial: 'game/beta_competition/register', locals: {welcome: false}
 
           - unless current_player
@@ -100,12 +105,16 @@ javascript:
         h4 Gameplay
         = image_tag 'screenshots/backflip.gif', class: 'limit'
         div Run, jump, slide, flip & bounce
+        br
         = image_tag 'screenshots/triple.gif', class: 'limit'
         div Divebomb your enemies
+        br
         = image_tag 'screenshots/boss_4.gif', class: 'limit'
         div Fight powerful bosses
+        br
         = image_tag 'screenshots/collect_horror.gif', class: 'limit'
         div Collect '80s memorabilia
+        br
         = image_tag 'screenshots/neon_jesus.jpg', class: 'limit'
         div Save the decade...
         br
