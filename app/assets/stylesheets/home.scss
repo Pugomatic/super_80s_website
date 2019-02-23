@@ -291,7 +291,7 @@ input[type="reset"].no {
     @include outer-container;
     @include clearfix;
 
-    margin-top: -80px;
+    margin-top: -40px;
 
     .gallery {
       @include span-columns(10);
