@@ -318,6 +318,10 @@ input[type="reset"].no {
           background: darken($electric-blue, 55%);
           border: 4px #190a2c solid;
           padding: 12px 12px 2px 12px;
+          img {
+            max-width: 1066px;
+            max-height: 492px;
+          }
         }
       }
     }
