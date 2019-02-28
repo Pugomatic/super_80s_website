@@ -1,5 +1,5 @@
-- @share_title = "Play to win a retrogaming console on Super 80s World"
-- @share_image = asset_url('retro_mini.png')
+- @share_title = "Play to win a Nintendo Switch on Super 80s World"
+- @share_image = asset_url('switch.png')
 - @share_description = "#{Player.count} players are competing in the game of the decade, Super80sWorld.  Click here to participate!"
 
 javascript:
@@ -43,9 +43,7 @@ javascript:
 
 = content_for :header do
   javascript:
-      var now=Date.now();var i=new Image();i.src="https://alb.reddit.com/snoo.gif?q=CAAHAAABAAoACQAAAAAC5HzQAA==&s=rPPuW2iCqRUDaskjZzbXNczDnJa0-2i_T5kjbG7_EKA=&ts="+now;
-  noscript
-    img height="1" width="1" style="display:none" src="https://alb.reddit.com/snoo.gif?q=CAAHAAABAAoACQAAAAAC5HzQAA==&s=rPPuW2iCqRUDaskjZzbXNczDnJa0-2i_T5kjbG7_EKA="
+    !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','t2_sw4wg');rdt('track', 'PageVisit');
 
 = content_for :header do
   javascript:
@@ -69,9 +67,7 @@ javascript:
         .achievements
           h1 style="max-width: 600px; max-height: auto;"
             = image_tag 'logo.png', class: 'centered logo'
-            = fix_lazer_font("Beta Tournament").html_safe
-            br
-            = fix_lazer_font("Part II").html_safe
+            = fix_lazer_font("Final Beta Tournament").html_safe
           br
 
           p style="max-width: 600px !important; height: auto !important;"  We think we're ready to launch.
