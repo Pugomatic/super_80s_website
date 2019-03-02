@@ -89,7 +89,7 @@ javascript:
               tr
                 td
                   span.out 8888
-                  = @player.player_total.high_score
+                  = @player.player_total&.high_score
                   span.out 8888
           - elsif @current_level
             table.leaderboard.tight
@@ -121,7 +121,7 @@ javascript:
                     span.out 888
                     = @current_level.month
                     span.out 888
-                - if @player.player_total.high_score
+                - if @player.player_total&.high_score
                   tr
                     td
                       span.out 8
