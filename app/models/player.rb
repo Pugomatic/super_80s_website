@@ -38,6 +38,19 @@ class Player < ApplicationRecord
     find_by(id: id_or_handle) || find_by(handle: id_or_handle) || nil
   end
 
+  def player_level
+    return 1 if current_level_number < 5
+    return 2 if current_level_number < 12
+    return 3 if current_level_number < 15
+    return 4 if current_level_number < 20
+    return 5 if current_level_number < 26
+    return 6 if current_level_number < 32
+    return 7 if current_level_number < 35
+    return 8 if current_level_number < 42
+
+    9
+  end
+
   def player_level_display
     "level #{player_level || 0} #{player_level_display_name ? "(#{player_level_display_name})" : ''}"
   end
