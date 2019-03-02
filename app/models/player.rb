@@ -39,14 +39,15 @@ class Player < ApplicationRecord
   end
 
   def player_level
-    return 1 if current_level_number < 5
-    return 2 if current_level_number < 12
-    return 3 if current_level_number < 15
-    return 4 if current_level_number < 20
-    return 5 if current_level_number < 26
-    return 6 if current_level_number < 32
-    return 7 if current_level_number < 35
-    return 8 if current_level_number < 42
+    return 1 unless top_completed_level
+    return 1 if top_completed_level.number < 5
+    return 2 if top_completed_level.number < 12
+    return 3 if top_completed_level.number < 15
+    return 4 if top_completed_level.number < 20
+    return 5 if top_completed_level.number < 26
+    return 6 if top_completed_level.number < 32
+    return 7 if top_completed_level.number < 35
+    return 8 if top_completed_level.number < 42
 
     9
   end
