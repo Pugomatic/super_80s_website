@@ -72,7 +72,7 @@ javascript:
           h2.digital Current Status
           hr
 
-          - if @player.top_completed_level.nil?
+          - if @player.top_completed_level.nil? || @player.top_completed_level.number == 1
             table.leaderboard.tight
               tr
                 td
