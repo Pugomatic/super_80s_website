@@ -261,7 +261,7 @@ class Player < ApplicationRecord
 
     level_data.each do |number, data|
       pl =  player_levels.includes(:level).find_by('levels.number' => number) || player_levels.build(level: Level.find_by(number: number))
-      if data[:status] == "completed"
+      if data[:status] == "completed" || data[:status] == "skipped"
         pl.set(data)
 
         world = player_worlds.find_by(world_id: pl.level.world_id) rescue raise(pl.inspect)
