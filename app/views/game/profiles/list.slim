@@ -21,7 +21,10 @@
 
         tbody
           - @list.each do |score|
-            - value = value_for(score, @metric)
+            - if params[:stat] == 'time'
+              - value = sprintf("%0.3f", value_for(score, @metric) / 1000.0)
+            - else
+              - value = value_for(score, @metric)
             tr
               td.date_column
                 span.out = '8' * ((9 - score.world.name.length) / 2)
