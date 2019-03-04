@@ -5,7 +5,7 @@ h4 Register to win
     p style="max-width: 600px !important; height: auto !important;"
       | Welcome #{current_player.handle.upcase},
   p style="max-width: 600px !important; height: auto !important;"
-    = link_to 'Click here to enter our new competition', "/game/leaderboards/#{Leaderboard.find_by(label: 'second_beta').id}/join"
+    = link_to 'Click here to enter our new competition', "/game/leaderboards/#{Leaderboard.find_by(label: 'third_beta').id}/join"
 
   p.digital style="color: #666; max-width: 600px !important; height: auto !important;"  Note: this will result in your profile data being reset. If you already have a beta version of the game downloaded, please delete it now
 
