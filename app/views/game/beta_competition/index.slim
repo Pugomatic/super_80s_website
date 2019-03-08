@@ -66,7 +66,8 @@ javascript:
       .col.span_2_of_3
         .achievements
           h1 style="max-width: 600px; max-height: auto;"
-            = image_tag 'logo.png', class: 'centered logo'
+            a href="/"
+              = image_tag 'logo.png', class: 'centered logo'
             = fix_lazer_font("Final Beta").html_safe
           br
 
@@ -82,12 +83,16 @@ javascript:
           = image_tag 'switch.png'
           br
           br
+          p
+            a href='/gameplay#view' Click here
+            '
+            ' to learn more about Super 80s World!
           = render partial: 'game/beta_competition/register', locals: {welcome: false}
 
           - unless current_player
             p style="max-width: 600px !important; height: auto !important;"
               ' If you don't have a social media account and still want to try out the game,
-              a href="/game/beta_competition/#modal" click here
+              a href="/game/beta_competition/#modal" click here to join the mailing list
               | .
       .col.span_1_of_3
         h4 About the game
