@@ -253,7 +253,7 @@ class Player < ApplicationRecord
   end
 
   def create_player_totals
-    create_player_total
+    PlayerTotal.create(player: self)
   end
 
   def calculate_world_statuses!(level_data)
