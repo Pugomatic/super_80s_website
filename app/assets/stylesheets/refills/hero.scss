@@ -61,8 +61,10 @@
     margin-top: -300px;
     .hero-inner {
       .hero-copy {
-        a {
-          max-width: 260px;
+        a.appstore {
+          img {
+            max-width: 160px;
+          }
         }
       }
     }
