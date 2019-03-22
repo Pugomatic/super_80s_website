@@ -71,37 +71,27 @@ javascript:
             = fix_lazer_font("Final Beta").html_safe
           br
 
-          p style="max-width: 600px !important; height: auto !important;"  We think we're ready to launch.
-          p
-            | And now is your time to PLAY FOR FREE!
-            br
-            | Even better... PLAY TO WIN!
-          = render partial: 'game/beta_competition/register', locals: {welcome: true}
-          p style="max-width: 600px !important; height: auto !important;" The competition ends on March 17, 2019 (midnight EST).
-          p style="max-width: 600px !important; height: auto !important;" The player who makes it the farthest with the highest score wins the following:
-          p.blue NINTENDO SWITCH
-          = image_tag 'switch.png'
-          br
-          br
-          p
-            a href='/gameplay#view' Click here
-            '
-            ' to learn more about Super 80s World!
-          = render partial: 'game/beta_competition/register', locals: {welcome: false}
+          p style="max-width: 600px !important; height: auto !important;"  The Super 80s World Beta is complete.
+          p style="max-width: 600px !important; height: auto !important;"
+            ' And we're
+            a href='https://apple.co/2HcSijd"
+              ' live on the App Store now!
 
-          - unless current_player
-            p style="max-width: 600px !important; height: auto !important;"
-              ' If you don't have a social media account and still want to try out the game,
-              a href="/game/beta_competition/#modal" click here to join the mailing list
-              | .
+          h4 About the game
+
+          p Super 80s World is a retro platformer where you collect old-school memorabilia to save the decade.  You travel the decade, year by year, collecting classic video games, movies and cassettes.
+
+          p There are 5 different worlds.  Six boss fights.  Four mini games.  100 achievements and over 1,500 real world items to collect.
+
+          h4 Platform
+          p Available on iOS (iPhone & iPad)
+
+          h4 Short Trailer
+          .video
+            .video-wrapper
+              iframe width="640" height="320" src="https://www.youtube.com/embed/o0iy_D3d4wY?vq=hd1080;rel=0&amp;showinfo=0" frameborder="0" allowfullscreen=""
+
       .col.span_1_of_3
-        h4 About the game
-
-        p Super 80s World is a retro platformer where you collect old-school memorabilia to save the decade.
-
-        h4 Platform
-        p Currently in beta for iOS (iPhone & iPad)
-
         h4 Gameplay
         = image_tag 'screenshots/backflip.gif', class: 'limit'
         div Run, jump, slide, flip & bounce
@@ -118,7 +108,6 @@ javascript:
         = image_tag 'screenshots/neon_jesus.jpg', class: 'limit'
         div Save the decade...
         br
-        = render partial: 'game/beta_competition/register', locals: {welcome: false}
 
     .section.group
       .col.span_3_of_3
