@@ -42,6 +42,7 @@ Rails.application.routes.draw do
     get '/players/auth/google_oauth2/callback' => 'players/omniauth_callbacks#google_oauth2'
   end
 
+  get '/chopper_commando' => 'chopper_commando#index'
 
   namespace :game do
     resources :leaderboards do

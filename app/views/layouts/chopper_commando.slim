@@ -1,0 +1,56 @@
+doctype html
+html
+  head
+    - meta_title = content_for?(:title) ? yield(:title) : 'Chopper Commando'
+    - meta_description = content_for?(:meta_description) ? yield(:meta_description) : "Get to the choppa!  It's time to play!"
+    - meta_video = content_for?(:meta_video) ? yield(:meta_video) : nil
+    - meta_image = content_for?(:meta_image) ? yield(:meta_image) : nil
+
+    title = meta_title
+    link href="/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57"
+    link href="/apple-touch-icon-60x60.png" rel="apple-touch-icon" sizes="60x60"
+    link href="/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72"
+    link href="/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76"
+    link href="/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114"
+    link href="/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120"
+    link href="/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144"
+    link href="/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152"
+    link href="/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180"
+    link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"
+    link href="/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png"
+    link href="/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png"
+    link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"
+    link href="/manifest.json" rel="manifest"
+    link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon"
+    meta content="#da532c" name="msapplication-TileColor"
+    meta content="/mstile-144x144.png" name="msapplication-TileImage"
+    meta content="#331244" name="theme-color"
+    meta http-equiv="Content-Language" content="en"
+    meta property="fb:app_id" content="615815418773991"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    meta property="og:url" content="#{request.url}"
+    meta property="og:type" content="website"
+    meta property="og:site_name" content="Super 80s World"
+    meta property="og:title" content="#{meta_title}"
+    - if meta_video
+      meta property="og:video" content="#{meta_video}"
+      meta property="og:video:width" content="1280"
+      meta property="og:video:height" content="720"
+    - elsif meta_image
+      meta property="og:image" content="#{meta_image}"
+
+    meta property="og:description" content="#{meta_description}"
+
+
+    - set_meta_tags site: 'Super 80s World', title: meta_title, description: meta_description, keywords: %w[1980s game mobile indie retro retrogaming gameboy synthwave ios 80s nes pixel 8bit fun river raid chopper command barnstorming]
+
+    = display_meta_tags
+
+    = yield :header
+
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: 'all'
+    = stylesheet_link_tag 'chopper_commando', media: 'all'
+
+  body
+    = yield

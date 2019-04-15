@@ -1,0 +1,92 @@
+$game-font: 'Press Start 2P', monospace;
+$green-dark: #172808;
+$green-black: #0f1a05;
+$green-army: #446b1d;
+$green-bright: #6ab417;
+$green-neon: #7deb01;
+$green-lite: #c6e881;
+
+@font-face {
+  font-family: 'thecubemedium';
+  src: url('pixel_thecube-webfont.woff2') format('woff2'),
+  url('pixel_thecube-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+body {
+  font-family: 'thecubemedium', Courier;
+  font-feature-settings: "kern", "liga", "pnum";
+  background-color: $green-dark;
+  color: $green-lite;
+  font-size: 2em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  //font-family: $heading-font-family;
+  color: $green-lite;
+  margin: auto;
+  text-align:center;
+  font-family: 'thecubemedium', Courier;
+}
+
+p {
+  //margin: 0 0 $small-spacing;
+}
+
+a {
+}
+
+hr {
+  border-bottom: 1px solid #444;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  color: black;
+}
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%;
+}
+
+
+.big {
+  font-size: 1.2em;
+}
+
+.bigger {
+  font-size: 1.5em;
+}
+
+.small {
+  font-size: .8em;
+}
+
+.pixel {
+  font-family: $game-font;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+img.chopper-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width:80%;
+  height:auto;
+  margin-top: 200px;
+  margin-bottom: 100px;
+}
