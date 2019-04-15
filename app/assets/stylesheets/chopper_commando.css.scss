@@ -18,9 +18,45 @@ $green-lite: #c6e881;
 body {
   font-family: 'thecubemedium', Courier;
   font-feature-settings: "kern", "liga", "pnum";
-  background-color: $green-dark;
+  background-color: black;
   color: $green-lite;
   font-size: 2em;
+  height: 100%;
+}
+
+.brite {
+  color: $green-bright !important;
+}
+
+.box {
+  display: flex;
+  flex-flow: column;
+  background: $green-dark;
+  height: 100%;
+}
+
+.box .row {
+}
+
+.box .row.header {
+  flex: 0 1 auto;
+  /* The above is shorthand for:
+  flex-grow: 0,
+  flex-shrink: 1,
+  flex-basis: auto
+  */
+}
+
+.box .row.content {
+  flex: 1 1 auto;
+}
+
+.box .row.footer {
+  flex: 0 1 auto;
+}
+
+.vignette {
+  box-shadow: inset 0 0 100px black;
 }
 
 h1,
