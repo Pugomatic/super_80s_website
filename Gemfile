@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.2'#.2.1'
+gem 'rails', '~> 5.2.2.1'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -21,7 +21,6 @@ gem 'slim'
 
 # gem 'referer_tracking', '~> 4.4'
 gem 'dynamic_sitemaps'
-gem 'jquery-ui-rails'
 gem 'strip_attributes'
 gem 'roo'
 gem 'devise'
