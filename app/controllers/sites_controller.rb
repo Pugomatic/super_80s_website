@@ -4,7 +4,6 @@ class SitesController < ApplicationController
   layout :resolve_layout
 
   def index
-    render text: "#{request.host}: #{@site.inspect}"
   end
 
   private

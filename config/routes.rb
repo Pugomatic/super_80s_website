@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
   comfy_route :blog_admin, path: "/admin"
   comfy_route :blog, path: "/blog"
-  devise_for :players, controllers: {
-      sessions: 'sessions',
-      registrations: 'registrations',
-      omniauth_callbacks: "players/omniauth_callbacks"
-  }
 
   get '/' => 'high_voltage/pages#show', id: 'video', as: 'root'
   get '/twitter' => 'high_voltage/pages#show', id: 'twitter', as: 'twitter'
@@ -35,12 +30,6 @@ Rails.application.routes.draw do
   get '/dr/noid/wormser' => 'high_voltage/pages#show', id: 'noid'
 
   get '/game/beta_competition' => 'game/beta_competition#index'
-#  get '/game/leaderboard' => 'game/leaderboards#show', id: 'first_beta'
-
-  devise_scope :player do
-    get '/players/auth/twitter/callback' => 'players/omniauth_callbacks#twitter'
-    get '/players/auth/google_oauth2/callback' => 'players/omniauth_callbacks#google_oauth2'
-  end
 
   get '/choppercommando' => 'chopper_commando#index'
 
