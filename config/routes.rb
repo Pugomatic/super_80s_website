@@ -44,6 +44,8 @@ Rails.application.routes.draw do
 
   get '/choppercommando' => 'chopper_commando#index'
 
+  get '/sites' => 'sites#index'
+
   namespace :game do
     resources :leaderboards do
       member do
