@@ -125,11 +125,3 @@ javascript:
                   = pad_with_8s l.leader, 12
 
     div style="max-width: 920px; margin-left: auto; margin-right: auto; margin-top: 30px; color: #98a6bc"
-      - unless current_player
-        p
-          ' In order to participate you must login with your
-          = render partial: 'game/beta_competition/login'
-          ' account.
-          '  This will allow you to connect your data to the leaderboard and your website profile. For more details please
-          = link_to 'visit our FAQ', '/faq'
-          |.

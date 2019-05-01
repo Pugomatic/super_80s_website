@@ -1,5 +1,5 @@
 - world = entry&.level&.world&.name
-tr class=(entry.player.display_class(current_player))
+tr
   td
     span.out = '8' * (12 - entry.player.handle.length)
     = link_to entry.player.handle, game_profile_path(entry.player_id)

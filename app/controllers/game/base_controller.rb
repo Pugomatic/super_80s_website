@@ -26,18 +26,7 @@ module Game
     def set_player
       @player = Player.get(params[:profile_id] || params[:id])
 
-      # if ! @player.public? && current_player != @player
-      #   head :unauthorized
-      #   return false
-      # end
-
       true
-    end
-
-    def ensure_logged_in
-      unless current_player
-        redirect_to game_sign_ins_path
-      end
     end
   end
 end

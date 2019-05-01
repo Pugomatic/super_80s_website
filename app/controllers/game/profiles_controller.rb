@@ -1,21 +1,11 @@
 module Game
   class ProfilesController < BaseController
     before_action   :set_player, only: [:show]
-    before_action   :ensure_player, only: [:edit, :update]
     before_action   :set_paths
 
     def index
       @selected = :list
-      @players = Player.public(current_player || 'non_user')
-    end
-
-    def edit
-    end
-
-    def update
-      current_player.update_attributes(player_params)
-
-      redirect_to game_profile_path(current_player)
+      @players = Player.public('non_user')
     end
 
     def show
@@ -68,10 +58,6 @@ module Game
     end
 
     private
-
-    def ensure_player
-      @player == current_player
-    end
 
     def player_params
       params.require(:player).permit(:name, :handle, :tagline, :email)

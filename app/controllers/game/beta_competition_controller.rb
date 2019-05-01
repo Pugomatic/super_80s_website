@@ -7,7 +7,7 @@ module Game
     def index
       @selected = :leaderboard
 
-      @dont_show_nav = true unless current_player
+      @dont_show_nav = true
     end
   end
 end

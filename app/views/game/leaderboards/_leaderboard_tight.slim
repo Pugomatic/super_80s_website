@@ -11,7 +11,7 @@ table.leaderboard
   tbody
     - @top_level_board.each do |player|
       - display_time = sprintf("%0.3f", player.player_total.fastest_time / 1000.0)
-      tr class=(player.display_class(current_player))
+      tr
         td
           span.led
             = pad_with_8s player.handle

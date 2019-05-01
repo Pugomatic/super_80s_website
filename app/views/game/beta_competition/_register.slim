@@ -1,16 +1,6 @@
 h4 Register to win
 
-- if current_player
-  - if welcome
-    p style="max-width: 600px !important; height: auto !important;"
-      | Welcome #{current_player.handle.upcase},
-  p style="max-width: 600px !important; height: auto !important;"
-    = link_to 'Click here to enter our new competition', "/game/leaderboards/#{Leaderboard.find_by(label: 'third_beta').id}/join"
-
-  p.digital style="color: #666; max-width: 600px !important; height: auto !important;"  Note: this will result in your profile data being reset. If you already have a beta version of the game downloaded, please delete it now
-
-- else
-  p style="max-width: 600px !important; height: auto !important;"
-    ' Register now by signing in with your
-    = render partial: 'game/beta_competition/login'
-    ' account.
+p style="max-width: 600px !important; height: auto !important;"
+  ' Register now by signing in with your
+  = render partial: 'game/beta_competition/login'
+  ' account.

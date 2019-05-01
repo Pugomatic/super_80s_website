@@ -78,7 +78,7 @@
             - @top_level_board.each do |player|
               - world = player&.top_completed_level&.world&.name
               - display_time = sprintf("%0.3f", player.player_total.fastest_time / 1000.0)
-              tr class=(player.display_class(current_player))
+              tr
                 td
                   span.led
                     = pad_with_8s player.handle
@@ -121,7 +121,7 @@
 
           tbody
             - @high_scores.each do |score|
-              tr class=(score.player.display_class(current_player))
+              tr
                 td
                   span.led
                     = pad_with_8s(score.handle)
@@ -156,7 +156,7 @@
           tbody
             - @fast_times.each do |time|
               - display_time = sprintf("%0.3f", time.fastest_time / 1000.0)
-              tr class=(time.player.display_class(current_player))
+              tr
                 td
                   span.led
                     = pad_with_8s(time.handle)
@@ -190,7 +190,7 @@
 
           tbody
             - @max_kills.each do |kills|
-              tr class=(kills.player.display_class(current_player))
+              tr
                 td
                   span.led
                     = pad_with_8s(kills.handle)
@@ -221,7 +221,7 @@
 
           tbody
             - @memo_items.each do |memo|
-              tr class=(memo.player.display_class(current_player))
+              tr
                 td
                   span.led
                     = pad_with_8s(memo.handle)
@@ -254,7 +254,7 @@
 
           tbody
             - @space_ace.each do |score|
-              tr class=(score.player.display_class(current_player))
+              tr
                 td
                   span.led
                     = pad_with_8s(score.handle)
