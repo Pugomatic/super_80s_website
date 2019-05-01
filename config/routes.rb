@@ -35,6 +35,10 @@ Rails.application.routes.draw do
 
   get '/sites' => 'sites#index'
 
+  namespace :tap_tap_good do
+    get '/homepage' => 'homepage#index'
+  end
+
   namespace :game do
     resources :leaderboards do
       member do

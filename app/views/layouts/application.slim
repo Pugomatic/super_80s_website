@@ -21,6 +21,33 @@ html
   body
     = render partial: 'layouts/fb_js'
 
+    header
+      a#logo href="#"
+      nav
+        a#menu-icon href="#"
+
+        ul
+          li
+            a.current href="#"
+              i.fa.fa-2x.fa-home
+          li
+            a href="#"
+              i.fa.fa-2x.fa-gamepad
+          li
+            a href="#"
+              i.fa.fa-2x.fa-info
+
+    / #myTopnav.topnav
+    /   = link_to '#' do
+    /     = image_tag @selected == :profile ? 'game/profile-selected.png' : 'game/profile.png', size: '64x64'
+    /     .div class=('selected' if @selected == :profile) thing
+    /   a href="/game/leaderboards"
+    /     = image_tag @selected == :leaderboard ? 'game/leaderboard-selected.png' : 'game/leaderboard.png', size: '64x64'
+    /     .div class=('selected' if @selected == :leaderboard) Leaderboard
+    /   = link_to '/' do
+    /     = image_tag @selected == :disco ? 'game/discography-selected.png' : 'game/discography.png', size: '64x64'
+    /     .div class=('selected' if @selected == :disco) Discography
+
     #wrapper
       #cover
         = link_to '/' do
