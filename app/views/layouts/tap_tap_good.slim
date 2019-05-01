@@ -1,8 +1,8 @@
 doctype html
 html
   head
-    - meta_title = content_for?(:title) ? yield(:title) : 'Chopper Commando'
-    - meta_description = content_for?(:meta_description) ? yield(:meta_description) : "Get to the choppa!  It's time to play!"
+    - meta_title = content_for?(:title) ? yield(:title) : 'Tap Tap Good'
+    - meta_description = content_for?(:meta_description) ? yield(:meta_description) : "Video game development company"
     - meta_video = content_for?(:meta_video) ? yield(:meta_video) : nil
     - meta_image = content_for?(:meta_image) ? yield(:meta_image) : nil
 
@@ -28,7 +28,7 @@ html
     meta property="og:description" content="#{meta_description}"
 
 
-    - set_meta_tags site: 'Chopper Commando', title: meta_title, description: meta_description, keywords: %w[1980s game mobile indie retro retrogaming gameboy synthwave ios 80s nes pixel 8bit fun river raid chopper command barnstorming]
+    - set_meta_tags site: 'Tap Tap Good', title: meta_title, description: meta_description, keywords: %w[1980s game mobile indie retro retrogaming gameboy synthwave ios 80s nes pixel 8bit fun river raid chopper command barnstorming super80sworld super80sarcade retrogaming mario platformer nostalgia]
 
     = display_meta_tags
 
@@ -36,7 +36,7 @@ html
 
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all'
-    = stylesheet_link_tag 'chopper_commando', media: 'all'
+    = stylesheet_link_tag 'tap_tap_good', media: 'all'
 
   body
     = yield
