@@ -1,36 +1,36 @@
 header {
-  background: #432e1f;
+  background: #231f20;
   width: 100%;
-  height: 76px;
+  height: 48px;
   position: fixed;
   top: 0;
   left: 0;
-  border-bottom: 6px solid #91c73f;
+  border-bottom: 3px solid white;
   z-index: 100;
 
   #logo{
-    margin: 7px 20px;
+    margin: 2px 20px;
     float: left;
-    width: 122px;
-    height: 81px;
-    background: image-url("taptap/logo_4.png") no-repeat center;
+    width: 156px;
+    height: 112px;
+    background: image-url("taptap/logo_5.png") no-repeat center;
     display: block;
-
   }
 
   a {
-    color: #f79e1e;
+    color: white;
     font-family: Helvetica, sans-serif;
   }
 
   a:hover {
     text-shadow: none;
-    color: #91c73f;
+    color: white;
   }
 
   nav {
     float: right;
     padding: 10px;
+    padding-top: 0px;
 
     ul {
 
@@ -41,8 +41,8 @@ header {
     li {
       display: inline-block;
       float: left;
-      padding: 10px
-
+      padding: 10px;
+      padding-top: 3px;
     }
   }
 
@@ -54,8 +54,7 @@ header {
   }
 
   a:hover#menu-icon {
-    background-color: #444;
-    border-radius: 4px 4px 0 0;
+    background-color: #231f20;
   }
 }
 
@@ -71,9 +70,9 @@ header {
       display: none;
       position: absolute;
       padding: 20px;
-      background: #432e1f;
+      background: #231f20;
       right: 0px;
-      top: 60px;
+      top: 48px;
       width: 50%;
     }
 
