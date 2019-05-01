@@ -18,13 +18,7 @@ javascript:
     .section.group
       .col.span_1_of_3
         h1 style="text-align: left; margin-bottom: 0px; padding-bottom: 0px"
-          - if current_player == @player
-            = link_to edit_game_profile_path(@player) do
-              = @player.name
-              ' &nbsp;
-              .fa.fa-pencil
-          - else
-            = @player.name
+          = @player.name
         .digital.blue style="margin-left: 26px"
           = pad_with_8s @player.handle, 16
 

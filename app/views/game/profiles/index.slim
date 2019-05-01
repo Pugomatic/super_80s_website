@@ -12,7 +12,7 @@
           th Progress
       tbody
         - @players.each do |player|
-          tr class=(player.display_class(current_player))
+          tr
             td nowrap=""
               span.out = '8' * (12 - player.handle.length)
               = link_to player.handle, game_profile_path(player)
