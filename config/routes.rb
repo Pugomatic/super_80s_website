@@ -1,3 +1,13 @@
+class DomainConstraint
+  def initialize(domain)
+    @domains = domain
+  end
+
+  def matches?(request)
+    @domains.include? request.domain
+  end
+end
+
 Rails.application.routes.draw do
   comfy_route :blog_admin, path: "/admin"
   comfy_route :blog, path: "/blog"
@@ -34,6 +44,14 @@ Rails.application.routes.draw do
   get '/choppercommando' => 'chopper_commando#index'
 
   get '/sites' => 'sites#index'
+
+  constraints (DomainConstraint.new('taptapgood.com')) do
+    root :to => 'homepage#index'
+  end
+
+  constraints (DomainConstraint.new('www.taptapgood.com')) do
+    root :to => 'homepage#index'
+  end
 
   namespace :tap_tap_good do
     get '/homepage' => 'homepage#index'
