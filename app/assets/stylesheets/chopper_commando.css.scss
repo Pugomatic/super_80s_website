@@ -9,11 +9,10 @@ $green-lite: #c6e881;
 
 @font-face {
   font-family: 'thecubemedium';
-  src: url('pixel_thecube-webfont.woff2') format('woff2'),
-  url('pixel_thecube-webfont.woff') format('woff');
+  src: font-url('pixel_thecube-webfont.woff2') format('woff2'),
+  font-url('pixel_thecube-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-
 }
 
 body {
