@@ -161,23 +161,24 @@ body {
   }
 
   button, input[type="button"], input[type="reset"], input[type="submit"] {
-    background: $green-bright;
+    background: $green-lite;
     color: $green-black;
     border: 3px solid $green-lite;
     margin-left: auto;
     margin-right: auto;
     font-size: .8em;
     font-family: 'thecubemedium', Courier;
-    padding: 5px 10px;
+    padding: 3px 10px;
   }
 
   input, input[type="text"] {
     background: white;
     border: 2px solid $green-lite;
     font-size: .6em;
+    color: $green-black;
     margin-left: auto;
     margin-right: auto;
-    height: 42%;
+    height: 42px;
     max-width: 400px;
   }
 }
