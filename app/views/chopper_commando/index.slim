@@ -1,9 +1,52 @@
-.box.vignette
-  .row.header
-    p
-      | &nbsp;
-  .row.content
+.chopper
+  .box.vignette
+
     = image_tag 'chopper.png', class: 'chopper-logo'
-    h1.brite Get to the Choppa
-  .row.footer
-    p.brite 06.01.2019
+    br
+
+    .video
+      .video-wrapper
+        iframe src="https://www.youtube.com/embed/ylVqkeM6oNo?vq=hd1080;rel=0&amp;showinfo=0" frameborder="0" allowfullscreen=""
+
+    br
+
+    .standout
+      = image_tag 'chopper.png', class: 'chopper-logo'
+      h2 style="font-size: 1em" 07.11.2019
+
+      br
+
+      = form_for @user do |f|
+        input name="authenticity_token" value="#{form_authenticity_token}" type="hidden"
+        = f.invisible_captcha :title
+
+        input#user_email type="text" name="user[email]" placeholder="get_early@access.now"
+        .plainbox.row
+          input#form_submit name="commit" type="submit" value="GET TO THE CHOPPA"
+
+
+      br
+    br
+
+    .screens
+      h2 Cockpit
+      = image_tag "chopper_commando/cockpit_better_65.png"
+      h2 Chopper Select
+      = image_tag "chopper_commando/choppers_65.png"
+      h2 Adventure Land
+      = image_tag "chopper_commando/adventureland_65.png"
+      h2 Chopper Refuel
+      = image_tag "chopper_commando/fuel_up_65.png"
+      h2 Missile Commando
+      = image_tag "chopper_commando/river_bombs_65.png"
+      h2 Weapon Select
+      = image_tag "chopper_commando/weapons_65.png"
+      h2 Laser Boom
+      = image_tag "chopper_commando/laser_65.png"
+      h2 Flat Tire
+      = image_tag "chopper_commando/wally_bombs_65.png"
+      h2 Flight Command
+      = image_tag "chopper_commando/dan_65.png"
+
+    p.center.subtle style="margin-bottom: 0px"
+      ' &copy;  2019 Tap Tap Good, LLC. All Rights Reserved.

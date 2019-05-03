@@ -10,14 +10,13 @@ class UsersController < ApplicationController
       redirect_to '/'
 
     elsif @user.save
-      #flash[:notice] = "Most excellent!  You will hear from us soon."
-      flash[:notice] = "Most excellent!  Make sure to register for our beta competition"
+      flash[:notice] = "Most excellent!  You will hear from us soon."
 
       # referer_tracking_after_create(@user)
-      redirect_to '/game/beta_competition'
+      redirect_back fallback_location: root_path
     else
       flash[:error] = "Totally bogus email address, bub..."
-      redirect_to '/'
+      redirect_back fallback_location: root_path
     end
   end
 

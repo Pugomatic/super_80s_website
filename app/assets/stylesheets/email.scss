@@ -1,0 +1,33 @@
+.email {
+  display: none;
+  margin-left: 30%;
+  margin-right: 30%;
+  width: 40%;
+  form {
+    display: flex;
+    min-width: 400px;
+    max-width: 600px;
+    padding: 0.5em 1em;
+    margin: 0 0 1em 0;
+
+    input {
+      flex-grow: 1;
+    }
+    button {
+      margin-left: -3px;
+      padding: 0.5em 1em;
+      width: 120px;
+    }
+  }
+}
+
+
+
+@media only screen and(max-width: 641px) {
+  .email {
+    width: 100%;
+    margin-left: 0%;
+    padding: 0;
+  }
+
+}

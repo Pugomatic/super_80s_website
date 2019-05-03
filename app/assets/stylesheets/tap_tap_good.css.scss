@@ -1,146 +1,211 @@
 $game-font: 'Press Start 2P', monospace;
-$dark: #050f28;
-$blackish: #002146;
-$medium: #145d6b;
-$bright: #20a7e8;
-$neon: #ebb100;
-$lite: #0068e8;
-$white: #9fe4ff;
-
-@font-face {
-  font-family: 'thecubemedium';
-  src: url('pixel_thecube-webfont.woff2') format('woff2'),
-  url('pixel_thecube-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
-}
+$black: #121212;
+$dark: #262626;
+$neon: #eab214;
+$lite: #f6cca2;
+$subtle: #808080;
+$white: #fff;
 
 body {
-  font-family: Roboto, Helvetica, Sans-Serif;
+  font-family: 'Montserrat', sans-serif;
   font-feature-settings: "kern", "liga", "pnum";
-  background-color: $dark;
-  color: $bright;
+  background-color: $black;
+
+  color: $white;
   font-size: 1em;
   height: 100%;
 }
 
-.brite {
-  color: $bright !important;
+.tap-tap {
+  .box {
+    display: flex;
+    flex-flow: column;
+    background: $dark;
+    height: 100%;
+    background: image-url("taptap/pattern.png") repeat;
+
+  }
+
+  .box .row {
+  }
+
+  .box .row.header {
+    flex: 0 1 auto;
+    /* The above is shorthand for:
+    flex-grow: 0,
+    flex-shrink: 1,
+    flex-basis: auto
+    */
+  }
+
+  .box .row.content {
+    flex: 1 1 auto;
+  }
+
+  .box .row.footer {
+    flex: 0 1 auto;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    //font-family: $heading-font-family;
+    color: $lite;
+    margin: auto;
+    text-align:center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+  }
+
+  p {
+    text-align:center;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 20px;
+  }
+
+  p.subtle {
+    color: $subtle;
+    font-size: .8em;
+  }
+
+  .vignette {
+    box-shadow: inset 0 0 200px black;
+    padding: 5%;
+  }
+
+  .tagline {
+    background: $lite;
+    color: $dark;
+    border: 1px $dark;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    b {
+      font-weight: bolder;
+    }
+  }
+
+  hr {
+    border-bottom: 1px solid #444;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    color: black;
+  }
+
+  img,
+  picture {
+    margin: 0;
+    max-width: 100%;
+  }
+
+
+  .big {
+    font-size: 1.2em;
+  }
+
+  .bigger {
+    font-size: 1.5em;
+  }
+
+  .small {
+    font-size: .8em;
+  }
+
+  .pixel {
+    font-family: $game-font;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  img.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 360px;
+    height:auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  ul {
+    margin: auto;
+    text-align:center;
+    margin-top: 30px;
+    li {
+      margin-bottom: 7px;
+    }
+  }
+
+  a {
+    color: $neon;
+  }
+
+  a.game {
+    font-size: 1.5em;
+    font-weight: bolder;
+  }
+
+  a.early-access {
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 380px;
+    }
+  }
+
+  a:hover {
+    color: $white;
+    text-shadow: none;
+  }
+
+  button, input[type="button"], input[type="reset"], input[type="submit"] {
+    background: $neon;
+    color: $black;
+    border: 3px solid $black;
+    margin-left: 40%;
+    width: 20%;
+  }
+
+  input, input[type="text"] {
+    background: $white;
+    border: 2px solid $subtle;
+    font-size: 1em;
+  }
+
+  .email {
+    button {
+      border: 3px solid $subtle;
+    }
+  }
+
+  .flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .col {
+      flex: 1 1 400px;
+      width: 32%;
+      img {
+        margin-left: 20%;
+        width: 60%;
+      }
+    }
+  }
 }
 
-.box {
-  display: flex;
-  flex-flow: column;
-  background: $dark;
-  height: 100%;
-}
-
-.box .row {
-}
-
-.box .row.header {
-  flex: 0 1 auto;
-  /* The above is shorthand for:
-  flex-grow: 0,
-  flex-shrink: 1,
-  flex-basis: auto
-  */
-}
-
-.box .row.content {
-  flex: 1 1 auto;
-}
-
-.box .row.footer {
-  flex: 0 1 auto;
-}
-
-.vignette {
-  box-shadow: inset 0 0 100px black;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  //font-family: $heading-font-family;
-  color: $white;
-  margin: auto;
-  text-align:center;
-  font-family: 'thecubemedium', Courier;
-  font-size: 2em;
-}
-
-p {
-  margin: auto;
-  text-align:center;
-}
-
-a {
-}
-
-hr {
-  border-bottom: 1px solid #444;
-  border-left: 0;
-  border-right: 0;
-  border-top: 0;
-  color: black;
-}
-
-img,
-picture {
-  margin: 0;
-  max-width: 100%;
-}
-
-
-.big {
-  font-size: 1.2em;
-}
-
-.bigger {
-  font-size: 1.5em;
-}
-
-.small {
-  font-size: .8em;
-}
-
-.pixel {
-  font-family: $game-font;
-}
-
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-}
-
-img.chopper-logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width:80%;
-  height:auto;
-  margin-top: 200px;
-  margin-bottom: 100px;
-}
-
-ul {
-  margin: auto;
-  text-align:center;
-
-}
-
-a {
-  color: $neon;
-}
-
-a:hover {
-  color: $white;
-  text-shadow: none;
-}

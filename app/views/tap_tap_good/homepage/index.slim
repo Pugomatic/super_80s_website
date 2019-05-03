@@ -1,17 +1,90 @@
-h1 Tap Tap Good, LLC
+.tap-tap
+  .tagline
+    b BUILDING
+    '
+    ' THE
+    b RETRO GAMES
+    '
+    ' OF THE
+    b FUTURE
 
-br
-br
-p Tap Tap Good is an Indie Development Studio in Washington, D.C.
+  .box.vignette
+    = image_tag 'taptap/logo.png', class: 'logo'
 
-p Here are some of our games
+    a.early-access href="#"
+      = image_tag 'early-access.png'
 
-ul
-  li
-    a href="https://Super80sWorld.com" Super 80s World
+    .email
+      = form_for @user do |f|
+        input name="authenticity_token" value="#{form_authenticity_token}" type="hidden"
+        = f.invisible_captcha :title
 
-  li
-    a href="https://choppercommando.app" Chopper Commando
+        input#user_email type="text" name="user[email]" placeholder="you@re_dabomb.com"
+        button#form_submit name="commit" type="submit" JOIN
+    br
+    br
 
-  li
-    a href="https://Super80sArcade.com" Super 80s Arcade
+    p We are in Indie Game Studio in Washington, D.C.
+
+    p Take a step back in time with our modern take on retro games.
+
+    br
+    br
+
+    .flex-grid
+      .col
+        a href="/video#view"
+          = image_tag "taptap/super_80s_panel.png"
+        br
+        br
+      .col
+        a href="/choppercommando"
+          = image_tag "taptap/chopper_panel.png"
+        br
+        br
+      .col
+        a href="/arcade"
+          = image_tag "taptap/arcade_panel.png"
+        br
+        br
+
+
+  .tagline
+    b BUILDING
+    '
+    ' THE
+    b RETRO GAMES
+    '
+    ' OF THE
+    b FUTURE
+
+  p.subtle style="margin-bottom: 0px"
+    ' &copy;  2019 Tap Tap Good, LLC. All Rights Reserved.
+  p.subtle
+    a href="/press" Press
+    ' &nbsp; &nbsp; &nbsp;
+    a href="mailto:info@taptapgood.com" Contact
+    / br
+    / p.subtle
+    /   a.game href="/video#view" SUPER 80S WORLD
+    /   br
+    /   ' Dan Camaro runs the decade in this nostalgia bomb platformer
+    /
+    / p.subtle
+    /   a.game href="/choppercommando" CHOPPER COMMANDO
+    /   br
+    /   ' River Raid meets Defender on a Gameboy!
+    /
+    / p.subtle
+    /   a.game href="/arcade" SUPER 80S ARCADE
+    /   br
+    /   ' Play retro remakes to collect 80s memorabilia
+
+= content_for :js do
+  javascript:
+    $(function() {
+        $(".early-access").click(function () {
+            $('.email').toggle();
+            return false;
+        })
+    });

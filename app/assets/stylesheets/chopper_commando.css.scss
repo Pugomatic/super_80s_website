@@ -6,6 +6,7 @@ $green-bright: #6ab417;
 $green-neon: #7deb01;
 $green-lite: #c6e881;
 
+
 @font-face {
   font-family: 'thecubemedium';
   src: url('pixel_thecube-webfont.woff2') format('woff2'),
@@ -18,7 +19,7 @@ $green-lite: #c6e881;
 body {
   font-family: 'thecubemedium', Courier;
   font-feature-settings: "kern", "liga", "pnum";
-  background-color: black;
+  background-color: $green-black;
   color: $green-lite;
   font-size: 2em;
   height: 100%;
@@ -28,10 +29,16 @@ body {
   color: $green-bright !important;
 }
 
+.plainbox {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
 .box {
   display: flex;
   flex-flow: column;
-  background: $green-dark;
+  background: $green-black;
   height: 100%;
 }
 
@@ -56,73 +63,122 @@ body {
 }
 
 .vignette {
-  box-shadow: inset 0 0 100px black;
+  box-shadow: inset 0 0 200px black;
+  padding: 5%;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  //font-family: $heading-font-family;
-  color: $green-lite;
-  margin: auto;
-  text-align:center;
-  font-family: 'thecubemedium', Courier;
-}
+.chopper {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    //font-family: $heading-font-family;
+    color: $green-lite;
+    margin: auto;
+    text-align:center;
+    font-family: 'thecubemedium', Courier;
+  }
 
-p {
-  //margin: 0 0 $small-spacing;
-}
+  p {
+    //margin: 0 0 $small-spacing;
+  }
 
-a {
-}
+  a {
+  }
 
-hr {
-  border-bottom: 1px solid #444;
-  border-left: 0;
-  border-right: 0;
-  border-top: 0;
-  color: black;
-}
+  hr {
+    border-bottom: 1px solid #444;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    color: black;
+  }
 
-img,
-picture {
-  margin: 0;
-  max-width: 100%;
-}
+  img,
+  picture {
+    margin: 0;
+    max-width: 100%;
+  }
 
 
-.big {
-  font-size: 1.2em;
-}
+  .big {
+    font-size: 1.2em;
+  }
 
-.bigger {
-  font-size: 1.5em;
-}
+  .bigger {
+    font-size: 1.5em;
+  }
 
-.small {
-  font-size: .8em;
-}
+  .small {
+    font-size: .8em;
+  }
 
-.pixel {
-  font-family: $game-font;
-}
+  .pixel {
+    font-family: $game-font;
+  }
 
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-}
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 100%;
+  }
 
-img.chopper-logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width:80%;
-  height:auto;
-  margin-top: 200px;
-  margin-bottom: 100px;
+  .subtle {
+    font-size: .5em;
+    color: $green-army;
+  }
+
+  img.chopper-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 360px;
+    height:auto;
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+
+  .screens {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  form {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .standout {
+    border-top: 2px dashed $green-bright;
+    border-bottom: 2px dashed $green-bright;
+    width: 100%;
+  }
+
+  button, input[type="button"], input[type="reset"], input[type="submit"] {
+    background: $green-bright;
+    color: $green-black;
+    border: 3px solid $green-lite;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: .8em;
+    font-family: 'thecubemedium', Courier;
+    padding: 5px 10px;
+  }
+
+  input, input[type="text"] {
+    background: white;
+    border: 2px solid $green-lite;
+    font-size: .6em;
+    margin-left: auto;
+    margin-right: auto;
+    height: 42%;
+    max-width: 400px;
+  }
 }

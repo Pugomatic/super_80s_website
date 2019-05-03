@@ -22,20 +22,17 @@ html
     = render partial: 'layouts/fb_js'
 
     header
-      a#logo href="#"
-      nav
-        a#menu-icon href="#"
-
-        ul
-          li
-            a.current href="#"
-              i.fa.fa-2x.fa-home
-          li
-            a href="#"
-              i.fa.fa-2x.fa-gamepad
-          li
-            a href="#"
-              i.fa.fa-2x.fa-info
+      a#logo href="/tap_tap_good/homepage"
+      / nav
+      /   a#menu-icon href="#"
+      /
+      /   ul
+      /     li
+      /       a.current href="#"
+      /         i.fa.fa-2x.fa-home
+      /     li
+      /       a href="#"
+      /         i.fa.fa-2x.fa-gamepad
 
     / #myTopnav.topnav
     /   = link_to '#' do
@@ -50,6 +47,7 @@ html
 
     #wrapper
       #cover
+        br
         = link_to '/' do
           = image_tag 'logo.png', class: 'centered logo'
 
