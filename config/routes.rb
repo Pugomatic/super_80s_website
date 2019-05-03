@@ -42,9 +42,7 @@ Rails.application.routes.draw do
   get '/game/beta_competition' => 'game/beta_competition#index'
 
   get '/choppercommando' => 'chopper_commando#index'
-
-  get '/sites' => 'sites#index'
-
+  
   constraints (DomainConstraint.new('taptapgood.com')) do
     root :to => 'homepage#index'
   end
