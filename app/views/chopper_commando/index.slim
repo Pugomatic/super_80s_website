@@ -2,6 +2,7 @@
   .box.vignette
 
     = image_tag 'chopper.png', class: 'chopper-logo'
+    h2 style="font-size: 1em" 07.11.2019
     br
 
     .video
@@ -11,18 +12,17 @@
     br
 
     .standout
-      = image_tag 'chopper.png', class: 'chopper-logo'
-      h2 style="font-size: 1em" 07.11.2019
 
       br
 
+      h2.brite GET TO THE CHOPPA
       = form_for @user do |f|
         input name="authenticity_token" value="#{form_authenticity_token}" type="hidden"
         = f.invisible_captcha :title
 
-        input#user_email type="text" name="user[email]" placeholder="get_early@access.now"
+        input#user_email type="text" name="user[email]" placeholder="nospam@foryou.com"
         .plainbox.row
-          input#form_submit name="commit" type="submit" value="GET TO THE CHOPPA"
+          input#form_submit name="commit" type="submit" value="Early Access"
 
 
       br
