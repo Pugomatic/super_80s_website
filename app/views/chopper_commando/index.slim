@@ -2,6 +2,7 @@
   .box.vignette
 
     = image_tag 'chopper.png', class: 'chopper-logo'
+    br
     a.center.appstore href="https://itunes.apple.com/us/app/chopper-commando/id1459802658?ls=1&mt=8"
       = image_tag 'appstore_big.png', class: 'beta-link', size: '151x52', alt: "Available on the AppStore"
     br
@@ -14,9 +15,19 @@
 
     .standout
 
+
       br
 
       h2 GET TO THE CHOPPA
+
+      p In 1987 a crack commando unit was sent to test pilot a mach one attack chopper with the most advanced weapons system available to date.
+
+      p Unfortunately, due to unrealistic deadlines and an extremely overworked team of contractors, the chopper wasn't quite combat ready.
+
+      p But that won't stop you from piloting the most advanced, almost-finished, aircraft the 1980s ever made!
+
+      p Good luck Ace... you're gonna need it!
+
       = form_for @user do |f|
         input name="authenticity_token" value="#{form_authenticity_token}" type="hidden"
         = f.invisible_captcha :title
