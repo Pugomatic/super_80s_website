@@ -23,7 +23,7 @@ gem 'slim'
 gem 'dynamic_sitemaps'
 gem 'strip_attributes'
 gem 'roo'
-gem 'devise', "~> 4.6"
+gem 'devise', "~> 4.7"
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
