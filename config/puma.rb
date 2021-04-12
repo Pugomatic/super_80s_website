@@ -3,6 +3,8 @@ min_threads_count = ENV.fetch("RAILS_MIN_THREADS") { max_threads_count }
 threads min_threads_count, max_threads_count
 
 port        ENV.fetch("PORT") { 3000 }
+application_path = "/home/deploy/super80sworld"
+bind "unix://#{application_path}/sockets/puma.sock"
 
 environment ENV.fetch("RAILS_ENV") { "development" }
 
