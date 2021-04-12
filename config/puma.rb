@@ -5,7 +5,7 @@ threads min_threads_count, max_threads_count
 port        ENV.fetch("PORT") { 3000 }
 application_path = "/home/deploy/super_80s_website"
 
-bind "unix://#{application_path}/sockets/puma.sock"
+bind "unix://#{application_path}/shared/sockets/puma.sock"
 
 environment ENV.fetch("RAILS_ENV") { "development" }
 
