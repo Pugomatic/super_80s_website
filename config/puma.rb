@@ -11,7 +11,7 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 
 workers ENV.fetch("WEB_CONCURRENCY") { 2 }
-
+stdout_redirect '/home/deploy/super_80s_website/logs/stdout', '/home/deploy/super_80s_website/logs/stderr', true
 preload_app!
 
 # Allow Puma to be restarted by the `Rails restart` command.
