@@ -7,7 +7,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'pg', '~> 0.2'
 gem 'puma'
 gem 'high_voltage'
 gem 'rack-ssl', require: 'rack/ssl'
@@ -31,12 +30,6 @@ group :development do
   gem 'listen'
   gem "highline"
   gem 'web-console', '~> 3.5'
-  gem 'capistrano', '= 3.4.0', require: false
-  gem 'capistrano-rvm', '= 0.1.2', require: false
-  gem 'capistrano-rails', '= 1.1.5', require: false
-  gem 'capistrano-bundler', '= 1.1.4', require: false
-  gem 'capistrano3-puma', '= 1.2.1', require: false
-  gem 'capistrano3-nginx', '= 3.0', require: false
 end
 
 gem 'bourbon', '~> 4.2.6'
