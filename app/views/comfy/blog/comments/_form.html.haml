@@ -1,9 +1,0 @@
-= comfy_form_for @comment, :as => :comment, :url => comfy_blog_comments_path(@cms_site.path, @blog.path, @post.slug) do |form|
-  
-  = form.hidden_field :authenticity_token, :value => form_authenticity_token
-  
-  = form.text_field :author, label: 'Name'
-  = form.text_field :email
-  = form.text_area :content, label: 'Comment'
-  
-  = form.submit 'Post'

@@ -10,12 +10,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pg', '~> 0.2'
 gem 'puma'
 gem 'high_voltage'
-gem 'comfortable_mexican_sofa', '~> 2.0'
-gem 'comfy_blog', '~> 2.0'
 gem 'rack-ssl', require: 'rack/ssl'
 gem 'language_filter'
-gem 'sentry-raven'
-
+gem 'sentry-ruby'
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 gem 'will_paginate'
 gem 'slim'
 
@@ -23,17 +21,10 @@ gem 'slim'
 gem 'dynamic_sitemaps'
 gem 'strip_attributes'
 gem 'roo'
-gem 'devise', "~> 4.6"
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
-gem 'omniauth-google-oauth2'
-
 gem 'gibbon', git: 'git://github.com/amro/gibbon.git'
-gem 'invisible_captcha'
 
 group :development, :test do
   gem 'byebug'
-  gem 'bullet'
 end
 
 group :development do
